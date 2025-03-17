@@ -25,12 +25,6 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 
 ---
 
-## 📂 Portfolio
-
-<img src="profile.jpg" alt="Profile Picture" width="150" style="border-radius: 50%;">
-
----
-
 ## 📂 Featured Projects
 
 ### 1️⃣ Fault Prediction in Datacenters 🔥  
