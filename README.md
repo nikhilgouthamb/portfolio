@@ -55,7 +55,7 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 - Preprocessed and normalized time-series data; implemented **early stopping** to prevent overfitting.
 - Utilized **GPU acceleration** to optimize training efficiency.
 
-🔗 [View Project](#)  
+
 
 ### 4️⃣ Crime Analysis & Visualization 📊  
 **Tech Stack:** Tableau, Python  
