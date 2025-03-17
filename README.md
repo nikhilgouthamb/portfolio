@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 # Hi, I'm Nikhil Goutham Budarayavalasa 👋
 
 ## Data Scientist | Data Analyst | Machine Learning Enthusiast  
