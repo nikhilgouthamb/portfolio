@@ -1,7 +1,5 @@
 # Hi, I'm Nikhil Goutham Budarayavalasa 👋
 
-<img src="profile.jpg" alt="Profile Picture" width="150" align="left" style="border-radius: 50%; margin-right: 10px;">
-
 ## Data Scientist | Data Analyst | Machine Learning Enthusiast  
 
 📍 **New Jersey, USA**  
@@ -24,6 +22,12 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 - **Data Visualization:** Tableau, Power BI  
 - **Cloud Technologies:** Snowflake, AWS (S3, IAM, Glue, Bedrock, Crawler)  
 - **Tools:** Excel (Advanced), Jira, Visio, Agile Methodologies  
+
+---
+
+## 📂 Portfolio
+
+<img src="profile.jpg" alt="Profile Picture" width="150" style="border-radius: 50%;">
 
 ---
 
