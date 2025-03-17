@@ -25,30 +25,6 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 
 ---
 
-## 📂 Featured Projects
-
-### 1️⃣ Crime Analysis & Visualization 📊  
-**Tech Stack:** Tableau, Python  
-- Developed an **interactive dashboard** to visualize **Kansas City crime reports (2016-2022, 2M+ records)**.
-- Conducted **COVID-19 impact analysis** on crime trends and identified hotspot regions.
-- Performed demographic-based analysis (age, gender, race) for deeper insights.
-
-🔗 [View Project on GitHub](https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis)
-
-### 2️⃣ Document Text Extraction 📄  
-**Tech Stack:** Python, AWS S3, Meta Llama 3.1, Bedrock API  
-- Built a **Python-based system** for extracting and summarizing insights from PDFs using **PyPDF2, NLTK**.
-- Integrated **AWS Bedrock API** with advanced NLP techniques for enhanced **contextual question answering**.
-- Stored extracted insights in **AWS S3**, ensuring **scalability and cloud integration**.
-
-### 3️⃣ Stock Price Prediction Using LSTM 📈  
-**Tech Stack:** Python, TensorFlow, GPU Acceleration  
-- Developed an **LSTM-based model** to predict stock prices, optimizing for **temporal dependency handling**.
-- Preprocessed and normalized time-series data; implemented **early stopping** to prevent overfitting.
-- Utilized **GPU acceleration** to optimize training efficiency.
-
----
-
 ## 💼 Work Experience
 
 ### **Verizon, USA**  
@@ -78,6 +54,30 @@ _Apr'19 - Oct'19_
 
 ---
 
+## 📂 Featured Projects
+
+### 1️⃣ Crime Analysis & Visualization 📊  
+**Tech Stack:** Tableau, Python  
+- Developed an **interactive dashboard** to visualize **Kansas City crime reports (2016-2022, 2M+ records)**.
+- Conducted **COVID-19 impact analysis** on crime trends and identified hotspot regions.
+- Performed demographic-based analysis (age, gender, race) for deeper insights.
+
+🔗 [View Project on GitHub](https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis)
+
+### 2️⃣ Document Text Extraction 📄  
+**Tech Stack:** Python, AWS S3, Meta Llama 3.1, Bedrock API  
+- Built a **Python-based system** for extracting and summarizing insights from PDFs using **PyPDF2, NLTK**.
+- Integrated **AWS Bedrock API** with advanced NLP techniques for enhanced **contextual question answering**.
+- Stored extracted insights in **AWS S3**, ensuring **scalability and cloud integration**.
+
+### 3️⃣ Stock Price Prediction Using LSTM 📈  
+**Tech Stack:** Python, TensorFlow, GPU Acceleration  
+- Developed an **LSTM-based model** to predict stock prices, optimizing for **temporal dependency handling**.
+- Preprocessed and normalized time-series data; implemented **early stopping** to prevent overfitting.
+- Utilized **GPU acceleration** to optimize training efficiency.
+
+---
+
 ## 🏆 Certifications & Achievements
 - **AWS Cloud Practitioner (In Progress)**
 - **Six Sigma Yellow Belt Specialization (Operations Research & Optimization)**
@@ -85,5 +85,12 @@ _Apr'19 - Oct'19_
 - **Snowflake Data Engineer (In Progress)**
 
 ---
+
+## 📄 Resume
+You can view or download my resume from the following link:  
+[Download Resume](./Nikhil_Goutham_DS_Resume.pdf)
+
+---
+
 
 📌 **Let's connect and build something awesome!** 🚀
