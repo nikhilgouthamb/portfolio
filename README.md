@@ -1,5 +1,7 @@
 # Hi, I'm Nikhil Goutham Budarayavalasa 👋
 
+<img src="profile.jpg" alt="Profile Picture" width="150" align="left" style="border-radius: 50%; margin-right: 10px;">
+
 ## Data Scientist | Data Analyst | Machine Learning Enthusiast  
 
 📍 **New Jersey, USA**  
@@ -67,8 +69,5 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 - **Snowflake Data Engineer (In Progress)**
 
 ---
-
-## 📈 GitHub Stats
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=nikhilgouthamb&show_icons=true&theme=radical)
 
 📌 **Let's connect and build something awesome!** 🚀
