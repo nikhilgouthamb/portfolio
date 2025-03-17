@@ -4,8 +4,7 @@
 
 📍 **New Jersey, USA**  
 📧 **bnikhilgoutham@gmail.com**  
-🔗 [LinkedIn](https://linkedin.com/in/nikhilgouthamb) | [GitHub](https://github.com/nikhilgouthamb)  
-| [Medium](https://medium.com/@nikhilgoutham.b)
+🔗 [LinkedIn](https://linkedin.com/in/nikhilgouthamb) | [GitHub](https://github.com/nikhilgouthamb) | [Medium](https://medium.com/@nikhilgoutham.b)
 
 ---
 
@@ -28,13 +27,13 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 
 ## 📂 Featured Projects
 
-### 1️⃣ Fault Prediction in Datacenters 🔥  
-**Tech Stack:** Python, XGBoost, Snowflake, Tableau  
-- Processed **large-scale JSON logs** in **HPC environments**, converting unstructured data into structured formats.
-- Applied **XGBoost models** to detect fault patterns, enhancing proactive decision-making in cloud operations.
-- Designed **Tableau dashboards** to visualize trends and insights, improving monitoring efficiency.
+### 1️⃣ Crime Analysis & Visualization 📊  
+**Tech Stack:** Tableau, Python  
+- Developed an **interactive dashboard** to visualize **Kansas City crime reports (2016-2022, 2M+ records)**.
+- Conducted **COVID-19 impact analysis** on crime trends and identified hotspot regions.
+- Performed demographic-based analysis (age, gender, race) for deeper insights.
 
-🔗 [View Project](#)  
+🔗 [View Project on GitHub](https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis)
 
 ### 2️⃣ Document Text Extraction 📄  
 **Tech Stack:** Python, AWS S3, Meta Llama 3.1, Bedrock API  
@@ -42,21 +41,40 @@ I am a Data Scientist with **3+ years of experience** in **data analysis, machin
 - Integrated **AWS Bedrock API** with advanced NLP techniques for enhanced **contextual question answering**.
 - Stored extracted insights in **AWS S3**, ensuring **scalability and cloud integration**.
 
-🔗 [View Project](#)  
-
 ### 3️⃣ Stock Price Prediction Using LSTM 📈  
 **Tech Stack:** Python, TensorFlow, GPU Acceleration  
 - Developed an **LSTM-based model** to predict stock prices, optimizing for **temporal dependency handling**.
 - Preprocessed and normalized time-series data; implemented **early stopping** to prevent overfitting.
 - Utilized **GPU acceleration** to optimize training efficiency.
 
-### 4️⃣ Crime Analysis & Visualization 📊  
-**Tech Stack:** Tableau, Python  
-- Developed an **interactive dashboard** to visualize **Kansas City crime reports (2016-2022, 2M+ records)**.
-- Conducted **COVID-19 impact analysis** on crime trends and identified hotspot regions.
-- Performed demographic-based analysis (age, gender, race) for deeper insights.
+---
 
-🔗 [View Project](#)  
+## 💼 Work Experience
+
+### **Verizon, USA**  
+**Data Analyst, Capstone Project - NJIT**  
+_Aug'24 - Dec'24_  
+- Enhanced operational monitoring and proactive decision-making by developing and deploying **XGBoost models** to detect patterns in fault logs.  
+- Improved data accessibility by processing and transforming large-scale unstructured **JSON logs (50GB)** in high-performance computing (HPC) environments using **Python** and advanced JSON flattening techniques.  
+- Aligned stakeholders on data-driven strategies by designing and maintaining **Tableau dashboards** for visualizing key insights.  
+- Optimized model selection for fault detection and enhanced HPC resource allocation by applying **A/B testing**, identifying the most accurate and computationally efficient model while determining the optimal configuration for processing large-scale data.  
+- Improved **Snowflake data models** by collaborating with engineering teams and using **Git** for version control, ensuring seamless data integration and structured data organization.
+
+### **Choice Solutions Limited, Hyderabad, India**  
+**Data Analyst**  
+_Jan'21 - Dec'22_  
+- Led **energy optimization projects** for Laurus Laboratories and Dr. Reddy’s Laboratories, reducing **HVAC energy consumption by 15%-23%** by analyzing complex datasets, identifying trends, and forecasting energy requirements.  
+- Increased energy demand forecasting accuracy by testing and deploying **ARIMA** and **ensemble models** for predictive analytics.  
+- Improved data-driven decision-making by designing interactive **Tableau dashboards**, allowing executives to monitor key operational trends.  
+- Streamlined financial operations by developing **automated Excel tools** for billing and client solutions.  
+- Developed **weather prediction models** using machine learning and time series techniques, enhancing energy forecasting.
+
+### **BHEL, Visakhapatnam, India**  
+**Data Analyst**  
+_Apr'19 - Oct'19_  
+- Reduced unplanned downtime by implementing **Random Forest** and **ARIMA models** to predict equipment failures.  
+- Enabled real-time plant performance monitoring by analyzing large-scale **SCADA system data** using **SQL** and **Tableau** and creating interactive dashboards.  
+- Tracked project progress with **Jira**, ensuring timely delivery of insights and reports for plant optimization.
 
 ---
 
