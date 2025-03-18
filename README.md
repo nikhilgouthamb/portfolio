@@ -6,6 +6,19 @@
 📧 **bnikhilgoutham@gmail.com**  
 🔗 [LinkedIn](https://linkedin.com/in/nikhilgouthamb) | [GitHub](https://github.com/nikhilgouthamb) | [Medium](https://medium.com/@nikhilgoutham.b)
 
+<a href="mailto:bnikhilgoutham@gmail.com" style="
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+">
+    💼 Hire Me
+</a>
 ---
 
 ## 🔍 About Me
