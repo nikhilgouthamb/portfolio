@@ -4,7 +4,7 @@
 
 📍 **New Jersey, USA**  
 📧 **bnikhilgoutham@gmail.com**  
-🔗 [LinkedIn](https://linkedin.com/in/nikhilgouthamb) | [GitHub](https://github.com/nikhilgouthamb) | [Medium](https://medium.com/@nikhilgoutham.b)
+🔗 [LinkedIn](https://linkedin.com/in/nikhilgouthamb) | [GitHub](https://github.com/nikhilgouthamb) | [Medium](https://medium.com/@nikhilgoutham.b) | [Resume](./Nikhil_Goutham_DS_Resume.pdf)
 
 <a href="mailto:bnikhilgoutham@gmail.com" style="
     display: inline-block;
@@ -19,7 +19,7 @@
 ">
     💼 Hire Me
 </a>
----
+
 
 ## 🔍 About Me
 I am a Data Scientist with **3+ years of experience** in **data analysis, machine learning, and cloud computing**. I specialize in transforming large-scale data into actionable insights using **Python, SQL, and BI tools**. I have hands-on experience in **HPC environments, predictive modeling, and business intelligence dashboards**. Passionate about AI, deep learning, and cloud-based solutions, I continuously seek opportunities to leverage data for impactful decision-making.
