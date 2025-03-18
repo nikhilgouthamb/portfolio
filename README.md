@@ -20,6 +20,11 @@
     💼 Hire Me
 </a>
 
+## Choose Your Experience 🚀
+
+[![🧐 Just the Facts](https://img.shields.io/badge/%F0%9F%A7%90-Just_the_Facts-blue)](./)  
+[![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](extra.md)
+
 
 ## 🔍 About Me
 I am a Data Scientist with **3+ years of experience** in **data analysis, machine learning, and cloud computing**. I specialize in transforming large-scale data into actionable insights using **Python, SQL, and BI tools**. I have hands-on experience in **HPC environments, predictive modeling, and business intelligence dashboards**. Passionate about AI, deep learning, and cloud-based solutions, I continuously seek opportunities to leverage data for impactful decision-making.
