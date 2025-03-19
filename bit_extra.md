@@ -56,6 +56,7 @@ You’ve seen the serious portfolio. Now, if you’re looking for someone who ca
 I analyze data, optimize processes, and occasionally make bad puns. If that sounds like someone you'd want on your team, let's chat!  
 
 🔗 **Ways to reach me:**  
+
 <a href="mailto:bnikhilgoutham@gmail.com" style="
     display: inline-block;
     padding: 12px 24px;
@@ -67,9 +68,8 @@ I analyze data, optimize processes, and occasionally make bad puns. If that soun
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 ">
-    📬 Email Me – Guaranteed Response! 
+    📬 Email Me
 </a>  
-
 <a href="https://linkedin.com/in/nikhilgouthamb" style="
     display: inline-block;
     padding: 12px 24px;
@@ -82,7 +82,7 @@ I analyze data, optimize processes, and occasionally make bad puns. If that soun
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
 ">
-    🐦 DM Me on LinkedIn – Professional Networking, but Fun! 
+    🐦 DM Me on LinkedIn
 </a>  
 
 
