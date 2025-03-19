@@ -17,13 +17,10 @@
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 ">
-    💼 Hire Me
+    🚀 Let’s Discuss How I Can Help Your Team!
 </a>
 
-## A bit extra about me 🚀
-
-
-[![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](bit_extra.html)
+## A bit extra about me 🚀 [![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](bit_extra.html)
 
 
 ## 🔍 About Me
@@ -109,6 +106,7 @@ You can view or download my resume from the following link:
 [Download Resume](./Nikhil_Goutham_DS_Resume.pdf)
 
 ---
+## A bit extra about me 🚀 [![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](bit_extra.html)
 
-
+---
 📌 **Let's connect and build something awesome!** 🚀
