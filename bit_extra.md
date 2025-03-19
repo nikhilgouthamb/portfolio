@@ -56,7 +56,34 @@ You’ve seen the serious portfolio. Now, if you’re looking for someone who ca
 I analyze data, optimize processes, and occasionally make bad puns. If that sounds like someone you'd want on your team, let's chat!  
 
 🔗 **Ways to reach me:**  
-📬 [Email me](mailto:bnikhilgoutham@gmail.com) (Guaranteed response)  
-🐦 [DM Me on LinkedIn](https://linkedin.com/in/nikhilgouthamb) (Because professional networking is basically just corporate social media)  
+<a href="mailto:bnikhilgoutham@gmail.com" style="
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+">
+    📬 Email Me – Guaranteed Response! 
+</a>  
+
+<a href="https://linkedin.com/in/nikhilgouthamb" style="
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #0A66C2;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+">
+    🐦 DM Me on LinkedIn – Professional Networking, but Fun! 
+</a>  
+
 
 👀 Had enough fun? Click [here](./) to go back to **Just the Facts**!  
