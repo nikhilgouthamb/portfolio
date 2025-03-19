@@ -23,7 +23,7 @@
 ## A bit extra about me 🚀
 
 
-[![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](/bit-extra/)
+[![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](bit_extra.html)
 
 
 ## 🔍 About Me
