@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "🤪 A Bit Extra"
-permalink: /bit-extra/
+permalink: /bit_extra.html
 ---
 
 # Welcome to the *Bit Extra* Side! 🎭  
