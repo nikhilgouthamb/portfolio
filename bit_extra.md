@@ -21,7 +21,7 @@ _If my career change were a movie, it’d be called **"From Gears to Graphs"**_
 - Work with **data pipelines, ETL, and AI models** instead of physical systems 🔥  
 - Predict failures with **time series forecasting** instead of mechanical stress analysis  
 
-💡 **Fun Fact:** The only thing that hasn’t changed? I still **debug systems**, just now it’s Python instead of engines. 😆  
+💡 **Fun Fact:** The only thing that hasn’t changed? I still **debug systems**, just now it’s Python instead of engines. 
 
 ---
 
@@ -52,5 +52,11 @@ _If my career change were a movie, it’d be called **"From Gears to Graphs"**_
 You’ve seen the serious portfolio. Now, if you’re looking for someone who can analyze data and make your team meetings slightly more entertaining, we should talk.  
 
 🚀 Let’s build something amazing—and maybe laugh a little while doing it.  
+
+I analyze data, optimize processes, and occasionally make bad puns. If that sounds like someone you'd want on your team, let's chat!  
+
+🔗 **Ways to reach me:**  
+📬 [Email me](mailto:bnikhilgoutham@gmail.com) (Guaranteed response)  
+🐦 [DM Me on LinkedIn](https://linkedin.com/in/nikhilgouthamb) (Because professional networking is basically just corporate social media)  
 
 👀 Had enough fun? Click [here](./) to go back to **Just the Facts**!  
