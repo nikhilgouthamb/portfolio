@@ -20,10 +20,10 @@
     💼 Hire Me
 </a>
 
-## Choose Your Experience 🚀
+## A bit extra about me 🚀
 
-[![🧐 Just the Facts](https://img.shields.io/badge/%F0%9F%A7%90-Just_the_Facts-blue)](./)  
-[![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](extra.md)
+
+[![🤪 A Bit Extra](https://img.shields.io/badge/%F0%9F%A4%AA-A_Bit_Extra-orange)](/bit-extra/)
 
 
 ## 🔍 About Me
