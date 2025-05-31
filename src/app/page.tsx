@@ -53,22 +53,19 @@ export default function Home() {
     setSubmitStatus({ type: null, message: '' });
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
     
     try {
-      const templateParams = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-      };
+      console.log('Form data being sent:', {
+        from_name: form.from_name.value,
+        from_email: form.from_email.value,
+        subject: form.subject.value,
+        message: form.message.value
+      });
 
-      console.log('Sending email with params:', templateParams);
-      
-      const result = await emailjs.send(
+      const result = await emailjs.sendForm(
         'service_a6vxmvq',
         'template_hdig26j',
-        templateParams,
+        form,
         'uqsCm_Maqt80_Znbl'
       );
 
@@ -546,13 +543,13 @@ export default function Home() {
             <form onSubmit={handleSubmit} className={`space-y-6 ${styles['interactive-card']}`}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+                  <label htmlFor="from_name" className="block text-sm font-medium text-gray-300">
                     Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="from_name"
+                    name="from_name"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="Your name"
                     required
@@ -560,13 +557,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                  <label htmlFor="from_email" className="block text-sm font-medium text-gray-300">
                     Email
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
+                    id="from_email"
+                    name="from_email"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="your@email.com"
                     required
