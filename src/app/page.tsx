@@ -159,7 +159,7 @@ export default function Home() {
             }}
           >
             <h1 className={`text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
-              Hi, I'm Nikhil Goutham
+              Hi, I&apos;m Nikhil Goutham
             </h1>
             <p className={`text-xl md:text-2xl text-gray-300 mb-8 ${styles['animate-fade-in']}`}>
               Data Scientist with expertise in Machine Learning, Deep Learning, and Data Engineering
@@ -475,8 +475,8 @@ export default function Home() {
               Get in Touch
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Interested in collaborating or have a project in mind? I'd love to hear from you.
-              Let's create something amazing together.
+              Interested in collaborating or have a project in mind? I&apos;d love to hear from you.
+              Let&apos;s create something amazing together.
             </p>
           </div>
 
@@ -519,7 +519,7 @@ export default function Home() {
                   id="subject"
                   name="subject"
                   className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
-                  placeholder="What's this about?"
+                  placeholder="What&apos;s this about?"
                   required
                 />
               </div>

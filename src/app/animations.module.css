@@ -96,7 +96,8 @@
 }
 
 .glow-on-hover:hover {
-  animation: pulseGlow 1.5s infinite;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  transition: box-shadow 0.3s ease;
 }
 
 .glow-on-hover::after {
@@ -124,6 +125,7 @@
 
 .scale-on-hover:hover {
   transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .rotate-on-hover {
@@ -139,12 +141,8 @@
 }
 
 .bounce-on-hover:hover {
-  animation: bounce 0.5s ease infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
 }
 
 .shine-on-hover {
@@ -160,10 +158,10 @@
   width: 200%;
   height: 200%;
   background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
   transform: rotate(45deg);
   transition: all 0.3s ease;
