@@ -42,6 +42,11 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init('uqsCm_Maqt80_Znbl');
+  }, []);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -50,13 +55,14 @@ export default function Home() {
     const form = e.currentTarget;
     
     try {
-      await emailjs.sendForm(
+      const result = await emailjs.sendForm(
         'service_a6vxmvq',
         'template_hdig26j',
         form,
         'uqsCm_Maqt80_Znbl'
       );
 
+      console.log('Success:', result.text);
       setSubmitStatus({
         type: 'success',
         message: 'Thank you! Your message has been sent successfully.'
@@ -536,7 +542,7 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
-                    name="user_name"
+                    name="from_name"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="Your name"
                     required
@@ -550,7 +556,7 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
-                    name="user_email"
+                    name="reply_to"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="your@email.com"
                     required
