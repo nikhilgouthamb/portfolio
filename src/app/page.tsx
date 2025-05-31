@@ -4,14 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from 'react'
 import styles from './animations.module.css';
+import emailjs from '@emailjs/browser';
+import { FormEvent } from 'react';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [floatingElements, setFloatingElements] = useState<Array<{ left: number; top: number }>>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error' | null; message: string}>({
+    type: null,
+    message: ''
+  });
 
   useEffect(() => {
     setIsVisible(true);
+    // Initialize floating elements positions
+    setFloatingElements(
+      Array(10).fill(null).map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100
+      }))
+    );
   }, []);
 
   useEffect(() => {
@@ -26,6 +41,36 @@ export default function Home() {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    const form = e.currentTarget;
+    
+    try {
+      await emailjs.sendForm(
+        'service_a6vxmvq',
+        'template_hdig26j',
+        form,
+        'uqsCm_Maqt80_Znbl'
+      );
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you! Your message has been sent successfully.'
+      });
+      form.reset();
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Sorry, there was an error sending your message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-[#0a0a0a]">
@@ -132,13 +177,13 @@ export default function Home() {
         
         {/* Floating elements with mouse interaction */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          {[...Array(10)].map((_, i) => (
+          {floatingElements.map((pos, i) => (
             <div
               key={i}
               className={`absolute w-2 h-2 bg-blue-400/50 rounded-full ${styles['animate-float']}`}
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
                 transform: `translate(${mousePosition.x * 0.2}px, ${mousePosition.y * 0.2}px)`,
                 animationDelay: `${i * 0.5}s`,
                 transition: 'transform 0.3s ease'
@@ -481,7 +526,7 @@ export default function Home() {
           </div>
 
           <div className={`bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 ${styles['interactive-card']}`}>
-            <form className={`space-y-6 ${styles['interactive-card']}`}>
+            <form onSubmit={handleSubmit} className={`space-y-6 ${styles['interactive-card']}`}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300">
@@ -490,10 +535,11 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
-                    name="name"
+                    name="user_name"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="Your name"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="space-y-2">
@@ -503,10 +549,11 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="user_email"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="your@email.com"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -519,8 +566,9 @@ export default function Home() {
                   id="subject"
                   name="subject"
                   className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
-                  placeholder="What&apos;s this about?"
+                  placeholder="What's this about?"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="space-y-2">
@@ -534,14 +582,27 @@ export default function Home() {
                   className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                   placeholder="Your message here..."
                   required
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
+              
+              {submitStatus.type && (
+                <div className={`p-4 rounded-xl ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className={`px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium hover:from-blue-600 hover:to-purple-600 transform transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${styles['scale-on-hover']} ${styles['glow-on-hover']}`}
+                  disabled={isSubmitting}
+                  className={`px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium 
+                    hover:from-blue-600 hover:to-purple-600 transform transition-all duration-300 
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 
+                    ${styles['scale-on-hover']} ${styles['glow-on-hover']}
+                    ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
             </form>
