@@ -53,22 +53,13 @@ export default function Home() {
     setSubmitStatus({ type: null, message: '' });
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
     
     try {
-      const templateParams = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-      };
-
-      console.log('Sending email with params:', templateParams);
-      
-      const result = await emailjs.send(
+      console.log('Sending form data...');
+      const result = await emailjs.sendForm(
         'service_a6vxmvq',
         'template_hdig26j',
-        templateParams,
+        form,
         'uqsCm_Maqt80_Znbl'
       );
 
@@ -552,7 +543,7 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
-                    name="name"
+                    name="user_name"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="Your name"
                     required
@@ -566,7 +557,7 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="user_email"
                     className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
                     placeholder="your@email.com"
                     required
