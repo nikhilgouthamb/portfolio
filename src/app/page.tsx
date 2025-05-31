@@ -63,6 +63,7 @@ export default function Home() {
       });
       form.reset();
     } catch (error) {
+      console.error('Failed to send message:', error);
       setSubmitStatus({
         type: 'error',
         message: 'Sorry, there was an error sending your message. Please try again.'
