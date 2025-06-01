@@ -253,83 +253,54 @@ export default function Home() {
       <section id="about" className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative">
-          {/* Style 1 - Similar to first image */}
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8 order-2 md:order-1">
-                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                  Data Scientist & ML Engineer
-                </h2>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  With over 3 years of experience in building machine learning models, developing data pipelines, 
-                  and extracting insights from complex datasets.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
-                  Skilled in Python, SQL, and cloud-based data engineering solutions.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Proven ability to design scalable AI models, optimize ETL workflows, and
-                  deploy data-driven solutions that enhance business decision-making.
-                </p>
-              </div>
-              <div className="order-1 md:order-2">
-                <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 transform hover:scale-[1.02] transition-transform duration-500">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">About</h2>
+          
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+            {/* Text Content */}
+            <div className="space-y-6">
+              <p className="text-xl text-gray-300 leading-relaxed">
+                I, Nikhil Goutham, am a Data Scientist and Machine Learning Engineer with a Master&apos;s in Data Science 
+                from New Jersey Institute of Technology. Currently, I&apos;m focused on developing scalable AI solutions 
+                and data-driven insights.
+              </p>
+              
+              <p className="text-lg text-gray-300 leading-relaxed">
+                With over 3 years of experience, I specialize in building machine learning models, 
+                developing data pipelines, and extracting meaningful insights from complex datasets. 
+                My expertise spans supervised and unsupervised learning, deep learning, and natural 
+                language processing.
+              </p>
+
+              <p className="text-lg text-gray-300 leading-relaxed">
+                I&apos;m particularly passionate about leveraging advanced analytics and AI to solve 
+                real-world problems. My recent work includes fault detection systems for Verizon, 
+                crime analysis for Kansas City, and automated data extraction solutions.
+              </p>
+
+              <p className="text-lg text-gray-300 leading-relaxed">
+                When I&apos;m not coding or analyzing data, I enjoy exploring new technologies, 
+                contributing to open-source projects, and sharing knowledge through technical writing 
+                and collaboration.
+              </p>
+            </div>
+
+            {/* Image */}
+            <div className="relative">
+              <div className="sticky top-24">
+                <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
                   <Image
                     src="/profile.jpg"
                     alt="Nikhil Goutham"
                     fill
                     sizes="(max-width: 768px) 100vw, 500px"
-                    className="object-cover"
+                    className="object-cover object-center"
                     priority
                     quality={95}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Style 2 - Similar to second image */}
-          {/* Uncomment this and comment out Style 1 if you prefer this layout
-          <div className="max-w-7xl mx-auto">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl transform -rotate-1"></div>
-              <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-12 md:p-16 flex flex-col md:flex-row gap-12 items-center">
-                <div className="md:w-1/2">
-                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/10">
-                    <Image
-                      src="/profile.jpg"
-                      alt="Nikhil Goutham"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 500px"
-                      className="object-cover"
-                      priority
-                      quality={95}
-                    />
-                  </div>
-                </div>
-                <div className="md:w-1/2 space-y-8">
-                  <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                    Data Scientist & ML Engineer
-                  </h2>
-                  <p className="text-xl text-gray-300 leading-relaxed">
-                    With over 3 years of experience in building machine learning models, developing data pipelines, 
-                    and extracting insights from complex datasets.
-                  </p>
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
-                    Skilled in Python, SQL, and cloud-based data engineering solutions.
-                  </p>
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    Proven ability to design scalable AI models, optimize ETL workflows, and
-                    deploy data-driven solutions that enhance business decision-making.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          */}
         </div>
       </section>
 
