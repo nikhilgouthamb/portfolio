@@ -249,10 +249,10 @@ export default function Home() {
             </div>
             
             {/* Scroll indicator */}
-            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-sm text-gray-400 font-light tracking-wider">Scroll Down</span>
+            <div className="absolute bottom-12 right-12 flex flex-col items-center gap-2 animate-bounce hover:text-blue-400 transition-colors duration-300 cursor-pointer group">
+              <span className="text-sm text-gray-400 group-hover:text-blue-400 font-light tracking-wider transition-colors duration-300">Scroll</span>
               <svg 
-                className="w-5 h-5 text-blue-400"
+                className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
