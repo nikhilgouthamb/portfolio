@@ -414,7 +414,60 @@ export default function Home() {
               </div>
             </div>
 
-            {/* You can add more project cards here following the same pattern */}
+            {/* Kansas City Crimes Project Card */}
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90">
+                <Image
+                  src="/kc-crime.jpg"
+                  alt="Kansas City Crime Analysis"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Kansas City Crime Analysis</h3>
+                  <p className="text-gray-200 text-sm">
+                    Interactive crime data visualization and analysis
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Data Analysis</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Visualization</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Kansas City Crime Analysis</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed an interactive Tableau dashboard analyzing crime data from 2016-2022. 
+                        Features include COVID-19 impact analysis, crime hotspot identification, and 
+                        demographic trend analysis. Created comprehensive visualizations for law enforcement 
+                        and city planning insights.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Analysis</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Visualization</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">GIS</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Statistics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
