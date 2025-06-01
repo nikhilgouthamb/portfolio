@@ -719,7 +719,8 @@ export default function Home() {
                   alt="Streamlit"
                   width={28}
                   height={28}
-                  className="opacity-80 hover:opacity-100 transition-opacity"
+                  className="opacity-80 hover:opacity-100 transition-opacity invert"
+                  style={{ filter: 'brightness(0) invert(1)' }}
                 />
               </a>
             </div>
@@ -811,7 +812,8 @@ export default function Home() {
                     alt="Streamlit"
                     width={24}
                     height={24}
-                    className="opacity-80 hover:opacity-100 transition-opacity"
+                    className="opacity-80 hover:opacity-100 transition-opacity invert"
+                    style={{ filter: 'brightness(0) invert(1)' }}
                   />
                 </a>
               </div>
