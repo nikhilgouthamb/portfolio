@@ -399,7 +399,9 @@ export default function Home() {
                       <p className="text-gray-300 text-sm leading-relaxed">
                         Led the development of an advanced fault detection system using XGBoost models. 
                         Processed and analyzed large-scale JSON logs for pattern recognition, and created 
-                        comprehensive Tableau dashboards for real-time operational monitoring.
+                        comprehensive Tableau dashboards for real-time operational monitoring. Leveraged NJIT's 
+                        Wulver High Performance Computing system for efficient processing of 50GB+ dataset, 
+                        utilizing multiple nodes and GPU acceleration for enhanced computational performance.
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2">
