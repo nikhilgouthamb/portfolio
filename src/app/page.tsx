@@ -415,7 +415,12 @@ export default function Home() {
             </div>
 
             {/* Kansas City Crimes Project Card */}
-            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+            <Link 
+              href="https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90">
                 <Image
@@ -467,7 +472,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
