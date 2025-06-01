@@ -715,7 +715,7 @@ export default function Home() {
                 title="Streamlit Projects"
               >
                 <Image
-                  src="/streamlit-mark.svg"
+                  src="/streamlitlogo"
                   alt="Streamlit"
                   width={28}
                   height={28}
@@ -807,7 +807,7 @@ export default function Home() {
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
                   <Image
-                    src="/streamlit-mark.svg"
+                    src="/streamlitlogo"
                     alt="Streamlit"
                     width={24}
                     height={24}
