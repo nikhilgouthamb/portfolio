@@ -253,51 +253,30 @@ export default function Home() {
       <section id="about" className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">About</h2>
-          
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-            {/* Text Content */}
-            <div className="space-y-6">
-              <p className="text-xl text-gray-300 leading-relaxed">
-                I, Nikhil Goutham, am a Data Scientist and Machine Learning Engineer with a Master&apos;s in Data Science 
-                from New Jersey Institute of Technology. Currently, I&apos;m focused on developing scalable AI solutions 
-                and data-driven insights.
-              </p>
-              
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">About Me</h2>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6 order-2 md:order-1">
               <p className="text-lg text-gray-300 leading-relaxed">
-                With over 3 years of experience, I specialize in building machine learning models, 
-                developing data pipelines, and extracting meaningful insights from complex datasets. 
-                My expertise spans supervised and unsupervised learning, deep learning, and natural 
-                language processing.
+                Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
+                from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
               </p>
-
               <p className="text-lg text-gray-300 leading-relaxed">
-                I&apos;m particularly passionate about leveraging advanced analytics and AI to solve 
-                real-world problems. My recent work includes fault detection systems for Verizon, 
-                crime analysis for Kansas City, and automated data extraction solutions.
-              </p>
-
-              <p className="text-lg text-gray-300 leading-relaxed">
-                When I&apos;m not coding or analyzing data, I enjoy exploring new technologies, 
-                contributing to open-source projects, and sharing knowledge through technical writing 
-                and collaboration.
+                Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
+                deploy data-driven solutions that enhance business decision-making.
               </p>
             </div>
-
-            {/* Image */}
-            <div className="relative">
-              <div className="sticky top-24">
-                <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
-                  <Image
-                    src="/profile.jpg"
-                    alt="Nikhil Goutham"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 500px"
-                    className="object-cover object-center"
-                    priority
-                    quality={95}
-                  />
-                </div>
+            <div className="order-1 md:order-2">
+              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 transform hover:scale-[1.02] transition-transform duration-500 mx-auto max-w-[400px]">
+        <Image
+                  src="/profile.jpg"
+                  alt="Nikhil Goutham"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+          priority
+                  quality={95}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
             </div>
           </div>
@@ -736,11 +715,11 @@ export default function Home() {
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Data Visualization</span>
-                </li>
+          </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Time Series Analysis</span>
-                </li>
+          </li>
               </ul>
             </div>
           </div>
@@ -875,11 +854,11 @@ export default function Home() {
           </a>
           <a
                 href="https://linkedin.com/in/nikhilgoutham"
-                target="_blank"
-                rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
                 className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
                 title="LinkedIn Profile"
-              >
+          >
                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
