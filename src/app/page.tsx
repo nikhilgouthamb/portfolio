@@ -714,9 +714,13 @@ export default function Home() {
                 className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
                 title="Streamlit Projects"
               >
-                <svg className="w-7 h-7" viewBox="0 0 100 100" fill="currentColor">
-                  <path d="M49.5,25.8l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3 l17.3,3l0,0l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1L49.5,25.8z M66.8,22.8l-8.6,8.1 l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l0,0l8.6-8.1l17.3,3l-17.3-3l8.6-8.1 l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1L66.8,22.8z M84.1,19.8l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1 l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l0,0l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1 L84.1,19.8z"/>
-                </svg>
+                <Image
+                  src="/streamlit-mark.svg"
+                  alt="Streamlit"
+                  width={28}
+                  height={28}
+                  className="text-current"
+                />
               </a>
             </div>
           </div>
@@ -802,14 +806,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 100 100"
-                    aria-hidden="true"
-                  >
-                    <path d="M49.5,25.8l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3 l17.3,3l0,0l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1L49.5,25.8z M66.8,22.8l-8.6,8.1 l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l0,0l8.6-8.1l17.3,3l-17.3-3l8.6-8.1 l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1L66.8,22.8z M84.1,19.8l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l-8.6,8.1 l-17.3-3l17.3,3l-8.6,8.1l-17.3-3l17.3,3l0,0l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1l17.3,3l-17.3-3l8.6-8.1 L84.1,19.8z"/>
-                  </svg>
+                  <Image
+                    src="/streamlit-mark.svg"
+                    alt="Streamlit"
+                    width={24}
+                    height={24}
+                    className="text-current"
+                  />
                 </a>
               </div>
             </div>
