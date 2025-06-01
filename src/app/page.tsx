@@ -248,6 +248,23 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          
+          {/* Scroll indicator */}
+          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+            <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300 group">
+              <svg 
+                className="w-6 h-6 text-white/50 group-hover:text-white/80 transition-colors duration-300 animate-pulse"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </div>
+          </div>
         </div>
       </section>
 
