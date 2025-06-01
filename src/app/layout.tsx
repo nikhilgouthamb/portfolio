@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nikhil Goutham - Software Developer",
-  description: "Portfolio website of Nikhil Goutham - A passionate software developer crafting digital experiences that make a difference.",
-  keywords: ["software developer", "web development", "portfolio", "Nikhil Goutham"],
+  title: "Nikhil Goutham - Data Scientist",
+  description: "Portfolio website of Nikhil Goutham - A passionate Data Scientist specializing in Machine Learning, Deep Learning, and Data Engineering.",
+  keywords: ["data scientist", "machine learning", "deep learning", "data engineering", "AI", "portfolio", "Nikhil Goutham"],
 };
 
 export default function RootLayout({
