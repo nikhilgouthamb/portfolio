@@ -363,13 +363,15 @@ export default function Home() {
             {/* Verizon Capstone Project */}
             <div className="bg-[#1a1f35] rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition duration-300 border border-gray-800">
               <div className="h-48 bg-[#1a1f35] relative flex items-center justify-center p-8">
-                <Image
-                  src="/verizon-logo.png"
-                  alt="Verizon Logo"
-                  width={200}
-                  height={100}
-                  className="object-contain brightness-100"
-                />
+                <div className="relative w-[280px] h-[100px]">
+                  <Image
+                    src="/verizon-logo.png"
+                    alt="Verizon Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-4 text-blue-400">Verizon Capstone Project</h3>
