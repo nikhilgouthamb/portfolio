@@ -363,13 +363,14 @@ export default function Home() {
             {/* Verizon Capstone Project */}
             <div className="bg-[#1a1f35] rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition duration-300 border border-gray-800">
               <div className="h-48 bg-[#1a1f35] relative flex items-center justify-center p-8">
-                <div className="relative w-[280px] h-[100px]">
+                <div className="relative w-[120px] h-[120px]">
                   <Image
-                    src="/verizon-logo.png"
+                    src="/verizon-v.png"
                     alt="Verizon Logo"
                     fill
                     className="object-contain"
                     priority
+                    quality={100}
                   />
                 </div>
               </div>
