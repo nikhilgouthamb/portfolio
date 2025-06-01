@@ -714,14 +714,9 @@ export default function Home() {
                 className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
                 title="Streamlit Projects"
               >
-                <Image
-                  src="/streamlit_logo_mono1.png"
-                  alt="Streamlit"
-                  width={28}
-                  height={28}
-                  className="opacity-80 hover:opacity-100 transition-opacity invert"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
+                <svg className="w-7 h-7" viewBox="0 0 32 32" fill="currentColor">
+                  <path d="M16 4L6 28h20L16 4zm0 6l7.18 17H8.82L16 10z"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -807,14 +802,9 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
-                  <Image
-                    src="/streamlit_logo_mono1.png"
-                    alt="Streamlit"
-                    width={24}
-                    height={24}
-                    className="opacity-80 hover:opacity-100 transition-opacity invert"
-                    style={{ filter: 'brightness(0) invert(1)' }}
-                  />
+                  <svg className="w-6 h-6" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M16 4L6 28h20L16 4zm0 6l7.18 17H8.82L16 10z"/>
+                  </svg>
                 </a>
               </div>
             </div>
