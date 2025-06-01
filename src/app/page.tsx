@@ -359,35 +359,62 @@ export default function Home() {
       <section id="projects" className="py-20 px-6">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Experience & Projects</h2>
-          <div className="grid md:grid-cols-1 gap-8">
-            {/* Verizon Capstone Project */}
-            <div className="bg-[#1a1f35] rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition duration-300 border border-gray-800">
-              <div className="h-48 bg-[#1a1f35] relative flex items-center justify-center p-8">
-                <div className="relative w-[120px] h-[120px]">
-                  <Image
-                    src="/verizon-v.png"
-                    alt="Verizon Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                    quality={100}
-                  />
-                </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Verizon Project Card */}
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-600/90 to-red-800/90">
+                <Image
+                  src="/verizon-v.png"
+                  alt="Verizon Logo"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
               </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-blue-400">Verizon Capstone Project</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  Led the development of an advanced fault detection system using XGBoost models. Processed and analyzed large-scale JSON logs for pattern recognition, and created comprehensive Tableau dashboards for real-time operational monitoring. Implemented automated data pipelines for continuous model training and validation.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">XGBoost</span>
-                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Tableau</span>
-                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Snowflake</span>
-                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Python</span>
-                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Machine Learning</span>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Verizon Capstone Project</h3>
+                  <p className="text-gray-200 text-sm">
+                    Advanced fault detection system using ML
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">XGBoost</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ML</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Verizon Capstone Project</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Led the development of an advanced fault detection system using XGBoost models. 
+                        Processed and analyzed large-scale JSON logs for pattern recognition, and created 
+                        comprehensive Tableau dashboards for real-time operational monitoring.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">XGBoost</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Snowflake</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ML</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* You can add more project cards here following the same pattern */}
           </div>
         </div>
       </section>
