@@ -225,7 +225,7 @@ export default function Home() {
               Hi, I&apos;m Nikhil Goutham
             </h1>
             <p className={`text-xl md:text-2xl text-gray-300 mb-8 ${styles['animate-fade-in']}`}>
-              Data Scientist with expertise in Machine Learning, Deep Learning, and Data Engineering
+              Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
             </p>
             <div className={`flex flex-col md:flex-row gap-4 justify-center ${styles['animate-fade-in-up']}`}>
               <Link 
