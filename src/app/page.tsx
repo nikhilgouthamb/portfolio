@@ -653,6 +653,65 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+
+            {/* Library Database Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/90 to-orange-800/90">
+                <Image
+                  src="/library.jpg"
+                  alt="Library Database Management System"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Library Management System</h3>
+                  <p className="text-gray-200 text-sm">
+                    Full-stack library database system with GUI
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Python</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">SQLite</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tkinter</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Library Management System</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a comprehensive library management system with a user-friendly GUI using Python and Tkinter. 
+                        Features include document checkout/return, fine computation, reader management, and advanced search capabilities. 
+                        Implemented robust database operations using SQLite for efficient data management and retrieval.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">SQLite</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tkinter</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">GUI Development</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Database Design</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -775,11 +834,11 @@ export default function Home() {
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Data Visualization</span>
-          </li>
+                </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Time Series Analysis</span>
-          </li>
+                </li>
               </ul>
             </div>
           </div>
