@@ -707,6 +707,17 @@ export default function Home() {
                   <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
                 </svg>
               </a>
+              <a
+                href="https://share.streamlit.io/user/nikhilgouthamb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
+                title="Streamlit Projects"
+              >
+                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16.9 5.5l-.9.9c-.6-.2-1.2-.3-1.9-.3-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5c0-.7-.1-1.3-.3-1.9l.9-.9C19.9 8.2 20 9.1 20 10c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.9 0 1.8.1 2.6.4l-.7.7c-.6-.2-1.2-.3-1.9-.3-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5c0-.7-.1-1.3-.3-1.9l.7-.7z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -783,6 +794,21 @@ export default function Home() {
                       d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                       clipRule="evenodd"
                     />
+                  </svg>
+                </a>
+                <a
+                  href="https://share.streamlit.io/user/nikhilgouthamb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-blue-400 transition"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M16.9 5.5l-.9.9c-.6-.2-1.2-.3-1.9-.3-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5c0-.7-.1-1.3-.3-1.9l.9-.9C19.9 8.2 20 9.1 20 10c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.9 0 1.8.1 2.6.4l-.7.7c-.6-.2-1.2-.3-1.9-.3-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5c0-.7-.1-1.3-.3-1.9l.7-.7z"/>
                   </svg>
                 </a>
               </div>
