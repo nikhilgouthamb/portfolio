@@ -230,7 +230,7 @@ export default function Home() {
             <div className={`flex flex-col md:flex-row gap-4 justify-center ${styles['animate-fade-in-up']}`}>
               <Link 
                 href="#projects"
-                className={`group px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 ${styles['glow-on-hover']}`}
+                className="group px-8 py-3 text-gray-300 border border-transparent rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
               >
                 <span className="relative inline-block transform transition-transform group-hover:translate-x-1">
                   View My Work
@@ -239,29 +239,13 @@ export default function Home() {
               </Link>
               <Link 
                 href="#contact"
-                className={`group px-8 py-3 border border-blue-500/50 rounded-full transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-400 hover:scale-105 ${styles['shine-on-hover']}`}
+                className="group px-8 py-3 text-gray-300 border border-gray-500/50 rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:border-transparent hover:scale-105"
               >
                 <span className="relative inline-block transform transition-transform group-hover:translate-x-1">
                   Get in Touch
                   <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </span>
               </Link>
-            </div>
-            
-            {/* Scroll indicator */}
-            <div className="absolute bottom-12 right-12 flex flex-col items-center gap-2 animate-bounce hover:text-blue-400 transition-colors duration-300 cursor-pointer group">
-              <span className="text-sm text-gray-400 group-hover:text-blue-400 font-light tracking-wider transition-colors duration-300">Scroll</span>
-              <svg 
-                className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
             </div>
           </div>
         </div>
