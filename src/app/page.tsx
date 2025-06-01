@@ -424,7 +424,7 @@ export default function Home() {
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90">
                 <Image
-                  src="/kc-crime.jpg"
+                  src="/kansas-city-crime.jpg"
                   alt="Kansas City Crime Analysis"
                   fill
                   className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
