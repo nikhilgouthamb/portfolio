@@ -473,6 +473,66 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+
+            {/* R Web Scraping Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Web-scraping-using-R"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/90 to-purple-600/90">
+                <Image
+                  src="/r-web-scraping.jpg"
+                  alt="R Web Scraping Project"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Web Scraping with R</h3>
+                  <p className="text-gray-200 text-sm">
+                    Automated data extraction from Genome Biology articles
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">R</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Web Scraping</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Data Analysis</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Web Scraping with R</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed an automated web scraping solution using R to extract and analyze articles 
+                        from Genome Biology. The tool collects comprehensive data including titles, authors, 
+                        affiliations, publication dates, abstracts, and full text content, enabling efficient 
+                        scientific literature analysis.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">R Programming</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">rvest</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">dplyr</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Mining</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Web Scraping</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
