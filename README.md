@@ -92,7 +92,4 @@ Feel free to submit issues and enhancement requests!
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Contact
 
-Nikhil Goutham - [Your Email]
-Project Link: [https://github.com/yourusername/portfolio](https://github.com/yourusername/portfolio)
