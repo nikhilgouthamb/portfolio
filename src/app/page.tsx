@@ -358,31 +358,30 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-6">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Experience & Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Experience & Projects</h2>
           <div className="grid md:grid-cols-1 gap-8">
             {/* Verizon Capstone Project */}
-            <div className="bg-gray-800/50 backdrop-blur-xl rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition duration-300 border border-gray-700">
-              <div className="h-48 bg-gray-900 relative flex items-center justify-center p-8">
+            <div className="bg-[#1a1f35] rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition duration-300 border border-gray-800">
+              <div className="h-48 bg-[#1a1f35] relative flex items-center justify-center p-8">
                 <Image
                   src="/verizon-logo.png"
                   alt="Verizon Logo"
                   width={200}
                   height={100}
-                  className="object-contain filter brightness-90"
+                  className="object-contain brightness-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10" />
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Verizon Capstone Project</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400">Verizon Capstone Project</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   Led the development of an advanced fault detection system using XGBoost models. Processed and analyzed large-scale JSON logs for pattern recognition, and created comprehensive Tableau dashboards for real-time operational monitoring. Implemented automated data pipelines for continuous model training and validation.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-500/10 rounded-full text-sm text-blue-400 hover:bg-blue-500/20 transition-colors">XGBoost</span>
-                  <span className="px-3 py-1 bg-blue-500/10 rounded-full text-sm text-blue-400 hover:bg-blue-500/20 transition-colors">Tableau</span>
-                  <span className="px-3 py-1 bg-blue-500/10 rounded-full text-sm text-blue-400 hover:bg-blue-500/20 transition-colors">Snowflake</span>
-                  <span className="px-3 py-1 bg-blue-500/10 rounded-full text-sm text-blue-400 hover:bg-blue-500/20 transition-colors">Python</span>
-                  <span className="px-3 py-1 bg-blue-500/10 rounded-full text-sm text-blue-400 hover:bg-blue-500/20 transition-colors">Machine Learning</span>
+                <div className="flex flex-wrap gap-3">
+                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">XGBoost</span>
+                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Tableau</span>
+                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Snowflake</span>
+                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Python</span>
+                  <span className="px-4 py-1.5 bg-blue-500/10 rounded-full text-sm text-blue-400">Machine Learning</span>
                 </div>
               </div>
             </div>
