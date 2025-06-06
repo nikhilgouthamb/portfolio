@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
@@ -17,6 +17,7 @@ export default function Home() {
     type: null,
     message: ''
   });
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -131,7 +132,8 @@ export default function Home() {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      const formData = new FormData(e.currentTarget);
+      const form = e.currentTarget;
+      const formData = new FormData(form);
       const name = formData.get('name') as string;
       const email = formData.get('email') as string;
       const message = formData.get('message') as string;
@@ -167,7 +169,16 @@ export default function Home() {
             type: 'success',
             message: 'Thank you! Your message has been sent successfully.'
           });
-          e.currentTarget.reset();
+          // Clear form fields manually
+          if (form) {
+            const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
+            const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+            const messageInput = form.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+            
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (messageInput) messageInput.value = '';
+          }
         },
         function(error) {
           console.log("FAILED...", error);
@@ -999,7 +1010,11 @@ export default function Home() {
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              ref={formRef}
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
