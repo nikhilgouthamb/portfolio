@@ -863,7 +863,7 @@ export default function Home() {
             <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-800/50 transform hover:scale-105 transition-all duration-300">
               <div className="text-center space-y-6">
                 <div className="text-xl text-gray-300">
-                  🚀 Plot twist: My resume is like a tech startup - 
+                  Plot twist: My resume is like a tech startup - 
                   <span className="italic"> constantly iterating and shipping new features! </span>
                 </div>
                 <p className="text-gray-400">
@@ -906,46 +906,30 @@ export default function Home() {
 
           <div className={`bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 ${styles['interactive-card']}`}>
             <form onSubmit={handleSubmit} className={`space-y-6 ${styles['interactive-card']}`}>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
-                    placeholder="Your name"
-                    required
-                    disabled={isSubmitting}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
-                    placeholder="your@email.com"
-                    required
-                    disabled={isSubmitting}
-                  />
-                </div>
-              </div>
               <div className="space-y-2">
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300">
-                  Subject
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+                  Name
                 </label>
                 <input
                   type="text"
-                  id="subject"
-                  name="subject"
+                  id="name"
+                  name="name"
                   className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
-                  placeholder="What's this about?"
+                  placeholder="Your name"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
+                  placeholder="your@email.com"
                   required
                   disabled={isSubmitting}
                 />
@@ -1047,17 +1031,7 @@ export default function Home() {
                   <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
                 </svg>
               </a>
-              <a
-                href="https://share.streamlit.io/user/nikhilgouthamb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
-                title="Streamlit Projects"
-              >
-                <svg className="w-7 h-7" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 4L6 28h20L16 4zm0 6l7.18 17H8.82L16 10z"/>
-                </svg>
-              </a>
+
             </div>
           </div>
         </div>
