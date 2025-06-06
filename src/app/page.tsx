@@ -1,4 +1,4 @@
-"use client";
+   "use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -161,14 +161,15 @@ export default function Home() {
 
       console.log('EmailJS response:', JSON.stringify(result, null, 2));
 
-      if (result.status === 200) {
+      // EmailJS returns status: "OK" on success, not 200
+      if (result.status === 200 || result.text === "OK") {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
         e.currentTarget.reset();
       } else {
-        throw new Error(`Failed to send message: Status ${result.status}`);
+        throw new Error(`Failed to send message: Status ${result.status}, Text: ${result.text}`);
       }
     } catch (error) {
       console.error('Failed to send message:', error);
