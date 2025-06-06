@@ -136,31 +136,39 @@ export default function Home() {
       const email = formData.get('email') as string;
       const message = formData.get('message') as string;
       
+      // Validate form data
+      if (!name || !email || !message) {
+        throw new Error('Please fill in all fields');
+      }
+
       const templateParams = {
-        from_name: name,
-        from_email: email,
-        message: message,
+        user_name: name.trim(),
+        user_email: email.trim(),
+        message: message.trim(),
+        timestamp: new Date().toLocaleString(),
         to_name: "Nikhil Goutham",
-        reply_to: email,
-        time_sent: new Date().toLocaleString()
+        reply_to: email.trim()
       };
 
-      console.log('Sending email with params:', templateParams);
+      console.log('Sending email with params:', JSON.stringify(templateParams, null, 2));
       
       const result = await emailjs.send(
         'service_a6vxmvq',
         'template_hdig26j',
-        templateParams
+        templateParams,
+        'uqsCm_Maqt80_Znbl'
       );
 
-      if (result.text === 'OK') {
+      console.log('EmailJS response:', JSON.stringify(result, null, 2));
+
+      if (result.status === 200) {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
         e.currentTarget.reset();
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(`Failed to send message: Status ${result.status}`);
       }
     } catch (error) {
       console.error('Failed to send message:', error);
