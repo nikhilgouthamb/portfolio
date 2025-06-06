@@ -152,27 +152,31 @@ export default function Home() {
 
       console.log('Sending email with params:', JSON.stringify(templateParams, null, 2));
       
-      const result = await emailjs.send(
-        'service_a6vxmvq',
-        'template_hdig26j',
-        templateParams,
-        'uqsCm_Maqt80_Znbl'
-      );
+      try {
+        const result = await emailjs.send(
+          'service_a6vxmvq',
+          'template_hdig26j',
+          templateParams,
+          'uqsCm_Maqt80_Znbl'
+        );
 
-      console.log('EmailJS response:', JSON.stringify(result, null, 2));
+        console.log('Raw EmailJS response:', result);
+        console.log('EmailJS response stringified:', JSON.stringify(result, null, 2));
+        console.log('EmailJS response status:', result.status);
+        console.log('EmailJS response text:', result.text);
 
-      // EmailJS returns status: "OK" on success, not 200
-      if (result.status === 200 || result.text === "OK") {
+        // EmailJS considers any response a success if it doesn't throw an error
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
         e.currentTarget.reset();
-      } else {
-        throw new Error(`Failed to send message: Status ${result.status}, Text: ${result.text}`);
+      } catch (emailError) {
+        console.error('EmailJS error:', emailError);
+        throw new Error('Failed to send email: ' + (emailError as Error).message);
       }
     } catch (error) {
-      console.error('Failed to send message:', error);
+      console.error('Form submission error:', error);
       setSubmitStatus({
         type: 'error',
         message: 'Sorry, there was an error sending your message. Please try again.'
