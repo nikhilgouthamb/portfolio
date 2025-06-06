@@ -136,9 +136,12 @@ export default function Home() {
       const email = formData.get('email') as string;
       const message = formData.get('message') as string;
       
-      // Validate form data
       if (!name || !email || !message) {
-        throw new Error('Please fill in all fields');
+        setSubmitStatus({
+          type: 'error',
+          message: 'Please fill in all fields'
+        });
+        return;
       }
 
       const templateParams = {
@@ -150,33 +153,29 @@ export default function Home() {
         reply_to: email.trim()
       };
 
-      console.log('Sending email with params:', JSON.stringify(templateParams, null, 2));
-      
-      try {
-        const result = await emailjs.send(
-          'service_a6vxmvq',
-          'template_hdig26j',
-          templateParams,
-          'uqsCm_Maqt80_Znbl'
-        );
+      console.log('Attempting to send email with params:', templateParams);
 
-        console.log('Raw EmailJS response:', result);
-        console.log('EmailJS response stringified:', JSON.stringify(result, null, 2));
-        console.log('EmailJS response status:', result.status);
-        console.log('EmailJS response text:', result.text);
-
-        // EmailJS considers any response a success if it doesn't throw an error
-        setSubmitStatus({
-          type: 'success',
-          message: 'Thank you! Your message has been sent successfully.'
-        });
-        e.currentTarget.reset();
-      } catch (emailError) {
-        console.error('EmailJS error:', emailError);
-        throw new Error('Failed to send email: ' + (emailError as Error).message);
-      }
+      await emailjs.send(
+        'service_a6vxmvq',
+        'template_hdig26j',
+        templateParams,
+        'uqsCm_Maqt80_Znbl'
+      ).then(
+        function(response) {
+          console.log("SUCCESS!", response);
+          setSubmitStatus({
+            type: 'success',
+            message: 'Thank you! Your message has been sent successfully.'
+          });
+          e.currentTarget.reset();
+        },
+        function(error) {
+          console.log("FAILED...", error);
+          throw error;
+        }
+      );
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('Error in form submission:', error);
       setSubmitStatus({
         type: 'error',
         message: 'Sorry, there was an error sending your message. Please try again.'
@@ -1053,6 +1052,7 @@ export default function Home() {
                       ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
                       : 'bg-red-500/10 text-red-400 border border-red-500/20'
                   }`}
+                  role="alert"
                 >
                   {submitStatus.message}
                 </div>
