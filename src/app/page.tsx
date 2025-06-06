@@ -62,10 +62,13 @@ export default function Home() {
         timestamp: new Date().toLocaleString()
       };
 
+      console.log('Sending email with params:', templateParams);
+
       const result = await emailjs.send(
-        'service_a6vxmvq',
-        'template_hdig26j',
-        templateParams
+        'service_a6vxmvq',    // Service ID
+        'template_hdig26j',   // Template ID
+        templateParams,
+        'uqsCm_Maqt80_Znbl'  // Public Key
       );
 
       if (result.text === 'OK') {
