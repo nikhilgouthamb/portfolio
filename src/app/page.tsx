@@ -1150,7 +1150,6 @@ export default function Home() {
                 <a
                   href="mailto:bnikhilgoutham@gmail.com"
                   className="text-gray-300 hover:text-blue-400 transition"
-                  aria-label="Email"
                 >
                   <svg
                     className="w-6 h-6"
@@ -1166,7 +1165,6 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
-                  aria-label="LinkedIn"
                 >
                   <svg
                     className="w-6 h-6"
@@ -1186,7 +1184,6 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
-                  aria-label="GitHub"
                 >
                   <svg
                     className="w-6 h-6"
@@ -1202,33 +1199,31 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.kaggle.com/nikhilbudarayavalasa"
+                  href="https://www.kaggle.com/nikhilgouthamb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
-                  aria-label="Kaggle"
                 >
                   <svg 
                     className="w-6 h-6" 
                     viewBox="0 0 24 24" 
                     fill="currentColor"
                   >
-                    <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/>
+                    <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.248.495-.248h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/>
                   </svg>
                 </a>
                 <a
-                  href="https://share.streamlit.io/user/nikhilgouthamb"
+                  href="https://nikhilgoutham.streamlit.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
-                  aria-label="Streamlit"
                 >
                   <svg 
                     className="w-6 h-6" 
-                    viewBox="0 0 32 32" 
+                    viewBox="0 0 24 24" 
                     fill="currentColor"
                   >
-                    <path d="M16 3.2c-7.069 0-12.8 5.731-12.8 12.8 0 7.069 5.731 12.8 12.8 12.8 7.069 0 12.8-5.731 12.8-12.8 0-7.069-5.731-12.8-12.8-12.8zM10.32 21.683h-.005c-.029-3.791-.029-7.582-.029-11.373 0-.364.202-.704.526-.881.324-.177.721-.177 1.046 0l8.656 5.669c.329.177.534.521.534.89 0 .369-.205.713-.534.89l-8.656 5.669c-.162.089-.341.133-.519.133-.182 0-.361-.044-.523-.133-.324-.177-.526-.517-.526-.881v-.011l.03-.072z"/>
+                    <path d="M16.5 6.08c-1.78-.97-3.09-1.46-4.96-1.46-2.23 0-2.93.97-2.93 2.43 0 1.78.97 2.43 4.05 3.4 3.89 1.13 5.35 2.27 5.35 5.02 0 2.75-2.27 4.53-5.83 4.53-2.27 0-4.21-.81-5.67-1.94l1.13-2.27c1.46.97 2.92 1.46 4.53 1.46 2.43 0 3.24-.97 3.24-2.43 0-1.78-.81-2.43-3.89-3.4-3.89-1.13-5.51-2.27-5.51-5.02 0-2.75 2.27-4.53 5.51-4.53 2.27 0 3.89.65 5.35 1.62L16.5 6.08z"/>
                   </svg>
                 </a>
               </div>
