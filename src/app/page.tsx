@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
@@ -17,6 +17,8 @@ export default function Home() {
     type: null,
     message: ''
   });
+
+  const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -43,37 +45,24 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Initialize EmailJS with your public key
     emailjs.init({
       publicKey: "uqsCm_Maqt80_Znbl",
-      limitRate: {
-        // Optional rate limiting
-        throttle: 2000, // 2 seconds
-      }
     });
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!form.current) return;
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      const formData = new FormData(e.currentTarget);
-      
-      const templateParams = {
-        user_name: formData.get('name'),
-        user_email: formData.get('email'),
-        message: formData.get('message'),
-        timestamp: new Date().toLocaleString()
-      };
-
-      console.log('Sending email with params:', templateParams);
-
-      const result = await emailjs.send(
-        'service_a6vxmvq',    // Service ID
-        'template_hdig26j',   // Template ID
-        templateParams
+      const result = await emailjs.sendForm(
+        'service_a6vxmvq',
+        'template_hdig26j',
+        form.current
       );
 
       console.log('EmailJS Response:', result);
@@ -83,7 +72,7 @@ export default function Home() {
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
-        e.currentTarget.reset();
+        form.current.reset();
       } else {
         throw new Error(`Failed to send message: ${result.text}`);
       }
@@ -912,15 +901,15 @@ export default function Home() {
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="from_name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
+                  id="from_name"
+                  name="from_name"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="Your name"
                   required
@@ -929,13 +918,13 @@ export default function Home() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="reply_to" className="block text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
+                  id="reply_to"
+                  name="reply_to"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="your@email.com"
                   required
