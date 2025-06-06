@@ -1202,7 +1202,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.kaggle.com/nikhilgouthamb"
+                  href="https://www.kaggle.com/nikhilbudarayavalasa"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
@@ -1210,10 +1210,10 @@ export default function Home() {
                 >
                   <svg 
                     className="w-6 h-6" 
-                    viewBox="0 0 32 32" 
+                    viewBox="0 0 24 24" 
                     fill="currentColor"
                   >
-                    <path d="M19.72 23.93c-.15.19-.38.29-.67.29h-2.56c-.24 0-.44-.09-.58-.27l-4.28-5.48-1.2 1.14v4.31c0 .2-.1.3-.29.3h-2.02c-.19 0-.29-.1-.29-.3V8.56c0-.19.1-.29.29-.29h2.02c.19 0 .29.1.29.29v8.39l5.14-5.19c.14-.14.27-.21.41-.21h2.67c.12 0 .2.05.24.15.04.12.03.21-.03.26l-5.44 5.25 5.67 7.04c.08.09.1.17.06.3-.04.07-.1.11-.18.11z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.001 4.632a.753.753 0 00-.666.396L8.002 11.63a.75.75 0 00.666 1.104h1.326v5.902a.75.75 0 001.5 0v-5.902h1.326a.75.75 0 00.666-1.104l-2.331-6.602a.753.753 0 00-.666-.396h-1.49z"/>
                   </svg>
                 </a>
                 <a
