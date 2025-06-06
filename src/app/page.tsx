@@ -128,6 +128,7 @@ export default function Home() {
               <Link href="#about" className="text-gray-300 hover:text-blue-400 transition-all duration-300">About</Link>
               <Link href="#projects" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Experience</Link>
               <Link href="#skills" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Skills</Link>
+              <Link href="#resume" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Resume</Link>
               <Link href="#contact" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Contact</Link>
             </div>
           </div>
@@ -159,6 +160,13 @@ export default function Home() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Skills
+              </Link>
+              <Link 
+                href="#resume" 
+                className="text-gray-300 hover:text-blue-400 transition-all duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Resume
               </Link>
               <Link 
                 href="#contact" 
@@ -842,6 +850,41 @@ export default function Home() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section id="resume" className="py-20 px-6 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              Want to see my resume?
+            </h2>
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-800/50 transform hover:scale-105 transition-all duration-300">
+              <div className="text-center space-y-6">
+                <div className="text-xl text-gray-300">
+                  🚀 Plot twist: My resume is like a tech startup - 
+                  <span className="italic"> constantly iterating and shipping new features! </span>
+                </div>
+                <p className="text-gray-400">
+                  Between you and me, I'm learning faster than my printer can keep up with! 
+                  Drop me a line for the latest version - it might have changed while you were reading this! 😄
+                </p>
+                <Link 
+                  href="#contact"
+                  className="inline-block px-8 py-3 text-gray-300 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+                >
+                  Request Latest Build v{new Date().toISOString().split('T')[0]} 🎮
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Background decoration */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="absolute w-64 h-64 -left-32 top-0 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute w-64 h-64 -right-32 bottom-0 bg-purple-500/20 rounded-full blur-3xl"></div>
         </div>
       </section>
 
