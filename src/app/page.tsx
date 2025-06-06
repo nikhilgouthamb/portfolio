@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
@@ -17,8 +17,6 @@ export default function Home() {
     type: null,
     message: ''
   });
-
-  const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -45,36 +43,124 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    emailjs.init({
-      publicKey: "uqsCm_Maqt80_Znbl",
-    });
+    // Initialize EmailJS with your public key
+    emailjs.init("uqsCm_Maqt80_Znbl");
   }, []);
+
+  // Email template HTML:
+  /*
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Portfolio Contact Form</title>
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              margin: 0;
+              padding: 0;
+              background-color: #f9fafb;
+          }
+          .container {
+              max-width: 600px;
+              margin: 20px auto;
+              background-color: #ffffff;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              overflow: hidden;
+          }
+          .header {
+              background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+              color: white;
+              padding: 20px;
+              text-align: center;
+          }
+          .content {
+              padding: 20px;
+          }
+          .field {
+              margin-bottom: 15px;
+          }
+          .label {
+              font-weight: bold;
+              color: #374151;
+          }
+          .value {
+              margin-top: 5px;
+              color: #1f2937;
+          }
+          .footer {
+              background-color: #f3f4f6;
+              padding: 15px;
+              text-align: center;
+              font-size: 14px;
+              color: #6b7280;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="header">
+              <h2 style="margin: 0;">New Portfolio Contact Message</h2>
+          </div>
+          <div class="content">
+              <div class="field">
+                  <div class="label">From:</div>
+                  <div class="value">{{from_name}} ({{from_email}})</div>
+              </div>
+              <div class="field">
+                  <div class="label">Message:</div>
+                  <div class="value">{{message}}</div>
+              </div>
+              <div class="field">
+                  <div class="label">Sent at:</div>
+                  <div class="value">{{time_sent}}</div>
+              </div>
+          </div>
+          <div class="footer">
+              This message was sent from your portfolio website contact form.
+          </div>
+      </div>
+  </body>
+  </html>
+  */
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (!form.current) return;
-
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      const result = await emailjs.sendForm(
+      const formData = new FormData(e.currentTarget);
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const message = formData.get('message') as string;
+      
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_name: "Nikhil Goutham",
+        reply_to: email,
+        time_sent: new Date().toLocaleString()
+      };
+
+      console.log('Sending email with params:', templateParams);
+      
+      const result = await emailjs.send(
         'service_a6vxmvq',
         'template_hdig26j',
-        form.current
+        templateParams
       );
 
-      console.log('EmailJS Response:', result);
-
-      if (result.status === 200) {
+      if (result.text === 'OK') {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
-        form.current.reset();
+        e.currentTarget.reset();
       } else {
-        throw new Error(`Failed to send message: ${result.text}`);
+        throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Failed to send message:', error);
@@ -901,15 +987,15 @@ export default function Home() {
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
-            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="from_name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
                 </label>
                 <input
                   type="text"
-                  id="from_name"
-                  name="from_name"
+                  id="name"
+                  name="name"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="Your name"
                   required
@@ -918,13 +1004,13 @@ export default function Home() {
               </div>
 
               <div>
-                <label htmlFor="reply_to" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
                   type="email"
-                  id="reply_to"
-                  name="reply_to"
+                  id="email"
+                  name="email"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="your@email.com"
                   required
