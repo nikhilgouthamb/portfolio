@@ -43,8 +43,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Initialize EmailJS
-    emailjs.init('uqsCm_Maqt80_Znbl');
+    // Initialize EmailJS with your public key
+    emailjs.init("uqsCm_Maqt80_Znbl");
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -52,33 +52,31 @@ export default function Home() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    
     try {
+      const formData = new FormData(e.currentTarget);
+      
       const templateParams = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
+        user_name: formData.get('name'),
+        user_email: formData.get('email'),
         message: formData.get('message'),
-        time: new Date().toLocaleString()
+        timestamp: new Date().toLocaleString()
       };
 
-      console.log('Sending email with params:', templateParams);
-      
       const result = await emailjs.send(
         'service_a6vxmvq',
         'template_hdig26j',
-        templateParams,
-        'uqsCm_Maqt80_Znbl'
+        templateParams
       );
 
-      console.log('Success:', result.text);
-      setSubmitStatus({
-        type: 'success',
-        message: 'Thank you! Your message has been sent successfully.'
-      });
-      form.reset();
+      if (result.text === 'OK') {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully.'
+        });
+        e.currentTarget.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
       console.error('Failed to send message:', error);
       setSubmitStatus({
@@ -899,58 +897,65 @@ export default function Home() {
               Get in Touch
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Interested in collaborating or have a project in mind? I&apos;d love to hear from you.
-              Let&apos;s create something amazing together.
+              Have a question or want to work together? I&apos;d love to hear from you.
             </p>
           </div>
 
-          <div className={`bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 ${styles['interactive-card']}`}>
-            <form onSubmit={handleSubmit} className={`space-y-6 ${styles['interactive-card']}`}>
-              <div className="space-y-2">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="Your name"
                   required
                   disabled={isSubmitting}
                 />
               </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="your@email.com"
                   required
                   disabled={isSubmitting}
                 />
               </div>
-              <div className="space-y-2">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={5}
-                  className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500 ${styles['glow-on-hover']}`}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
                   placeholder="Your message here..."
                   required
                   disabled={isSubmitting}
                 ></textarea>
               </div>
-              
+
               {submitStatus.type && (
-                <div className={`p-4 rounded-xl ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
+                <div 
+                  className={`p-4 rounded-xl ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                  }`}
+                >
                   {submitStatus.message}
                 </div>
               )}
@@ -959,80 +964,31 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium 
-                    hover:from-blue-600 hover:to-purple-600 transform transition-all duration-300 
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 
-                    ${styles['scale-on-hover']} ${styles['glow-on-hover']}
-                    ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`
+                    px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 
+                    rounded-xl text-white font-medium 
+                    hover:from-blue-600 hover:to-purple-600 
+                    transform transition-all duration-300 
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 
+                    focus:ring-offset-2 focus:ring-offset-gray-900
+                    disabled:opacity-50 disabled:cursor-not-allowed
+                    ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}
+                  `}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? (
+                    <span className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
               </div>
             </form>
-          </div>
-
-          <div className="mt-16">
-            <div className="flex items-center justify-center gap-8">
-              <a
-                href="mailto:bnikhilgoutham@gmail.com"
-                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
-                title="Email me"
-              >
-                <svg
-                  className="w-7 h-7"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/>
-                </svg>
-              </a>
-              <a
-                href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
-                title="GitHub Profile"
-              >
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                </svg>
-          </a>
-          <a
-                href="https://linkedin.com/in/nikhilgoutham"
-            target="_blank"
-            rel="noopener noreferrer"
-                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
-                title="LinkedIn Profile"
-          >
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-          </a>
-        <a
-                href="https://www.kaggle.com/nikhilbudarayavalasa"
-          target="_blank"
-          rel="noopener noreferrer"
-                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
-                title="Kaggle Profile"
-              >
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.248.495-.248h3.239c.144 0 .236.083.275.248.034.129.009.236-.079.32l-6.555 6.344 6.836 8.507c.095.104.117.208.07.32"/>
-                </svg>
-        </a>
-        <a
-                href="https://medium.com/@nikhilgoutham.b"
-          target="_blank"
-          rel="noopener noreferrer"
-                className={`p-3 text-gray-300 hover:text-blue-400 transform transition-all duration-300 rounded-full hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/25 ${styles['bounce-on-hover']}`}
-                title="Medium Blog"
-              >
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-                </svg>
-              </a>
-
-            </div>
           </div>
         </div>
       </section>
@@ -1090,11 +1046,11 @@ export default function Home() {
                   >
                     <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/>
                   </svg>
-        </a>
-        <a
+                </a>
+                <a
                   href="https://linkedin.com/in/nikhilgoutham"
-          target="_blank"
-          rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
                   <svg
