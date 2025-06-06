@@ -44,7 +44,13 @@ export default function Home() {
 
   useEffect(() => {
     // Initialize EmailJS with your public key
-    emailjs.init("uqsCm_Maqt80_Znbl");
+    emailjs.init({
+      publicKey: "uqsCm_Maqt80_Znbl",
+      limitRate: {
+        // Optional rate limiting
+        throttle: 2000, // 2 seconds
+      }
+    });
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -67,18 +73,19 @@ export default function Home() {
       const result = await emailjs.send(
         'service_a6vxmvq',    // Service ID
         'template_hdig26j',   // Template ID
-        templateParams,
-        'uqsCm_Maqt80_Znbl'  // Public Key
+        templateParams
       );
 
-      if (result.text === 'OK') {
+      console.log('EmailJS Response:', result);
+
+      if (result.status === 200) {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.'
         });
         e.currentTarget.reset();
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(`Failed to send message: ${result.text}`);
       }
     } catch (error) {
       console.error('Failed to send message:', error);
