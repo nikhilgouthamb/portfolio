@@ -842,11 +842,11 @@ export default function Home() {
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Data Visualization</span>
-                </li>
+          </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Time Series Analysis</span>
-                </li>
+          </li>
               </ul>
             </div>
           </div>
