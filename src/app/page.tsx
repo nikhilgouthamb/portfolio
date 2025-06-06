@@ -842,11 +842,11 @@ export default function Home() {
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Data Visualization</span>
-          </li>
+                </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                   <span>Time Series Analysis</span>
-          </li>
+                </li>
               </ul>
             </div>
           </div>
@@ -867,7 +867,7 @@ export default function Home() {
                   <span className="italic"> constantly iterating and shipping new features! </span>
                 </div>
                 <p className="text-gray-400">
-                  Between you and me, I'm learning faster than my printer can keep up with! 
+                  Between you and me, I&apos;m learning faster than my printer can keep up with! 
                   Drop me a line for the latest version - it might have changed while you were reading this! 😄
                 </p>
                 <Link 
