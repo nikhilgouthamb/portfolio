@@ -225,7 +225,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               src={avatarUrl}
               alt="Profile"
               fill={false}
-              width={600}
+              width={800}
               height={800}
               priority
               quality={100}

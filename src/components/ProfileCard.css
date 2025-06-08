@@ -21,7 +21,7 @@
   position: relative;
   width: 100%;
   max-width: 400px;
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--card-scale));
   will-change: transform;
