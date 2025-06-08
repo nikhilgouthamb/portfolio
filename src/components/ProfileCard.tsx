@@ -3,28 +3,9 @@ import "./ProfileCard.css";
 
 interface ProfileCardProps {
   avatarUrl: string;
-  iconUrl?: string;
-  grainUrl?: string;
-  behindGradient?: string;
-  innerGradient?: string;
-  showBehindGradient?: boolean;
   className?: string;
   enableTilt?: boolean;
-  miniAvatarUrl?: string;
-  name?: string;
-  title?: string;
-  handle?: string;
-  status?: string;
-  contactText?: string;
-  showUserInfo?: boolean;
-  onContactClick?: () => void;
 }
-
-const DEFAULT_BEHIND_GRADIENT =
-  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(217,91%,60%,var(--card-opacity)) 4%,hsla(217,91%,60%,calc(var(--card-opacity)*0.5)) 10%,hsla(217,91%,60%,calc(var(--card-opacity)*0.3)) 50%,hsla(217,91%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#1e40af33 0%,#1e40af00 100%),radial-gradient(100% 100% at 50% 50%,#1e40af33 1%,#1e40af00 76%),conic-gradient(from 124deg at 50% 50%,#1e40af33 0%,#3b82f633 40%,#3b82f633 60%,#1e40af33 100%)";
-
-const DEFAULT_INNER_GRADIENT =
-  "linear-gradient(145deg,#0f172a 0%,#1e293b 100%)";
 
 const ANIMATION_CONFIG = {
   SMOOTH_DURATION: 600,
@@ -52,22 +33,9 @@ const easeInOutCubic = (x: number): number =>
   x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl,
-  iconUrl,
-  grainUrl,
-  behindGradient,
-  innerGradient,
-  showBehindGradient = true,
+  avatarUrl = "<Placeholder for avatar URL>",
   className = "",
   enableTilt = true,
-  miniAvatarUrl,
-  name = "Nikhil Goutham",
-  title = "Data Scientist",
-  handle = "nikhilgouthamb",
-  status = "Available for opportunities",
-  contactText = "Contact",
-  showUserInfo = true,
-  onContactClick,
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -241,81 +209,26 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     handlePointerLeave,
   ]);
 
-  const cardStyle = useMemo(
-    () =>
-      ({
-        "--icon": iconUrl ? `url(${iconUrl})` : "none",
-        "--grain": grainUrl ? `url(${grainUrl})` : "none",
-        "--behind-gradient": showBehindGradient
-          ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
-          : "none",
-        "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
-      }) as React.CSSProperties,
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
-  );
-
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
   return (
     <div
       ref={wrapRef}
       className={`pc-card-wrapper ${className}`.trim()}
-      style={cardStyle}
     >
       <section ref={cardRef} className="pc-card">
         <div className="pc-inside">
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content">
-            <div className="pc-details">
-              <h3>{name}</h3>
-              <p>{title}</p>
-            </div>
-            <div className="pc-avatar-content">
-              <img
-                className="avatar"
-                src={avatarUrl}
-                alt={`${name || "User"} avatar`}
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = "none";
-                }}
-              />
-            </div>
-            {showUserInfo && (
-              <div className="pc-user-info">
-                <div className="pc-user-details">
-                  <div className="pc-mini-avatar">
-                    <img
-                      src={miniAvatarUrl || avatarUrl}
-                      alt={`${name || "User"} mini avatar`}
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.opacity = "0.5";
-                        target.src = avatarUrl;
-                      }}
-                    />
-                  </div>
-                  <div className="pc-user-text">
-                    <div className="pc-handle">@{handle}</div>
-                    <div className="pc-status">{status}</div>
-                  </div>
-                </div>
-                <button
-                  className="pc-contact-btn"
-                  onClick={handleContactClick}
-                  style={{ pointerEvents: "auto" }}
-                  type="button"
-                  aria-label={`Contact ${name || "user"}`}
-                >
-                  {contactText}
-                </button>
-              </div>
-            )}
+            <img
+              className="avatar"
+              src={avatarUrl}
+              alt="Profile"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = "none";
+              }}
+            />
           </div>
         </div>
       </section>
