@@ -381,7 +381,7 @@ export default function Home() {
               </p>
             </div>
             <div className="order-1 md:order-2 flex justify-center items-center p-8">
-              <div className="w-full max-w-[700px]">
+              <div className="w-full">
                 <ProfileCard
                   avatarUrl="/profile.jpg"
                   enableTilt={true}
