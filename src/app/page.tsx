@@ -380,11 +380,11 @@ export default function Home() {
                 deploy data-driven solutions that enhance business decision-making.
               </p>
             </div>
-            <div className="order-1 md:order-2 flex justify-center">
+            <div className="order-1 md:order-2 flex justify-center items-center p-8">
               <ProfileCard
                 avatarUrl="/profile.jpg"
                 enableTilt={true}
-                className="w-full max-w-[400px]"
+                className="w-full max-w-[500px]"
               />
             </div>
           </div>

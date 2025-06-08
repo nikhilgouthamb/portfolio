@@ -224,15 +224,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               className="avatar"
               src={avatarUrl}
               alt="Profile"
-              fill={false}
-              width={800}
-              height={800}
+              fill
               priority
               quality={100}
-              style={{ 
-                objectFit: 'cover',
-                objectPosition: 'center center'
-              }}
+              sizes="(max-width: 400px) 100vw, 400px"
             />
           </div>
         </div>

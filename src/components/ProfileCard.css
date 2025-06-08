@@ -104,8 +104,10 @@
   position: relative !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover;
+  object-fit: contain !important;
   transform: translateZ(4px) scale(1.02);
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .pc-details {
