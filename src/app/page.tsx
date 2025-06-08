@@ -191,89 +191,15 @@ export default function Home() {
       {/* Rest of your content with higher z-index */}
       <div className="relative z-10">
         {/* Navigation */}
-        <nav className="fixed w-full bg-black/50 backdrop-blur-lg border-b border-gray-800/50 z-50">
-          <div className="container mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-                Nikhil Goutham
-              </Link>
-              
-              {/* Mobile menu button */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden focus:outline-none"
-                aria-label="Toggle menu"
-              >
-                <svg
-                  className="w-6 h-6 text-gray-300"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  {isMenuOpen ? (
-                    <path d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
-              </button>
-
-              {/* Desktop menu */}
-              <div className="hidden md:flex space-x-8">
-                <Link href="#about" className="text-gray-300 hover:text-blue-400 transition-all duration-300">About</Link>
-                <Link href="#projects" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Experience</Link>
-                <Link href="#skills" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Skills</Link>
-                <Link href="#resume" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Resume</Link>
-                <Link href="#contact" className="text-gray-300 hover:text-blue-400 transition-all duration-300">Contact</Link>
-              </div>
-            </div>
-
-            {/* Mobile menu */}
-            <div 
-              className={`md:hidden transform transition-all duration-300 ${
-                isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-              } pt-4`}
-            >
-              <div className="flex flex-col space-y-4">
-                <Link 
-                  href="#about" 
-                  className="text-gray-300 hover:text-blue-400 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About
-                </Link>
-                <Link 
-                  href="#projects" 
-                  className="text-gray-300 hover:text-blue-400 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Experience
-                </Link>
-                <Link 
-                  href="#skills" 
-                  className="text-gray-300 hover:text-blue-400 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Skills
-                </Link>
-                <Link 
-                  href="#resume" 
-                  className="text-gray-300 hover:text-blue-400 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Resume
-                </Link>
-                <Link 
-                  href="#contact" 
-                  className="text-gray-300 hover:text-blue-400 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-lg border-b border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-end h-16 gap-8">
+              <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
+              <a href="#experience" className="text-gray-300 hover:text-white transition-colors">Experience</a>
+              <a href="#skills" className="text-gray-300 hover:text-white transition-colors">Skills</a>
+              <a href="#social" className="text-gray-300 hover:text-white transition-colors">Social</a>
+              <a href="#resume" className="text-gray-300 hover:text-white transition-colors">Resume</a>
+              <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
         </nav>
@@ -323,31 +249,13 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="relative py-20 px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
-          <div className="container mx-auto relative">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6 order-2 md:order-1">
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
-                  from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
-                  deploy data-driven solutions that enhance business decision-making.
-                </p>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center items-center p-4">
-                <div className="w-full max-w-[380px]">
-                  <ProfileCard
-                    avatarUrl="/profile.jpg"
-                    enableTilt={true}
-                    className="w-full"
-                  />
-                </div>
-              </div>
-            </div>
+        <section id="about" className="relative min-h-screen w-full bg-[#0a0a0a] flex flex-col items-center justify-center">
+          <div className="absolute inset-0">
+            <Threads />
+          </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+            <h2 className="text-4xl font-bold text-white mb-8">Who is this guy?</h2>
+            <ProfileCard avatarUrl="/profile.jpg" />
           </div>
         </section>
 
@@ -1061,7 +969,7 @@ export default function Home() {
         </section>
 
         {/* Find Me Here Section */}
-        <section className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+        <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
           <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
           <div className="w-full max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* LinkedIn */}
@@ -1069,18 +977,19 @@ export default function Home() {
               href="https://www.linkedin.com/in/nikhilgoutham"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-transparent" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
                   <img
                     src="/linkedin_cg.png"
                     alt="LinkedIn"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">LinkedIn</h3>
+                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">LinkedIn</h3>
               </div>
             </a>
 
@@ -1089,18 +998,19 @@ export default function Home() {
               href="https://github.com/nikhilgouthamb"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-gray-500/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/30 to-transparent" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
                   <img
                     src="/github_cg.png"
                     alt="GitHub"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">GitHub</h3>
+                <h3 className="text-xl font-semibold text-white group-hover:text-gray-400 transition-colors duration-500">GitHub</h3>
               </div>
             </a>
 
@@ -1109,18 +1019,19 @@ export default function Home() {
               href="https://medium.com/@nikhilgoutham.b"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-500/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
                   <img
                     src="/medium_cg.png"
                     alt="Medium"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">Medium</h3>
+                <h3 className="text-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-500">Medium</h3>
               </div>
             </a>
 
@@ -1129,36 +1040,38 @@ export default function Home() {
               href="https://www.kaggle.com/nikhilbudarayavalasa"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-400/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-transparent" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
                   <img
                     src="/k.png"
                     alt="Kaggle"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">Kaggle</h3>
+                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">Kaggle</h3>
               </div>
             </a>
 
             {/* Gmail */}
             <a
               href="mailto:bnikhilgoutham@gmail.com"
-              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/30 to-transparent" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
                   <img
                     src="/gmail_cg.png"
                     alt="Gmail"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">Gmail</h3>
+                <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors duration-500">Gmail</h3>
               </div>
             </a>
 
@@ -1167,148 +1080,47 @@ export default function Home() {
               href="https://share.streamlit.io/user/nikhilgouthamb"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-400/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-400/30 to-transparent" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
+                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
                   <img
                     src="/s.png"
                     alt="Streamlit"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">Streamlit</h3>
+                <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors duration-500">Streamlit</h3>
               </div>
             </a>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-900 py-12 px-6">
-          <div className="container mx-auto">
-            <div className="grid md:grid-cols-3 gap-12">
+        <footer className="bg-[#0a0a0a] text-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-xl font-bold mb-4">Nikhil Goutham</h3>
-                <p className="text-gray-300">
+                <h3 className="text-2xl font-bold mb-4">Nikhil Goutham</h3>
+                <p className="text-gray-400 mb-4">
                   Data Scientist focused on building scalable AI solutions and data-driven insights.
                 </p>
-                <p className="text-gray-300 mt-4">
-                  <a href="mailto:bnikhilgoutham@gmail.com" className="hover:text-blue-400 transition">bnikhilgoutham@gmail.com</a>
-                </p>
+                <p className="text-gray-400">bnikhilgoutham@gmail.com</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-4">Quick Links</h3>
                 <ul className="space-y-2">
-                  <li>
-                    <Link href="#about" className="text-gray-300 hover:text-blue-400 transition">
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#projects" className="text-gray-300 hover:text-blue-400 transition">
-                      Experience
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#skills" className="text-gray-300 hover:text-blue-400 transition">
-                      Skills
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#contact" className="text-gray-300 hover:text-blue-400 transition">
-                      Contact
-                    </Link>
-                  </li>
+                  <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+                  <li><a href="#experience" className="text-gray-400 hover:text-white transition-colors">Experience</a></li>
+                  <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                  <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-4">Connect</h3>
-                <div className="flex space-x-4">
-                  <a
-                    href="mailto:bnikhilgoutham@gmail.com"
-                    className="text-gray-300 hover:text-blue-400 transition"
-                  >
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/>
-                    </svg>
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/nikhilgoutham"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-blue-400 transition"
-                  >
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="https://github.com/nikhilgouthamb"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-blue-400 transition"
-                  >
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="https://www.kaggle.com/nikhilbudarayavalasa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-blue-400 transition"
-                  >
-                    <svg 
-                      className="w-6 h-6" 
-                      viewBox="0 0 24 24" 
-                      fill="currentColor"
-                    >
-                      <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.248.495-.248h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/>
-                    </svg>
-                  </a>
-                  <a
-                    href="https://nikhilgoutham.streamlit.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-blue-400 transition"
-                  >
-                    <svg 
-                      className="w-6 h-6" 
-                      viewBox="0 0 24 24" 
-                      fill="currentColor"
-                    >
-                      <path d="M16.5 6.08c-1.78-.97-3.09-1.46-4.96-1.46-2.23 0-2.93.97-2.93 2.43 0 1.78.97 2.43 4.05 3.4 3.89 1.13 5.35 2.27 5.35 5.02 0 2.75-2.27 4.53-5.83 4.53-2.27 0-4.21-.81-5.67-1.94l1.13-2.27c1.46.97 2.92 1.46 4.53 1.46 2.43 0 3.24-.97 3.24-2.43 0-1.78-.81-2.43-3.89-3.4-3.89-1.13-5.51-2.27-5.51-5.02 0-2.75 2.27-4.53 5.51-4.53 2.27 0 3.89.65 5.35 1.62L16.5 6.08z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
             </div>
-            <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-              <p>© {new Date().getFullYear()} Nikhil Goutham. All rights reserved.</p>
+            <div className="mt-12 pt-8 border-t border-gray-800">
+              <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
             </div>
           </div>
         </footer>
