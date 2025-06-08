@@ -220,15 +220,17 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content">
-            <Image
-              className="avatar"
-              src={avatarUrl}
-              alt="Profile"
-              fill
-              priority
-              quality={100}
-              sizes="(max-width: 400px) 100vw, 400px"
-            />
+            <div className="avatar-container">
+              <Image
+                className="avatar"
+                src={avatarUrl}
+                alt="Profile"
+                fill
+                priority
+                quality={100}
+                sizes="(max-width: 500px) 100vw, 500px"
+              />
+            </div>
           </div>
         </div>
       </section>

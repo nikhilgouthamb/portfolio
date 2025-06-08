@@ -20,8 +20,8 @@
   --grain-seed: 1;
   position: relative;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1/1;
+  max-width: 500px;
+  padding-top: 100%; /* This creates a square aspect ratio */
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--card-scale));
   will-change: transform;
@@ -40,7 +40,9 @@
 }
 
 .pc-card {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 2rem;
@@ -57,10 +59,8 @@
   position: absolute;
   inset: 0;
   border-radius: 2rem;
-  background: rgba(15, 23, 42, 0.8);
   transform: translateZ(2px);
   overflow: hidden;
-  backdrop-filter: blur(10px);
 }
 
 .pc-shine {
@@ -86,28 +86,26 @@
 }
 
 .pc-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
+  position: absolute;
+  inset: 0;
   transform: translateZ(2px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+}
+
+.avatar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.avatar {
+  object-fit: contain !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .pc-avatar-content {
   padding-top: 4rem;
-}
-
-.avatar {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  transform: translateZ(4px) scale(1.02);
-  padding: 0 !important;
-  margin: 0 !important;
 }
 
 .pc-details {
