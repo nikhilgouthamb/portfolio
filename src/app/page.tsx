@@ -1135,7 +1135,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col items-center gap-4">
                 <div className="w-16 h-16 relative">
                   <img
-                    src="/kaggle_cg.png"
+                    src="/k.png"
                     alt="Kaggle"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
@@ -1173,7 +1173,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col items-center gap-4">
                 <div className="w-16 h-16 relative">
                   <img
-                    src="/streamlit_cg.png"
+                    src="/s.png"
                     alt="Streamlit"
                     className="w-full h-full object-contain filter brightness-0 invert"
                   />
