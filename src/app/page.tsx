@@ -302,41 +302,9 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
-          {/* Mouse-following gradient */}
-          <div 
-            className="absolute inset-0 opacity-50 pointer-events-none"
-            style={{
-              background: `radial-gradient(circle at ${mousePosition.x + 50}% ${mousePosition.y + 50}%, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 50%, transparent 100%)`,
-              transition: 'background 0.3s ease',
-            }}
-          />
-
-          {/* Animated background elements */}
-          <div className="absolute inset-0 w-full h-full">
-            <div className={`absolute w-[500px] h-[500px] bg-blue-500/30 rounded-full blur-3xl ${styles['animate-blob']} mix-blend-multiply`}
-                 style={{ transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)` }}></div>
-            <div className={`absolute right-0 w-[500px] h-[500px] bg-purple-500/30 rounded-full blur-3xl ${styles['animate-blob']} ${styles['animation-delay-2000']} mix-blend-multiply`}
-                 style={{ transform: `translate(${mousePosition.x * -0.1}px, ${mousePosition.y * -0.1}px)` }}></div>
-            <div className={`absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-pink-500/30 rounded-full blur-3xl ${styles['animate-blob']} ${styles['animation-delay-4000']} mix-blend-multiply`}
-                 style={{ transform: `translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)` }}></div>
-          </div>
+    
           
-          {/* Floating elements with mouse interaction */}
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            {floatingElements.map((pos, i) => (
-              <div
-                key={i}
-                className={`absolute w-2 h-2 bg-blue-400/50 rounded-full ${styles['animate-float']}`}
-                style={{
-                  left: `${pos.left}%`,
-                  top: `${pos.top}%`,
-                  transform: `translate(${mousePosition.x * 0.2}px, ${mousePosition.y * 0.2}px)`,
-                  animationDelay: `${i * 0.5}s`,
-                  transition: 'transform 0.3s ease'
-                }}
-              />
-            ))}
-          </div>
+
 
           {/* Content */}
           <div className="container mx-auto relative z-10">
