@@ -383,18 +383,6 @@ export default function Home() {
             <div className="order-1 md:order-2 flex justify-center">
               <ProfileCard
                 avatarUrl="/profile.jpg"
-                name="Nikhil Goutham"
-                title="Data Scientist"
-                handle="nikhilgouthamb"
-                status="Available for opportunities"
-                contactText="Get in Touch"
-                onContactClick={() => {
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                showUserInfo={true}
                 enableTilt={true}
                 className="w-full max-w-[400px]"
               />

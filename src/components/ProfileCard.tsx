@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
+import Image from "next/image";
 import "./ProfileCard.css";
 
 interface ProfileCardProps {
@@ -219,15 +220,14 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content">
-            <img
+            <Image
               className="avatar"
               src={avatarUrl}
               alt="Profile"
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-              }}
+              fill
+              priority
+              sizes="(max-width: 400px) 100vw, 400px"
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </div>
