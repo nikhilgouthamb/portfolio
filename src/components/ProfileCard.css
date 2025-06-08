@@ -1,0 +1,193 @@
+.pc-card-wrapper {
+  --card-opacity: 0.5;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --background-x: 50%;
+  --background-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --card-scale: 1;
+  --shine-opacity: 0;
+  --shine-bg: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.65) 20%, rgba(255, 255, 255, 0) 90%);
+  --glare-opacity: 0;
+  --glare-bg: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 80%);
+  --icon-opacity: 0;
+  --grain-opacity: 0;
+  --grain-scale: 1;
+  --grain-seed: 1;
+  --grain-layer-1: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  --grain-layer-2: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 3/4;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--card-scale));
+  will-change: transform;
+  transition: transform 0.1s ease;
+}
+
+.pc-card-wrapper.active {
+  --card-scale: 1.02;
+  --shine-opacity: 1;
+  --glare-opacity: 0.3;
+  --icon-opacity: 1;
+  --grain-opacity: 0.4;
+  --grain-scale: 1.5;
+  --card-opacity: 1;
+}
+
+.pc-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  background: var(--behind-gradient);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pc-inside {
+  position: absolute;
+  inset: 1px;
+  border-radius: 1.5rem;
+  background: var(--inner-gradient);
+  transform: translateZ(2px);
+  overflow: hidden;
+}
+
+.pc-shine {
+  position: absolute;
+  inset: 0;
+  background: var(--shine-bg);
+  opacity: var(--shine-opacity);
+  mix-blend-mode: soft-light;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pc-glare {
+  position: absolute;
+  inset: -100%;
+  background: var(--glare-bg);
+  opacity: var(--glare-opacity);
+  mix-blend-mode: overlay;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pc-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  transform: translateZ(2px);
+}
+
+.pc-avatar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateZ(4px);
+}
+
+.pc-details {
+  text-align: center;
+  color: white;
+  transform: translateZ(4px);
+}
+
+.pc-details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+  background: linear-gradient(to right, #60A5FA, #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pc-details p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.pc-user-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  transform: translateZ(4px);
+}
+
+.pc-user-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pc-mini-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.pc-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pc-user-text {
+  color: white;
+}
+
+.pc-handle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pc-status {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pc-contact-btn {
+  background: linear-gradient(to right, #60A5FA, #A78BFA);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pc-contact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+} 

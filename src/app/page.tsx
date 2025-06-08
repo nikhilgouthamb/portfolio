@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
+import ProfileCard from "@/components/ProfileCard";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -379,19 +380,24 @@ export default function Home() {
                 deploy data-driven solutions that enhance business decision-making.
               </p>
             </div>
-            <div className="order-1 md:order-2">
-              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 transform hover:scale-[1.02] transition-transform duration-500 mx-auto max-w-[400px]">
-        <Image
-                  src="/profile.jpg"
-                  alt="Nikhil Goutham"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover"
-          priority
-                  quality={95}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
+            <div className="order-1 md:order-2 flex justify-center">
+              <ProfileCard
+                avatarUrl="/profile.jpg"
+                name="Nikhil Goutham"
+                title="Data Scientist"
+                handle="nikhilgouthamb"
+                status="Available for opportunities"
+                contactText="Get in Touch"
+                onContactClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                showUserInfo={true}
+                enableTilt={true}
+                className="w-full max-w-[400px]"
+              />
             </div>
           </div>
         </div>
