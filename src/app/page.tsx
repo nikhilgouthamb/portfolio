@@ -6,11 +6,11 @@ import Link from "next/link";
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
-import ProfileCard from "@/components/ProfileCard";
-import Threads from "@/components/Threads";
+import { type NextPage } from 'next';
+import ProfileCard from '@/components/ProfileCard';
+import Threads from '@/components/Threads';
 
-export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error' | null; message: string}>({
@@ -177,7 +177,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-white relative">
+    <main className="relative min-h-screen w-full bg-[#0a0a0a]">
       {/* Threads Background */}
       <div className="fixed inset-0 z-0">
         <Threads
