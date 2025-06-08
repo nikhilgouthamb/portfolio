@@ -225,13 +225,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               src={avatarUrl}
               alt="Profile"
               fill={false}
-              width={800}
-              height={1120}
+              width={600}
+              height={800}
               priority
               quality={100}
               style={{ 
                 objectFit: 'cover',
-                objectPosition: 'center 15%' 
+                objectPosition: 'center center'
               }}
             />
           </div>
