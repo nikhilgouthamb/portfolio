@@ -369,7 +369,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6 order-2 md:order-1">
               <p className="text-lg text-gray-300 leading-relaxed">
                 Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
@@ -380,14 +380,11 @@ export default function Home() {
                 deploy data-driven solutions that enhance business decision-making.
               </p>
             </div>
-            <div className="order-1 md:order-2 flex justify-center items-center">
-              <div className="w-full flex justify-center">
-                <ProfileCard
-                  avatarUrl="/profile.jpg"
-                  enableTilt={true}
-                  className="w-full"
-                />
-              </div>
+            <div className="order-1 md:order-2">
+              <ProfileCard
+                avatarUrl="/profile.jpg"
+                enableTilt={true}
+              />
             </div>
           </div>
         </div>
