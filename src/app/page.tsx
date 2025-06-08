@@ -369,7 +369,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6 order-2 md:order-1">
               <p className="text-lg text-gray-300 leading-relaxed">
                 Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
@@ -380,11 +380,14 @@ export default function Home() {
                 deploy data-driven solutions that enhance business decision-making.
               </p>
             </div>
-            <div className="order-1 md:order-2 flex justify-center">
-              <ProfileCard
-                avatarUrl="/profile.jpg"
-                enableTilt={true}
-              />
+            <div className="order-1 md:order-2 flex justify-center items-center p-4">
+              <div className="w-full max-w-[420px]">
+                <ProfileCard
+                  avatarUrl="/profile.jpg"
+                  enableTilt={true}
+                  className="w-full"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -704,13 +707,13 @@ export default function Home() {
             {/* Parkinson's Disease Prediction Project Card */}
             <Link 
               href="https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction"
-              target="_blank"
-              rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
               className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
-            >
+          >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/90 to-indigo-800/90">
-                <Image
+            <Image
                   src="/Parkinsons_disease.jpg"
                   alt="Parkinson's Disease Progression Prediction"
                   fill
@@ -764,8 +767,8 @@ export default function Home() {
             {/* Library Database Project Card */}
             <Link 
               href="https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation"
-              target="_blank"
-              rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
               className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
             >
               {/* Background Image */}
@@ -1155,8 +1158,8 @@ export default function Home() {
                 </a>
                 <a
                   href="https://linkedin.com/in/nikhilgoutham"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
                   <svg
@@ -1171,11 +1174,11 @@ export default function Home() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
-                <a
+        </a>
+        <a
                   href="https://github.com/nikhilgouthamb"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
                   <svg
@@ -1204,11 +1207,11 @@ export default function Home() {
                   >
                     <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.248.495-.248h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/>
                   </svg>
-                </a>
-                <a
+        </a>
+        <a
                   href="https://nikhilgoutham.streamlit.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition"
                 >
                   <svg 

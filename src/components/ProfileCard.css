@@ -19,13 +19,14 @@
   --grain-scale: 1;
   --grain-seed: 1;
   position: relative;
-  width: 350px;
-  padding-top: 437.5px;
+  width: 85%;
+  max-width: 420px;
+  padding-top: 100%; /* This creates a square aspect ratio */
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--card-scale));
   will-change: transform;
   transition: transform 0.1s ease;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .pc-card-wrapper.active {
