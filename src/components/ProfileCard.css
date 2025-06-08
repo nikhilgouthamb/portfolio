@@ -25,7 +25,7 @@
   transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--card-scale));
   will-change: transform;
   transition: transform 0.1s ease;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 .pc-card-wrapper.active {
