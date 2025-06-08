@@ -12,8 +12,6 @@ import Threads from "@/components/Threads";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [floatingElements, setFloatingElements] = useState<Array<{ left: number; top: number }>>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error' | null; message: string}>({
     type: null,
@@ -23,26 +21,6 @@ export default function Home() {
 
   useEffect(() => {
     setIsVisible(true);
-    // Initialize floating elements positions
-    setFloatingElements(
-      Array(10).fill(null).map(() => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100
-      }))
-    );
-  }, []);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      setMousePosition({
-        x: (clientX / window.innerWidth - 0.5) * 20,
-        y: (clientY / window.innerHeight - 0.5) * 20,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   useEffect(() => {
@@ -313,7 +291,6 @@ export default function Home() {
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
               }`}
               style={{
-                transform: `perspective(1000px) rotateX(${mousePosition.y * 0.02}deg) rotateY(${mousePosition.x * 0.02}deg)`,
                 transition: 'transform 0.3s ease'
               }}
             >
