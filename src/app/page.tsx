@@ -195,10 +195,9 @@ const Home: NextPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-end h-16 gap-8">
               <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-              <a href="#experience" className="text-gray-300 hover:text-white transition-colors">Experience</a>
+              <a href="#projects" className="text-gray-300 hover:text-white transition-colors">Experience & Projects</a>
               <a href="#skills" className="text-gray-300 hover:text-white transition-colors">Skills</a>
               <a href="#social" className="text-gray-300 hover:text-white transition-colors">Social</a>
-              <a href="#resume" className="text-gray-300 hover:text-white transition-colors">Resume</a>
               <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
@@ -255,7 +254,23 @@ const Home: NextPage = () => {
           </div>
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
             <h2 className="text-4xl font-bold text-white mb-8">Who is this guy?</h2>
-            <ProfileCard avatarUrl="/profile.jpg" />
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="space-y-6 order-2 md:order-1">
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
+                  from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
+                  deploy data-driven solutions that enhance business decision-making.
+                </p>
+              </div>
+              <div className="order-1 md:order-2 flex justify-center items-center p-4">
+                <div className="w-full max-w-[380px]">
+                  <ProfileCard avatarUrl="/profile.jpg" />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1125,7 +1140,7 @@ const Home: NextPage = () => {
                 <h3 className="text-xl font-bold mb-4">Quick Links</h3>
                 <ul className="space-y-2">
                   <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                  <li><a href="#experience" className="text-gray-400 hover:text-white transition-colors">Experience</a></li>
+                  <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">Experience</a></li>
                   <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a></li>
                   <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                 </ul>
