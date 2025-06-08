@@ -983,10 +983,12 @@ const Home: NextPage = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
               <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
                 <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
-                  <img
+                  <Image
                     src="/linkedin_cg.png"
                     alt="LinkedIn"
-                    className="w-full h-full object-contain filter brightness-0 invert"
+                    width={64}
+                    height={64}
+                    className="object-contain filter brightness-0 invert"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">LinkedIn</h3>
@@ -1004,10 +1006,12 @@ const Home: NextPage = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
               <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
                 <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
-                  <img
+                  <Image
                     src="/github_cg.png"
                     alt="GitHub"
-                    className="w-full h-full object-contain filter brightness-0 invert"
+                    width={64}
+                    height={64}
+                    className="object-contain filter brightness-0 invert"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-white group-hover:text-gray-400 transition-colors duration-500">GitHub</h3>
@@ -1025,10 +1029,12 @@ const Home: NextPage = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
               <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
                 <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
-                  <img
+                  <Image
                     src="/medium_cg.png"
                     alt="Medium"
-                    className="w-full h-full object-contain filter brightness-0 invert"
+                    width={64}
+                    height={64}
+                    className="object-contain filter brightness-0 invert"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-500">Medium</h3>
@@ -1046,10 +1052,12 @@ const Home: NextPage = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
               <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
                 <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
-                  <img
+                  <Image
                     src="/k.png"
                     alt="Kaggle"
-                    className="w-full h-full object-contain filter brightness-0 invert"
+                    width={64}
+                    height={64}
+                    className="object-contain filter brightness-0 invert"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">Kaggle</h3>
@@ -1065,10 +1073,12 @@ const Home: NextPage = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
               <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
                 <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
-                  <img
+                  <Image
                     src="/gmail_cg.png"
                     alt="Gmail"
-                    className="w-full h-full object-contain filter brightness-0 invert"
+                    width={64}
+                    height={64}
+                    className="object-contain filter brightness-0 invert"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors duration-500">Gmail</h3>
@@ -1086,10 +1096,12 @@ const Home: NextPage = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
               <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
                 <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
-                  <img
+                  <Image
                     src="/s.png"
                     alt="Streamlit"
-                    className="w-full h-full object-contain filter brightness-0 invert"
+                    width={64}
+                    height={64}
+                    className="object-contain filter brightness-0 invert"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors duration-500">Streamlit</h3>
@@ -1128,3 +1140,5 @@ const Home: NextPage = () => {
     </main>
   );
 }
+
+export default Home;
