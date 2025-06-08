@@ -203,9 +203,9 @@ export default function Home() {
       {/* Threads Background */}
       <div className="fixed inset-0 z-0">
         <Threads
-          color={[0.1, 0.3, 0.5]}
-          amplitude={1.5}
-          distance={0.2}
+          color={[0.4, 0.6, 0.8]}
+          amplitude={0.8}
+          distance={0.1}
           enableMouseInteraction={true}
         />
       </div>
