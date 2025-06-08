@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
 import ProfileCard from "@/components/ProfileCard";
 import Threads from "@/components/Threads";
+import CircularGallery from "@/components/CircularGallery";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -1060,6 +1061,99 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Find Me Here Section */}
+        <section className="relative w-full h-screen bg-[#0a0a0a] flex flex-col items-center justify-center">
+          <h2 className="text-4xl font-bold text-white mb-8">Find Me Here</h2>
+          <div className="w-full h-[600px]">
+            <CircularGallery
+              items={[
+                {
+                  image: "/linkedin_cg.png",
+                  text: "LinkedIn",
+                  url: "https://www.linkedin.com/in/nikhilgoutham",
+                },
+                {
+                  image: "/gmail_cg.png",
+                  text: "Gmail",
+                  url: "mailto:bnikhilgoutham@gmail.com",
+                },
+                {
+                  image: "/github_cg.png",
+                  text: "GitHub",
+                  url: "https://github.com/nikhilgouthamb",
+                },
+                {
+                  image: "/kaggle_cg.png",
+                  text: "Kaggle",
+                  url: "https://www.kaggle.com/nikhilbudarayavalasa",
+                },
+                {
+                  image: "/medium_cg.png",
+                  text: "Medium",
+                  url: "https://medium.com/@nikhilgoutham.b",
+                },
+                {
+                  image: "/streamlit_cg.png",
+                  text: "Streamlit",
+                  url: "https://share.streamlit.io/user/nikhilgouthamb",
+                },
+              ]}
+              bend={3}
+              textColor="#ffffff"
+              borderRadius={0.05}
+              font="bold 30px Figtree"
+            />
+          </div>
+          <div className="absolute bottom-8 flex gap-8">
+            <a
+              href="https://www.linkedin.com/in/nikhilgoutham"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:bnikhilgoutham@gmail.com"
+              className="text-white hover:text-red-400 transition-colors"
+            >
+              Gmail
+            </a>
+            <a
+              href="https://github.com/nikhilgouthamb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-400 transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.kaggle.com/nikhilbudarayavalasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              Kaggle
+            </a>
+            <a
+              href="https://medium.com/@nikhilgoutham.b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              Medium
+            </a>
+            <a
+              href="https://share.streamlit.io/user/nikhilgouthamb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-red-400 transition-colors"
+            >
+              Streamlit
+            </a>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="bg-gray-900 py-12 px-6">
           <div className="container mx-auto">
@@ -1153,7 +1247,7 @@ export default function Home() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.kaggle.com/nikhilgouthamb"
+                    href="https://www.kaggle.com/nikhilbudarayavalasa"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-blue-400 transition"
