@@ -8,7 +8,6 @@ import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
 import ProfileCard from "@/components/ProfileCard";
 import Threads from "@/components/Threads";
-import CircularGallery from "@/components/CircularGallery";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -1062,94 +1061,125 @@ export default function Home() {
         </section>
 
         {/* Find Me Here Section */}
-        <section className="relative w-full h-screen bg-[#0a0a0a] flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-bold text-white mb-8">Find Me Here</h2>
-          <div className="w-full h-[600px]">
-            <CircularGallery
-              items={[
-                {
-                  image: "/linkedin_cg.png",
-                  text: "LinkedIn",
-                  url: "https://www.linkedin.com/in/nikhilgoutham",
-                },
-                {
-                  image: "/gmail_cg.png",
-                  text: "Gmail",
-                  url: "mailto:bnikhilgoutham@gmail.com",
-                },
-                {
-                  image: "/github_cg.png",
-                  text: "GitHub",
-                  url: "https://github.com/nikhilgouthamb",
-                },
-                {
-                  image: "/kaggle_cg.png",
-                  text: "Kaggle",
-                  url: "https://www.kaggle.com/nikhilbudarayavalasa",
-                },
-                {
-                  image: "/medium_cg.png",
-                  text: "Medium",
-                  url: "https://medium.com/@nikhilgoutham.b",
-                },
-                {
-                  image: "/streamlit_cg.png",
-                  text: "Streamlit",
-                  url: "https://share.streamlit.io/user/nikhilgouthamb",
-                },
-              ]}
-              bend={3}
-              textColor="#ffffff"
-              borderRadius={0.05}
-              font="bold 30px Figtree"
-            />
-          </div>
-          <div className="absolute bottom-8 flex gap-8">
+        <section className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+          <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
+          <div className="w-full max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/nikhilgoutham"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition-colors"
+              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
             >
-              LinkedIn
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-transparent" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative">
+                  <img
+                    src="/linkedin_cg.png"
+                    alt="LinkedIn"
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white">LinkedIn</h3>
+              </div>
             </a>
-            <a
-              href="mailto:bnikhilgoutham@gmail.com"
-              className="text-white hover:text-red-400 transition-colors"
-            >
-              Gmail
-            </a>
+
+            {/* GitHub */}
             <a
               href="https://github.com/nikhilgouthamb"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-400 transition-colors"
+              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
             >
-              GitHub
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/30 to-transparent" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative">
+                  <img
+                    src="/github_cg.png"
+                    alt="GitHub"
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white">GitHub</h3>
+              </div>
             </a>
-            <a
-              href="https://www.kaggle.com/nikhilbudarayavalasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition-colors"
-            >
-              Kaggle
-            </a>
+
+            {/* Medium */}
             <a
               href="https://medium.com/@nikhilgoutham.b"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-green-400 transition-colors"
+              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
             >
-              Medium
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative">
+                  <img
+                    src="/medium_cg.png"
+                    alt="Medium"
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Medium</h3>
+              </div>
             </a>
+
+            {/* Kaggle */}
+            <a
+              href="https://www.kaggle.com/nikhilbudarayavalasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-transparent" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative">
+                  <img
+                    src="/kaggle_cg.png"
+                    alt="Kaggle"
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Kaggle</h3>
+              </div>
+            </a>
+
+            {/* Gmail */}
+            <a
+              href="mailto:bnikhilgoutham@gmail.com"
+              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/30 to-transparent" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative">
+                  <img
+                    src="/gmail_cg.png"
+                    alt="Gmail"
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Gmail</h3>
+              </div>
+            </a>
+
+            {/* Streamlit */}
             <a
               href="https://share.streamlit.io/user/nikhilgouthamb"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-red-400 transition-colors"
+              className="group relative overflow-hidden rounded-xl bg-white/10 p-8 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]"
             >
-              Streamlit
+              <div className="absolute inset-0 bg-gradient-to-br from-red-400/30 to-transparent" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative">
+                  <img
+                    src="/streamlit_cg.png"
+                    alt="Streamlit"
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Streamlit</h3>
+              </div>
             </a>
           </div>
         </section>
