@@ -19,9 +19,9 @@
   --grain-scale: 1;
   --grain-seed: 1;
   position: relative;
-  width: 85%;
-  max-width: 450px;
-  padding-top: 85%; /* Maintain the same aspect ratio as width */
+  width: 100%;
+  max-width: 700px;
+  padding-top: 100%;
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--card-scale));
   will-change: transform;
