@@ -28,8 +28,10 @@ function lerp(p1: number, p2: number, t: number): number {
 function autoBind(instance: object): void {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach((key) => {
-    if (key !== "constructor" && typeof (instance as Record<string, unknown>)[key] === "function") {
-      (instance as Record<string, unknown>)[key] = ((instance as Record<string, unknown>)[key] as Function).bind(instance);
+    const value = (instance as Record<string, unknown>)[key];
+    if (key !== "constructor" && typeof value === "function") {
+      const boundFunction = value.bind(instance);
+      (instance as Record<string, unknown>)[key] = boundFunction;
     }
   });
 }
