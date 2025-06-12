@@ -184,11 +184,11 @@ const Home: NextPage = () => {
         {/* Background Animation */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
           <LiquidChrome
-            baseColor={[0.05, 0.05, 0.05]}
-            speed={0.15}
-            amplitude={0.4}
-            frequencyX={2}
-            frequencyY={1.5}
+            baseColor={[0.03, 0.03, 0.05]}
+            speed={0.08}
+            amplitude={0.25}
+            frequencyX={1.5}
+            frequencyY={1.2}
             interactive={true}
           />
         </div>
