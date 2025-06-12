@@ -318,7 +318,7 @@ const Home: NextPage = () => {
                       <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
                     </div>
                     <div className="flex flex-col items-end">
-                      <p className="text-gray-400">Jan'23 - Dec'24</p>
+                      <p className="text-gray-400">Jan&apos;23 - Dec&apos;24</p>
                       <div className="flex items-center mt-2">
                         <span className="text-emerald-400 font-semibold">GPA: 3.95</span>
                       </div>
@@ -365,7 +365,7 @@ const Home: NextPage = () => {
                       <p className="text-xl text-purple-400 mb-2">BML Munjal University, New Delhi, India</p>
                     </div>
                     <div className="flex flex-col items-end">
-                      <p className="text-gray-400">Aug'17 - Aug'21</p>
+                      <p className="text-gray-400">Aug&apos;17 - Aug&apos;21</p>
                       <div className="flex items-center mt-2">
                         <span className="text-emerald-400 font-semibold">GPA: 3.5</span>
                       </div>
