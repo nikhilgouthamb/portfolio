@@ -984,182 +984,176 @@ const Home: NextPage = () => {
         </section>
 
         {/* Find Me Here Section */}
-        <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
-          <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
-          <ul className="m-0 p-0 flex flex-col gap-8">
+        <section id="social" className="relative w-full min-h-screen bg-[#e5e5e5] flex flex-col items-center justify-center py-20">
+          <h2 className="text-4xl font-bold text-[#262626] mb-16">Find Me Here</h2>
+          <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
             {/* LinkedIn */}
-            <li className="list-none">
+            <li className="list-none perspective-[1000px]">
               <a
                 href="https://www.linkedin.com/in/nikhilgoutham"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
-                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
-                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
-                         hover:bg-[#0077B5] before:content-[''] before:absolute before:top-[10px] before:-left-5 
-                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
-                         hover:before:bg-[#006396] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
-                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
-                         hover:after:bg-[#0083c4]"
+                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
+                         transform-gpu transition-transform duration-500 ease-in-out
+                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
+                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
+                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
+                         before:bg-[#0077B5] before:opacity-0 before:transition-opacity before:duration-500
+                         group-hover:before:opacity-100"
               >
-                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
+                <div className="flex items-center gap-4 h-full">
                   <Image
                     src="/linkedin_cg.png"
                     alt="LinkedIn"
-                    width={40}
-                    height={40}
-                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    width={30}
+                    height={30}
+                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
                   />
-                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
-                    LinkedIn
+                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
+                    - LinkedIn
                   </span>
                 </div>
               </a>
             </li>
 
             {/* GitHub */}
-            <li className="list-none">
+            <li className="list-none perspective-[1000px]">
               <a
                 href="https://github.com/nikhilgouthamb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
-                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
-                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
-                         hover:bg-[#333] before:content-[''] before:absolute before:top-[10px] before:-left-5 
-                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
-                         hover:before:bg-[#2b2b2b] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
-                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
-                         hover:after:bg-[#3a3a3a]"
+                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
+                         transform-gpu transition-transform duration-500 ease-in-out
+                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
+                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
+                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
+                         before:bg-[#333] before:opacity-0 before:transition-opacity before:duration-500
+                         group-hover:before:opacity-100"
               >
-                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
+                <div className="flex items-center gap-4 h-full">
                   <Image
                     src="/github_cg.png"
                     alt="GitHub"
-                    width={40}
-                    height={40}
-                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    width={30}
+                    height={30}
+                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
                   />
-                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
-                    GitHub
+                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#333]">
+                    - GitHub
                   </span>
                 </div>
               </a>
             </li>
 
             {/* Medium */}
-            <li className="list-none">
+            <li className="list-none perspective-[1000px]">
               <a
                 href="https://medium.com/@nikhilgoutham.b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
-                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
-                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
-                         hover:bg-[#00ab6c] before:content-[''] before:absolute before:top-[10px] before:-left-5 
-                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
-                         hover:before:bg-[#009a61] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
-                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
-                         hover:after:bg-[#00bc77]"
+                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
+                         transform-gpu transition-transform duration-500 ease-in-out
+                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
+                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
+                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
+                         before:bg-[#00ab6c] before:opacity-0 before:transition-opacity before:duration-500
+                         group-hover:before:opacity-100"
               >
-                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
+                <div className="flex items-center gap-4 h-full">
                   <Image
                     src="/medium_cg.png"
                     alt="Medium"
-                    width={40}
-                    height={40}
-                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    width={30}
+                    height={30}
+                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
                   />
-                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
-                    Medium
+                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
+                    - Medium
                   </span>
                 </div>
               </a>
             </li>
 
             {/* Kaggle */}
-            <li className="list-none">
+            <li className="list-none perspective-[1000px]">
               <a
                 href="https://www.kaggle.com/nikhilbudarayavalasa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
-                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
-                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
-                         hover:bg-[#20beff] before:content-[''] before:absolute before:top-[10px] before:-left-5 
-                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
-                         hover:before:bg-[#1ca7e3] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
-                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
-                         hover:after:bg-[#37c7ff]"
+                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
+                         transform-gpu transition-transform duration-500 ease-in-out
+                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
+                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
+                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
+                         before:bg-[#20beff] before:opacity-0 before:transition-opacity before:duration-500
+                         group-hover:before:opacity-100"
               >
-                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
+                <div className="flex items-center gap-4 h-full">
                   <Image
                     src="/k.png"
                     alt="Kaggle"
-                    width={40}
-                    height={40}
-                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    width={30}
+                    height={30}
+                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
                   />
-                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
-                    Kaggle
+                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
+                    - Kaggle
                   </span>
                 </div>
               </a>
             </li>
 
             {/* Gmail */}
-            <li className="list-none">
+            <li className="list-none perspective-[1000px]">
               <a
                 href="mailto:bnikhilgoutham@gmail.com"
-                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
-                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
-                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
-                         hover:bg-[#ea4335] before:content-[''] before:absolute before:top-[10px] before:-left-5 
-                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
-                         hover:before:bg-[#d33a2c] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
-                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
-                         hover:after:bg-[#ec5b4e]"
+                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
+                         transform-gpu transition-transform duration-500 ease-in-out
+                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
+                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
+                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
+                         before:bg-[#ea4335] before:opacity-0 before:transition-opacity before:duration-500
+                         group-hover:before:opacity-100"
               >
-                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
+                <div className="flex items-center gap-4 h-full">
                   <Image
                     src="/gmail_cg.png"
                     alt="Gmail"
-                    width={40}
-                    height={40}
-                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    width={30}
+                    height={30}
+                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
                   />
-                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
-                    Gmail
+                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
+                    - Gmail
                   </span>
                 </div>
               </a>
             </li>
 
             {/* Streamlit */}
-            <li className="list-none">
+            <li className="list-none perspective-[1000px]">
               <a
                 href="https://share.streamlit.io/user/nikhilgouthamb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
-                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
-                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
-                         hover:bg-[#ff4b4b] before:content-[''] before:absolute before:top-[10px] before:-left-5 
-                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
-                         hover:before:bg-[#e64242] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
-                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
-                         hover:after:bg-[#ff6464]"
+                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
+                         transform-gpu transition-transform duration-500 ease-in-out
+                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
+                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
+                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
+                         before:bg-[#ff4b4b] before:opacity-0 before:transition-opacity before:duration-500
+                         group-hover:before:opacity-100"
               >
-                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
+                <div className="flex items-center gap-4 h-full">
                   <Image
                     src="/s.png"
                     alt="Streamlit"
-                    width={40}
-                    height={40}
-                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    width={30}
+                    height={30}
+                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
                   />
-                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
-                    Streamlit
+                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
+                    - Streamlit
                   </span>
                 </div>
               </a>
