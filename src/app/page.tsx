@@ -992,21 +992,21 @@ const Home: NextPage = () => {
               href="https://www.linkedin.com/in/nikhilgoutham"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/20"
+              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(59,130,246,0.15)] will-change-transform"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
                   <Image
                     src="/linkedin_cg.png"
                     alt="LinkedIn"
                     width={64}
                     height={64}
-                    className="object-contain filter brightness-0 invert"
+                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">LinkedIn</h3>
+                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-blue-400">LinkedIn</h3>
               </div>
             </a>
 
@@ -1015,21 +1015,21 @@ const Home: NextPage = () => {
               href="https://github.com/nikhilgouthamb"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-gray-500/20"
+              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(156,163,175,0.15)] will-change-transform"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
                   <Image
                     src="/github_cg.png"
                     alt="GitHub"
                     width={64}
                     height={64}
-                    className="object-contain filter brightness-0 invert"
+                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-gray-400 transition-colors duration-500">GitHub</h3>
+                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-gray-400">GitHub</h3>
               </div>
             </a>
 
@@ -1038,21 +1038,21 @@ const Home: NextPage = () => {
               href="https://medium.com/@nikhilgoutham.b"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-500/20"
+              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(34,197,94,0.15)] will-change-transform"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
                   <Image
                     src="/medium_cg.png"
                     alt="Medium"
                     width={64}
                     height={64}
-                    className="object-contain filter brightness-0 invert"
+                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-500">Medium</h3>
+                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-green-400">Medium</h3>
               </div>
             </a>
 
@@ -1061,42 +1061,42 @@ const Home: NextPage = () => {
               href="https://www.kaggle.com/nikhilbudarayavalasa"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-400/20"
+              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(96,165,250,0.15)] will-change-transform"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
                   <Image
                     src="/k.png"
                     alt="Kaggle"
                     width={64}
                     height={64}
-                    className="object-contain filter brightness-0 invert"
+                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">Kaggle</h3>
+                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-blue-400">Kaggle</h3>
               </div>
             </a>
 
             {/* Gmail */}
             <a
               href="mailto:bnikhilgoutham@gmail.com"
-              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20"
+              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(239,68,68,0.15)] will-change-transform"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
                   <Image
                     src="/gmail_cg.png"
                     alt="Gmail"
                     width={64}
                     height={64}
-                    className="object-contain filter brightness-0 invert"
+                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors duration-500">Gmail</h3>
+                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-red-400">Gmail</h3>
               </div>
             </a>
 
@@ -1105,21 +1105,21 @@ const Home: NextPage = () => {
               href="https://share.streamlit.io/user/nikhilgouthamb"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-400/20"
+              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(248,113,113,0.15)] will-change-transform"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4 transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-16 h-16 relative transform group-hover:rotate-6 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
                   <Image
                     src="/s.png"
                     alt="Streamlit"
                     width={64}
                     height={64}
-                    className="object-contain filter brightness-0 invert"
+                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-red-400 transition-colors duration-500">Streamlit</h3>
+                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-red-400">Streamlit</h3>
               </div>
             </a>
           </div>
