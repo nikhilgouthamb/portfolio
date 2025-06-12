@@ -57,4 +57,41 @@
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: rgba(255, 255, 255, 0.2); }
+}
+
+/* Avatar Animations */
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit 4s linear infinite;
+}
+
+.animate-orbit-delayed {
+  animation: orbit 4s linear infinite;
+  animation-delay: -2s;
+}
+
+.animate-orbit-delayed-more {
+  animation: orbit 4s linear infinite;
+  animation-delay: -1s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 } 

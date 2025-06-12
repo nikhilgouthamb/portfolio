@@ -236,16 +236,25 @@ const Home: NextPage = () => {
           <div className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
-            {/* Profile Image */}
-            <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-white/10 transform hover:scale-110 transition-transform duration-500 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
-              <Image
-                src="/profile.jpg"
-                alt="Nikhil Goutham"
-                fill
-                className="object-cover"
-                priority
-              />
+            {/* Abstract Avatar */}
+            <div className="relative w-32 h-32 mx-auto mb-8">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 animate-spin-slow"></div>
+              <div className="absolute inset-2 rounded-full bg-[#0a0a0a]"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                  NG
+                </span>
+              </div>
+              {/* Orbiting Dots */}
+              <div className="absolute inset-0 animate-orbit">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-blue-400"></div>
+              </div>
+              <div className="absolute inset-0 animate-orbit-delayed">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-purple-400"></div>
+              </div>
+              <div className="absolute inset-0 animate-orbit-delayed-more">
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-2 h-2 rounded-full bg-pink-400"></div>
+              </div>
             </div>
 
             {/* Name with Animated Gradient */}
