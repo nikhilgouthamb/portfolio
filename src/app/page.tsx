@@ -10,6 +10,7 @@ import { type NextPage } from 'next';
 import ProfileCard from '@/components/ProfileCard';
 import Threads from '@/components/Threads';
 import Script from 'next/script';
+import LiquidChrome from "@/components/LiquidChrome";
 
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -178,198 +179,1072 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div>
+    <>
       <main className="relative min-h-screen w-full bg-[#0a0a0a]">
         {/* Background Animation */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <div className="particles-animation absolute inset-0">
-            <canvas id="particles-canvas" className="w-full h-full"></canvas>
+          <LiquidChrome
+            baseColor={[0.05, 0.05, 0.05]}
+            speed={0.15}
+            amplitude={0.4}
+            frequencyX={2}
+            frequencyY={1.5}
+            interactive={true}
+          />
+        </div>
+
+        {/* Rest of your content with higher z-index */}
+        <div className="relative z-10">
+          {/* Navigation */}
+          <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-end h-20 gap-10">
+                <a href="#about" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                About
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#projects" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                  Experience & Projects
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#skills" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                Skills
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#social" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                  Social
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#contact" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                Contact
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
           </div>
         </div>
+      </nav>
 
-        <div className="relative z-10">
-          {/* Hero Section */}
-          <section className="min-h-screen flex items-center justify-center py-20">
-            <ProfileCard avatarUrl="/profile.jpg" />
-          </section>
-
-          {/* Find Me Here Section */}
-          <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
-            <div className="flex flex-col items-center mb-16">
-              <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Find Me Here</h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
+        {/* Content */}
+        <div className="container mx-auto relative z-10">
+          <div 
+            className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+                <div className="relative inline-block mb-6">
+                  <h1 className={`text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
+              Hi, I&apos;m Nikhil Goutham
+            </h1>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+                </div>
+                <p className={`text-xl md:text-2xl text-gray-300 mb-12 ${styles['animate-fade-in']}`}>
+              Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
+            </p>
+                <div className={`flex flex-col md:flex-row gap-6 justify-center ${styles['animate-fade-in-up']}`}>
+              <Link 
+                href="#projects"
+                    className="group relative px-8 py-4 text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl transition-all duration-300 hover:from-blue-500 hover:to-purple-500 overflow-hidden"
+              >
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative inline-flex items-center">
+                  View My Work
+                      <svg className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                </span>
+              </Link>
+              <Link 
+                href="#contact"
+                    className="group relative px-8 py-4 text-white border border-white/20 rounded-xl transition-all duration-300 hover:border-white/40 overflow-hidden"
+              >
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative inline-flex items-center">
+                  Get in Touch
+                      <svg className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16-6l-8 8-8-8" />
+                      </svg>
+                </span>
+              </Link>
             </div>
-            <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
-              {/* LinkedIn */}
-              <li className="list-none">
-                <a
-                  href="https://www.linkedin.com/in/nikhilgoutham"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/linkedin_cg.png"
-                      alt="LinkedIn"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
-                      - LinkedIn
-                    </span>
-                  </div>
-                </a>
-              </li>
+          </div>
+        </div>
+      </section>
 
-              {/* GitHub */}
-              <li className="list-none">
-                <a
-                  href="https://github.com/nikhilgouthamb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/github_cg.png"
-                      alt="GitHub"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
-                      - GitHub
-                    </span>
+      {/* About Section */}
+          <section id="about" className="relative min-h-screen w-full bg-[#0a0a0a] flex flex-col items-center justify-center">
+            <div className="absolute inset-0">
+              <Threads />
+            </div>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+              <div className="flex flex-col items-center mb-16">
+                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Who is this guy?</h2>
+                <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+              </div>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="space-y-8 order-2 md:order-1">
+                  <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 transform hover:scale-105 transition-transform duration-300">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
+                from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
+              </p>
                   </div>
-                </a>
-              </li>
-
-              {/* Medium */}
-              <li className="list-none">
-                <a
-                  href="https://medium.com/@nikhilgoutham.b"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/medium_cg.png"
-                      alt="Medium"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
-                      - Medium
-                    </span>
+                  <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 transform hover:scale-105 transition-transform duration-300">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
+                deploy data-driven solutions that enhance business decision-making.
+              </p>
                   </div>
-                </a>
-              </li>
-
-              {/* Kaggle */}
-              <li className="list-none">
-                <a
-                  href="https://www.kaggle.com/nikhilbudarayavalasa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/k.png"
-                      alt="Kaggle"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
-                      - Kaggle
-                    </span>
-                  </div>
-                </a>
-              </li>
-
-              {/* Gmail */}
-              <li className="list-none">
-                <a
-                  href="mailto:bnikhilgoutham@gmail.com"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/gmail_cg.png"
-                      alt="Gmail"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
-                      - Gmail
-                    </span>
-                  </div>
-                </a>
-              </li>
-
-              {/* Streamlit */}
-              <li className="list-none">
-                <a
-                  href="https://share.streamlit.io/user/nikhilgouthamb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
-                >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/s.png"
-                      alt="Streamlit"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
-                      - Streamlit
-                    </span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
-
-          {/* Footer */}
-          <footer className="w-full py-8">
-            <div className="container mx-auto px-4">
-              <div className="mt-12 pt-8 border-t border-gray-800">
-                <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
+            </div>
+            <div className="order-1 md:order-2 flex justify-center items-center p-4">
+                  <div className="w-full max-w-[380px] transform hover:scale-105 transition-transform duration-300">
+                    <ProfileCard avatarUrl="/profile.jpg" />
               </div>
             </div>
-          </footer>
+          </div>
         </div>
-      </main>
+      </section>
 
-      <Script id="particles-animation">{`
-        function initParticles() {
-          const canvas = document.getElementById('particles-canvas');
+      {/* Education Section */}
+      <section className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
+        <div className="container mx-auto relative">
+              <div className="flex flex-col items-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Education</h2>
+                <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+              </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Masters Degree */}
+                <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transform hover:scale-[1.02]">
+              <div className="space-y-6">
+                    <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Master of Science in Data Science</h3>
+                  <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <p className="text-gray-400">Jan&apos;23 - Dec&apos;24</p>
+                        <div className="flex items-center mt-2">
+                      <span className="text-emerald-400 font-semibold">GPA: 3.95</span>
+                    </div>
+                  </div>
+                    </div>
+                    <div className="mt-6 space-y-4">
+                    <div className="space-y-2 text-gray-300">
+                        <p className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                          Specialized in advanced analytics, machine learning, and data engineering
+                        </p>
+                        <p className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                          Focused on developing scalable solutions for real-world data challenges
+                        </p>
+                        <p className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                          Applied AI/ML techniques to solve complex business problems
+                        </p>
+                    </div>
+                      <div className="pt-6 border-t border-white/10">
+                        <p className="text-gray-300 font-medium mb-4">Relevant Coursework:</p>
+                      <div className="flex flex-wrap gap-3">
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Big Data</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Machine Learning</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Deep Learning</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Cloud Computing</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Data Visualization</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Data Mining</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Statistics</span>
+                          <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">R</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bachelors Degree */}
+                <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] transform hover:scale-[1.02]">
+              <div className="space-y-6">
+                    <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Bachelor of Technology in Mechanical Engineering</h3>
+                        <p className="text-xl text-purple-400 mb-2">BML Munjal University, New Delhi, India</p>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <p className="text-gray-400 whitespace-nowrap">Aug&apos;17-Aug&apos;21</p>
+                        <div className="flex items-center mt-2">
+                      <span className="text-emerald-400 font-semibold">GPA: 3.5</span>
+                    </div>
+                  </div>
+                    </div>
+                    <div className="mt-6 space-y-4">
+                      <div className="space-y-2 text-gray-300">
+                        <p className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                          Received academic scholarship for outstanding performance
+                        </p>
+                        <p className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                          Sports Coordinator, Hero Challenge Fest (Jan-Feb 2018)
+                        </p>
+                        <p className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                          Sports Representative Head, Banyan League (Jan-Feb 2019)
+                        </p>
+                      </div>
+                      <div className="pt-6 border-t border-white/10">
+                        <p className="text-gray-300 font-medium mb-4">Key Achievements:</p>
+                        <div className="space-y-3 text-sm text-gray-400">
+                          <p className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-purple-500 rounded-full mr-3 mt-1.5"></span>
+                            Managed logistics for multiple teams, overseeing transportation, deliveries, inventory, and supply chain processes
+                          </p>
+                          <p className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-purple-500 rounded-full mr-3 mt-1.5"></span>
+                            Collaborated with cross-functional stakeholders to optimize workflows and enhance team productivity
+                          </p>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-6">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Experience & Projects</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Verizon Project Card */}
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-600/90 to-red-800/90">
+                <Image
+                  src="/verizon-v.png"
+                  alt="Verizon Logo"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Verizon Capstone Project</h3>
+                  <p className="text-gray-200 text-sm">
+                    Advanced fault detection system using ML
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">XGBoost</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ML</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Verizon Capstone Project</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Led the development of an advanced fault detection system using XGBoost models. 
+                        Processed and analyzed large-scale JSON logs for pattern recognition, and created 
+                        comprehensive Tableau dashboards for real-time operational monitoring. Leveraged NJIT&apos;s 
+                        Wulver High Performance Computing system for efficient processing of 50GB+ dataset, 
+                        utilizing multiple nodes and GPU acceleration for enhanced computational performance.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">XGBoost</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Snowflake</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ML</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Kansas City Crimes Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90">
+                <Image
+                  src="/kansas-city-crime.jpg"
+                  alt="Kansas City Crime Analysis"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Kansas City Crime Analysis</h3>
+                  <p className="text-gray-200 text-sm">
+                    Interactive crime data visualization and analysis
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Data Analysis</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Visualization</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Kansas City Crime Analysis</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed an interactive Tableau dashboard analyzing crime data from 2016-2022. 
+                        Features include COVID-19 impact analysis, crime hotspot identification, and 
+                        demographic trend analysis. Created comprehensive visualizations for law enforcement 
+                        and city planning insights.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Analysis</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Visualization</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">GIS</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Statistics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* R Web Scraping Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Web-scraping-using-R"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/90 to-purple-600/90">
+                <Image
+                  src="/r-web-scraping.jpg"
+                  alt="R Web Scraping Project"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Web Scraping with R</h3>
+                  <p className="text-gray-200 text-sm">
+                    Automated data extraction from Genome Biology articles
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">R</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Web Scraping</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Data Analysis</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Web Scraping with R</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed an automated web scraping solution using R to extract and analyze articles 
+                        from Genome Biology. The tool collects comprehensive data including titles, authors, 
+                        affiliations, publication dates, abstracts, and full text content, enabling efficient 
+                        scientific literature analysis.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">R Programming</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">rvest</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">dplyr</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Mining</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Web Scraping</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* USA House Price Prediction Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/USA-House-Price-Prediction"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-emerald-800/90">
+                <Image
+                  src="/house.jpg"
+                  alt="USA House Price Prediction"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">USA House Price Prediction</h3>
+                  <p className="text-gray-200 text-sm">
+                    ML-powered real estate price prediction system
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Machine Learning</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Python</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Regression</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">USA House Price Prediction</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a comprehensive machine learning solution using multiple regression models 
+                        (Random Forest, Gradient Boosting, Ridge CV, ElasticNet CV) to predict U.S. house prices. 
+                        Analyzed key variables including bedrooms, bathrooms, size, and location to extract patterns 
+                        for accurate price predictions in real estate applications.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Random Forest</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Gradient Boosting</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Ridge CV</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ElasticNet CV</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Feature Engineering</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Parkinson's Disease Prediction Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction"
+            target="_blank"
+            rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+          >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/90 to-indigo-800/90">
+            <Image
+                  src="/Parkinsons_disease.jpg"
+                  alt="Parkinson's Disease Progression Prediction"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Parkinson&apos;s Disease Prediction</h3>
+                  <p className="text-gray-200 text-sm">
+                    Time series forecasting for disease progression
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Time Series</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ARIMA</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Healthcare</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Parkinson&apos;s Disease Prediction</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a predictive model for Parkinson&apos;s disease progression using time series 
+                        forecasting with ARIMA models. Analyzed peptide abundance, protein expression, and clinical 
+                        data to predict UPDRS scores. Implemented comprehensive data preprocessing and feature 
+                        engineering for enhanced prediction accuracy.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Time Series Analysis</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ARIMA Models</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Preprocessing</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Feature Engineering</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Healthcare Analytics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Library Database Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation"
+            target="_blank"
+            rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/90 to-orange-800/90">
+                <Image
+                  src="/library.jpg"
+                  alt="Library Database Management System"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Library Management System</h3>
+                  <p className="text-gray-200 text-sm">
+                    Full-stack library database system with GUI
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Python</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">SQLite</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tkinter</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Library Management System</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a comprehensive library management system with a user-friendly GUI using Python and Tkinter. 
+                        Features include document checkout/return, fine computation, reader management, and advanced search capabilities. 
+                        Implemented robust database operations using SQLite for efficient data management and retrieval.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">SQLite</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tkinter</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">GUI Development</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Database Design</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="relative py-20 px-6">
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-purple-900/10" />
+        <div className="container mx-auto relative">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Skills & Technologies</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 ${styles['scale-on-hover']}`}>
+              <h3 className="text-xl font-bold mb-4 text-blue-400">Programming & ML</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>Python</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>R</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>SQL</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>TensorFlow</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>PyTorch</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>Scikit-Learn</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 ${styles['scale-on-hover']}`}>
+              <h3 className="text-xl font-bold mb-4 text-purple-400">Data Engineering</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>Apache Airflow</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>Snowflake</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>Databricks</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>Apache Spark</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>Hadoop</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span>ETL Pipelines</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 ${styles['scale-on-hover']}`}>
+              <h3 className="text-xl font-bold mb-4 text-pink-400">Cloud & DevOps</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span>AWS</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span>Google Cloud</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span>Azure</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span>Docker</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span>Kubernetes</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span>CI/CD Pipelines</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 ${styles['scale-on-hover']}`}>
+              <h3 className="text-xl font-bold mb-4 text-indigo-400">Data Analysis</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Tableau</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Power BI</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>A/B Testing</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Statistical Analysis</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Data Visualization</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span>Time Series Analysis</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section id="resume" className="py-20 px-6 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              Want to see my resume?
+            </h2>
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-800/50 transform hover:scale-105 transition-all duration-300">
+              <div className="text-center space-y-6">
+                <div className="text-xl text-gray-300">
+                  Plot twist: My resume is like a tech startup - 
+                  <span className="italic"> constantly iterating and shipping new features! </span>
+                </div>
+                <p className="text-gray-400">
+                  Between you and me, I&apos;m learning faster than my printer can keep up with! 
+                  Drop me a line for the latest version - it might have changed while you were reading this! 😄
+                </p>
+                <Link 
+                  href="#contact"
+                  className="inline-block px-8 py-3 text-gray-300 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+                >
+                  Request Latest Build v{new Date().toISOString().split('T')[0]} 🎮
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Background decoration */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="absolute w-64 h-64 -left-32 top-0 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute w-64 h-64 -right-32 bottom-0 bg-purple-500/20 rounded-full blur-3xl"></div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-blue-900/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
+        
+        <div className="container mx-auto max-w-4xl relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              Get in Touch
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Have a question or want to work together? I&apos;d love to hear from you.
+            </p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
+            <form 
+              ref={formRef}
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
+                  placeholder="Your name"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
+                  placeholder="your@email.com"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
+                  placeholder="Your message here..."
+                  required
+                  disabled={isSubmitting}
+                ></textarea>
+              </div>
+
+              {submitStatus.type && (
+                <div 
+                  className={`p-4 rounded-xl ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                  }`}
+                  role="alert"
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`
+                    px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 
+                    rounded-xl text-white font-medium 
+                    hover:from-blue-600 hover:to-purple-600 
+                    transform transition-all duration-300 
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 
+                    focus:ring-offset-2 focus:ring-offset-gray-900
+                    disabled:opacity-50 disabled:cursor-not-allowed
+                    ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}
+                  `}
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+            {/* Find Me Here Section */}
+            <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+              <div className="flex flex-col items-center mb-16">
+                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Find Me Here</h2>
+                <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            </div>
+              <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
+                {/* LinkedIn */}
+                <li className="list-none">
+                  <a
+                    href="https://www.linkedin.com/in/nikhilgoutham"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
+                             hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
+                  >
+                    <div className="flex items-center gap-4 h-full">
+                      <Image
+                        src="/linkedin_cg.png"
+                        alt="LinkedIn"
+                        width={30}
+                        height={30}
+                        className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                      />
+                      <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
+                        - LinkedIn
+                      </span>
+                    </div>
+                  </a>
+                </li>
+
+                {/* GitHub */}
+                <li className="list-none">
+                  <a
+                    href="https://github.com/nikhilgouthamb"
+          target="_blank"
+          rel="noopener noreferrer"
+                    className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                             hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
+                             hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                  >
+                    <div className="flex items-center gap-4 h-full">
+                      <Image
+                        src="/github_cg.png"
+                        alt="GitHub"
+                        width={30}
+                        height={30}
+                        className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                      />
+                      <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
+                        - GitHub
+                      </span>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Medium */}
+                <li className="list-none">
+                  <a
+                    href="https://medium.com/@nikhilgoutham.b"
+          target="_blank"
+          rel="noopener noreferrer"
+                    className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
+                             hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
+                  >
+                    <div className="flex items-center gap-4 h-full">
+                      <Image
+                        src="/medium_cg.png"
+                        alt="Medium"
+                        width={30}
+                        height={30}
+                        className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                      />
+                      <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
+                        - Medium
+                      </span>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Kaggle */}
+                <li className="list-none">
+                  <a
+                    href="https://www.kaggle.com/nikhilbudarayavalasa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                    className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
+                             hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
+                  >
+                    <div className="flex items-center gap-4 h-full">
+                      <Image
+                        src="/k.png"
+                        alt="Kaggle"
+                        width={30}
+                        height={30}
+                        className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                      />
+                      <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
+                        - Kaggle
+                      </span>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Gmail */}
+                <li className="list-none">
+                  <a
+                    href="mailto:bnikhilgoutham@gmail.com"
+                    className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
+                             hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
+                  >
+                    <div className="flex items-center gap-4 h-full">
+                      <Image
+                        src="/gmail_cg.png"
+                        alt="Gmail"
+                        width={30}
+                        height={30}
+                        className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                      />
+                      <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
+                        - Gmail
+                      </span>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Streamlit */}
+                <li className="list-none">
+                  <a
+                    href="https://share.streamlit.io/user/nikhilgouthamb"
+          target="_blank"
+          rel="noopener noreferrer"
+                    className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
+                             hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
+                  >
+                    <div className="flex items-center gap-4 h-full">
+                      <Image
+                        src="/s.png"
+                        alt="Streamlit"
+                        width={30}
+                        height={30}
+                        className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                      />
+                      <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
+                        - Streamlit
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            {/* Footer */}
+            <footer className="bg-[#0a0a0a] text-white py-16">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4">Nikhil Goutham</h3>
+                    <p className="text-gray-400 mb-4">
+                      Data Scientist focused on building scalable AI solutions and data-driven insights.
+                    </p>
+                    <p className="text-gray-400">bnikhilgoutham@gmail.com</p>
+              </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+                      <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">Experience</a></li>
+                      <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                      <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+            </div>
+          </div>
+                <div className="mt-12 pt-8 border-t border-gray-800">
+                  <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+        </div>
+    </main>
+
+      <Script id="constellation-animation">{`
+        function initConstellation() {
+          const canvas = document.getElementById('constellation-canvas');
           const ctx = canvas.getContext('2d');
           let width = canvas.width = window.innerWidth;
           let height = canvas.height = window.innerHeight;
@@ -377,12 +1252,12 @@ const Home: NextPage = () => {
           const particles = [];
           const properties = {
             bgColor: 'rgba(10, 10, 10, 1)',
-            particleCount: 50,
-            particleColor: 'rgba(255, 255, 255, 0.5)',
-            minSize: 1,
-            maxSize: 3,
-            minSpeed: 0.05,
-            maxSpeed: 0.2
+            particleColor: 'rgba(255, 255, 255, 0.1)',
+            particleRadius: 3,
+            particleCount: 60,
+            particleMaxVelocity: 0.5,
+            lineLength: 150,
+            particleLife: 6
           };
 
           window.onresize = function() {
@@ -392,76 +1267,103 @@ const Home: NextPage = () => {
 
           class Particle {
             constructor() {
-              this.reset();
-            }
-
-            reset() {
               this.x = Math.random() * width;
               this.y = Math.random() * height;
-              this.size = Math.random() * (properties.maxSize - properties.minSize) + properties.minSize;
-              this.speedX = (Math.random() * (properties.maxSpeed - properties.minSpeed) + properties.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-              this.speedY = (Math.random() * (properties.maxSpeed - properties.minSpeed) + properties.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-              this.opacity = Math.random() * 0.5 + 0.2;
-              this.fadeDirection = Math.random() < 0.5 ? -1 : 1;
+              this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+              this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+              this.life = Math.random() * properties.particleLife * 60;
             }
 
-            update() {
-              // Update position
-              this.x += this.speedX;
-              this.y += this.speedY;
-
-              // Update opacity
-              this.opacity += 0.005 * this.fadeDirection;
-              
-              if (this.opacity > 0.7) this.fadeDirection = -1;
-              if (this.opacity < 0.2) this.fadeDirection = 1;
-
-              // Check bounds
-              if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-                this.reset();
-              }
+            position() {
+              this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
+              this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
+              this.x += this.velocityX;
+              this.y += this.velocityY;
             }
 
-            draw() {
+            reDraw() {
               ctx.beginPath();
-              ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-              ctx.fillStyle = \`rgba(255, 255, 255, \${this.opacity})\`;
+              ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+              ctx.closePath();
+              ctx.fillStyle = properties.particleColor;
               ctx.fill();
             }
-          }
 
-          function createParticles() {
-            for (let i = 0; i < properties.particleCount; i++) {
-              particles.push(new Particle());
+            reCalculateLife() {
+              if(this.life < 1) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+                this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+                this.life = Math.random() * properties.particleLife * 60;
+              }
+              this.life--;
             }
           }
 
-          function animate() {
+          function reDrawBackground() {
             ctx.fillStyle = properties.bgColor;
             ctx.fillRect(0, 0, width, height);
-
-            particles.forEach(particle => {
-              particle.update();
-              particle.draw();
-            });
-
-            requestAnimationFrame(animate);
           }
 
-          createParticles();
-          animate();
+          function drawLines() {
+            let x1, y1, x2, y2, length, opacity;
+            for(let i in particles) {
+              for(let j in particles) {
+                x1 = particles[i].x;
+                y1 = particles[i].y;
+                x2 = particles[j].x;
+                y2 = particles[j].y;
+                length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                if(length < properties.lineLength) {
+                  opacity = 1 - length / properties.lineLength;
+                  ctx.lineWidth = 0.5;
+                  ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                  ctx.beginPath();
+                  ctx.moveTo(x1, y1);
+                  ctx.lineTo(x2, y2);
+                  ctx.closePath();
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+
+          function reDrawParticles() {
+            for(let i in particles) {
+              particles[i].reCalculateLife();
+              particles[i].position();
+              particles[i].reDraw();
+            }
+          }
+
+          function loop() {
+            reDrawBackground();
+            reDrawParticles();
+            drawLines();
+            requestAnimationFrame(loop);
+          }
+
+          function init() {
+            for(let i = 0; i < properties.particleCount; i++) {
+              particles.push(new Particle);
+            }
+            loop();
+          }
+
+          init();
         }
 
         // Initialize the animation when the component mounts
         if (typeof window !== 'undefined') {
           if (document.readyState === 'complete') {
-            initParticles();
+            initConstellation();
           } else {
-            window.addEventListener('load', initParticles);
+            window.addEventListener('load', initConstellation);
           }
         }
       `}</Script>
-    </div>
+    </>
   );
 }
 
