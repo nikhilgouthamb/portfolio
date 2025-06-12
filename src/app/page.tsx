@@ -241,9 +241,9 @@ const Home: NextPage = () => {
             {/* Main Heading */}
             <div className="relative mb-6">
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
-                Data Science
+                Building the Future
                 <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-                  Reimagined
+                  with AI & Data
                 </span>
               </h1>
             </div>
@@ -251,12 +251,10 @@ const Home: NextPage = () => {
             {/* Description */}
             <div className="mb-12 relative">
               <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-                Transforming complex data challenges into 
-                <span className="text-blue-400"> innovative solutions</span>. 
-                Specializing in
-                <span className="text-purple-400"> machine learning</span>,
-                <span className="text-pink-400"> deep learning</span>, and
-                <span className="text-yellow-400"> artificial intelligence</span>.
+                Creating intelligent systems that solve real-world challenges through
+                <span className="text-blue-400"> machine learning</span>,
+                <span className="text-purple-400"> deep learning</span>, and
+                <span className="text-pink-400"> artificial intelligence</span>.
               </p>
             </div>
 
@@ -268,7 +266,7 @@ const Home: NextPage = () => {
               >
                 <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
                 <span className="relative flex items-center gap-2">
-                  Explore My Work
+                  View Projects
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -281,7 +279,7 @@ const Home: NextPage = () => {
               >
                 <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
                 <span className="relative flex items-center gap-2">
-                  Let's Connect
+                  Contact Me
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l4-4m0 0l4 4m-4-4v12" />
                   </svg>
