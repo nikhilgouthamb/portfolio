@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import styles from './animations.module.css';
+import styles from './page.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
 import { type NextPage } from 'next';
@@ -34,6 +34,24 @@ const Home: NextPage = () => {
   useEffect(() => {
     // Initialize EmailJS with your public key
     emailjs.init("uqsCm_Maqt80_Znbl");
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.reveal').forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   // Email template HTML:
@@ -185,208 +203,149 @@ const Home: NextPage = () => {
   };
 
   return (
-    <main className="relative min-h-screen w-full bg-[#0a0a0a]">
-      {/* Threads Background */}
-      <div className="fixed inset-0 z-0">
-        <Threads
-          color={[0.4, 0.6, 0.8]}
-          amplitude={0.8}
-          distance={0.1}
-          enableMouseInteraction={true}
-        />
-      </div>
-
-      {/* Rest of your content with higher z-index */}
-      <div className="relative z-10">
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-lg border-b border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-end h-16 gap-8">
-              <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-              <a href="#projects" className="text-gray-300 hover:text-white transition-colors">Experience & Projects</a>
-              <a href="#skills" className="text-gray-300 hover:text-white transition-colors">Skills</a>
-              <a href="#social" className="text-gray-300 hover:text-white transition-colors">Social</a>
-              <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
+    <main className="flex min-h-screen flex-col items-center justify-between no-flash">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-screen flex items-center justify-center py-20 px-6">
+        {/* Content */}
+        <div className="container mx-auto relative z-10">
+          <div 
+            className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+            style={{
+              transition: 'transform 0.3s ease'
+            }}
+          >
+            <h1 className={`text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
+              Hi, I&apos;m Nikhil Goutham
+            </h1>
+            <p className={`text-xl md:text-2xl text-gray-300 mb-8 ${styles['animate-fade-in']}`}>
+              Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
+            </p>
+            <div className={`flex flex-col md:flex-row gap-4 justify-center ${styles['animate-fade-in-up']}`}>
+              <Link 
+                href="#projects"
+                className="group px-8 py-3 text-gray-300 border border-transparent rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 no-underline"
+              >
+                <span className="relative inline-block transform transition-transform group-hover:translate-x-1">
+                  View My Work
+                </span>
+              </Link>
+              <Link 
+                href="#contact"
+                className="group px-8 py-3 text-gray-300 rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 bg-transparent no-underline"
+              >
+                <span className="relative inline-block transform transition-transform group-hover:translate-x-1">
+                  Get in Touch
+                </span>
+              </Link>
             </div>
           </div>
-        </nav>
+        </div>
+      </section>
 
-        {/* Hero Section */}
-        <motion.section
-          initial="hidden"
-          animate="visible"
-          variants={scrollVariants}
-          className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden"
-        >
-          {/* Content */}
-          <div className="container mx-auto relative z-10">
-            <div 
-              className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`}
-              style={{
-                transition: 'transform 0.3s ease'
-              }}
-            >
-              <h1 className={`text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
-                Hi, I&apos;m Nikhil Goutham
-              </h1>
-              <p className={`text-xl md:text-2xl text-gray-300 mb-8 ${styles['animate-fade-in']}`}>
-                Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
+      {/* About Section */}
+      <section id="about" className="reveal relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+        <div className="absolute inset-0">
+          <Threads />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white mb-16">Who is this guy?</h2>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6 order-2 md:order-1">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
+                from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
               </p>
-              <div className={`flex flex-col md:flex-row gap-4 justify-center ${styles['animate-fade-in-up']}`}>
-                <Link 
-                  href="#projects"
-                  className="group px-8 py-3 text-gray-300 border border-transparent rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 no-underline"
-                >
-                  <span className="relative inline-block transform transition-transform group-hover:translate-x-1">
-                    View My Work
-                  </span>
-                </Link>
-                <Link 
-                  href="#contact"
-                  className="group px-8 py-3 text-gray-300 rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 bg-transparent no-underline"
-                >
-                  <span className="relative inline-block transform transition-transform group-hover:translate-x-1">
-                    Get in Touch
-                  </span>
-                </Link>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
+                deploy data-driven solutions that enhance business decision-making.
+              </p>
+            </div>
+            <div className="order-1 md:order-2 flex justify-center items-center p-4">
+              <div className="w-full max-w-[380px]">
+                <ProfileCard avatarUrl="/profile.jpg" />
               </div>
             </div>
           </div>
-        </motion.section>
+        </div>
+      </section>
 
-        {/* About Section */}
-        <motion.section
-          ref={aboutAnimation.ref}
-          initial="hidden"
-          animate={aboutAnimation.controls}
-          variants={scrollVariants}
-          id="about"
-          className="relative min-h-screen w-full bg-[#0a0a0a] flex flex-col items-center justify-center py-20"
-        >
-          <div className="absolute inset-0">
-            <Threads />
-          </div>
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-            <motion.h2 
-              variants={fadeInUp}
-              className="text-4xl font-bold text-white mb-16"
-            >
-              Who is this guy?
-            </motion.h2>
-            <motion.div 
-              variants={fadeInUp}
-              className="grid md:grid-cols-2 gap-16 items-center"
-            >
-              <div className="space-y-6 order-2 md:order-1">
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
-                  from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
-                  deploy data-driven solutions that enhance business decision-making.
-                </p>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center items-center p-4">
-                <div className="w-full max-w-[380px]">
-                  <ProfileCard avatarUrl="/profile.jpg" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Education Section */}
-        <section className="relative py-20 px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
-          <div className="container mx-auto relative">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Education</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Masters Degree */}
-              <div className={`bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full ${styles['interactive-card']}`}>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Master of Science in Data Science</h3>
-                    <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
-                    <div className="flex items-center gap-4 mb-4">
-                      <p className="text-gray-400">Graduated: December 2024</p>
-                      <div className="flex items-center">
-                        <span className="text-emerald-400 font-semibold">GPA: 3.95</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 space-y-2">
-                      <div className="space-y-2 text-gray-300">
-                        <p>• Specialized in advanced analytics, machine learning, and data engineering</p>
-                        <p>• Focused on developing scalable solutions for real-world data challenges</p>
-                        <p>• Applied AI/ML techniques to solve complex business problems</p>
-                      </div>
-                      <div className="mt-6">
-                        <p className="text-gray-300 font-medium mb-3">Relevant Coursework:</p>
-                        <div className="flex flex-wrap gap-3">
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Big Data</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Machine Learning</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Deep Learning</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Cloud Computing</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Data Visualization</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Data Mining</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Statistics</span>
-                          <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">R</span>
-                        </div>
-                      </div>
+      {/* Education Section */}
+      <section className="reveal relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
+        <div className="container mx-auto relative">
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Education</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Masters Degree */}
+            <div className={`bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full ${styles['interactive-card']}`}>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Master of Science in Data Science</h3>
+                  <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
+                  <div className="flex items-center gap-4 mb-4">
+                    <p className="text-gray-400">Graduated: December 2024</p>
+                    <div className="flex items-center">
+                      <span className="text-emerald-400 font-semibold">GPA: 3.95</span>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Bachelors Degree */}
-              <div className={`bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full ${styles['interactive-card']}`}>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Bachelor of Technology in Mechanical Engineering</h3>
-                    <p className="text-xl text-blue-400 mb-2">BML Munjal University, New Delhi, India</p>
-                    <div className="flex items-center gap-4 mb-4">
-                      <p className="text-gray-400">August 2017 - August 2021</p>
-                      <div className="flex items-center">
-                        <span className="text-emerald-400 font-semibold">GPA: 3.5</span>
-                      </div>
+                  <div className="mt-4 space-y-2">
+                    <div className="space-y-2 text-gray-300">
+                      <p>• Specialized in advanced analytics, machine learning, and data engineering</p>
+                      <p>• Focused on developing scalable solutions for real-world data challenges</p>
+                      <p>• Applied AI/ML techniques to solve complex business problems</p>
                     </div>
-                    <div className="mt-4 space-y-2 text-gray-300">
-                      <p>• Received academic scholarship for outstanding performance</p>
-                      <p>• Sports Coordinator, Hero Challenge Fest (Jan-Feb 2018)</p>
-                      <p>• Sports Representative Head, Banyan League (Jan-Feb 2019)</p>
-                      <div className="mt-4 pl-6 text-sm text-gray-400 space-y-2">
-                        <p>- Managed logistics for multiple teams, overseeing transportation, deliveries, inventory, and supply chain processes</p>
-                        <p>- Collaborated with cross-functional stakeholders to optimize workflows and enhance team productivity</p>
+                    <div className="mt-6">
+                      <p className="text-gray-300 font-medium mb-3">Relevant Coursework:</p>
+                      <div className="flex flex-wrap gap-3">
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Big Data</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Machine Learning</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Deep Learning</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Cloud Computing</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Data Visualization</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Data Mining</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">Statistics</span>
+                        <span className="px-3 py-1 bg-blue-500/10 rounded-full text-blue-400 text-sm hover:bg-blue-500/20 transition-colors">R</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Projects Section */}
-        <motion.section
-          ref={projectsAnimation.ref}
-          initial="hidden"
-          animate={projectsAnimation.controls}
-          variants={staggerContainer}
-          id="projects"
-          className="relative w-full min-h-screen flex flex-col items-center justify-center py-20"
-        >
-          <motion.h2 
-            variants={fadeInUp}
-            className="text-4xl font-bold text-white mb-16"
-          >
-            Experience & Projects
-          </motion.h2>
-          <motion.div 
-            variants={fadeInUp}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
-          >
+            {/* Bachelors Degree */}
+            <div className={`bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full ${styles['interactive-card']}`}>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Bachelor of Technology in Mechanical Engineering</h3>
+                  <p className="text-xl text-blue-400 mb-2">BML Munjal University, New Delhi, India</p>
+                  <div className="flex items-center gap-4 mb-4">
+                    <p className="text-gray-400">August 2017 - August 2021</p>
+                    <div className="flex items-center">
+                      <span className="text-emerald-400 font-semibold">GPA: 3.5</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 space-y-2 text-gray-300">
+                    <p>• Received academic scholarship for outstanding performance</p>
+                    <p>• Sports Coordinator, Hero Challenge Fest (Jan-Feb 2018)</p>
+                    <p>• Sports Representative Head, Banyan League (Jan-Feb 2019)</p>
+                    <div className="mt-4 pl-6 text-sm text-gray-400 space-y-2">
+                      <p>- Managed logistics for multiple teams, overseeing transportation, deliveries, inventory, and supply chain processes</p>
+                      <p>- Collaborated with cross-functional stakeholders to optimize workflows and enhance team productivity</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="reveal relative w-full min-h-screen flex flex-col items-center justify-center py-20">
+        <h2 className="text-4xl font-bold text-white mb-16">Experience & Projects</h2>
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Verizon Project Card */}
             <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
               {/* Background Image */}
@@ -741,28 +700,15 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </Link>
-          </motion.div>
-        </motion.section>
+          </div>
+        </div>
+      </section>
 
-        {/* Skills Section */}
-        <motion.section
-          ref={skillsAnimation.ref}
-          initial="hidden"
-          animate={skillsAnimation.controls}
-          variants={staggerContainer}
-          id="skills"
-          className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20"
-        >
-          <motion.h2 
-            variants={fadeInUp}
-            className="text-4xl font-bold text-white mb-16"
-          >
-            Skills
-          </motion.h2>
-          <motion.div 
-            variants={fadeInUp}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4"
-          >
+      {/* Skills Section */}
+      <section id="skills" className="reveal relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+        <h2 className="text-4xl font-bold text-white mb-16">Skills</h2>
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 ${styles['scale-on-hover']}`}>
               <h3 className="text-xl font-bold mb-4 text-blue-400">Programming & ML</h3>
               <ul className="space-y-2 text-gray-300">
@@ -882,373 +828,338 @@ const Home: NextPage = () => {
                 </li>
               </ul>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </div>
+      </section>
 
-        {/* Resume Section */}
-        <section id="resume" className="py-20 px-6 relative overflow-hidden">
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                Want to see my resume?
-              </h2>
-              <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-800/50 transform hover:scale-105 transition-all duration-300">
-                <div className="text-center space-y-6">
-                  <div className="text-xl text-gray-300">
-                    Plot twist: My resume is like a tech startup - 
-                    <span className="italic"> constantly iterating and shipping new features! </span>
-                  </div>
-                  <p className="text-gray-400">
-                    Between you and me, I&apos;m learning faster than my printer can keep up with! 
-                    Drop me a line for the latest version - it might have changed while you were reading this! 😄
-                  </p>
-                  <Link 
-                    href="#contact"
-                    className="inline-block px-8 py-3 text-gray-300 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
-                  >
-                    Request Latest Build v{new Date().toISOString().split('T')[0]} 🎮
-                  </Link>
+      {/* Resume Section */}
+      <section id="resume" className="reveal py-20 px-6 relative overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              Want to see my resume?
+            </h2>
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-800/50 transform hover:scale-105 transition-all duration-300">
+              <div className="text-center space-y-6">
+                <div className="text-xl text-gray-300">
+                  Plot twist: My resume is like a tech startup - 
+                  <span className="italic"> constantly iterating and shipping new features! </span>
                 </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Background decoration */}
-          <div className="absolute inset-0 w-full h-full">
-            <div className="absolute w-64 h-64 -left-32 top-0 bg-blue-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute w-64 h-64 -right-32 bottom-0 bg-purple-500/20 rounded-full blur-3xl"></div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <motion.section
-          ref={contactAnimation.ref}
-          initial="hidden"
-          animate={contactAnimation.controls}
-          variants={scrollVariants}
-          id="contact"
-          className="relative w-full min-h-screen flex flex-col items-center justify-center py-20"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-blue-900/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
-          
-          <div className="container mx-auto max-w-4xl relative">
-            <motion.h2 
-              variants={fadeInUp}
-              className="text-4xl font-bold text-white mb-16"
-            >
-              Get in Touch
-            </motion.h2>
-            <motion.div 
-              variants={fadeInUp}
-              className="max-w-3xl w-full px-4"
-            >
-              <div className="text-center mb-16">
-                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                  Have a question or want to work together? I&apos;d love to hear from you.
+                <p className="text-gray-400">
+                  Between you and me, I&apos;m learning faster than my printer can keep up with! 
+                  Drop me a line for the latest version - it might have changed while you were reading this! 😄
                 </p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
-                <form 
-                  ref={formRef}
-                  onSubmit={handleSubmit} 
-                  className="space-y-6"
+                <Link 
+                  href="#contact"
+                  className="inline-block px-8 py-3 text-gray-300 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                 >
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
-                      placeholder="Your name"
-                      required
-                      disabled={isSubmitting}
-                    />
-                  </div>
+                  Request Latest Build v{new Date().toISOString().split('T')[0]} 🎮
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Background decoration */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="absolute w-64 h-64 -left-32 top-0 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute w-64 h-64 -right-32 bottom-0 bg-purple-500/20 rounded-full blur-3xl"></div>
+        </div>
+      </section>
 
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
-                      placeholder="your@email.com"
-                      required
-                      disabled={isSubmitting}
-                    />
-                  </div>
+      {/* Contact Section */}
+      <section id="contact" className="reveal relative w-full min-h-screen flex flex-col items-center justify-center py-20">
+        <h2 className="text-4xl font-bold text-white mb-16">Get in Touch</h2>
+        <div className="max-w-3xl w-full px-4">
+          <div className="text-center mb-16">
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Have a question or want to work together? I&apos;d love to hear from you.
+            </p>
+          </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
-                      placeholder="Your message here..."
-                      required
-                      disabled={isSubmitting}
-                    ></textarea>
-                  </div>
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10">
+            <form 
+              ref={formRef}
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
+                  placeholder="Your name"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
 
-                  {submitStatus.type && (
-                    <div 
-                      className={`p-4 rounded-xl ${
-                        submitStatus.type === 'success' 
-                          ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
-                          : 'bg-red-500/10 text-red-400 border border-red-500/20'
-                      }`}
-                      role="alert"
-                    >
-                      {submitStatus.message}
-                    </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
+                  placeholder="your@email.com"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-100 placeholder-gray-500"
+                  placeholder="Your message here..."
+                  required
+                  disabled={isSubmitting}
+                ></textarea>
+              </div>
+
+              {submitStatus.type && (
+                <div 
+                  className={`p-4 rounded-xl ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                  }`}
+                  role="alert"
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`
+                    px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 
+                    rounded-xl text-white font-medium 
+                    hover:from-blue-600 hover:to-purple-600 
+                    transform transition-all duration-300 
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 
+                    focus:ring-offset-2 focus:ring-offset-gray-900
+                    disabled:opacity-50 disabled:cursor-not-allowed
+                    ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}
+                  `}
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
                   )}
-
-                  <div className="flex justify-end">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className={`
-                        px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 
-                        rounded-xl text-white font-medium 
-                        hover:from-blue-600 hover:to-purple-600 
-                        transform transition-all duration-300 
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 
-                        focus:ring-offset-2 focus:ring-offset-gray-900
-                        disabled:opacity-50 disabled:cursor-not-allowed
-                        ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}
-                      `}
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Sending...
-                        </span>
-                      ) : (
-                        'Send Message'
-                      )}
-                    </button>
-                  </div>
-                </form>
+                </button>
               </div>
-            </motion.div>
+            </form>
           </div>
-        </motion.section>
+        </div>
+      </section>
 
-        {/* Find Me Here Section */}
-        <motion.section
-          ref={socialAnimation.ref}
-          initial="hidden"
-          animate={socialAnimation.controls}
-          variants={staggerContainer}
-          id="social"
-          className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20"
-        >
-          <motion.h2 
-            variants={fadeInUp}
-            className="text-4xl font-bold text-white mb-16"
-          >
-            Find Me Here
-          </motion.h2>
-          <motion.ul 
-            variants={staggerContainer}
-            className="m-0 p-0 flex flex-wrap justify-center gap-8"
-          >
-            {/* LinkedIn */}
-            <motion.li variants={scaleIn} className="list-none">
-              <a
-                href="https://www.linkedin.com/in/nikhilgoutham"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
-                         hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <Image
-                    src="/linkedin_cg.png"
-                    alt="LinkedIn"
-                    width={30}
-                    height={30}
-                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                  />
-                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
-                    - LinkedIn
-                  </span>
-                </div>
-              </a>
-            </motion.li>
-
-            {/* GitHub */}
-            <motion.li variants={scaleIn} className="list-none">
-              <a
-                href="https://github.com/nikhilgouthamb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                         hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
-                         hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <Image
-                    src="/github_cg.png"
-                    alt="GitHub"
-                    width={30}
-                    height={30}
-                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                  />
-                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
-                    - GitHub
-                  </span>
-                </div>
-              </a>
-            </motion.li>
-
-            {/* Medium */}
-            <motion.li variants={scaleIn} className="list-none">
-              <a
-                href="https://medium.com/@nikhilgoutham.b"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
-                         hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <Image
-                    src="/medium_cg.png"
-                    alt="Medium"
-                    width={30}
-                    height={30}
-                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                  />
-                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
-                    - Medium
-                  </span>
-                </div>
-              </a>
-            </motion.li>
-
-            {/* Kaggle */}
-            <motion.li variants={scaleIn} className="list-none">
-              <a
-                href="https://www.kaggle.com/nikhilbudarayavalasa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
-                         hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <Image
-                    src="/k.png"
-                    alt="Kaggle"
-                    width={30}
-                    height={30}
-                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                  />
-                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
-                    - Kaggle
-                  </span>
-                </div>
-              </a>
-            </motion.li>
-
-            {/* Gmail */}
-            <motion.li variants={scaleIn} className="list-none">
-              <a
-                href="mailto:bnikhilgoutham@gmail.com"
-                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
-                         hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <Image
-                    src="/gmail_cg.png"
-                    alt="Gmail"
-                    width={30}
-                    height={30}
-                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                  />
-                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
-                    - Gmail
-                  </span>
-                </div>
-              </a>
-            </motion.li>
-
-            {/* Streamlit */}
-            <motion.li variants={scaleIn} className="list-none">
-              <a
-                href="https://share.streamlit.io/user/nikhilgouthamb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
-                         hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
-              >
-                <div className="flex items-center gap-4 h-full">
-                  <Image
-                    src="/s.png"
-                    alt="Streamlit"
-                    width={30}
-                    height={30}
-                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                  />
-                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
-                    - Streamlit
-                  </span>
-                </div>
-              </a>
-            </motion.li>
-          </motion.ul>
-        </motion.section>
-
-        {/* Footer */}
-        <footer className="bg-[#0a0a0a] text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Nikhil Goutham</h3>
-                <p className="text-gray-400 mb-4">
-                  Data Scientist focused on building scalable AI solutions and data-driven insights.
-                </p>
-                <p className="text-gray-400">bnikhilgoutham@gmail.com</p>
+      {/* Social Section */}
+      <section id="social" className="reveal relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+        <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
+        <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
+          {/* LinkedIn */}
+          <li className="reveal list-none" style={{ transitionDelay: '0.1s' }}>
+            <a
+              href="https://www.linkedin.com/in/nikhilgoutham"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                       transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                       hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
+                       hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
+            >
+              <div className="flex items-center gap-4 h-full">
+                <Image
+                  src="/linkedin_cg.png"
+                  alt="LinkedIn"
+                  width={30}
+                  height={30}
+                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                />
+                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
+                  - LinkedIn
+                </span>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-                <ul className="space-y-2">
-                  <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                  <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">Experience</a></li>
-                  <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a></li>
-                  <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                </ul>
+            </a>
+          </li>
+
+          {/* GitHub */}
+          <li className="reveal list-none" style={{ transitionDelay: '0.2s' }}>
+            <a
+              href="https://github.com/nikhilgouthamb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                       transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                       hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
+                       hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+            >
+              <div className="flex items-center gap-4 h-full">
+                <Image
+                  src="/github_cg.png"
+                  alt="GitHub"
+                  width={30}
+                  height={30}
+                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                />
+                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
+                  - GitHub
+                </span>
               </div>
+            </a>
+          </li>
+
+          {/* Medium */}
+          <li className="reveal list-none" style={{ transitionDelay: '0.3s' }}>
+            <a
+              href="https://medium.com/@nikhilgoutham.b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                       transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                       hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
+                       hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
+            >
+              <div className="flex items-center gap-4 h-full">
+                <Image
+                  src="/medium_cg.png"
+                  alt="Medium"
+                  width={30}
+                  height={30}
+                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                />
+                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
+                  - Medium
+                </span>
+              </div>
+            </a>
+          </li>
+
+          {/* Kaggle */}
+          <li className="reveal list-none" style={{ transitionDelay: '0.4s' }}>
+            <a
+              href="https://www.kaggle.com/nikhilbudarayavalasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                       transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                       hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
+                       hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
+            >
+              <div className="flex items-center gap-4 h-full">
+                <Image
+                  src="/k.png"
+                  alt="Kaggle"
+                  width={30}
+                  height={30}
+                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                />
+                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
+                  - Kaggle
+                </span>
+              </div>
+            </a>
+          </li>
+
+          {/* Gmail */}
+          <li className="reveal list-none" style={{ transitionDelay: '0.5s' }}>
+            <a
+              href="mailto:bnikhilgoutham@gmail.com"
+              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                       transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                       hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
+                       hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
+            >
+              <div className="flex items-center gap-4 h-full">
+                <Image
+                  src="/gmail_cg.png"
+                  alt="Gmail"
+                  width={30}
+                  height={30}
+                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                />
+                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
+                  - Gmail
+                </span>
+              </div>
+            </a>
+          </li>
+
+          {/* Streamlit */}
+          <li className="reveal list-none" style={{ transitionDelay: '0.6s' }}>
+            <a
+              href="https://share.streamlit.io/user/nikhilgouthamb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                       transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                       hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
+                       hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
+            >
+              <div className="flex items-center gap-4 h-full">
+                <Image
+                  src="/s.png"
+                  alt="Streamlit"
+                  width={30}
+                  height={30}
+                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
+                />
+                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
+                  - Streamlit
+                </span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#0a0a0a] text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Nikhil Goutham</h3>
+              <p className="text-gray-400 mb-4">
+                Data Scientist focused on building scalable AI solutions and data-driven insights.
+              </p>
+              <p className="text-gray-400">bnikhilgoutham@gmail.com</p>
             </div>
-            <div className="mt-12 pt-8 border-t border-gray-800">
-              <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">Experience</a></li>
+                <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              </ul>
             </div>
           </div>
-        </footer>
-      </div>
+          <div className="mt-12 pt-8 border-t border-gray-800">
+            <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
