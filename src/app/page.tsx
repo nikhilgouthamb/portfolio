@@ -6,11 +6,9 @@ import Link from "next/link";
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
-import { type NextPage } from 'next';
+import type { NextPage } from "next";
 import ProfileCard from '@/components/ProfileCard';
-import Threads from '@/components/Threads';
 import Script from 'next/script';
-import LiquidChrome from "@/components/LiquidChrome";
 import Beams from "@/components/Beams";
 
 const Home: NextPage = () => {
@@ -277,7 +275,7 @@ const Home: NextPage = () => {
       {/* About Section */}
           <section id="about" className="relative min-h-screen w-full bg-[#0a0a0a] flex flex-col items-center justify-center">
             <div className="absolute inset-0">
-              <Threads />
+              {/* Placeholder for Threads component */}
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
               <div className="flex flex-col items-center mb-16">
