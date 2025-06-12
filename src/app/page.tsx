@@ -11,24 +11,15 @@ import ProfileCard from '@/components/ProfileCard';
 import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
-import { useInView } from 'react-intersection-observer'
+
 
 const Home: NextPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error' | null; message: string}>({
     type: null,
     message: ''
   });
   const formRef = useRef<HTMLFormElement>(null);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   useEffect(() => {
     // Initialize EmailJS with your public key
@@ -240,9 +231,7 @@ const Home: NextPage = () => {
 
         {/* Content */}
         <div className="container mx-auto relative z-10">
-          <div className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}>
+          <div className="max-w-4xl mx-auto text-center transform transition-all duration-1000 translate-y-0 opacity-100">
             {/* Main Heading */}
             <div className="relative mb-6">
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
