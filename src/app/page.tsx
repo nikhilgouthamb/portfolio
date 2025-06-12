@@ -226,9 +226,11 @@ const Home: NextPage = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-[#0a0a0a] opacity-90"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 right-10 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+          <div className="absolute -bottom-8 right-20 w-72 h-72 bg-yellow-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-6000"></div>
         </div>
 
         {/* Content */}
@@ -236,54 +238,37 @@ const Home: NextPage = () => {
           <div className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
-            {/* Abstract Avatar */}
-            <div className="relative w-32 h-32 mx-auto mb-8">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 animate-spin-slow"></div>
-              <div className="absolute inset-2 rounded-full bg-[#0a0a0a]"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-                  NG
+            {/* Main Heading */}
+            <div className="relative mb-6">
+              <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
+                Data Science
+                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                  Reimagined
                 </span>
-              </div>
-              {/* Orbiting Dots */}
-              <div className="absolute inset-0 animate-orbit">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-blue-400"></div>
-              </div>
-              <div className="absolute inset-0 animate-orbit-delayed">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-purple-400"></div>
-              </div>
-              <div className="absolute inset-0 animate-orbit-delayed-more">
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-2 h-2 rounded-full bg-pink-400"></div>
-              </div>
-            </div>
-
-            {/* Name with Animated Gradient */}
-            <div className="relative inline-block mb-6 group">
-              <h1 className={`text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
-                Hi, I&apos;m Nikhil Goutham
               </h1>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
             </div>
 
-            {/* Role with Typing Effect */}
-            <div className="h-[60px] mb-12">
-              <p className={`text-xl md:text-2xl text-gray-300 ${styles['animate-fade-in']} typewriter`}>
-                Data Scientist with expertise in
-                <span className="text-blue-400 font-semibold"> Machine Learning</span>,
-                <span className="text-purple-400 font-semibold"> Deep Learning</span> and
-                <span className="text-pink-400 font-semibold"> AI</span>
+            {/* Description */}
+            <div className="mb-12 relative">
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+                Transforming complex data challenges into 
+                <span className="text-blue-400"> innovative solutions</span>. 
+                Specializing in
+                <span className="text-purple-400"> machine learning</span>,
+                <span className="text-pink-400"> deep learning</span>, and
+                <span className="text-yellow-400"> artificial intelligence</span>.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className={`flex flex-col md:flex-row gap-6 justify-center items-center ${styles['animate-fade-in-up']}`}>
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
               <Link 
                 href="#projects"
                 className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg transition-all duration-300 hover:scale-105"
               >
                 <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
                 <span className="relative flex items-center gap-2">
-                  View My Work
+                  Explore My Work
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -296,32 +281,12 @@ const Home: NextPage = () => {
               >
                 <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
                 <span className="relative flex items-center gap-2">
-                  Get in Touch
+                  Let's Connect
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l4-4m0 0l4 4m-4-4v12" />
                   </svg>
                 </span>
               </Link>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
-                <div className="text-3xl font-bold text-blue-400 mb-2">3+</div>
-                <div className="text-sm text-gray-400">Years Experience</div>
-              </div>
-              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300">
-                <div className="text-3xl font-bold text-purple-400 mb-2">20+</div>
-                <div className="text-sm text-gray-400">Projects Completed</div>
-              </div>
-              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-pink-500/50 transition-all duration-300">
-                <div className="text-3xl font-bold text-pink-400 mb-2">15+</div>
-                <div className="text-sm text-gray-400">ML Models Deployed</div>
-              </div>
-              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-emerald-500/50 transition-all duration-300">
-                <div className="text-3xl font-bold text-emerald-400 mb-2">10+</div>
-                <div className="text-sm text-gray-400">Data Pipelines Built</div>
-              </div>
             </div>
 
             {/* Scroll Indicator */}
