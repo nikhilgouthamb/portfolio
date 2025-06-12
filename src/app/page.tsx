@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import styles from './animations.module.css';
+
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
 import { type NextPage } from 'next';
@@ -11,6 +11,7 @@ import ProfileCard from '@/components/ProfileCard';
 import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
+import { useInView } from 'react-intersection-observer'
 
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,6 +21,10 @@ const Home: NextPage = () => {
     message: ''
   });
   const formRef = useRef<HTMLFormElement>(null);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
 
   useEffect(() => {
     setIsVisible(true);
