@@ -6,10 +6,11 @@ import Link from "next/link";
 import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
-import type { NextPage } from "next";
+import { type NextPage } from 'next';
 import ProfileCard from '@/components/ProfileCard';
+import Threads from '@/components/Threads';
 import Script from 'next/script';
-import Beams from "@/components/Beams";
+import LiquidChrome from "@/components/LiquidChrome";
 
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -182,15 +183,13 @@ const Home: NextPage = () => {
       <main className="relative min-h-screen w-full bg-[#0a0a0a]">
         {/* Background Animation */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <Beams
-            beamWidth={2.5}
-            beamHeight={20}
-            beamNumber={15}
-            lightColor="#4a90e2"
-            speed={1.2}
-            noiseIntensity={1.5}
-            scale={0.15}
-            rotation={45}
+          <LiquidChrome
+            baseColor={[0.05, 0.05, 0.05]}
+            speed={0.15}
+            amplitude={0.4}
+            frequencyX={2}
+            frequencyY={1.5}
+            interactive={true}
           />
         </div>
 
@@ -275,7 +274,7 @@ const Home: NextPage = () => {
       {/* About Section */}
           <section id="about" className="relative min-h-screen w-full bg-[#0a0a0a] flex flex-col items-center justify-center">
             <div className="absolute inset-0">
-              {/* Placeholder for Threads component */}
+              <Threads />
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
               <div className="flex flex-col items-center mb-16">
@@ -779,126 +778,310 @@ const Home: NextPage = () => {
       <section id="skills" className="relative py-20 px-6">
         <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Skills & Technologies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 ${styles['scale-on-hover']}`}>
-              <h3 className="text-xl font-bold mb-4 text-blue-400">Programming & ML</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  <span>Python</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  <span>R</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  <span>SQL</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  <span>TensorFlow</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  <span>PyTorch</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  <span>Scikit-Learn</span>
-                </li>
-              </ul>
+          <div className="flex flex-col items-center mb-16">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Skills & Technologies</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Machine Learning & AI */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-blue-400">Machine Learning & AI</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">TensorFlow/PyTorch</span>
+                    <span className="text-blue-400">95%</span>
+                  </div>
+                  <div className="h-2 bg-blue-500/10 rounded-full">
+                    <div className="h-full bg-blue-500 rounded-full" style={{ width: '95%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Scikit-learn</span>
+                    <span className="text-blue-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-blue-500/10 rounded-full">
+                    <div className="h-full bg-blue-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">NLP/Computer Vision</span>
+                    <span className="text-blue-400">85%</span>
+                  </div>
+                  <div className="h-2 bg-blue-500/10 rounded-full">
+                    <div className="h-full bg-blue-500 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">MLOps</span>
+                    <span className="text-blue-400">80%</span>
+                  </div>
+                  <div className="h-2 bg-blue-500/10 rounded-full">
+                    <div className="h-full bg-blue-500 rounded-full" style={{ width: '80%' }}></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 ${styles['scale-on-hover']}`}>
-              <h3 className="text-xl font-bold mb-4 text-purple-400">Data Engineering</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  <span>Apache Airflow</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  <span>Snowflake</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  <span>Databricks</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  <span>Apache Spark</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  <span>Hadoop</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  <span>ETL Pipelines</span>
-                </li>
-              </ul>
+            {/* Data Engineering */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z M8 4v4 M16 4v4 M4 11h16" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-purple-400">Data Engineering</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">SQL/NoSQL</span>
+                    <span className="text-purple-400">95%</span>
+                  </div>
+                  <div className="h-2 bg-purple-500/10 rounded-full">
+                    <div className="h-full bg-purple-500 rounded-full" style={{ width: '95%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Spark/Hadoop</span>
+                    <span className="text-purple-400">85%</span>
+                  </div>
+                  <div className="h-2 bg-purple-500/10 rounded-full">
+                    <div className="h-full bg-purple-500 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Airflow/ETL</span>
+                    <span className="text-purple-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-purple-500/10 rounded-full">
+                    <div className="h-full bg-purple-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Snowflake/Databricks</span>
+                    <span className="text-purple-400">85%</span>
+                  </div>
+                  <div className="h-2 bg-purple-500/10 rounded-full">
+                    <div className="h-full bg-purple-500 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 ${styles['scale-on-hover']}`}>
-              <h3 className="text-xl font-bold mb-4 text-pink-400">Cloud & DevOps</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                  <span>AWS</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                  <span>Google Cloud</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                  <span>Azure</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                  <span>Docker</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                  <span>Kubernetes</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                  <span>CI/CD Pipelines</span>
-                </li>
-              </ul>
+            {/* Cloud & DevOps */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-emerald-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-emerald-400">Cloud & DevOps</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">AWS Services</span>
+                    <span className="text-emerald-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-emerald-500/10 rounded-full">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Docker/Kubernetes</span>
+                    <span className="text-emerald-400">85%</span>
+                  </div>
+                  <div className="h-2 bg-emerald-500/10 rounded-full">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">CI/CD</span>
+                    <span className="text-emerald-400">80%</span>
+                  </div>
+                  <div className="h-2 bg-emerald-500/10 rounded-full">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '80%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">IaC (Terraform)</span>
+                    <span className="text-emerald-400">75%</span>
+                  </div>
+                  <div className="h-2 bg-emerald-500/10 rounded-full">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '75%' }}></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 ${styles['scale-on-hover']}`}>
-              <h3 className="text-xl font-bold mb-4 text-indigo-400">Data Analysis</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  <span>Tableau</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  <span>Power BI</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  <span>A/B Testing</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  <span>Statistical Analysis</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  <span>Data Visualization</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  <span>Time Series Analysis</span>
-                </li>
-              </ul>
+            {/* Programming Languages */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-rose-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(244,63,94,0.2)]">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-rose-500/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-rose-400">Programming</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Python</span>
+                    <span className="text-rose-400">95%</span>
+                  </div>
+                  <div className="h-2 bg-rose-500/10 rounded-full">
+                    <div className="h-full bg-rose-500 rounded-full" style={{ width: '95%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">R</span>
+                    <span className="text-rose-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-rose-500/10 rounded-full">
+                    <div className="h-full bg-rose-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">SQL</span>
+                    <span className="text-rose-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-rose-500/10 rounded-full">
+                    <div className="h-full bg-rose-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Shell Scripting</span>
+                    <span className="text-rose-400">80%</span>
+                  </div>
+                  <div className="h-2 bg-rose-500/10 rounded-full">
+                    <div className="h-full bg-rose-500 rounded-full" style={{ width: '80%' }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Analysis */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-amber-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-amber-400">Data Analysis</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Statistical Analysis</span>
+                    <span className="text-amber-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-amber-500/10 rounded-full">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Data Visualization</span>
+                    <span className="text-amber-400">95%</span>
+                  </div>
+                  <div className="h-2 bg-amber-500/10 rounded-full">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: '95%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Tableau/Power BI</span>
+                    <span className="text-amber-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-amber-500/10 rounded-full">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">A/B Testing</span>
+                    <span className="text-amber-400">85%</span>
+                  </div>
+                  <div className="h-2 bg-amber-500/10 rounded-full">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Soft Skills */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)]">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-indigo-400">Soft Skills</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Problem Solving</span>
+                    <span className="text-indigo-400">95%</span>
+                  </div>
+                  <div className="h-2 bg-indigo-500/10 rounded-full">
+                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: '95%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Communication</span>
+                    <span className="text-indigo-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-indigo-500/10 rounded-full">
+                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Team Leadership</span>
+                    <span className="text-indigo-400">85%</span>
+                  </div>
+                  <div className="h-2 bg-indigo-500/10 rounded-full">
+                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-300">Project Management</span>
+                    <span className="text-indigo-400">90%</span>
+                  </div>
+                  <div className="h-2 bg-indigo-500/10 rounded-full">
+                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
