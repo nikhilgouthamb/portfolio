@@ -3,29 +3,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import styles from './page.module.css';
 import emailjs from '@emailjs/browser';
-import { FormEvent } from 'react';
+import type { FormEvent } from 'react';
 import { type NextPage } from 'next';
 import ProfileCard from '@/components/ProfileCard';
 import Threads from '@/components/Threads';
-import { motion } from 'framer-motion';
-import { useScrollAnimation, scrollVariants, staggerContainer, fadeInUp, scaleIn } from '@/hooks/useScrollAnimation';
+
+interface SubmitStatus {
+  type: 'success' | 'error' | null;
+  message: string;
+}
 
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error' | null; message: string}>({
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({
     type: null,
     message: ''
   });
   const formRef = useRef<HTMLFormElement>(null);
-
-  const aboutAnimation = useScrollAnimation();
-  const projectsAnimation = useScrollAnimation();
-  const skillsAnimation = useScrollAnimation();
-  const socialAnimation = useScrollAnimation();
-  const contactAnimation = useScrollAnimation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -275,7 +271,7 @@ const Home: NextPage = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Education</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Masters Degree */}
-            <div className={`bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full ${styles['interactive-card']}`}>
+            <div className="bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full hover:scale-105 hover:shadow-blue-500/20 transition-all duration-300">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">Master of Science in Data Science</h3>
@@ -311,7 +307,7 @@ const Home: NextPage = () => {
             </div>
 
             {/* Bachelors Degree */}
-            <div className={`bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full ${styles['interactive-card']}`}>
+            <div className="bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/10 border border-white/10 h-full hover:scale-105 hover:shadow-blue-500/20 transition-all duration-300">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">Bachelor of Technology in Mechanical Engineering</h3>
@@ -344,7 +340,7 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Verizon Project Card */}
-            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10 h-full hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-red-600/90 to-red-800/90">
                 <Image
@@ -404,7 +400,7 @@ const Home: NextPage = () => {
               href="https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis"
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10 h-full hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
             >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90">
@@ -464,7 +460,7 @@ const Home: NextPage = () => {
               href="https://github.com/nikhilgouthamb/Web-scraping-using-R"
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10 h-full hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
             >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400/90 to-purple-600/90">
@@ -524,7 +520,7 @@ const Home: NextPage = () => {
               href="https://github.com/nikhilgouthamb/USA-House-Price-Prediction"
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-br from-green-500/10 to-emerald-700/10 border border-white/10 h-full hover:scale-105 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300"
             >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-emerald-800/90">
@@ -584,7 +580,7 @@ const Home: NextPage = () => {
               href="https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction"
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-br from-purple-500/10 to-indigo-700/10 border border-white/10 h-full hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
             >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/90 to-indigo-800/90">
@@ -644,7 +640,7 @@ const Home: NextPage = () => {
               href="https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation"
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-br from-amber-500/10 to-orange-700/10 border border-white/10 h-full hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
             >
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-600/90 to-orange-800/90">
