@@ -709,7 +709,7 @@ const Home: NextPage = () => {
         <h2 className="text-4xl font-bold text-white mb-16">Skills</h2>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 ${styles['scale-on-hover']}`}>
+            <div className="p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-105">
               <h3 className="text-xl font-bold mb-4 text-blue-400">Programming & ML</h3>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center space-x-2">
@@ -739,7 +739,7 @@ const Home: NextPage = () => {
               </ul>
             </div>
 
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 ${styles['scale-on-hover']}`}>
+            <div className="p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:scale-105">
               <h3 className="text-xl font-bold mb-4 text-purple-400">Data Engineering</h3>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center space-x-2">
@@ -769,7 +769,7 @@ const Home: NextPage = () => {
               </ul>
             </div>
 
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 ${styles['scale-on-hover']}`}>
+            <div className="p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10 hover:scale-105">
               <h3 className="text-xl font-bold mb-4 text-pink-400">Cloud & DevOps</h3>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center space-x-2">
@@ -799,7 +799,7 @@ const Home: NextPage = () => {
               </ul>
             </div>
 
-            <div className={`p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 ${styles['scale-on-hover']}`}>
+            <div className="p-6 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 hover:scale-105">
               <h3 className="text-xl font-bold mb-4 text-indigo-400">Data Analysis</h3>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center space-x-2">
