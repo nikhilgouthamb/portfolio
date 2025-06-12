@@ -225,47 +225,101 @@ const Home: NextPage = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[#0a0a0a] opacity-90"></div>
+        </div>
+
         {/* Content */}
         <div className="container mx-auto relative z-10">
-          <div 
-            className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-          >
-                <div className="relative inline-block mb-6">
-                  <h1 className={`text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
-              Hi, I&apos;m Nikhil Goutham
-            </h1>
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
-                </div>
-                <p className={`text-xl md:text-2xl text-gray-300 mb-12 ${styles['animate-fade-in']}`}>
-              Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
-            </p>
-                <div className={`flex flex-col md:flex-row gap-6 justify-center ${styles['animate-fade-in-up']}`}>
+          <div className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}>
+            {/* Profile Image */}
+            <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-white/10 transform hover:scale-110 transition-transform duration-500 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+              <Image
+                src="/profile.jpg"
+                alt="Nikhil Goutham"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Name with Animated Gradient */}
+            <div className="relative inline-block mb-6 group">
+              <h1 className={`text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
+                Hi, I&apos;m Nikhil Goutham
+              </h1>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+            </div>
+
+            {/* Role with Typing Effect */}
+            <div className="h-[60px] mb-12">
+              <p className={`text-xl md:text-2xl text-gray-300 ${styles['animate-fade-in']} typewriter`}>
+                Data Scientist with expertise in
+                <span className="text-blue-400 font-semibold"> Machine Learning</span>,
+                <span className="text-purple-400 font-semibold"> Deep Learning</span> and
+                <span className="text-pink-400 font-semibold"> AI</span>
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className={`flex flex-col md:flex-row gap-6 justify-center items-center ${styles['animate-fade-in-up']}`}>
               <Link 
                 href="#projects"
-                    className="group relative px-8 py-4 text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl transition-all duration-300 hover:from-blue-500 hover:to-purple-500 overflow-hidden"
+                className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg transition-all duration-300 hover:scale-105"
               >
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    <span className="relative inline-flex items-center">
+                <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
+                <span className="relative flex items-center gap-2">
                   View My Work
-                      <svg className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </span>
               </Link>
+
               <Link 
                 href="#contact"
-                    className="group relative px-8 py-4 text-white border border-white/20 rounded-xl transition-all duration-300 hover:border-white/40 overflow-hidden"
+                className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden rounded-lg bg-white/5 backdrop-blur-lg text-white border border-white/10 shadow-lg transition-all duration-300 hover:scale-105 hover:border-purple-500/50"
               >
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    <span className="relative inline-flex items-center">
+                <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
+                <span className="relative flex items-center gap-2">
                   Get in Touch
-                      <svg className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16-6l-8 8-8-8" />
-                      </svg>
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l4-4m0 0l4 4m-4-4v12" />
+                  </svg>
                 </span>
               </Link>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
+                <div className="text-3xl font-bold text-blue-400 mb-2">3+</div>
+                <div className="text-sm text-gray-400">Years Experience</div>
+              </div>
+              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300">
+                <div className="text-3xl font-bold text-purple-400 mb-2">20+</div>
+                <div className="text-sm text-gray-400">Projects Completed</div>
+              </div>
+              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-pink-500/50 transition-all duration-300">
+                <div className="text-3xl font-bold text-pink-400 mb-2">15+</div>
+                <div className="text-sm text-gray-400">ML Models Deployed</div>
+              </div>
+              <div className="group bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-emerald-500/50 transition-all duration-300">
+                <div className="text-3xl font-bold text-emerald-400 mb-2">10+</div>
+                <div className="text-sm text-gray-400">Data Pipelines Built</div>
+              </div>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+              <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
             </div>
           </div>
         </div>
