@@ -1,9 +1,9 @@
-"use client";
+   "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-
+import styles from './animations.module.css';
 import emailjs from '@emailjs/browser';
 import { FormEvent } from 'react';
 import { type NextPage } from 'next';
@@ -12,14 +12,18 @@ import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
 
-
 const Home: NextPage = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error' | null; message: string}>({
     type: null,
     message: ''
   });
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   useEffect(() => {
     // Initialize EmailJS with your public key
@@ -187,7 +191,7 @@ const Home: NextPage = () => {
             frequencyY={1.5}
             interactive={true}
           />
-        </div>
+          </div>
 
         {/* Rest of your content with higher z-index */}
         <div className="relative z-10">
@@ -221,71 +225,47 @@ const Home: NextPage = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-0 right-10 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-          <div className="absolute -bottom-8 right-20 w-72 h-72 bg-yellow-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-6000"></div>
-        </div>
-
         {/* Content */}
         <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto text-center transform transition-all duration-1000 translate-y-0 opacity-100">
-            {/* Main Heading */}
-            <div className="relative mb-6">
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
-                Building the Future
-                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-                  with AI & Data
-                </span>
-              </h1>
-            </div>
-
-            {/* Description */}
-            <div className="mb-12 relative">
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-                Creating intelligent systems that solve real-world challenges through
-                <span className="text-blue-400"> machine learning</span>,
-                <span className="text-purple-400"> deep learning</span>, and
-                <span className="text-pink-400"> artificial intelligence</span>.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+          <div 
+            className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+                <div className="relative inline-block mb-6">
+                  <h1 className={`text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
+              Hi, I&apos;m Nikhil Goutham
+            </h1>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+                </div>
+                <p className={`text-xl md:text-2xl text-gray-300 mb-12 ${styles['animate-fade-in']}`}>
+              Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
+            </p>
+                <div className={`flex flex-col md:flex-row gap-6 justify-center ${styles['animate-fade-in-up']}`}>
               <Link 
                 href="#projects"
-                className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg transition-all duration-300 hover:scale-105"
+                    className="group relative px-8 py-4 text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl transition-all duration-300 hover:from-blue-500 hover:to-purple-500 overflow-hidden"
               >
-                <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
-                <span className="relative flex items-center gap-2">
-                  View Projects
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative inline-flex items-center">
+                  View My Work
+                      <svg className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
                 </span>
               </Link>
-
               <Link 
                 href="#contact"
-                className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden rounded-lg bg-white/5 backdrop-blur-lg text-white border border-white/10 shadow-lg transition-all duration-300 hover:scale-105 hover:border-purple-500/50"
+                    className="group relative px-8 py-4 text-white border border-white/20 rounded-xl transition-all duration-300 hover:border-white/40 overflow-hidden"
               >
-                <div className="absolute inset-0 w-full h-full transition-all duration-300 scale-0 group-hover:scale-100 group-hover:bg-white/10"></div>
-                <span className="relative flex items-center gap-2">
-                  Contact Me
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l4-4m0 0l4 4m-4-4v12" />
-                  </svg>
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative inline-flex items-center">
+                  Get in Touch
+                      <svg className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16-6l-8 8-8-8" />
+                      </svg>
                 </span>
               </Link>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-              <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
             </div>
           </div>
         </div>
@@ -304,16 +284,16 @@ const Home: NextPage = () => {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 order-2 md:order-1">
               <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 transform hover:scale-105 transition-transform duration-300">
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
-                  from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
-                </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Data Scientist with over 3 years of experience in building machine learning models, developing data pipelines, and extracting insights
+                from complex datasets. Expertise in supervised and unsupervised learning, deep learning, and natural language processing.
+              </p>
               </div>
               <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 transform hover:scale-105 transition-transform duration-300">
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
-                  deploy data-driven solutions that enhance business decision-making.
-                </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Skilled in Python, SQL, and cloud-based data engineering solutions. Proven ability to design scalable AI models, optimize ETL workflows, and
+                deploy data-driven solutions that enhance business decision-making.
+              </p>
               </div>
             </div>
             <div className="order-1 md:order-2 flex justify-center items-center p-4">
@@ -328,7 +308,7 @@ const Home: NextPage = () => {
       {/* Education Section */}
       <section className="relative w-full bg-[#0a0a0a] py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Education</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
@@ -338,9 +318,9 @@ const Home: NextPage = () => {
             <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transform hover:scale-[1.02]">
               <div className="space-y-6">
                 <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Master of Science in Data Science</h3>
-                    <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Master of Science in Data Science</h3>
+                  <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
                   </div>
                   <div className="flex flex-col items-end">
                     <p className="text-gray-400">Jan&apos;23 - Dec&apos;24</p>
@@ -350,7 +330,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className="mt-6 space-y-4">
-                  <div className="space-y-2 text-gray-300">
+                    <div className="space-y-2 text-gray-300">
                     <p className="flex items-center">
                       <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                       Specialized in advanced analytics, machine learning, and data engineering
@@ -363,10 +343,10 @@ const Home: NextPage = () => {
                       <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                       Applied AI/ML techniques to solve complex business problems
                     </p>
-                  </div>
+                    </div>
                   <div className="pt-6 border-t border-white/10">
                     <p className="text-gray-300 font-medium mb-4">Relevant Coursework:</p>
-                    <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-3">
                       <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Big Data</span>
                       <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Machine Learning</span>
                       <span className="px-4 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default">Deep Learning</span>
@@ -385,8 +365,8 @@ const Home: NextPage = () => {
             <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] transform hover:scale-[1.02]">
               <div className="space-y-6">
                 <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Bachelor of Technology in Mechanical Engineering</h3>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Bachelor of Technology in Mechanical Engineering</h3>
                     <p className="text-xl text-purple-400 mb-2">BML Munjal University, New Delhi, India</p>
                   </div>
                   <div className="flex flex-col items-end">
@@ -395,7 +375,7 @@ const Home: NextPage = () => {
                       <span className="text-emerald-400 font-semibold">GPA: 3.5</span>
                     </div>
                   </div>
-                </div>
+                    </div>
                 <div className="mt-6 space-y-4">
                   <div className="space-y-2 text-gray-300">
                     <p className="flex items-center">
@@ -800,7 +780,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Skills & Technologies</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-          </div>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Machine Learning & AI */}
@@ -852,7 +832,7 @@ const Home: NextPage = () => {
                   <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                   </svg>
-                </div>
+            </div>
                 <h3 className="text-xl font-bold text-emerald-400">Cloud & DevOps</h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -1079,7 +1059,7 @@ const Home: NextPage = () => {
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Find Me Here</h2>
           <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-        </div>
+            </div>
         <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
           {/* LinkedIn */}
           <li className="list-none">
@@ -1104,20 +1084,20 @@ const Home: NextPage = () => {
                   - LinkedIn
                 </span>
               </div>
-            </a>
+                </a>
           </li>
 
           {/* GitHub */}
           <li className="list-none">
-            <a
+                <a
               href="https://github.com/nikhilgouthamb"
-      target="_blank"
-      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
               className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
                                transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
                                hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
                                hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-            >
+                >
               <div className="flex items-center gap-4 h-full">
                 <Image
                   src="/github_cg.png"
@@ -1130,15 +1110,15 @@ const Home: NextPage = () => {
                   - GitHub
                 </span>
               </div>
-            </a>
+        </a>
           </li>
 
           {/* Medium */}
           <li className="list-none">
-            <a
+        <a
               href="https://medium.com/@nikhilgoutham.b"
-      target="_blank"
-      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
               className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
                                transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
                                hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
@@ -1156,20 +1136,20 @@ const Home: NextPage = () => {
                   - Medium
                 </span>
               </div>
-            </a>
+                </a>
           </li>
 
           {/* Kaggle */}
           <li className="list-none">
-            <a
+                <a
               href="https://www.kaggle.com/nikhilbudarayavalasa"
-            target="_blank"
-            rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
               className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
                                transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
                                hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
                                hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
-            >
+                >
               <div className="flex items-center gap-4 h-full">
                 <Image
                   src="/k.png"
@@ -1206,20 +1186,20 @@ const Home: NextPage = () => {
                   - Gmail
                 </span>
               </div>
-            </a>
+        </a>
           </li>
 
           {/* Streamlit */}
           <li className="list-none">
-            <a
+        <a
               href="https://share.streamlit.io/user/nikhilgouthamb"
-      target="_blank"
-      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
               className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
                                transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
                                hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
                                hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
-            >
+                >
               <div className="flex items-center gap-4 h-full">
                 <Image
                   src="/s.png"
@@ -1247,7 +1227,7 @@ const Home: NextPage = () => {
                 Data Scientist focused on building scalable AI solutions and data-driven insights.
               </p>
               <p className="text-gray-400">bnikhilgoutham@gmail.com</p>
-          </div>
+              </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
@@ -1256,13 +1236,13 @@ const Home: NextPage = () => {
                 <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a></li>
                 <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
               </ul>
-        </div>
-      </div>
+            </div>
+          </div>
           <div className="mt-12 pt-8 border-t border-gray-800">
             <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+          </div>
+        </div>
+      </footer>
         </div>
     </main>
 
