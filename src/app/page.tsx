@@ -984,22 +984,19 @@ const Home: NextPage = () => {
         </section>
 
         {/* Find Me Here Section */}
-        <section id="social" className="relative w-full min-h-screen bg-[#e5e5e5] flex flex-col items-center justify-center py-20">
-          <h2 className="text-4xl font-bold text-[#262626] mb-16">Find Me Here</h2>
+        <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
+          <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
           <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
             {/* LinkedIn */}
-            <li className="list-none perspective-[1000px]">
+            <li className="list-none">
               <a
                 href="https://www.linkedin.com/in/nikhilgoutham"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
-                         transform-gpu transition-transform duration-500 ease-in-out
-                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
-                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
-                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
-                         before:bg-[#0077B5] before:opacity-0 before:transition-opacity before:duration-500
-                         group-hover:before:opacity-100"
+                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
+                         hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
               >
                 <div className="flex items-center gap-4 h-full">
                   <Image
@@ -1007,9 +1004,9 @@ const Home: NextPage = () => {
                     alt="LinkedIn"
                     width={30}
                     height={30}
-                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
+                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
                   />
-                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
+                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
                     - LinkedIn
                   </span>
                 </div>
@@ -1017,18 +1014,15 @@ const Home: NextPage = () => {
             </li>
 
             {/* GitHub */}
-            <li className="list-none perspective-[1000px]">
+            <li className="list-none">
               <a
                 href="https://github.com/nikhilgouthamb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
-                         transform-gpu transition-transform duration-500 ease-in-out
-                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
-                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
-                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
-                         before:bg-[#333] before:opacity-0 before:transition-opacity before:duration-500
-                         group-hover:before:opacity-100"
+                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                         hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
+                         hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
               >
                 <div className="flex items-center gap-4 h-full">
                   <Image
@@ -1036,9 +1030,9 @@ const Home: NextPage = () => {
                     alt="GitHub"
                     width={30}
                     height={30}
-                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
+                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
                   />
-                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#333]">
+                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
                     - GitHub
                   </span>
                 </div>
@@ -1046,18 +1040,15 @@ const Home: NextPage = () => {
             </li>
 
             {/* Medium */}
-            <li className="list-none perspective-[1000px]">
+            <li className="list-none">
               <a
                 href="https://medium.com/@nikhilgoutham.b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
-                         transform-gpu transition-transform duration-500 ease-in-out
-                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
-                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
-                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
-                         before:bg-[#00ab6c] before:opacity-0 before:transition-opacity before:duration-500
-                         group-hover:before:opacity-100"
+                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
+                         hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
               >
                 <div className="flex items-center gap-4 h-full">
                   <Image
@@ -1065,9 +1056,9 @@ const Home: NextPage = () => {
                     alt="Medium"
                     width={30}
                     height={30}
-                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
+                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
                   />
-                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
+                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
                     - Medium
                   </span>
                 </div>
@@ -1075,18 +1066,15 @@ const Home: NextPage = () => {
             </li>
 
             {/* Kaggle */}
-            <li className="list-none perspective-[1000px]">
+            <li className="list-none">
               <a
                 href="https://www.kaggle.com/nikhilbudarayavalasa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
-                         transform-gpu transition-transform duration-500 ease-in-out
-                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
-                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
-                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
-                         before:bg-[#20beff] before:opacity-0 before:transition-opacity before:duration-500
-                         group-hover:before:opacity-100"
+                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
+                         hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
               >
                 <div className="flex items-center gap-4 h-full">
                   <Image
@@ -1094,9 +1082,9 @@ const Home: NextPage = () => {
                     alt="Kaggle"
                     width={30}
                     height={30}
-                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
+                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
                   />
-                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
+                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
                     - Kaggle
                   </span>
                 </div>
@@ -1104,16 +1092,13 @@ const Home: NextPage = () => {
             </li>
 
             {/* Gmail */}
-            <li className="list-none perspective-[1000px]">
+            <li className="list-none">
               <a
                 href="mailto:bnikhilgoutham@gmail.com"
-                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
-                         transform-gpu transition-transform duration-500 ease-in-out
-                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
-                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
-                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
-                         before:bg-[#ea4335] before:opacity-0 before:transition-opacity before:duration-500
-                         group-hover:before:opacity-100"
+                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
+                         hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
               >
                 <div className="flex items-center gap-4 h-full">
                   <Image
@@ -1121,9 +1106,9 @@ const Home: NextPage = () => {
                     alt="Gmail"
                     width={30}
                     height={30}
-                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
+                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
                   />
-                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
+                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
                     - Gmail
                   </span>
                 </div>
@@ -1131,18 +1116,15 @@ const Home: NextPage = () => {
             </li>
 
             {/* Streamlit */}
-            <li className="list-none perspective-[1000px]">
+            <li className="list-none">
               <a
                 href="https://share.streamlit.io/user/nikhilgouthamb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block w-[250px] h-[80px] bg-white text-left pl-5 no-underline
-                         transform-gpu transition-transform duration-500 ease-in-out
-                         hover:rotate-x-[-20deg] hover:rotate-y-[10deg] hover:translate-y-[-20px]
-                         shadow-[5px_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[20px_20px_30px_rgba(0,0,0,0.2)]
-                         before:absolute before:content-[''] before:left-0 before:bottom-0 before:w-full before:h-[4px] 
-                         before:bg-[#ff4b4b] before:opacity-0 before:transition-opacity before:duration-500
-                         group-hover:before:opacity-100"
+                className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
+                         transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
+                         hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
+                         hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
               >
                 <div className="flex items-center gap-4 h-full">
                   <Image
@@ -1150,9 +1132,9 @@ const Home: NextPage = () => {
                     alt="Streamlit"
                     width={30}
                     height={30}
-                    className="transition-all duration-500 filter brightness-0 group-hover:brightness-100 group-hover:invert-0"
+                    className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
                   />
-                  <span className="text-[#262626] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
+                  <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
                     - Streamlit
                   </span>
                 </div>
