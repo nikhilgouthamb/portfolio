@@ -413,8 +413,11 @@ const Home: NextPage = () => {
 
       {/* Projects Section */}
       <section id="projects" className="relative w-full bg-[#0a0a0a] py-20">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Experience & Projects</h2>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center mb-16">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Experience & Projects</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Verizon Project Card */}
             <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
