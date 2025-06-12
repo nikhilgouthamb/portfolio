@@ -318,7 +318,7 @@ const Home: NextPage = () => {
                       <p className="text-xl text-blue-400 mb-2">New Jersey Institute of Technology (NJIT)</p>
                     </div>
                     <div className="flex flex-col items-end">
-                      <p className="text-gray-400">Graduated: December 2024</p>
+                      <p className="text-gray-400">Jan'23 - Dec'24</p>
                       <div className="flex items-center mt-2">
                         <span className="text-emerald-400 font-semibold">GPA: 3.95</span>
                       </div>
@@ -365,7 +365,7 @@ const Home: NextPage = () => {
                       <p className="text-xl text-purple-400 mb-2">BML Munjal University, New Delhi, India</p>
                     </div>
                     <div className="flex flex-col items-end">
-                      <p className="text-gray-400">August 2017 - August 2021</p>
+                      <p className="text-gray-400">Aug'17 - Aug'21</p>
                       <div className="flex items-center mt-2">
                         <span className="text-emerald-400 font-semibold">GPA: 3.5</span>
                       </div>
@@ -1047,158 +1047,161 @@ const Home: NextPage = () => {
 
           {/* Find Me Here Section */}
           <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
-            <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
-            <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
+            <div className="flex flex-col items-center mb-16">
+              <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Find Me Here</h2>
+              <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            </div>
+            <ul className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
               {/* LinkedIn */}
-              <li className="list-none">
+              <li className="list-none flex justify-center">
                 <a
                   href="https://www.linkedin.com/in/nikhilgoutham"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                           transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                           hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
-                           hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
+                  className="group relative flex items-center justify-center w-40 h-40 bg-gradient-to-br from-[#0077B5]/10 to-[#0077B5]/20 
+                           rounded-[2rem] rotate-45 overflow-hidden transition-all duration-300 
+                           hover:scale-110 hover:shadow-[0_0_30px_rgba(0,119,181,0.3)] hover:from-[#0077B5]/20 hover:to-[#0077B5]/30
+                           before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-[#0077B5]/10 before:opacity-0 
+                           before:transition-opacity before:duration-300 group-hover:before:opacity-100"
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/linkedin_cg.png"
-                      alt="LinkedIn"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
-                      - LinkedIn
-                    </span>
+                  <div className="flex flex-col items-center -rotate-45 gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src="/linkedin_cg.png"
+                        alt="LinkedIn"
+                        fill
+                        className="transition-all duration-500 filter brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0"
+                      />
+                    </div>
+                    <span className="text-[#0077B5] opacity-70 font-medium group-hover:opacity-100">LinkedIn</span>
                   </div>
                 </a>
               </li>
 
               {/* GitHub */}
-              <li className="list-none">
+              <li className="list-none flex justify-center">
                 <a
                   href="https://github.com/nikhilgouthamb"
-            target="_blank"
-            rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                             hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
-                             hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-40 h-40 bg-gradient-to-br from-white/10 to-white/20 
+                           rounded-[2rem] rotate-45 overflow-hidden transition-all duration-300 
+                           hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:from-white/20 hover:to-white/30
+                           before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-white/10 before:opacity-0 
+                           before:transition-opacity before:duration-300 group-hover:before:opacity-100"
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/github_cg.png"
-                      alt="GitHub"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
-                      - GitHub
-                    </span>
+                  <div className="flex flex-col items-center -rotate-45 gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src="/github_cg.png"
+                        alt="GitHub"
+                        fill
+                        className="transition-all duration-500 filter brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0"
+                      />
+                    </div>
+                    <span className="text-white opacity-70 font-medium group-hover:opacity-100">GitHub</span>
                   </div>
                 </a>
               </li>
 
               {/* Medium */}
-              <li className="list-none">
+              <li className="list-none flex justify-center">
                 <a
                   href="https://medium.com/@nikhilgoutham.b"
-            target="_blank"
-            rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
-                             hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-40 h-40 bg-gradient-to-br from-[#00ab6c]/10 to-[#00ab6c]/20 
+                           rounded-[2rem] rotate-45 overflow-hidden transition-all duration-300 
+                           hover:scale-110 hover:shadow-[0_0_30px_rgba(0,171,108,0.3)] hover:from-[#00ab6c]/20 hover:to-[#00ab6c]/30
+                           before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-[#00ab6c]/10 before:opacity-0 
+                           before:transition-opacity before:duration-300 group-hover:before:opacity-100"
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/medium_cg.png"
-                      alt="Medium"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
-                      - Medium
-                    </span>
+                  <div className="flex flex-col items-center -rotate-45 gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src="/medium_cg.png"
+                        alt="Medium"
+                        fill
+                        className="transition-all duration-500 filter brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0"
+                      />
+                    </div>
+                    <span className="text-[#00ab6c] opacity-70 font-medium group-hover:opacity-100">Medium</span>
                   </div>
                 </a>
               </li>
 
               {/* Kaggle */}
-              <li className="list-none">
+              <li className="list-none flex justify-center">
                 <a
                   href="https://www.kaggle.com/nikhilbudarayavalasa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
-                             hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-40 h-40 bg-gradient-to-br from-[#20beff]/10 to-[#20beff]/20 
+                           rounded-[2rem] rotate-45 overflow-hidden transition-all duration-300 
+                           hover:scale-110 hover:shadow-[0_0_30px_rgba(32,190,255,0.3)] hover:from-[#20beff]/20 hover:to-[#20beff]/30
+                           before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-[#20beff]/10 before:opacity-0 
+                           before:transition-opacity before:duration-300 group-hover:before:opacity-100"
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/k.png"
-                      alt="Kaggle"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
-                      - Kaggle
-                    </span>
+                  <div className="flex flex-col items-center -rotate-45 gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src="/k.png"
+                        alt="Kaggle"
+                        fill
+                        className="transition-all duration-500 filter brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0"
+                      />
+                    </div>
+                    <span className="text-[#20beff] opacity-70 font-medium group-hover:opacity-100">Kaggle</span>
                   </div>
                 </a>
               </li>
 
               {/* Gmail */}
-              <li className="list-none">
+              <li className="list-none flex justify-center">
                 <a
                   href="mailto:bnikhilgoutham@gmail.com"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
-                             hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
+                  className="group relative flex items-center justify-center w-40 h-40 bg-gradient-to-br from-[#ea4335]/10 to-[#ea4335]/20 
+                           rounded-[2rem] rotate-45 overflow-hidden transition-all duration-300 
+                           hover:scale-110 hover:shadow-[0_0_30px_rgba(234,67,53,0.3)] hover:from-[#ea4335]/20 hover:to-[#ea4335]/30
+                           before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-[#ea4335]/10 before:opacity-0 
+                           before:transition-opacity before:duration-300 group-hover:before:opacity-100"
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/gmail_cg.png"
-                      alt="Gmail"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
-                      - Gmail
-                    </span>
+                  <div className="flex flex-col items-center -rotate-45 gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src="/gmail_cg.png"
+                        alt="Gmail"
+                        fill
+                        className="transition-all duration-500 filter brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0"
+                      />
+                    </div>
+                    <span className="text-[#ea4335] opacity-70 font-medium group-hover:opacity-100">Gmail</span>
                   </div>
                 </a>
               </li>
 
               {/* Streamlit */}
-              <li className="list-none">
+              <li className="list-none flex justify-center">
                 <a
                   href="https://share.streamlit.io/user/nikhilgouthamb"
-            target="_blank"
-            rel="noopener noreferrer"
-                  className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                             transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                             hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
-                             hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-40 h-40 bg-gradient-to-br from-[#ff4b4b]/10 to-[#ff4b4b]/20 
+                           rounded-[2rem] rotate-45 overflow-hidden transition-all duration-300 
+                           hover:scale-110 hover:shadow-[0_0_30px_rgba(255,75,75,0.3)] hover:from-[#ff4b4b]/20 hover:to-[#ff4b4b]/30
+                           before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-[#ff4b4b]/10 before:opacity-0 
+                           before:transition-opacity before:duration-300 group-hover:before:opacity-100"
                 >
-                  <div className="flex items-center gap-4 h-full">
-                    <Image
-                      src="/s.png"
-                      alt="Streamlit"
-                      width={30}
-                      height={30}
-                      className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                    />
-                    <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
-                      - Streamlit
-                    </span>
+                  <div className="flex flex-col items-center -rotate-45 gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src="/s.png"
+                        alt="Streamlit"
+                        fill
+                        className="transition-all duration-500 filter brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0"
+                      />
+                    </div>
+                    <span className="text-[#ff4b4b] opacity-70 font-medium group-hover:opacity-100">Streamlit</span>
                   </div>
                 </a>
               </li>
