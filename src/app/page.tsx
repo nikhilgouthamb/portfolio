@@ -182,8 +182,8 @@ const Home: NextPage = () => {
       <main className="relative min-h-screen w-full bg-[#0a0a0a]">
         {/* Background Animation */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <div className="constellation-animation absolute inset-0">
-            <canvas id="constellation-canvas" className="w-full h-full"></canvas>
+          <div className="particles-animation absolute inset-0">
+            <canvas id="particles-canvas" className="w-full h-full"></canvas>
           </div>
         </div>
 
@@ -1231,14 +1231,13 @@ const Home: NextPage = () => {
                 <div className="mt-12 pt-8 border-t border-gray-800">
                   <p className="text-center text-gray-400">© 2025 Nikhil Goutham. All rights reserved.</p>
               </div>
-            </div>
-          </footer>
+            </footer>
         </div>
       </main>
 
-      <Script id="constellation-animation">{`
-        function initConstellation() {
-          const canvas = document.getElementById('constellation-canvas');
+      <Script id="particles-animation">{`
+        function initParticles() {
+          const canvas = document.getElementById('particles-canvas');
           const ctx = canvas.getContext('2d');
           let width = canvas.width = window.innerWidth;
           let height = canvas.height = window.innerHeight;
@@ -1246,12 +1245,12 @@ const Home: NextPage = () => {
           const particles = [];
           const properties = {
             bgColor: 'rgba(10, 10, 10, 1)',
-            particleColor: 'rgba(255, 255, 255, 0.1)',
-            particleRadius: 3,
-            particleCount: 60,
-            particleMaxVelocity: 0.5,
-            lineLength: 150,
-            particleLife: 6
+            particleCount: 50,
+            particleColor: 'rgba(255, 255, 255, 0.5)',
+            minSize: 1,
+            maxSize: 3,
+            minSpeed: 0.05,
+            maxSpeed: 0.2
           };
 
           window.onresize = function() {
@@ -1261,99 +1260,72 @@ const Home: NextPage = () => {
 
           class Particle {
             constructor() {
+              this.reset();
+            }
+
+            reset() {
               this.x = Math.random() * width;
               this.y = Math.random() * height;
-              this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-              this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-              this.life = Math.random() * properties.particleLife * 60;
+              this.size = Math.random() * (properties.maxSize - properties.minSize) + properties.minSize;
+              this.speedX = (Math.random() * (properties.maxSpeed - properties.minSpeed) + properties.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
+              this.speedY = (Math.random() * (properties.maxSpeed - properties.minSpeed) + properties.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
+              this.opacity = Math.random() * 0.5 + 0.2;
+              this.fadeDirection = Math.random() < 0.5 ? -1 : 1;
             }
 
-            position() {
-              this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
-              this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
-              this.x += this.velocityX;
-              this.y += this.velocityY;
+            update() {
+              // Update position
+              this.x += this.speedX;
+              this.y += this.speedY;
+
+              // Update opacity
+              this.opacity += 0.005 * this.fadeDirection;
+              
+              if (this.opacity > 0.7) this.fadeDirection = -1;
+              if (this.opacity < 0.2) this.fadeDirection = 1;
+
+              // Check bounds
+              if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+                this.reset();
+              }
             }
 
-            reDraw() {
+            draw() {
               ctx.beginPath();
-              ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
-              ctx.closePath();
-              ctx.fillStyle = properties.particleColor;
+              ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+              ctx.fillStyle = \`rgba(255, 255, 255, \${this.opacity})\`;
               ctx.fill();
             }
+          }
 
-            reCalculateLife() {
-              if(this.life < 1) {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-                this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-                this.life = Math.random() * properties.particleLife * 60;
-              }
-              this.life--;
+          function createParticles() {
+            for (let i = 0; i < properties.particleCount; i++) {
+              particles.push(new Particle());
             }
           }
 
-          function reDrawBackground() {
+          function animate() {
             ctx.fillStyle = properties.bgColor;
             ctx.fillRect(0, 0, width, height);
+
+            particles.forEach(particle => {
+              particle.update();
+              particle.draw();
+            });
+
+            requestAnimationFrame(animate);
           }
 
-          function drawLines() {
-            let x1, y1, x2, y2, length, opacity;
-            for(let i in particles) {
-              for(let j in particles) {
-                x1 = particles[i].x;
-                y1 = particles[i].y;
-                x2 = particles[j].x;
-                y2 = particles[j].y;
-                length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                if(length < properties.lineLength) {
-                  opacity = 1 - length / properties.lineLength;
-                  ctx.lineWidth = 0.5;
-                  ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
-                  ctx.beginPath();
-                  ctx.moveTo(x1, y1);
-                  ctx.lineTo(x2, y2);
-                  ctx.closePath();
-                  ctx.stroke();
-                }
-              }
-            }
-          }
-
-          function reDrawParticles() {
-            for(let i in particles) {
-              particles[i].reCalculateLife();
-              particles[i].position();
-              particles[i].reDraw();
-            }
-          }
-
-          function loop() {
-            reDrawBackground();
-            reDrawParticles();
-            drawLines();
-            requestAnimationFrame(loop);
-          }
-
-          function init() {
-            for(let i = 0; i < properties.particleCount; i++) {
-              particles.push(new Particle);
-            }
-            loop();
-          }
-
-          init();
+          createParticles();
+          animate();
         }
 
         // Initialize the animation when the component mounts
         if (typeof window !== 'undefined') {
           if (document.readyState === 'complete') {
-            initConstellation();
+            initParticles();
           } else {
-            window.addEventListener('load', initConstellation);
+            window.addEventListener('load', initParticles);
           }
         }
       `}</Script>
