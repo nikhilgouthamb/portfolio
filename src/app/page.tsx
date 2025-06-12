@@ -986,143 +986,185 @@ const Home: NextPage = () => {
         {/* Find Me Here Section */}
         <section id="social" className="relative w-full min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center py-20">
           <h2 className="text-4xl font-bold text-white mb-16">Find Me Here</h2>
-          <div className="w-full max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ul className="m-0 p-0 flex flex-col gap-8">
             {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/nikhilgoutham"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(59,130,246,0.15)] will-change-transform"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
+            <li className="list-none">
+              <a
+                href="https://www.linkedin.com/in/nikhilgoutham"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
+                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
+                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
+                         hover:bg-[#0077B5] before:content-[''] before:absolute before:top-[10px] before:-left-5 
+                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
+                         hover:before:bg-[#006396] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
+                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
+                         hover:after:bg-[#0083c4]"
+              >
+                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
                   <Image
                     src="/linkedin_cg.png"
                     alt="LinkedIn"
-                    width={64}
-                    height={64}
-                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
                   />
+                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
+                    LinkedIn
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-blue-400">LinkedIn</h3>
-              </div>
-            </a>
+              </a>
+            </li>
 
             {/* GitHub */}
-            <a
-              href="https://github.com/nikhilgouthamb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(156,163,175,0.15)] will-change-transform"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-gray-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
+            <li className="list-none">
+              <a
+                href="https://github.com/nikhilgouthamb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
+                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
+                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
+                         hover:bg-[#333] before:content-[''] before:absolute before:top-[10px] before:-left-5 
+                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
+                         hover:before:bg-[#2b2b2b] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
+                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
+                         hover:after:bg-[#3a3a3a]"
+              >
+                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
                   <Image
                     src="/github_cg.png"
                     alt="GitHub"
-                    width={64}
-                    height={64}
-                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
                   />
+                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
+                    GitHub
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-gray-400">GitHub</h3>
-              </div>
-            </a>
+              </a>
+            </li>
 
             {/* Medium */}
-            <a
-              href="https://medium.com/@nikhilgoutham.b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(34,197,94,0.15)] will-change-transform"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-green-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
+            <li className="list-none">
+              <a
+                href="https://medium.com/@nikhilgoutham.b"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
+                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
+                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
+                         hover:bg-[#00ab6c] before:content-[''] before:absolute before:top-[10px] before:-left-5 
+                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
+                         hover:before:bg-[#009a61] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
+                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
+                         hover:after:bg-[#00bc77]"
+              >
+                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
                   <Image
                     src="/medium_cg.png"
                     alt="Medium"
-                    width={64}
-                    height={64}
-                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
                   />
+                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
+                    Medium
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-green-400">Medium</h3>
-              </div>
-            </a>
+              </a>
+            </li>
 
             {/* Kaggle */}
-            <a
-              href="https://www.kaggle.com/nikhilbudarayavalasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(96,165,250,0.15)] will-change-transform"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
+            <li className="list-none">
+              <a
+                href="https://www.kaggle.com/nikhilbudarayavalasa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
+                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
+                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
+                         hover:bg-[#20beff] before:content-[''] before:absolute before:top-[10px] before:-left-5 
+                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
+                         hover:before:bg-[#1ca7e3] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
+                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
+                         hover:after:bg-[#37c7ff]"
+              >
+                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
                   <Image
                     src="/k.png"
                     alt="Kaggle"
-                    width={64}
-                    height={64}
-                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
                   />
+                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
+                    Kaggle
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-blue-400">Kaggle</h3>
-              </div>
-            </a>
+              </a>
+            </li>
 
             {/* Gmail */}
-            <a
-              href="mailto:bnikhilgoutham@gmail.com"
-              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(239,68,68,0.15)] will-change-transform"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-red-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
+            <li className="list-none">
+              <a
+                href="mailto:bnikhilgoutham@gmail.com"
+                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
+                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
+                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
+                         hover:bg-[#ea4335] before:content-[''] before:absolute before:top-[10px] before:-left-5 
+                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
+                         hover:before:bg-[#d33a2c] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
+                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
+                         hover:after:bg-[#ec5b4e]"
+              >
+                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
                   <Image
                     src="/gmail_cg.png"
                     alt="Gmail"
-                    width={64}
-                    height={64}
-                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
                   />
+                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
+                    Gmail
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-red-400">Gmail</h3>
-              </div>
-            </a>
+              </a>
+            </li>
 
             {/* Streamlit */}
-            <a
-              href="https://share.streamlit.io/user/nikhilgouthamb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 transition-all duration-700 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_40px_8px_rgba(248,113,113,0.15)] will-change-transform"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-red-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100" />
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 relative transition-all duration-700 group-hover:transform group-hover:translate-y-[-2px] group-hover:rotate-[8deg]">
+            <li className="list-none">
+              <a
+                href="https://share.streamlit.io/user/nikhilgouthamb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-[210px] h-[80px] bg-white text-left pl-5 transition-transform duration-500 
+                         transform -rotate-[30deg] skew-x-[25deg] hover:translate-x-5 hover:-translate-y-4 
+                         shadow-[-20px_20px_10px_rgba(0,0,0,0.5)] hover:shadow-[-50px_50px_50px_rgba(0,0,0,0.5)]
+                         hover:bg-[#ff4b4b] before:content-[''] before:absolute before:top-[10px] before:-left-5 
+                         before:h-full before:w-5 before:bg-[#b1b1b1] before:transform before:skew-y-[-45deg]
+                         hover:before:bg-[#e64242] after:content-[''] after:absolute after:-bottom-5 after:-left-[10px] 
+                         after:h-5 after:w-full after:bg-[#b1b1b1] after:transform after:skew-x-[-45deg]
+                         hover:after:bg-[#ff6464]"
+              >
+                <div className="transform rotate-[30deg] -skew-x-[25deg] flex items-center h-full">
                   <Image
                     src="/s.png"
                     alt="Streamlit"
-                    width={64}
-                    height={64}
-                    className="object-contain filter brightness-0 invert transition-all duration-700 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="mr-4 transition-all duration-500 group-hover:filter group-hover:brightness-0 group-hover:invert"
                   />
+                  <span className="absolute top-[30px] tracking-[4px] text-[#262626] transition-colors duration-500 group-hover:text-white">
+                    Streamlit
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-white transition-all duration-700 group-hover:text-red-400">Streamlit</h3>
-              </div>
-            </a>
-          </div>
+              </a>
+            </li>
+          </ul>
         </section>
 
         {/* Footer */}
