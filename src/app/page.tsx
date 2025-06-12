@@ -11,6 +11,7 @@ import ProfileCard from '@/components/ProfileCard';
 import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
+import Beams from "@/components/Beams";
 
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -183,13 +184,15 @@ const Home: NextPage = () => {
       <main className="relative min-h-screen w-full bg-[#0a0a0a]">
         {/* Background Animation */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <LiquidChrome
-            baseColor={[0.03, 0.03, 0.05]}
-            speed={0.08}
-            amplitude={0.25}
-            frequencyX={1.5}
-            frequencyY={1.2}
-            interactive={true}
+          <Beams
+            beamWidth={2.5}
+            beamHeight={20}
+            beamNumber={15}
+            lightColor="#4a90e2"
+            speed={1.2}
+            noiseIntensity={1.5}
+            scale={0.15}
+            rotation={45}
           />
         </div>
 
