@@ -212,17 +212,14 @@ const Home: NextPage = () => {
             className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
-            style={{
-              transition: 'transform 0.3s ease'
-            }}
           >
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text ${styles['animate-gradient']}`}>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-gradient">
               Hi, I&apos;m Nikhil Goutham
             </h1>
-            <p className={`text-xl md:text-2xl text-gray-300 mb-8 ${styles['animate-fade-in']}`}>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in">
               Data Scientist with expertise in Data Analysis, Machine Learning, Deep Learning and AI
             </p>
-            <div className={`flex flex-col md:flex-row gap-4 justify-center ${styles['animate-fade-in-up']}`}>
+            <div className="flex flex-col md:flex-row gap-4 justify-center animate-fade-in-up">
               <Link 
                 href="#projects"
                 className="group px-8 py-3 text-gray-300 border border-transparent rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 no-underline"
