@@ -784,47 +784,46 @@ const Home: NextPage = () => {
               {/* Background Image */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-700/90 to-black/90">
                 <Image
-                  src="/starting_position.png"
+                  src="/gl.png"
                   alt="Game of Life: Wormhole"
                   fill
-                  className="object-cover opacity-30 group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
                   priority
                   quality={100}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               
               {/* Content Overlay */}
-              <div className="relative h-full p-8 flex flex-col justify-between">
+              <div className="relative h-full p-4 sm:p-8 flex flex-col justify-between">
                 {/* Top Content */}
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Game of Life: Wormhole</h3>
-                  <p className="text-gray-200 text-sm">
+                  <h3 className="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-3">Game of Life: Wormhole</h3>
+                  <p className="text-gray-200 text-xs sm:text-sm">
                     Advanced cellular automata simulation with wormhole tunnels
                   </p>
                 </div>
 
                 {/* Bottom Content - Tags */}
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Python</span>
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Simulation</span>
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Game of Life</span>
+                <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-0">
+                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white">Python</span>
+                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white">Simulation</span>
+                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white">Game of Life</span>
                 </div>
 
                 {/* Hover Description - Hidden by default */}
-                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="h-full flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-4">Game of Life: Wormhole</h3>
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        An advanced simulation of Conway&apos;s Game of Life featuring &quot;wormhole&quot; tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
-                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Cellular Automata</span>
-                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Visualization</span>
-                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Edge Cases</span>
-                    </div>
+                <div className="absolute inset-0 bg-black/80 p-3 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-4">Game of Life: Wormhole</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                      An advanced simulation of Conway&apos;s Game of Life featuring &quot;wormhole&quot; tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-0">
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Python</span>
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Cellular Automata</span>
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Visualization</span>
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Edge Cases</span>
                   </div>
                 </div>
               </div>
