@@ -20,6 +20,7 @@ const Home: NextPage = () => {
     message: ''
   });
   const formRef = useRef<HTMLFormElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -29,6 +30,25 @@ const Home: NextPage = () => {
     // Initialize EmailJS with your public key
     emailjs.init("uqsCm_Maqt80_Znbl");
   }, []);
+
+  useEffect(() => {
+    // Check on mount and on resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0a0a] to-[#22223b] text-center px-6">
+        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Thank you for hopping on my portfolio!</h1>
+        <p className="text-lg text-gray-300">Currently it is optimized for large screens.<br/>Please visit on a desktop or laptop for the best experience.</p>
+      </div>
+    );
+  }
 
   // Email template HTML:
   /*
