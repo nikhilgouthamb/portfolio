@@ -43,9 +43,27 @@ const Home: NextPage = () => {
 
   if (isMobile) {
     return (
-      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0a0a] to-[#22223b] text-center px-6">
-        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Thank you for hopping on my portfolio!</h1>
-        <p className="text-lg text-gray-300">Currently it is optimized for large screens.<br/>Please visit on a desktop or laptop for the best experience.</p>
+      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#181824] via-[#22223b] to-[#0a0a0a] text-center px-6 animate-fade-in">
+        {/* Fun Illustration */}
+        <div className="mb-6">
+          <img src="/gl.png" alt="Pixel Art" className="w-24 h-24 mx-auto rounded-2xl shadow-lg border-4 border-white/10 bg-white/10 backdrop-blur-md" />
+        </div>
+        {/* Glassmorphism Card */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 max-w-xs mx-auto shadow-2xl border border-white/20">
+          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Thank you for hopping on my portfolio!</h1>
+          <p className="text-base text-gray-200 mb-6">Currently it is optimized for large screens.<br/>Please visit on a desktop or laptop for the best experience.</p>
+          {/* Call-to-action */}
+          <a href="mailto:nikhilgoutham@gmail.com" className="inline-block px-6 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg hover:scale-105 transition mb-4">Contact Me</a>
+          {/* Social Icons */}
+          <div className="flex justify-center gap-6 mt-2">
+            <a href="https://github.com/nikhilgouthamb" target="_blank" rel="noopener noreferrer">
+              <img src="/github_cg.png" alt="GitHub" className="w-8 h-8 opacity-80 hover:opacity-100 transition" />
+            </a>
+            <a href="https://www.linkedin.com/in/nikhilgoutham" target="_blank" rel="noopener noreferrer">
+              <img src="/linkedin_cg.png" alt="LinkedIn" className="w-8 h-8 opacity-80 hover:opacity-100 transition" />
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
