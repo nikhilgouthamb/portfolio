@@ -816,7 +816,7 @@ const Home: NextPage = () => {
                     <div>
                       <h3 className="text-xl font-bold text-white mb-4">Game of Life: Wormhole</h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
-                        An advanced simulation of Conway's Game of Life featuring "wormhole" tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.
+                        An advanced simulation of Conway&apos;s Game of Life featuring &quot;wormhole&quot; tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2">
