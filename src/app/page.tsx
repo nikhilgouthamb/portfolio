@@ -12,6 +12,8 @@ import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
 
+const bgImages = ["/a.jpeg", "/b.jpeg", "/c.jpeg"];
+
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,6 +23,7 @@ const Home: NextPage = () => {
   });
   const formRef = useRef<HTMLFormElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [bgImage, setBgImage] = useState(bgImages[0]);
 
   useEffect(() => {
     setIsVisible(true);
@@ -38,15 +41,18 @@ const Home: NextPage = () => {
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
+    // Pick a random background image for mobile overlay
+    setBgImage(bgImages[Math.floor(Math.random() * bgImages.length)]);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   if (isMobile) {
     return (
-      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#181824] via-[#22223b] to-[#0a0a0a] text-center px-6 animate-fade-in">
-        {/* Fun Illustration */}
-        <div className="mb-6">
-          <img src="/gl.png" alt="Pixel Art" className="w-24 h-24 mx-auto rounded-2xl shadow-lg border-4 border-white/10 bg-white/10 backdrop-blur-md" />
+      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-center px-6 animate-fade-in">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <img src={bgImage} alt="Background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#181824]/80 via-[#22223b]/80 to-[#0a0a0a]/90" />
         </div>
         {/* Glassmorphism Card */}
         <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 max-w-xs mx-auto shadow-2xl border border-white/20">
