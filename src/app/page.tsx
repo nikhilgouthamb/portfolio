@@ -24,6 +24,7 @@ const Home: NextPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [bgImage, setBgImage] = useState(bgImages[0]);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -48,25 +49,40 @@ const Home: NextPage = () => {
 
   if (isMobile) {
     return (
-      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-center px-6 animate-fade-in">
-        {/* Background Image */}
+      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-center px-6 animate-fade-in" style={{background: 'radial-gradient(ellipse at 60% 40%, #23272b 60%, #181a1b 100%)'}}>
+        {/* Metal/Matte Overlay */}
         <div className="absolute inset-0 -z-10">
-          <img src={bgImage} alt="Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#181824]/80 via-[#22223b]/80 to-[#0a0a0a]/90" />
+          <img src={bgImage} alt="Background" className="w-full h-full object-cover opacity-30 grayscale" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#23272b]/80 via-[#181a1b]/90 to-[#101113]/95" />
+          <div className="absolute inset-0 pointer-events-none" style={{boxShadow: '0 0 120px 40px #23272b inset'}} />
         </div>
-        {/* Glassmorphism Card */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 max-w-xs mx-auto shadow-2xl border border-white/20">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Thank you for hopping on my portfolio!</h1>
-          <p className="text-base text-gray-200 mb-6">Currently it is optimized for large screens.<br/>Please visit on a desktop or laptop for the best experience.</p>
-          {/* Modernized Call-to-action */}
-          <a href="mailto:bnikhilgoutham@gmail.com" className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-xl hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-300 mb-4 border-2 border-white/20">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0l-4-4m4 4l-4 4" /></svg>
-            Contact Me
-          </a>
-          {/* Social Icons */}
+        {/* Glassy Metal Card */}
+        <div className="bg-white/5 backdrop-blur-2xl rounded-3xl p-6 max-w-xs mx-auto shadow-2xl border border-gray-400/30" style={{borderImage: 'linear-gradient(120deg, #b0b3b8 10%, #23272b 90%) 1'}}>
+          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 mb-4" style={{letterSpacing: '0.02em'}}>Thank you for hopping on my portfolio!</h1>
+          <p className="text-base text-gray-300 mb-8">Currently it is optimized for large screens.<br/>Please visit on a desktop or laptop for the best experience.</p>
+          {/* Animated Contact Me Button with Tooltip */}
+          <div className="relative flex flex-col items-center">
+            <button
+              onClick={() => window.location.href = 'mailto:bnikhilgoutham@gmail.com'}
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              onTouchStart={() => setShowTooltip(true)}
+              onTouchEnd={() => setShowTooltip(false)}
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-gray-600 via-gray-400 to-gray-700 text-white font-semibold shadow-xl border-2 border-gray-400/40 focus:outline-none focus:ring-2 focus:ring-gray-300 animate-bounce-in hover:animate-pulse-metal transition-all duration-300 mb-4"
+              style={{boxShadow: '0 2px 16px 0 #23272b80'}}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0l-4-4m4 4l-4 4" /></svg>
+              Contact Me
+            </button>
+            {/* Tooltip */}
+            <div className={`absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-gray-800/90 text-xs text-gray-100 shadow-lg transition-opacity duration-200 ${showTooltip ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              style={{backdropFilter: 'blur(4px)'}}>
+              Let&apos;s Connect!
+            </div>
+          </div>
+          {/* Modernized LinkedIn Icon */}
           <div className="flex justify-center gap-6 mt-2">
-            {/* Modernized LinkedIn Icon */}
-            <a href="https://www.linkedin.com/in/nikhilgoutham" target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-br from-blue-600 via-blue-400 to-purple-500 p-2 shadow-lg hover:scale-110 hover:shadow-[0_0_20px_#0077B5] transition-transform duration-300">
+            <a href="https://www.linkedin.com/in/nikhilgoutham" target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-br from-gray-700 via-gray-500 to-gray-800 p-2 shadow-lg hover:scale-110 hover:shadow-[0_0_20px_#0077B5] transition-transform duration-300 border-2 border-gray-400/40">
               <img src="/linkedin_cg.png" alt="LinkedIn" className="w-8 h-8" />
             </a>
           </div>
