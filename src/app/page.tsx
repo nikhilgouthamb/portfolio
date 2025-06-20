@@ -58,15 +58,16 @@ const Home: NextPage = () => {
         <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 max-w-xs mx-auto shadow-2xl border border-white/20">
           <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Thank you for hopping on my portfolio!</h1>
           <p className="text-base text-gray-200 mb-6">Currently it is optimized for large screens.<br/>Please visit on a desktop or laptop for the best experience.</p>
-          {/* Call-to-action */}
-          <a href="mailto:nikhilgoutham@gmail.com" className="inline-block px-6 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg hover:scale-105 transition mb-4">Contact Me</a>
+          {/* Modernized Call-to-action */}
+          <a href="mailto:bnikhilgoutham@gmail.com" className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold shadow-xl hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-300 mb-4 border-2 border-white/20">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0l-4-4m4 4l-4 4" /></svg>
+            Contact Me
+          </a>
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mt-2">
-            <a href="https://github.com/nikhilgouthamb" target="_blank" rel="noopener noreferrer">
-              <img src="/github_cg.png" alt="GitHub" className="w-8 h-8 opacity-80 hover:opacity-100 transition" />
-            </a>
-            <a href="https://www.linkedin.com/in/nikhilgoutham" target="_blank" rel="noopener noreferrer">
-              <img src="/linkedin_cg.png" alt="LinkedIn" className="w-8 h-8 opacity-80 hover:opacity-100 transition" />
+            {/* Modernized LinkedIn Icon */}
+            <a href="https://www.linkedin.com/in/nikhilgoutham" target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-br from-blue-600 via-blue-400 to-purple-500 p-2 shadow-lg hover:scale-110 hover:shadow-[0_0_20px_#0077B5] transition-transform duration-300">
+              <img src="/linkedin_cg.png" alt="LinkedIn" className="w-8 h-8" />
             </a>
           </div>
         </div>
