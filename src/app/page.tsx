@@ -24,7 +24,6 @@ const Home: NextPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [bgImage, setBgImage] = useState(bgImages[0]);
-  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -52,7 +51,7 @@ const Home: NextPage = () => {
       <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-center px-6 animate-fade-in" style={{background: 'radial-gradient(ellipse at 60% 40%, #23272b 60%, #181a1b 100%)'}}>
         {/* Metal/Matte Overlay */}
         <div className="absolute inset-0 -z-10">
-          <img src={bgImage} alt="Background" className="w-full h-full object-cover opacity-30 grayscale" />
+          <Image src={bgImage} alt="Background" fill className="object-cover opacity-30 grayscale" priority />
           <div className="absolute inset-0 bg-gradient-to-br from-[#23272b]/80 via-[#181a1b]/90 to-[#101113]/95" />
           <div className="absolute inset-0 pointer-events-none" style={{boxShadow: '0 0 120px 40px #23272b inset'}} />
         </div>
@@ -78,10 +77,12 @@ const Home: NextPage = () => {
               className="rounded-full bg-[#23272b] border border-gray-600 shadow-lg hover:scale-105 hover:shadow-blue-500/40 transition-transform duration-300 flex items-center justify-center"
               style={{ width: 48, height: 48 }}
             >
-              <img
+              <Image
                 src="/linkedin_cg.png"
                 alt="LinkedIn"
-                className="w-8 h-8 object-contain"
+                width={32}
+                height={32}
+                className="object-contain"
                 style={{ filter: 'drop-shadow(0 2px 8px #0077b5aa)' }}
               />
             </a>
