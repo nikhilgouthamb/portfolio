@@ -1386,7 +1386,7 @@ const Home: NextPage = () => {
               </ul>
             </div>
             <div className="flex flex-col items-center">
-              <p className="text-base text-gray-300 mb-4 text-center">Interested in collaborating or volunteering for climate tech and sustainability causes? Let's connect!</p>
+              <p className="text-base text-gray-300 mb-4 text-center">Interested in collaborating or volunteering for climate tech and sustainability causes? Let&apos;s connect!</p>
               <a href="#contact" className="inline-block px-8 py-3 text-white rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-900">Contact Me</a>
             </div>
           </div>
