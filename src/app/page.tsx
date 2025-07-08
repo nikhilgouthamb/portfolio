@@ -1363,6 +1363,35 @@ const Home: NextPage = () => {
           </div>
         </div>
       </footer>
+
+      {/* Climate Tech & Sustainability Section */}
+      <section id="climate-tech" className="relative w-full bg-[#0a0a0a] py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center mb-16">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4">Climate Tech & Sustainability</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
+          </div>
+          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl border border-white/10">
+            <p className="text-lg text-gray-300 mb-8 text-center">
+              I am passionate about leveraging data science for climate action and sustainability. I am actively seeking opportunities—both professional and volunteer—to contribute to climate tech initiatives and make a positive environmental impact.
+            </p>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-green-400 mb-2">Energy Optimization & Forecasting for Pharmaceutical Labs</h3>
+              <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                <li>Led energy optimization projects, reducing HVAC energy consumption by <span className="text-green-300 font-semibold">15–23%</span> through advanced analytics and forecasting—directly supporting sustainability and carbon reduction.</li>
+                <li>Enhanced energy demand forecasting using ARIMA, Decision Tree, Logistic Regression, Random Forest, and ensemble models.</li>
+                <li>Developed weather prediction models to improve energy forecasting and resilience to climate variability.</li>
+                <li>Built interactive Tableau dashboards for real-time monitoring of energy and operational trends.</li>
+                <li>Automated financial operations with Excel tools for scalable, efficient solutions.</li>
+              </ul>
+            </div>
+            <div className="flex flex-col items-center">
+              <p className="text-base text-gray-300 mb-4 text-center">Interested in collaborating or volunteering for climate tech and sustainability causes? Let's connect!</p>
+              <a href="#contact" className="inline-block px-8 py-3 text-white rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-900">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </section>
         </div>
     </main>
 
