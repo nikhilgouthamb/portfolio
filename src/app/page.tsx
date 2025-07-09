@@ -1364,30 +1364,114 @@ const Home: NextPage = () => {
         </div>
       </footer>
 
-      {/* Climate Tech & Sustainability Section */}
-      <section id="climate-tech" className="relative w-full bg-[#0a0a0a] py-20">
+      {/* Future Goals & Interests Section */}
+      <section id="goals" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4">Climate Tech & Sustainability</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Future Goals & Interests</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
-          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl border border-white/10">
-            <p className="text-lg text-gray-300 mb-8 text-center">
-              I am passionate about leveraging data science for climate action and sustainability. I am actively seeking opportunities—both professional and volunteer—to contribute to climate tech initiatives and make a positive environmental impact.
-            </p>
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-green-400 mb-2">Energy Optimization & Forecasting for Pharmaceutical Labs</h3>
-              <ul className="list-disc pl-6 text-gray-300 space-y-2">
-                <li>Led energy optimization projects, reducing HVAC energy consumption by <span className="text-green-300 font-semibold">15–23%</span> through advanced analytics and forecasting—directly supporting sustainability and carbon reduction.</li>
-                <li>Enhanced energy demand forecasting using ARIMA, Decision Tree, Logistic Regression, Random Forest, and ensemble models.</li>
-                <li>Developed weather prediction models to improve energy forecasting and resilience to climate variability.</li>
-                <li>Built interactive Tableau dashboards for real-time monitoring of energy and operational trends.</li>
-                <li>Automated financial operations with Excel tools for scalable, efficient solutions.</li>
-              </ul>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Climate Tech */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-green-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] hover:-translate-y-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-green-400">Climate Tech</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Passionate about leveraging data science for climate action and sustainability. 
+                Experienced in energy optimization projects that reduced consumption by 15-23%. 
+                Seeking opportunities in climate tech and environmental data science.
+              </p>
             </div>
-            <div className="flex flex-col items-center">
-              <p className="text-base text-gray-300 mb-4 text-center">Interested in collaborating or volunteering for climate tech and sustainability causes? Let&apos;s connect!</p>
-              <a href="#contact" className="inline-block px-8 py-3 text-white rounded-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-900">Contact Me</a>
+
+            {/* AI/ML Advancement */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] hover:-translate-y-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-blue-400">AI/ML Advancement</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Continuously exploring cutting-edge machine learning techniques, 
+                deep learning architectures, and emerging AI technologies. 
+                Focused on developing scalable, ethical AI solutions.
+              </p>
+            </div>
+
+            {/* Data Engineering */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] hover:-translate-y-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z M8 4v4 M16 4v4 M4 11h16" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-purple-400">Data Engineering</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Building robust, scalable data pipelines and infrastructure. 
+                Expertise in cloud platforms, real-time processing, and 
+                data architecture design for enterprise solutions.
+              </p>
+            </div>
+
+            {/* Healthcare Analytics */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-rose-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(244,63,94,0.2)] hover:-translate-y-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-rose-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <svg className="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-rose-400">Healthcare Analytics</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Applying data science to healthcare challenges, from disease prediction 
+                to patient outcome analysis. Committed to improving healthcare 
+                through data-driven insights and predictive modeling.
+              </p>
+            </div>
+
+            {/* Open Source */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-amber-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] hover:-translate-y-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-amber-400">Open Source</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Contributing to the data science community through open source projects, 
+                knowledge sharing, and mentorship. Building tools and libraries 
+                that help others solve complex data challenges.
+              </p>
+            </div>
+
+            {/* Mentorship */}
+            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:-translate-y-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-indigo-400">Mentorship</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Passionate about helping others grow in data science and technology. 
+                Offering guidance, sharing knowledge, and supporting the next 
+                generation of data professionals and researchers.
+              </p>
             </div>
           </div>
         </div>
