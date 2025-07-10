@@ -1027,17 +1027,25 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      {/* PPT Presentation Section */}
+      {/* Data Meets Climate Section */}
       <section className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Presentation</h2>
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Data Meets Climate</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Carousel Container */}
-              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center" style={{height: 'auto', minHeight: 0, padding: 0}}>
+                {/* Left Arrow */}
+                <button id="carousel-left" aria-label="Previous Slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                {/* Right Arrow */}
+                <button id="carousel-right" aria-label="Next Slide" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
                 <div className="flex transition-transform duration-500 ease-in-out" id="carousel">
                   <div className="w-full flex-shrink-0">
                     <Image src="/1.jpg" alt="Slide 1" width={800} height={600} className="w-full h-auto object-contain" />
@@ -1061,9 +1069,8 @@ const Home: NextPage = () => {
                     <Image src="/7.jpg" alt="Slide 7" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
                 </div>
-                
                 {/* Navigation Dots */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
                   <button className="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-300" data-slide="0"></button>
                   <button className="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-300" data-slide="1"></button>
                   <button className="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-300" data-slide="2"></button>
@@ -1543,6 +1550,8 @@ const Home: NextPage = () => {
         function initCarousel() {
           const carousel = document.getElementById('carousel');
           const dots = document.querySelectorAll('[data-slide]');
+          const leftBtn = document.getElementById('carousel-left');
+          const rightBtn = document.getElementById('carousel-right');
           let currentSlide = 0;
           const totalSlides = 7;
           const slideInterval = 5000; // 5 seconds
@@ -1550,8 +1559,7 @@ const Home: NextPage = () => {
 
           function goToSlide(slideIndex) {
             currentSlide = slideIndex;
-            carousel.style.transform = \`translateX(-\${slideIndex * 100}%)\`;
-            
+            carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
             // Update active dot
             dots.forEach((dot, index) => {
               if (index === slideIndex) {
@@ -1566,6 +1574,11 @@ const Home: NextPage = () => {
 
           function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+          }
+
+          function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             goToSlide(currentSlide);
           }
 
@@ -1591,6 +1604,20 @@ const Home: NextPage = () => {
               startAutoSlide();
             });
           });
+
+          // Add click handlers for arrows
+          if (leftBtn && rightBtn) {
+            leftBtn.addEventListener('click', () => {
+              stopAutoSlide();
+              prevSlide();
+              startAutoSlide();
+            });
+            rightBtn.addEventListener('click', () => {
+              stopAutoSlide();
+              nextSlide();
+              startAutoSlide();
+            });
+          }
 
           // Pause auto-slide on hover
           carousel.addEventListener('mouseenter', stopAutoSlide);
