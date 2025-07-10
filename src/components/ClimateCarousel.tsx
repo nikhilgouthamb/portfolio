@@ -20,14 +20,6 @@ const ClimateCarousel: React.FC = () => {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
-  useEffect(() => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(nextSlide, AUTO_SWIPE_INTERVAL);
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [current]);
-
   return (
     <div className="relative w-full h-[60vw] max-h-[80vh] min-h-[300px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-black" style={{maxWidth: '100vw', aspectRatio: '16/9'}}>
       <button
