@@ -1030,12 +1030,12 @@ const Home: NextPage = () => {
       {/* Data Meets Climate Section */}
       <section className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center mb-16">
+          <div className="flex flex-col items-start mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Data Meets Climate</h2>
           </div>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Message */}
-            <div className="text-gray-200 text-lg md:text-xl leading-relaxed bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-lg">
+            <div className="text-gray-200 text-lg md:text-xl leading-relaxed bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-lg md:ml-0 ml-auto">
               <p>
                 I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore different domains.
               </p>
@@ -1053,25 +1053,25 @@ const Home: NextPage = () => {
                 </button>
                 <div className="flex transition-transform duration-500 ease-in-out w-full h-full" id="carousel">
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/1.jpg" alt="Slide 1" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/1.jpg" alt="Slide 1" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/2.jpg" alt="Slide 2" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/2.jpg" alt="Slide 2" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/3.jpg" alt="Slide 3" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/3.jpg" alt="Slide 3" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/4.jpg" alt="Slide 4" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/4.jpg" alt="Slide 4" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/5.jpg" alt="Slide 5" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/5.jpg" alt="Slide 5" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/6.jpg" alt="Slide 6" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/6.jpg" alt="Slide 6" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/7.jpg" alt="Slide 7" width={900} height={600} className="w-full h-full object-cover" />
+                    <Image src="/7.jpg" alt="Slide 7" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                 </div>
                 {/* Navigation Dots */}
