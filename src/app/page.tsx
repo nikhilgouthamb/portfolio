@@ -1037,7 +1037,7 @@ const Home: NextPage = () => {
           </div>
           <div className="max-w-2xl mx-auto mb-10">
             <p className="text-lg text-gray-300 text-center">
-              I've been trying to pivot into climate-focused work. I'd love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I'm eager to learn and would love to explore new domains.
+              I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore new domains.
             </p>
           </div>
           <div className="flex justify-center">
