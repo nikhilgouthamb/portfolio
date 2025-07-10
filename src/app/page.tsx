@@ -1200,7 +1200,7 @@ const Home: NextPage = () => {
               className="block"
             >
               <TiltedCard
-                imageSrc="/LinkedIn-Icon-Logo.wine"
+                imageSrc="/in_linked_linkedin_media_social_icon_124259.svg"
                 altText="LinkedIn"
                 captionText="Connect on LinkedIn"
                 containerHeight="80px"
