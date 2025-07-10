@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const images = [
@@ -11,11 +11,8 @@ const images = [
   '/7.jpg',
 ];
 
-const AUTO_SWIPE_INTERVAL = 5000;
-
 const ClimateCarousel: React.FC = () => {
   const [current, setCurrent] = useState(0);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
