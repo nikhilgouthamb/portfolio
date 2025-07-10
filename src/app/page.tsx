@@ -341,8 +341,7 @@ const Home: NextPage = () => {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Who is this guy?</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <h2 className="text-4xl font-bold text-white mb-4">Who is this guy?</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 order-2 md:order-1">
@@ -373,8 +372,7 @@ const Home: NextPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Education</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Education</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Masters Degree */}
@@ -478,8 +476,7 @@ const Home: NextPage = () => {
       <section id="projects" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Experience & Projects</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <h2 className="text-4xl font-bold text-white mb-4">Experience & Projects</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Verizon Project Card */}
@@ -899,9 +896,8 @@ const Home: NextPage = () => {
       <section id="skills" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto relative px-6">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Skills & Technologies</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-            </div>
+            <h2 className="text-4xl font-bold text-white mb-4">Skills & Technologies</h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Machine Learning & AI */}
@@ -1049,9 +1045,7 @@ const Home: NextPage = () => {
       <section id="resume" className="py-20 px-6 relative overflow-hidden">
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-              Want to see my resume?
-            </h2>
+            <h2 className="text-4xl font-bold text-center mb-8 text-white">Want to see my resume?</h2>
             <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-gray-800/50 transform hover:scale-105 transition-all duration-300">
               <div className="text-center space-y-6">
                 <div className="text-xl text-gray-300">
@@ -1087,9 +1081,7 @@ const Home: NextPage = () => {
         
         <div className="container mx-auto max-w-4xl relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-              Get in Touch
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Get in Touch</h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Have a question or want to work together? I&apos;d love to hear from you.
             </p>
@@ -1195,9 +1187,8 @@ const Home: NextPage = () => {
       {/* Find Me Here Section */}
       <section id="social" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="flex flex-col items-center mb-16">
-          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Find Me Here</h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-            </div>
+          <h2 className="text-4xl font-bold text-white mb-4">Find Me Here</h2>
+        </div>
         <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
           {/* LinkedIn */}
           <li className="list-none">
