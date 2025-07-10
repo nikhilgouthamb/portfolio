@@ -29,7 +29,7 @@ const ClimateCarousel: React.FC = () => {
   }, [current]);
 
   return (
-    <div className="relative w-full max-w-2xl aspect-video flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-black">
+    <div className="relative w-full h-[60vw] max-h-[80vh] min-h-[300px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-black" style={{maxWidth: '100vw', aspectRatio: '16/9'}}>
       <button
         aria-label="Previous slide"
         onClick={prevSlide}
@@ -42,9 +42,9 @@ const ClimateCarousel: React.FC = () => {
           src={images[current]}
           alt={`Slide ${current + 1}`}
           fill
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: 'cover' }}
           className="transition-all duration-700"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="100vw"
           priority
         />
       </div>

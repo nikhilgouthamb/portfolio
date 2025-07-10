@@ -1030,17 +1030,16 @@ const Home: NextPage = () => {
 
       {/* Data Meets Climate Section */}
       <section id="data-meets-climate" className="relative w-full bg-[#0a0a0a] py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-0 sm:px-0 lg:px-0">
           <div className="flex flex-col items-center mb-12">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4">Data Meets Climate</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
+            <h2 className="text-4xl font-bold text-white mb-4">Data Meets Climate</h2>
           </div>
           <div className="max-w-2xl mx-auto mb-10">
             <p className="text-lg text-gray-300 text-center">
               I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore new domains.
             </p>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center w-full">
             <ClimateCarousel />
           </div>
         </div>
