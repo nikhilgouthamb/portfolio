@@ -926,7 +926,6 @@ const Home: NextPage = () => {
                     <div>
                       <h3 className="text-xl font-bold text-white mb-4">Energy Optimization for Pharma Labs</h3>
                       <ul className="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-2">
-                        <li>Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements.</li>
                         <li>Increased energy demand forecasting accuracy by testing and deploying ARIMA and ensemble models for predictive analytics.</li>
                         <li>Improved data-driven decision-making by designing interactive Tableau dashboards, allowing executives to monitor key operational trends.</li>
                         <li>Streamlined financial operations by developing automated Excel tools for billing and client solutions.</li>
