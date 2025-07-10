@@ -1053,25 +1053,25 @@ const Home: NextPage = () => {
                 </button>
                 <div className="flex transition-transform duration-500 ease-in-out w-full h-full" id="carousel">
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/1.jpg" alt="Slide 1" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/1.jpg" alt="Slide 1" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/2.jpg" alt="Slide 2" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/2.jpg" alt="Slide 2" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/3.jpg" alt="Slide 3" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/3.jpg" alt="Slide 3" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/4.jpg" alt="Slide 4" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/4.jpg" alt="Slide 4" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/5.jpg" alt="Slide 5" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/5.jpg" alt="Slide 5" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/6.jpg" alt="Slide 6" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/6.jpg" alt="Slide 6" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/7.jpg" alt="Slide 7" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/7.jpg" alt="Slide 7" width={900} height={600} className="w-full h-full object-cover" />
                   </div>
                 </div>
                 {/* Navigation Dots */}
