@@ -1040,7 +1040,7 @@ const Home: NextPage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Carousel Container */}
-              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center p-0 m-0 w-full h-full" style={{height: 'auto', minHeight: 0, padding: 0, margin: 0}}>
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center aspect-[4/3] w-full max-w-3xl mx-auto p-0 m-0" style={{height: 'auto', minHeight: 0, padding: 0, margin: 0}}>
                 {/* Left Arrow */}
                 <button id="carousel-left" aria-label="Previous Slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -1049,7 +1049,7 @@ const Home: NextPage = () => {
                 <button id="carousel-right" aria-label="Next Slide" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
-                <div className="flex transition-transform duration-500 ease-in-out items-center w-full h-full" id="carousel">
+                <div className="flex transition-transform duration-500 ease-in-out items-center w-full" id="carousel">
                   <div className="w-full h-full flex-shrink-0 flex items-center justify-center">
                     <Image src="/1.jpg" alt="Slide 1" width={800} height={600} className="w-full h-full object-cover mx-auto" />
                   </div>
