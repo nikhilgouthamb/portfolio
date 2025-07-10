@@ -480,7 +480,7 @@ const Home: NextPage = () => {
           <div className="flex-1 text-left">
             <h2 className="text-4xl font-bold text-white mb-6">That One Excel Sheet</h2>
             <div className="text-lg text-gray-300 leading-relaxed space-y-6">
-              <p>Now you might wonder — why the heck did I shift my career from mechanical to data?</p>
+              <p>Now you might wonder, why the heck did I shift my career from mechanical to data?</p>
               <p>Ngl, that&apos;s what my parents wondered too.</p>
               <p>It all started with that one Excel sheet. That one regression equation.</p>
               <p>During my internships, I worked on projects involving smart manufacturing and energy optimization, where I eventually had to use data to improve efficiency. That&apos;s when it clicked, the wonders data could do.</p>
@@ -493,9 +493,9 @@ const Home: NextPage = () => {
             <Image
               src="/m2d.png"
               alt="Mechanical to Data"
-              width={320}
-              height={320}
-              className="max-w-xs w-full rounded-2xl shadow-2xl object-contain"
+              width={420}
+              height={420}
+              className="max-w-md w-full rounded-2xl shadow-2xl object-contain"
             />
           </div>
         </div>
