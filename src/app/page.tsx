@@ -12,6 +12,7 @@ import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
 import ClimateCarousel from '@/components/ClimateCarousel';
+import TiltedCard from '@/components/TiltedCard';
 
 const bgImages = ["/a.jpeg", "/b.jpeg", "/c.jpeg"];
 
@@ -1189,161 +1190,133 @@ const Home: NextPage = () => {
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Find Me Here</h2>
         </div>
-        <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
-          {/* LinkedIn */}
-          <li className="list-none">
-            <a
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* LinkedIn */}
+            <Link
               href="https://www.linkedin.com/in/nikhilgoutham"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                               transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                               hover:bg-[rgba(255,255,255,0.1)] hover:border-[#0077B5] hover:scale-105
-                               hover:shadow-[0_0_30px_rgba(0,119,181,0.3)]"
+              className="block"
             >
-              <div className="flex items-center gap-4 h-full">
-                <Image
-                  src="/linkedin_cg.png"
-                  alt="LinkedIn"
-                  width={30}
-                  height={30}
-                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                />
-                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#0077B5]">
-                  - LinkedIn
-                </span>
-              </div>
-                </a>
-          </li>
+              <TiltedCard
+                imageSrc="/linkedin_cg.png"
+                altText="LinkedIn"
+                captionText="Connect on LinkedIn"
+                containerHeight="200px"
+                imageHeight="200px"
+                imageWidth="200px"
+                scaleOnHover={1.05}
+                rotateAmplitude={8}
+                showMobileWarning={false}
+                showTooltip={true}
+              />
+            </Link>
 
-          {/* GitHub */}
-          <li className="list-none">
-                <a
+            {/* GitHub */}
+            <Link
               href="https://github.com/nikhilgouthamb"
-          target="_blank"
-          rel="noopener noreferrer"
-              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                               transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                               hover:bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-105
-                               hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-                >
-              <div className="flex items-center gap-4 h-full">
-                <Image
-                  src="/github_cg.png"
-                  alt="GitHub"
-                  width={30}
-                  height={30}
-                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                />
-                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-white">
-                  - GitHub
-                </span>
-              </div>
-        </a>
-          </li>
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <TiltedCard
+                imageSrc="/github_cg.png"
+                altText="GitHub"
+                captionText="View my projects"
+                containerHeight="200px"
+                imageHeight="200px"
+                imageWidth="200px"
+                scaleOnHover={1.05}
+                rotateAmplitude={8}
+                showMobileWarning={false}
+                showTooltip={true}
+              />
+            </Link>
 
-          {/* Medium */}
-          <li className="list-none">
-        <a
+            {/* Medium */}
+            <Link
               href="https://medium.com/@nikhilgoutham.b"
-          target="_blank"
-          rel="noopener noreferrer"
-              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                               transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                               hover:bg-[rgba(255,255,255,0.1)] hover:border-[#00ab6c] hover:scale-105
-                               hover:shadow-[0_0_30px_rgba(0,171,108,0.3)]"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              <div className="flex items-center gap-4 h-full">
-                <Image
-                  src="/medium_cg.png"
-                  alt="Medium"
-                  width={30}
-                  height={30}
-                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                />
-                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#00ab6c]">
-                  - Medium
-                </span>
-              </div>
-                </a>
-          </li>
+              <TiltedCard
+                imageSrc="/medium_cg.png"
+                altText="Medium"
+                captionText="Read my articles"
+                containerHeight="200px"
+                imageHeight="200px"
+                imageWidth="200px"
+                scaleOnHover={1.05}
+                rotateAmplitude={8}
+                showMobileWarning={false}
+                showTooltip={true}
+              />
+            </Link>
 
-          {/* Kaggle */}
-          <li className="list-none">
-                <a
+            {/* Kaggle */}
+            <Link
               href="https://www.kaggle.com/nikhilbudarayavalasa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                               transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                               hover:bg-[rgba(255,255,255,0.1)] hover:border-[#20beff] hover:scale-105
-                               hover:shadow-[0_0_30px_rgba(32,190,255,0.3)]"
-                >
-              <div className="flex items-center gap-4 h-full">
-                <Image
-                  src="/k.png"
-                  alt="Kaggle"
-                  width={30}
-                  height={30}
-                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                />
-                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#20beff]">
-                  - Kaggle
-                </span>
-              </div>
-            </a>
-          </li>
-
-          {/* Gmail */}
-          <li className="list-none">
-            <a
-              href="mailto:bnikhilgoutham@gmail.com"
-              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                               transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                               hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ea4335] hover:scale-105
-                               hover:shadow-[0_0_30px_rgba(234,67,53,0.3)]"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              <div className="flex items-center gap-4 h-full">
-                <Image
-                  src="/gmail_cg.png"
-                  alt="Gmail"
-                  width={30}
-                  height={30}
-                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                />
-                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ea4335]">
-                  - Gmail
-                </span>
-              </div>
-        </a>
-          </li>
+              <TiltedCard
+                imageSrc="/k.png"
+                altText="Kaggle"
+                captionText="Check out my datasets"
+                containerHeight="200px"
+                imageHeight="200px"
+                imageWidth="200px"
+                scaleOnHover={1.05}
+                rotateAmplitude={8}
+                showMobileWarning={false}
+                showTooltip={true}
+              />
+            </Link>
 
-          {/* Streamlit */}
-          <li className="list-none">
-        <a
+            {/* Gmail */}
+            <Link
+              href="mailto:bnikhilgoutham@gmail.com"
+              className="block"
+            >
+              <TiltedCard
+                imageSrc="/gmail_cg.png"
+                altText="Gmail"
+                captionText="Send me an email"
+                containerHeight="200px"
+                imageHeight="200px"
+                imageWidth="200px"
+                scaleOnHover={1.05}
+                rotateAmplitude={8}
+                showMobileWarning={false}
+                showTooltip={true}
+              />
+            </Link>
+
+            {/* Streamlit */}
+            <Link
               href="https://share.streamlit.io/user/nikhilgouthamb"
-          target="_blank"
-          rel="noopener noreferrer"
-              className="group relative block w-[250px] h-[80px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] text-left pl-5 
-                               transition-all duration-500 rounded-xl border border-[rgba(255,255,255,0.1)]
-                               hover:bg-[rgba(255,255,255,0.1)] hover:border-[#ff4b4b] hover:scale-105
-                               hover:shadow-[0_0_30px_rgba(255,75,75,0.3)]"
-                >
-              <div className="flex items-center gap-4 h-full">
-                <Image
-                  src="/s.png"
-                  alt="Streamlit"
-                  width={30}
-                  height={30}
-                  className="transition-all duration-500 filter invert opacity-50 group-hover:opacity-100 group-hover:invert-0"
-                />
-                <span className="text-[rgba(255,255,255,0.7)] tracking-[2px] text-lg font-light transition-colors duration-500 group-hover:text-[#ff4b4b]">
-                  - Streamlit
-                </span>
-              </div>
-            </a>
-          </li>
-        </ul>
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <TiltedCard
+                imageSrc="/s.png"
+                altText="Streamlit"
+                captionText="View my apps"
+                containerHeight="200px"
+                imageHeight="200px"
+                imageWidth="200px"
+                scaleOnHover={1.05}
+                rotateAmplitude={8}
+                showMobileWarning={false}
+                showTooltip={true}
+              />
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Future Goals & Interests Section */}
