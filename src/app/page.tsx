@@ -889,6 +889,61 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </Link>
+
+            {/* Energy Optimization Project Card */}
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-blue-800/90">
+                <Image
+                  src="/eo.png"
+                  alt="Energy Optimization"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Energy Optimization for Pharma Labs</h3>
+                  <p className="text-gray-200 text-sm">
+                    Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements.
+                  </p>
+                </div>
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ARIMA</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Ensemble Models</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Excel</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Weather Prediction</span>
+                </div>
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Energy Optimization for Pharma Labs</h3>
+                      <ul className="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-2">
+                        <li>Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements.</li>
+                        <li>Increased energy demand forecasting accuracy by testing and deploying ARIMA and ensemble models for predictive analytics.</li>
+                        <li>Improved data-driven decision-making by designing interactive Tableau dashboards, allowing executives to monitor key operational trends.</li>
+                        <li>Streamlined financial operations by developing automated Excel tools for billing and client solutions.</li>
+                        <li>Developed weather prediction models using machine learning and time series techniques, enhancing energy forecasting.</li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ARIMA</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Ensemble Models</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Excel</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Weather Prediction</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
