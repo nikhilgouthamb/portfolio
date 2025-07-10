@@ -1034,42 +1034,39 @@ const Home: NextPage = () => {
             <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Data Meets Climate</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
-          <p className="text-lg text-gray-300 mb-10 text-center max-w-2xl mx-auto">
-            I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there are any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore different domains.
-          </p>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Carousel Container */}
-              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center w-full max-w-3xl mx-auto p-0 m-0" style={{height: 'auto', minHeight: 0, padding: 0, margin: 0}}>
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center" style={{minHeight: '0', paddingBottom: 0}}>
                 {/* Left Arrow */}
-                <button id="carousel-left" aria-label="Previous Slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
+                <button id="carousel-left" aria-label="Previous slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 </button>
                 {/* Right Arrow */}
-                <button id="carousel-right" aria-label="Next Slide" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
+                <button id="carousel-right" aria-label="Next slide" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
-                <div className="flex transition-transform duration-500 ease-in-out items-center w-full" id="carousel">
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/1.jpg" alt="Slide 1" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                <div className="flex transition-transform duration-500 ease-in-out" id="carousel">
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/1.jpg" alt="Slide 1" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/2.jpg" alt="Slide 2" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/2.jpg" alt="Slide 2" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/3.jpg" alt="Slide 3" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/3.jpg" alt="Slide 3" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/4.jpg" alt="Slide 4" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/4.jpg" alt="Slide 4" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/5.jpg" alt="Slide 5" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/5.jpg" alt="Slide 5" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/6.jpg" alt="Slide 6" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/6.jpg" alt="Slide 6" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0 flex items-center justify-center">
-                    <Image src="/7.jpg" alt="Slide 7" width={800} height={600} className="max-w-full max-h-[70vh] object-contain mx-auto" />
+                  <div className="w-full flex-shrink-0">
+                    <Image src="/7.jpg" alt="Slide 7" width={800} height={600} className="w-full h-auto object-contain" />
                   </div>
                 </div>
                 {/* Navigation Dots */}
@@ -1427,12 +1424,217 @@ const Home: NextPage = () => {
         </div>
     </main>
 
-      <Script id="constellation-animation">{
-        `function initConstellation() {\n  const canvas = document.getElementById('constellation-canvas');\n  const ctx = canvas.getContext('2d');\n  let width = canvas.width = window.innerWidth;\n  let height = canvas.height = window.innerHeight;\n  const particles = [];\n  const properties = {\n    bgColor: 'rgba(10, 10, 10, 1)',\n    particleColor: 'rgba(255, 255, 255, 0.1)',\n    particleRadius: 3,\n    particleCount: 60,\n    particleMaxVelocity: 0.5,\n    lineLength: 150,\n    particleLife: 6\n  };\n  window.onresize = function() {\n    width = canvas.width = window.innerWidth;\n    height = canvas.height = window.innerHeight;\n  };\n  class Particle {\n    constructor() {\n      this.x = Math.random() * width;\n      this.y = Math.random() * height;\n      this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;\n      this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;\n      this.life = Math.random() * properties.particleLife * 60;\n    }\n    position() {\n      this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;\n      this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;\n      this.x += this.velocityX;\n      this.y += this.velocityY;\n    }\n    reDraw() {\n      ctx.beginPath();\n      ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);\n      ctx.closePath();\n      ctx.fillStyle = properties.particleColor;\n      ctx.fill();\n    }\n    reCalculateLife() {\n      if(this.life < 1) {\n        this.x = Math.random() * width;\n        this.y = Math.random() * height;\n        this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;\n        this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;\n        this.life = Math.random() * properties.particleLife * 60;\n      }\n      this.life--;\n    }\n  }\n  function reDrawBackground() {\n    ctx.fillStyle = properties.bgColor;\n    ctx.fillRect(0, 0, width, height);\n  }\n  function drawLines() {\n    let x1, y1, x2, y2, length, opacity;\n    for(let i in particles) {\n      for(let j in particles) {\n        x1 = particles[i].x;\n        y1 = particles[i].y;\n        x2 = particles[j].x;\n        y2 = particles[j].y;\n        length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));\n        if(length < properties.lineLength) {\n          opacity = 1 - length / properties.lineLength;\n          ctx.lineWidth = 0.5;\n          ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';\n          ctx.beginPath();\n          ctx.moveTo(x1, y1);\n          ctx.lineTo(x2, y2);\n          ctx.closePath();\n          ctx.stroke();\n        }\n      }\n    }\n  }\n  function reDrawParticles() {\n    for(let i in particles) {\n      particles[i].reCalculateLife();\n      particles[i].position();\n      particles[i].reDraw();\n    }\n  }\n  function loop() {\n    reDrawBackground();\n    reDrawParticles();\n    drawLines();\n    requestAnimationFrame(loop);\n  }\n  function init() {\n    for(let i = 0; i < properties.particleCount; i++) {\n      particles.push(new Particle);\n    }\n    loop();\n  }\n  init();\n}\nif (typeof window !== 'undefined') {\n  if (document.readyState === 'complete') {\n    initConstellation();\n  } else {\n    window.addEventListener('load', initConstellation);\n  }\n}`}
-      </Script>
-      <Script id="carousel-animation">{
-        `function initCarousel() {\n  const carousel = document.getElementById('carousel');\n  const dots = document.querySelectorAll('[data-slide]');\n  const leftBtn = document.getElementById('carousel-left');\n  const rightBtn = document.getElementById('carousel-right');\n  let currentSlide = 0;\n  const totalSlides = 7;\n  const slideInterval = 5000;\n  let intervalId;\n  function goToSlide(slideIndex) {\n    currentSlide = slideIndex;\n    carousel.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';\n    dots.forEach(function(dot, index) {\n      if (index === slideIndex) {\n        dot.classList.add('bg-white');\n        dot.classList.remove('bg-white/50');\n      } else {\n        dot.classList.remove('bg-white');\n        dot.classList.add('bg-white/50');\n      }\n    });\n  }\n  function nextSlide() {\n    currentSlide = (currentSlide + 1) % totalSlides;\n    goToSlide(currentSlide);\n  }\n  function prevSlide() {\n    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;\n    goToSlide(currentSlide);\n  }\n  function startAutoSlide() {\n    intervalId = setInterval(nextSlide, slideInterval);\n  }\n  function stopAutoSlide() {\n    if (intervalId) {\n      clearInterval(intervalId);\n    }\n  }\n  goToSlide(0);\n  startAutoSlide();\n  dots.forEach(function(dot, index) {\n    dot.addEventListener('click', function() {\n      stopAutoSlide();\n      goToSlide(index);\n      startAutoSlide();\n    });\n  });\n  if (leftBtn && rightBtn) {\n    leftBtn.addEventListener('click', function() {\n      stopAutoSlide();\n      prevSlide();\n      startAutoSlide();\n    });\n    rightBtn.addEventListener('click', function() {\n      stopAutoSlide();\n      nextSlide();\n      startAutoSlide();\n    });\n  }\n  carousel.addEventListener('mouseenter', stopAutoSlide);\n  carousel.addEventListener('mouseleave', startAutoSlide);\n}\nif (typeof window !== 'undefined') {\n  if (document.readyState === 'complete') {\n    initCarousel();\n  } else {\n    window.addEventListener('load', initCarousel);\n  }\n}`}
-      </Script>
+      <Script id="constellation-animation">{`
+        function initConstellation() {
+          const canvas = document.getElementById('constellation-canvas');
+          const ctx = canvas.getContext('2d');
+          let width = canvas.width = window.innerWidth;
+          let height = canvas.height = window.innerHeight;
+          
+          const particles = [];
+          const properties = {
+            bgColor: 'rgba(10, 10, 10, 1)',
+            particleColor: 'rgba(255, 255, 255, 0.1)',
+            particleRadius: 3,
+            particleCount: 60,
+            particleMaxVelocity: 0.5,
+            lineLength: 150,
+            particleLife: 6
+          };
+
+          window.onresize = function() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+          };
+
+          class Particle {
+            constructor() {
+              this.x = Math.random() * width;
+              this.y = Math.random() * height;
+              this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+              this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+              this.life = Math.random() * properties.particleLife * 60;
+            }
+
+            position() {
+              this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
+              this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
+              this.x += this.velocityX;
+              this.y += this.velocityY;
+            }
+
+            reDraw() {
+              ctx.beginPath();
+              ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+              ctx.closePath();
+              ctx.fillStyle = properties.particleColor;
+              ctx.fill();
+            }
+
+            reCalculateLife() {
+              if(this.life < 1) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+                this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+                this.life = Math.random() * properties.particleLife * 60;
+              }
+              this.life--;
+            }
+          }
+
+          function reDrawBackground() {
+            ctx.fillStyle = properties.bgColor;
+            ctx.fillRect(0, 0, width, height);
+          }
+
+          function drawLines() {
+            let x1, y1, x2, y2, length, opacity;
+            for(let i in particles) {
+              for(let j in particles) {
+                x1 = particles[i].x;
+                y1 = particles[i].y;
+                x2 = particles[j].x;
+                y2 = particles[j].y;
+                length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                if(length < properties.lineLength) {
+                  opacity = 1 - length / properties.lineLength;
+                  ctx.lineWidth = 0.5;
+                  ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                  ctx.beginPath();
+                  ctx.moveTo(x1, y1);
+                  ctx.lineTo(x2, y2);
+                  ctx.closePath();
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+
+          function reDrawParticles() {
+            for(let i in particles) {
+              particles[i].reCalculateLife();
+              particles[i].position();
+              particles[i].reDraw();
+            }
+          }
+
+          function loop() {
+            reDrawBackground();
+            reDrawParticles();
+            drawLines();
+            requestAnimationFrame(loop);
+          }
+
+          function init() {
+            for(let i = 0; i < properties.particleCount; i++) {
+              particles.push(new Particle);
+            }
+            loop();
+          }
+
+          init();
+        }
+
+        // Initialize the animation when the component mounts
+        if (typeof window !== 'undefined') {
+          if (document.readyState === 'complete') {
+            initConstellation();
+          } else {
+            window.addEventListener('load', initConstellation);
+          }
+        }
+      `}</Script>
+
+      <Script id="carousel-animation">{`
+        function initCarousel() {
+          const carousel = document.getElementById('carousel');
+          const dots = document.querySelectorAll('[data-slide]');
+          const leftArrow = document.getElementById('carousel-left');
+          const rightArrow = document.getElementById('carousel-right');
+          let currentSlide = 0;
+          const totalSlides = 7;
+          const slideInterval = 5000; // 5 seconds
+          let intervalId;
+
+          function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+            // Update active dot
+            dots.forEach((dot, index) => {
+              if (index === slideIndex) {
+                dot.classList.add('bg-white');
+                dot.classList.remove('bg-white/50');
+              } else {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/50');
+              }
+            });
+          }
+
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+          }
+
+          function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
+          }
+
+          function startAutoSlide() {
+            intervalId = setInterval(nextSlide, slideInterval);
+          }
+
+          function stopAutoSlide() {
+            if (intervalId) {
+              clearInterval(intervalId);
+            }
+          }
+
+          // Initialize carousel
+          goToSlide(0);
+          startAutoSlide();
+
+          // Add click handlers for dots
+          dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+              stopAutoSlide();
+              goToSlide(index);
+              startAutoSlide();
+            });
+          });
+
+          // Add click handlers for arrows
+          if (leftArrow) {
+            leftArrow.addEventListener('click', () => {
+              stopAutoSlide();
+              prevSlide();
+              startAutoSlide();
+            });
+          }
+          if (rightArrow) {
+            rightArrow.addEventListener('click', () => {
+              stopAutoSlide();
+              nextSlide();
+              startAutoSlide();
+            });
+          }
+
+          // Pause auto-slide on hover
+          carousel.addEventListener('mouseenter', stopAutoSlide);
+          carousel.addEventListener('mouseleave', startAutoSlide);
+        }
+
+        // Initialize the carousel when the component mounts
+        if (typeof window !== 'undefined') {
+          if (document.readyState === 'complete') {
+            initCarousel();
+          } else {
+            window.addEventListener('load', initCarousel);
+          }
+        }
+      `}</Script>
     </>
   );
 }
