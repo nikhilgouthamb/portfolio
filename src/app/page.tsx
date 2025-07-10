@@ -481,16 +481,22 @@ const Home: NextPage = () => {
             <h2 className="text-4xl font-bold text-white mb-6">That One Excel Sheet</h2>
             <div className="text-lg text-gray-300 leading-relaxed space-y-6">
               <p>Now you might wonder — why the heck did I shift my career from mechanical to data?</p>
-              <p>Ngl, that's what my parents wondered too.</p>
+              <p>Ngl, that&apos;s what my parents wondered too.</p>
               <p>It all started with that one Excel sheet. That one regression equation.</p>
-              <p>During my internships, I worked on projects involving smart manufacturing and energy optimization, where I eventually had to use data to improve efficiency. That's when it clicked, the wonders data could do.</p>
+              <p>During my internships, I worked on projects involving smart manufacturing and energy optimization, where I eventually had to use data to improve efficiency. That&apos;s when it clicked, the wonders data could do.</p>
               <p>Like, if a simple regression problem on a freaking Excel sheet could impact the climate by reducing X% of energy consumption, I could only imagine what else I could do if I pursued this data path deeper.</p>
-              <p>So I shifted my focus into data and climate tech, which led me to pursue my master's in data science.</p>
+              <p>So I shifted my focus into data and climate tech, which led me to pursue my master&apos;s in data science.</p>
             </div>
           </div>
           {/* Right: Image */}
           <div className="flex-1 flex justify-center items-center">
-            <img src="/m2d.png" alt="Mechanical to Data" className="max-w-xs w-full rounded-2xl shadow-2xl object-contain" />
+            <Image
+              src="/m2d.png"
+              alt="Mechanical to Data"
+              width={320}
+              height={320}
+              className="max-w-xs w-full rounded-2xl shadow-2xl object-contain"
+            />
           </div>
         </div>
       </section>
