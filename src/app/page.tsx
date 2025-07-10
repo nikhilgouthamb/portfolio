@@ -1030,19 +1030,21 @@ const Home: NextPage = () => {
       {/* Data Meets Climate Section */}
       <section className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-start mb-16">
+          <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Data Meets Climate</h2>
           </div>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Message */}
-            <div className="text-gray-200 text-lg md:text-xl leading-relaxed bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-lg md:ml-0 ml-auto">
-              <p>
-                I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore different domains.
-              </p>
+            <div className="flex items-center h-full">
+              <div className="text-gray-200 text-lg md:text-xl leading-relaxed bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-lg w-full">
+                <p>
+                  I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore different domains.
+                </p>
+              </div>
             </div>
             {/* Right: Carousel */}
-            <div>
-              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center mx-auto" style={{maxWidth: '900px', height: '600px', minHeight: 0, padding: 0}}>
+            <div className="flex items-center h-full">
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center mx-auto" style={{maxWidth: '1100px', height: '700px', minHeight: 0, padding: 0}}>
                 {/* Left Arrow */}
                 <button id="carousel-left" aria-label="Previous Slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -1053,25 +1055,25 @@ const Home: NextPage = () => {
                 </button>
                 <div className="flex transition-transform duration-500 ease-in-out w-full h-full" id="carousel">
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/1.jpg" alt="Slide 1" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/1.jpg" alt="Slide 1" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/2.jpg" alt="Slide 2" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/2.jpg" alt="Slide 2" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/3.jpg" alt="Slide 3" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/3.jpg" alt="Slide 3" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/4.jpg" alt="Slide 4" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/4.jpg" alt="Slide 4" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/5.jpg" alt="Slide 5" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/5.jpg" alt="Slide 5" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/6.jpg" alt="Slide 6" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/6.jpg" alt="Slide 6" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                   <div className="w-full h-full flex-shrink-0">
-                    <Image src="/7.jpg" alt="Slide 7" width={900} height={600} className="w-full h-full object-contain" />
+                    <Image src="/7.jpg" alt="Slide 7" width={1100} height={700} className="w-full h-full object-cover" />
                   </div>
                 </div>
                 {/* Navigation Dots */}
