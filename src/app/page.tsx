@@ -1200,7 +1200,7 @@ const Home: NextPage = () => {
               className="block"
             >
               <TiltedCard
-                imageSrc="/linkedin_cg.png"
+                imageSrc="/l.jpg"
                 altText="LinkedIn"
                 captionText="Connect on LinkedIn"
                 containerHeight="80px"
@@ -1221,7 +1221,7 @@ const Home: NextPage = () => {
               className="block"
             >
               <TiltedCard
-                imageSrc="/github_cg.png"
+                imageSrc="/ghub.svg"
                 altText="GitHub"
                 captionText="View my projects"
                 containerHeight="80px"
@@ -1242,7 +1242,7 @@ const Home: NextPage = () => {
               className="block"
             >
               <TiltedCard
-                imageSrc="/medium_cg.png"
+                imageSrc="/m.png"
                 altText="Medium"
                 captionText="Read my articles"
                 containerHeight="80px"
