@@ -1423,219 +1423,217 @@ const Home: NextPage = () => {
       </footer>
         </div>
     </main>
+    <Script id="constellation-animation">{`
+      function initConstellation() {
+        const canvas = document.getElementById('constellation-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const properties = {
+          bgColor: 'rgba(10, 10, 10, 1)',
+          particleColor: 'rgba(255, 255, 255, 0.1)',
+          particleRadius: 3,
+          particleCount: 60,
+          particleMaxVelocity: 0.5,
+          lineLength: 150,
+          particleLife: 6
+        };
 
-      <Script id="constellation-animation">{`
-        function initConstellation() {
-          const canvas = document.getElementById('constellation-canvas');
-          const ctx = canvas.getContext('2d');
-          let width = canvas.width = window.innerWidth;
-          let height = canvas.height = window.innerHeight;
-          
-          const particles = [];
-          const properties = {
-            bgColor: 'rgba(10, 10, 10, 1)',
-            particleColor: 'rgba(255, 255, 255, 0.1)',
-            particleRadius: 3,
-            particleCount: 60,
-            particleMaxVelocity: 0.5,
-            lineLength: 150,
-            particleLife: 6
-          };
+        window.onresize = function() {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        };
 
-          window.onresize = function() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-          };
+        class Particle {
+          constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+            this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
+            this.life = Math.random() * properties.particleLife * 60;
+          }
 
-          class Particle {
-            constructor() {
+          position() {
+            this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
+            this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
+            this.x += this.velocityX;
+            this.y += this.velocityY;
+          }
+
+          reDraw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fillStyle = properties.particleColor;
+            ctx.fill();
+          }
+
+          reCalculateLife() {
+            if(this.life < 1) {
               this.x = Math.random() * width;
               this.y = Math.random() * height;
               this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
               this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
               this.life = Math.random() * properties.particleLife * 60;
             }
-
-            position() {
-              this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
-              this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
-              this.x += this.velocityX;
-              this.y += this.velocityY;
-            }
-
-            reDraw() {
-              ctx.beginPath();
-              ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
-              ctx.closePath();
-              ctx.fillStyle = properties.particleColor;
-              ctx.fill();
-            }
-
-            reCalculateLife() {
-              if(this.life < 1) {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-                this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-                this.life = Math.random() * properties.particleLife * 60;
-              }
-              this.life--;
-            }
-          }
-
-          function reDrawBackground() {
-            ctx.fillStyle = properties.bgColor;
-            ctx.fillRect(0, 0, width, height);
-          }
-
-          function drawLines() {
-            let x1, y1, x2, y2, length, opacity;
-            for(let i in particles) {
-              for(let j in particles) {
-                x1 = particles[i].x;
-                y1 = particles[i].y;
-                x2 = particles[j].x;
-                y2 = particles[j].y;
-                length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                if(length < properties.lineLength) {
-                  opacity = 1 - length / properties.lineLength;
-                  ctx.lineWidth = 0.5;
-                  ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
-                  ctx.beginPath();
-                  ctx.moveTo(x1, y1);
-                  ctx.lineTo(x2, y2);
-                  ctx.closePath();
-                  ctx.stroke();
-                }
-              }
-            }
-          }
-
-          function reDrawParticles() {
-            for(let i in particles) {
-              particles[i].reCalculateLife();
-              particles[i].position();
-              particles[i].reDraw();
-            }
-          }
-
-          function loop() {
-            reDrawBackground();
-            reDrawParticles();
-            drawLines();
-            requestAnimationFrame(loop);
-          }
-
-          function init() {
-            for(let i = 0; i < properties.particleCount; i++) {
-              particles.push(new Particle);
-            }
-            loop();
-          }
-
-          init();
-        }
-
-        // Initialize the animation when the component mounts
-        if (typeof window !== 'undefined') {
-          if (document.readyState === 'complete') {
-            initConstellation();
-          } else {
-            window.addEventListener('load', initConstellation);
+            this.life--;
           }
         }
-      `}</Script>
 
-      <Script id="carousel-animation">{`
-        function initCarousel() {
-          const carousel = document.getElementById('carousel');
-          const dots = document.querySelectorAll('[data-slide]');
-          const leftArrow = document.getElementById('carousel-left');
-          const rightArrow = document.getElementById('carousel-right');
-          let currentSlide = 0;
-          const totalSlides = 7;
-          const slideInterval = 5000; // 5 seconds
-          let intervalId;
+        function reDrawBackground() {
+          ctx.fillStyle = properties.bgColor;
+          ctx.fillRect(0, 0, width, height);
+        }
 
-          function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
-            // Update active dot
-            dots.forEach((dot, index) => {
-              if (index === slideIndex) {
-                dot.classList.add('bg-white');
-                dot.classList.remove('bg-white/50');
-              } else {
-                dot.classList.remove('bg-white');
-                dot.classList.add('bg-white/50');
+        function drawLines() {
+          let x1, y1, x2, y2, length, opacity;
+          for(let i in particles) {
+            for(let j in particles) {
+              x1 = particles[i].x;
+              y1 = particles[i].y;
+              x2 = particles[j].x;
+              y2 = particles[j].y;
+              length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+              if(length < properties.lineLength) {
+                opacity = 1 - length / properties.lineLength;
+                ctx.lineWidth = 0.5;
+                ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.closePath();
+                ctx.stroke();
               }
-            });
-          }
-
-          function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
-          }
-
-          function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            goToSlide(currentSlide);
-          }
-
-          function startAutoSlide() {
-            intervalId = setInterval(nextSlide, slideInterval);
-          }
-
-          function stopAutoSlide() {
-            if (intervalId) {
-              clearInterval(intervalId);
             }
           }
+        }
 
-          // Initialize carousel
-          goToSlide(0);
-          startAutoSlide();
+        function reDrawParticles() {
+          for(let i in particles) {
+            particles[i].reCalculateLife();
+            particles[i].position();
+            particles[i].reDraw();
+          }
+        }
 
-          // Add click handlers for dots
+        function loop() {
+          reDrawBackground();
+          reDrawParticles();
+          drawLines();
+          requestAnimationFrame(loop);
+        }
+
+        function init() {
+          for(let i = 0; i < properties.particleCount; i++) {
+            particles.push(new Particle);
+          }
+          loop();
+        }
+
+        init();
+      }
+
+      // Initialize the animation when the component mounts
+      if (typeof window !== 'undefined') {
+        if (document.readyState === 'complete') {
+          initConstellation();
+        } else {
+          window.addEventListener('load', initConstellation);
+        }
+      }
+    `}</Script>
+    <Script id="carousel-animation">{`
+      function initCarousel() {
+        const carousel = document.getElementById('carousel');
+        const dots = document.querySelectorAll('[data-slide]');
+        const leftArrow = document.getElementById('carousel-left');
+        const rightArrow = document.getElementById('carousel-right');
+        let currentSlide = 0;
+        const totalSlides = 7;
+        const slideInterval = 5000; // 5 seconds
+        let intervalId;
+
+        function goToSlide(slideIndex) {
+          currentSlide = slideIndex;
+          carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+          // Update active dot
           dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-              stopAutoSlide();
-              goToSlide(index);
-              startAutoSlide();
-            });
+            if (index === slideIndex) {
+              dot.classList.add('bg-white');
+              dot.classList.remove('bg-white/50');
+            } else {
+              dot.classList.remove('bg-white');
+              dot.classList.add('bg-white/50');
+            }
           });
-
-          // Add click handlers for arrows
-          if (leftArrow) {
-            leftArrow.addEventListener('click', () => {
-              stopAutoSlide();
-              prevSlide();
-              startAutoSlide();
-            });
-          }
-          if (rightArrow) {
-            rightArrow.addEventListener('click', () => {
-              stopAutoSlide();
-              nextSlide();
-              startAutoSlide();
-            });
-          }
-
-          // Pause auto-slide on hover
-          carousel.addEventListener('mouseenter', stopAutoSlide);
-          carousel.addEventListener('mouseleave', startAutoSlide);
         }
 
-        // Initialize the carousel when the component mounts
-        if (typeof window !== 'undefined') {
-          if (document.readyState === 'complete') {
-            initCarousel();
-          } else {
-            window.addEventListener('load', initCarousel);
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          goToSlide(currentSlide);
+        }
+
+        function startAutoSlide() {
+          intervalId = setInterval(nextSlide, slideInterval);
+        }
+
+        function stopAutoSlide() {
+          if (intervalId) {
+            clearInterval(intervalId);
           }
         }
-      `}</Script>
-    </>
+
+        // Initialize carousel
+        goToSlide(0);
+        startAutoSlide();
+
+        // Add click handlers for dots
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            stopAutoSlide();
+            goToSlide(index);
+            startAutoSlide();
+          });
+        });
+
+        // Add click handlers for arrows
+        if (leftArrow) {
+          leftArrow.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide();
+          });
+        }
+        if (rightArrow) {
+          rightArrow.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide();
+          });
+        }
+
+        // Pause auto-slide on hover
+        carousel.addEventListener('mouseenter', stopAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+      }
+
+      // Initialize the carousel when the component mounts
+      if (typeof window !== 'undefined') {
+        if (document.readyState === 'complete') {
+          initCarousel();
+        } else {
+          window.addEventListener('load', initCarousel);
+        }
+      }
+    `}</Script>
+  </>
   );
 }
 
