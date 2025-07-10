@@ -340,7 +340,7 @@ const Home: NextPage = () => {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Who is this guy?</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Who is this guy?</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -372,7 +372,7 @@ const Home: NextPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Education</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Education</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -477,7 +477,7 @@ const Home: NextPage = () => {
       <section id="projects" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Experience & Projects</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Experience & Projects</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -898,7 +898,7 @@ const Home: NextPage = () => {
       <section id="skills" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto relative px-6">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Skills & Technologies</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Skills & Technologies</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
             </div>
 
@@ -1031,8 +1031,7 @@ const Home: NextPage = () => {
       <section className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Data Meets Climate</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <h2 className="text-4xl font-bold text-white mb-4">Data Meets Climate</h2>
           </div>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Message */}
@@ -1043,7 +1042,7 @@ const Home: NextPage = () => {
             </div>
             {/* Right: Carousel */}
             <div>
-              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center" style={{height: 'auto', minHeight: 0, padding: 0}}>
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center mx-auto" style={{maxWidth: '900px', height: '600px', minHeight: 0, padding: 0}}>
                 {/* Left Arrow */}
                 <button id="carousel-left" aria-label="Previous Slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -1052,27 +1051,27 @@ const Home: NextPage = () => {
                 <button id="carousel-right" aria-label="Next Slide" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
-                <div className="flex transition-transform duration-500 ease-in-out" id="carousel">
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/1.jpg" alt="Slide 1" width={800} height={600} className="w-full h-auto object-contain" />
+                <div className="flex transition-transform duration-500 ease-in-out w-full h-full" id="carousel">
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/1.jpg" alt="Slide 1" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/2.jpg" alt="Slide 2" width={800} height={600} className="w-full h-auto object-contain" />
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/2.jpg" alt="Slide 2" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/3.jpg" alt="Slide 3" width={800} height={600} className="w-full h-auto object-contain" />
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/3.jpg" alt="Slide 3" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/4.jpg" alt="Slide 4" width={800} height={600} className="w-full h-auto object-contain" />
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/4.jpg" alt="Slide 4" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/5.jpg" alt="Slide 5" width={800} height={600} className="w-full h-auto object-contain" />
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/5.jpg" alt="Slide 5" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/6.jpg" alt="Slide 6" width={800} height={600} className="w-full h-auto object-contain" />
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/6.jpg" alt="Slide 6" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
-                  <div className="w-full flex-shrink-0">
-                    <Image src="/7.jpg" alt="Slide 7" width={800} height={600} className="w-full h-auto object-contain" />
+                  <div className="w-full h-full flex-shrink-0">
+                    <Image src="/7.jpg" alt="Slide 7" width={900} height={600} className="w-full h-full object-contain" />
                   </div>
                 </div>
                 {/* Navigation Dots */}
@@ -1241,7 +1240,7 @@ const Home: NextPage = () => {
       {/* Find Me Here Section */}
       <section id="social" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="flex flex-col items-center mb-16">
-          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Find Me Here</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Find Me Here</h2>
           <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
             </div>
         <ul className="m-0 p-0 flex flex-wrap justify-center gap-8">
