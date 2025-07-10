@@ -1428,8 +1428,7 @@ const Home: NextPage = () => {
         </div>
       </footer>
         </div>
-    </main>
-
+      </main>
       <Script id="constellation-animation">{`
         function initConstellation() {
           const canvas = document.getElementById('constellation-canvas');
@@ -1551,7 +1550,6 @@ const Home: NextPage = () => {
           }
         }
       `}</Script>
-
       <Script id="carousel-animation">{`
         function initCarousel() {
           const carousel = document.getElementById('carousel');
@@ -1565,9 +1563,9 @@ const Home: NextPage = () => {
 
           function goToSlide(slideIndex) {
             currentSlide = slideIndex;
-            carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+            carousel.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
             // Update active dot
-            dots.forEach((dot, index) => {
+            dots.forEach(function(dot, index) {
               if (index === slideIndex) {
                 dot.classList.add('bg-white');
                 dot.classList.remove('bg-white/50');
