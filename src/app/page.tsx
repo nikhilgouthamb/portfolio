@@ -1034,9 +1034,15 @@ const Home: NextPage = () => {
             <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Data Meets Climate</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Carousel Container */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left: Message */}
+            <div className="text-gray-200 text-lg md:text-xl leading-relaxed bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-lg">
+              <p>
+                I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs—happy to contribute in any capacity. I&apos;m eager to learn and would love to explore different domains.
+              </p>
+            </div>
+            {/* Right: Carousel */}
+            <div>
               <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center" style={{height: 'auto', minHeight: 0, padding: 0}}>
                 {/* Left Arrow */}
                 <button id="carousel-left" aria-label="Previous Slide" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 shadow-lg focus:outline-none">
