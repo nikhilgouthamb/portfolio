@@ -369,8 +369,84 @@ const Home: NextPage = () => {
         </div>
       </section>
 
+      {/* Contents Section */}
+      <section id="contents" className="relative w-full bg-[#0a0a0a] py-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          <h2 className="text-3xl font-bold text-white mb-8">Contents</h2>
+          <GlassIcons
+            items={[
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#3B82F6"/><path d="M10 22V10h12v12H10zm2-2h8V12h-8v8z" fill="#fff"/></svg>
+                ),
+                color: 'blue',
+                label: 'Education',
+                onClick: () => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#8B5CF6"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                ),
+                color: 'purple',
+                label: 'That One Excel Sheet',
+                onClick: () => document.getElementById('excel-story')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#06B6D4"/><path d="M10 22l6-12 6 12H10z" fill="#fff"/></svg>
+                ),
+                color: 'blue',
+                label: 'Experience & Projects',
+                onClick: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#F59E42"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                ),
+                color: 'orange',
+                label: 'Skills & Technologies',
+                onClick: () => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#22D3EE"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                ),
+                color: 'green',
+                label: 'Data Meets Climate',
+                onClick: () => document.getElementById('data-meets-climate')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#6366F1"/><path d="M10 22V10h12v12H10zm2-2h8V12h-8v8z" fill="#fff"/></svg>
+                ),
+                color: 'indigo',
+                label: 'Resume',
+                onClick: () => document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#F43F5E"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                ),
+                color: 'red',
+                label: 'Contact',
+                onClick: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              {
+                icon: (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0EA5E9"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                ),
+                color: 'blue',
+                label: 'Find Me Here',
+                onClick: () => document.getElementById('social')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+            ]}
+            className="mb-4"
+          />
+        </div>
+      </section>
+
       {/* Education Section */}
-      <section className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="education" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
