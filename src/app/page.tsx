@@ -1292,7 +1292,7 @@ const Home: NextPage = () => {
                 icon: (
                   <img src="/ghub.svg" alt="GitHub" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
-                color: 'indigo',
+                color: 'linear-gradient(#fff, #eaeaea)',
                 label: 'GitHub',
                 customClass: '',
                 onClick: () => window.open('https://github.com/nikhilgouthamb', '_blank'),
@@ -1301,7 +1301,7 @@ const Home: NextPage = () => {
                 icon: (
                   <img src="/me.png" alt="Medium" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
-                color: 'purple',
+                color: 'linear-gradient(#fff, #b2ffb2)',
                 label: 'Medium',
                 customClass: '',
                 onClick: () => window.open('https://medium.com/@nikhilgoutham.b', '_blank'),
@@ -1319,7 +1319,7 @@ const Home: NextPage = () => {
                 icon: (
                   <img src="/gmail_cg.png" alt="Gmail" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
-                color: 'red',
+                color: 'linear-gradient(#fff, #ffeaea)',
                 label: 'Gmail',
                 customClass: '',
                 onClick: () => window.open('mailto:bnikhilgoutham@gmail.com'),
@@ -1328,7 +1328,7 @@ const Home: NextPage = () => {
                 icon: (
                   <img src="/s.png" alt="Streamlit" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
-                color: 'red',
+                color: 'linear-gradient(#fff, #ffe0e6)',
                 label: 'Streamlit',
                 customClass: '',
                 onClick: () => window.open('https://share.streamlit.io/user/nikhilgouthamb', '_blank'),
