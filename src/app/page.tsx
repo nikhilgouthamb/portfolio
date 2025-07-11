@@ -377,7 +377,8 @@ const Home: NextPage = () => {
             items={[
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#3B82F6"/><path d="M10 22V10h12v12H10zm2-2h8V12h-8v8z" fill="#fff"/></svg>
+                  // Graduation cap for Education
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#3B82F6"/><path d="M16 10l10 4-10 4-10-4 10-4zm0 8v4m-6-2a6 2 0 0012 0" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/></svg>
                 ),
                 color: 'blue',
                 label: 'Education',
@@ -385,7 +386,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#8B5CF6"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                  // Lightbulb for That One Excel Sheet
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#8B5CF6"/><path d="M16 10a6 6 0 016 6c0 2.5-1.5 4-3 5v2a1 1 0 01-2 0v-2c-1.5-1-3-2.5-3-5a6 6 0 016-6z" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><path d="M14 26h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
                 ),
                 color: 'purple',
                 label: 'That One Excel Sheet',
@@ -393,7 +395,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#06B6D4"/><path d="M10 22l6-12 6 12H10z" fill="#fff"/></svg>
+                  // Briefcase for Experience & Projects
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#06B6D4"/><rect x="10" y="14" width="12" height="8" rx="2" stroke="#fff" strokeWidth="2"/><path d="M12 14V12a4 4 0 018 0v2" stroke="#fff" strokeWidth="2"/></svg>
                 ),
                 color: 'blue',
                 label: 'Experience & Projects',
@@ -401,7 +404,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#F59E42"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                  // Gear/settings for Skills & Technologies
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#F59E42"/><circle cx="16" cy="16" r="4" stroke="#fff" strokeWidth="2"/><path d="M16 8v2M16 22v2M8 16h2M22 16h2M10.93 10.93l1.42 1.42M19.65 19.65l1.42 1.42M10.93 21.07l1.42-1.42M19.65 12.35l1.42-1.42" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
                 ),
                 color: 'orange',
                 label: 'Skills & Technologies',
@@ -409,7 +413,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#22D3EE"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                  // Globe/leaf for Data Meets Climate
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#22D3EE"/><circle cx="16" cy="16" r="6" stroke="#fff" strokeWidth="2"/><path d="M16 10v12M10 16h12M13 13l6 6M13 19l6-6" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
                 ),
                 color: 'green',
                 label: 'Data Meets Climate',
@@ -417,7 +422,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#6366F1"/><path d="M10 22V10h12v12H10zm2-2h8V12h-8v8z" fill="#fff"/></svg>
+                  // Document for Resume
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#6366F1"/><rect x="12" y="10" width="8" height="12" rx="2" stroke="#fff" strokeWidth="2"/><path d="M12 14h8M12 18h8" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
                 ),
                 color: 'indigo',
                 label: 'Resume',
@@ -425,7 +431,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#F43F5E"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                  // Mail for Contact
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#F43F5E"/><rect x="8" y="12" width="16" height="8" rx="2" stroke="#fff" strokeWidth="2"/><path d="M8 12l8 6 8-6" stroke="#fff" strokeWidth="2"/></svg>
                 ),
                 color: 'red',
                 label: 'Contact',
@@ -433,7 +440,8 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0EA5E9"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+                  // Location/pin for Find Me Here
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0EA5E9"/><path d="M16 10a6 6 0 016 6c0 3.314-2.686 6-6 6s-6-2.686-6-6a6 6 0 016-6zm0 2a4 4 0 100 8 4 4 0 000-8z" fill="#fff"/></svg>
                 ),
                 color: 'blue',
                 label: 'Find Me Here',
