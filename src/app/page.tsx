@@ -13,6 +13,8 @@ import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
 import ClimateCarousel from '@/components/ClimateCarousel';
 import TiltedCard from '@/components/TiltedCard';
+import GlassIcons from '@/components/GlassIcons';
+import '@/components/GlassIcons.css';
 
 const bgImages = ["/a.jpeg", "/b.jpeg", "/c.jpeg"];
 
@@ -1273,131 +1275,82 @@ const Home: NextPage = () => {
           <h2 className="text-4xl font-bold text-white mb-4">Find Me Here</h2>
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* LinkedIn */}
-            <Link
-              href="https://www.linkedin.com/in/nikhilgoutham"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <TiltedCard
-                imageSrc="/in_linked_linkedin_media_social_icon_124259.svg"
-                altText="LinkedIn"
-                captionText="Connect on LinkedIn"
-                containerHeight="80px"
-                imageHeight="80px"
-                imageWidth="80px"
-                scaleOnHover={1.15}
-                rotateAmplitude={8}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
-            </Link>
-
-            {/* GitHub */}
-            <Link
-              href="https://github.com/nikhilgouthamb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <TiltedCard
-                imageSrc="/ghub.svg"
-                altText="GitHub"
-                captionText="View my projects"
-                containerHeight="80px"
-                imageHeight="80px"
-                imageWidth="80px"
-                scaleOnHover={1.15}
-                rotateAmplitude={8}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
-            </Link>
-
-            {/* Medium */}
-            <Link
-              href="https://medium.com/@nikhilgoutham.b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <TiltedCard
-                imageSrc="/me.png"
-                altText="Medium"
-                captionText="Read my articles"
-                containerHeight="80px"
-                imageHeight="80px"
-                imageWidth="80px"
-                scaleOnHover={1.15}
-                rotateAmplitude={8}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
-            </Link>
-
-            {/* Kaggle */}
-            <Link
-              href="https://www.kaggle.com/nikhilbudarayavalasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <TiltedCard
-                imageSrc="/k.png"
-                altText="Kaggle"
-                captionText="Check out my datasets"
-                containerHeight="80px"
-                imageHeight="80px"
-                imageWidth="80px"
-                scaleOnHover={1.15}
-                rotateAmplitude={8}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
-            </Link>
-
-            {/* Gmail */}
-            <Link
-              href="mailto:bnikhilgoutham@gmail.com"
-              className="block"
-            >
-              <TiltedCard
-                imageSrc="/gmail_cg.png"
-                altText="Gmail"
-                captionText="Send me an email"
-                containerHeight="80px"
-                imageHeight="80px"
-                imageWidth="80px"
-                scaleOnHover={1.15}
-                rotateAmplitude={8}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
-            </Link>
-
-            {/* Streamlit */}
-            <Link
-              href="https://share.streamlit.io/user/nikhilgouthamb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <TiltedCard
-                imageSrc="/s.png"
-                altText="Streamlit"
-                captionText="View my apps"
-                containerHeight="80px"
-                imageHeight="80px"
-                imageWidth="80px"
-                scaleOnHover={1.15}
-                rotateAmplitude={8}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
-            </Link>
-          </div>
+          <GlassIcons
+            items={[
+              {
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <rect width="32" height="32" rx="7" fill="#0077B5"/>
+                    <path d="M10.666 13.333h2.667v8H10.666v-8zm1.333-4a1.333 1.333 0 110 2.667 1.333 1.333 0 010-2.667zm3.334 4h2.56v1.093h.037c.356-.675 1.226-1.387 2.523-1.387 2.7 0 3.2 1.773 3.2 4.08v4.214h-2.667v-3.733c0-.89-.016-2.04-1.24-2.04-1.24 0-1.427.968-1.427 1.967v3.806h-2.666v-8z" fill="#fff"/>
+                  </svg>
+                ),
+                color: 'blue',
+                label: 'LinkedIn',
+                customClass: '',
+                onClick: () => window.open('https://www.linkedin.com/in/nikhilgoutham', '_blank'),
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <circle cx="16" cy="16" r="16" fill="#181717"/>
+                    <path d="M21.5 13.5c.167 2.167-1.167 3.167-2.5 3.333.667.5 1.167 1.5.667 2.167-1.167.167-2.167-.5-3.167-.5s-2 .667-3.167.5c-.5-.667 0-1.667.667-2.167-1.333-.166-2.667-1.166-2.5-3.333.167-2.167 2.167-3.167 4.167-3.167s4 .999 4.167 3.167z" fill="#fff"/>
+                  </svg>
+                ),
+                color: 'indigo',
+                label: 'GitHub',
+                customClass: '',
+                onClick: () => window.open('https://github.com/nikhilgouthamb', '_blank'),
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <circle cx="16" cy="16" r="16" fill="#000"/>
+                    <path d="M10 10h12v12H10z" fill="#fff"/>
+                  </svg>
+                ),
+                color: 'purple',
+                label: 'Medium',
+                customClass: '',
+                onClick: () => window.open('https://medium.com/@nikhilgoutham.b', '_blank'),
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <circle cx="16" cy="16" r="16" fill="#20BEFF"/>
+                    <text x="9" y="23" fontSize="18" fill="#fff" fontFamily="Arial, Helvetica, sans-serif">k</text>
+                  </svg>
+                ),
+                color: 'blue',
+                label: 'Kaggle',
+                customClass: '',
+                onClick: () => window.open('https://www.kaggle.com/nikhilbudarayavalasa', '_blank'),
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <rect width="32" height="32" rx="7" fill="#EA4335"/>
+                    <path d="M16 8l8 8-8 8-8-8 8-8z" fill="#fff"/>
+                  </svg>
+                ),
+                color: 'red',
+                label: 'Gmail',
+                customClass: '',
+                onClick: () => window.open('mailto:bnikhilgoutham@gmail.com'),
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <rect width="32" height="32" rx="7" fill="#FF4B4B"/>
+                    <path d="M8 24l8-16 8 16H8z" fill="#fff"/>
+                  </svg>
+                ),
+                color: 'red',
+                label: 'Streamlit',
+                customClass: '',
+                onClick: () => window.open('https://share.streamlit.io/user/nikhilgouthamb', '_blank'),
+              },
+            ]}
+          />
         </div>
       </section>
 
