@@ -477,7 +477,7 @@ const Home: NextPage = () => {
       <section id="excel-story" className="relative w-full bg-[#0a0a0a] py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12 max-w-5xl">
           {/* Left: Matter */}
-          <div className="flex-1 text-left">
+          <div className="flex-1 text-left md:max-w-lg md:mr-8">
             <h2 className="text-4xl font-bold text-white mb-6">That One Excel Sheet</h2>
             <div className="text-lg text-gray-300 leading-relaxed space-y-6">
               <p>Now you might wonder, why the heck did I shift my career from mechanical to data?</p>
@@ -493,9 +493,9 @@ const Home: NextPage = () => {
             <Image
               src="/m2d.png"
               alt="Mechanical to Data"
-              width={420}
-              height={420}
-              className="max-w-md w-full rounded-2xl shadow-2xl object-contain"
+              width={540}
+              height={540}
+              className="max-w-xl w-full rounded-2xl shadow-2xl object-contain"
             />
           </div>
         </div>
