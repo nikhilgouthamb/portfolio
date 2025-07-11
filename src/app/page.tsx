@@ -1290,7 +1290,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/ghub.svg" alt="GitHub" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <img src="/github_cg.png" alt="GitHub" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'linear-gradient(hsl(283, 90%, 50%), hsl(268, 90%, 50%))',
                 label: 'GitHub',
@@ -1299,7 +1299,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/me.png" alt="Medium" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <img src="/m.png" alt="Medium" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'linear-gradient(#fff, #b2ffb2)',
                 label: 'Medium',
