@@ -12,7 +12,6 @@ import Threads from '@/components/Threads';
 import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
 import ClimateCarousel from '@/components/ClimateCarousel';
-import TiltedCard from '@/components/TiltedCard';
 import GlassIcons from '@/components/GlassIcons';
 import '@/components/GlassIcons.css';
 
