@@ -370,7 +370,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Contents Section */}
-      <section id="contents" className="relative w-full bg-[#0a0a0a] py-10">
+      <section id="contents" className="relative w-full bg-[#0a0a0a] py-10 mt-20 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           <h2 className="text-3xl font-bold text-white mb-8">Contents</h2>
           <GlassIcons
@@ -446,7 +446,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="education" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10" />
         <div className="container mx-auto relative px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
@@ -551,7 +551,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* That One Excel Sheet Section */}
-      <section id="excel-story" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="excel-story" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row-reverse items-center gap-12 max-w-6xl">
           {/* Left: Matter */}
           <div className="flex-1 text-left md:max-w-lg md:ml-8 flex flex-col justify-center">
@@ -579,7 +579,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="projects" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Experience & Projects</h2>
@@ -1053,7 +1053,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="skills" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="container mx-auto relative px-6">
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Skills & Technologies</h2>
@@ -1185,7 +1185,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Data Meets Climate Section */}
-      <section id="data-meets-climate" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="data-meets-climate" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="container mx-auto px-0 sm:px-0 lg:px-0">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Data Meets Climate</h2>
@@ -1202,7 +1202,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-20 px-6 relative overflow-hidden">
+      <section id="resume" className="py-20 px-6 relative overflow-hidden" style={{ scrollMarginTop: '96px' }}>
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-8 text-white">Want to see my resume?</h2>
@@ -1235,7 +1235,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="contact" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-blue-900/30" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
         
@@ -1345,7 +1345,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* Find Me Here Section */}
-      <section id="social" className="relative w-full bg-[#0a0a0a] py-20">
+      <section id="social" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Find Me Here</h2>
         </div>
