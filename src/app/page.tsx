@@ -1290,10 +1290,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-                    <circle cx="16" cy="16" r="16" fill="#181717"/>
-                    <path d="M21.5 13.5c.167 2.167-1.167 3.167-2.5 3.333.667.5 1.167 1.5.667 2.167-1.167.167-2.167-.5-3.167-.5s-2 .667-3.167.5c-.5-.667 0-1.667.667-2.167-1.333-.166-2.667-1.166-2.5-3.333.167-2.167 2.167-3.167 4.167-3.167s4 .999 4.167 3.167z" fill="#fff"/>
-                  </svg>
+                  <img src="/ghub.svg" alt="GitHub" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'indigo',
                 label: 'GitHub',
@@ -1302,10 +1299,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-                    <circle cx="16" cy="16" r="16" fill="#000"/>
-                    <path d="M10 10h12v12H10z" fill="#fff"/>
-                  </svg>
+                  <img src="/me.png" alt="Medium" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'purple',
                 label: 'Medium',
@@ -1314,10 +1308,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-                    <circle cx="16" cy="16" r="16" fill="#20BEFF"/>
-                    <text x="9" y="23" fontSize="18" fill="#fff" fontFamily="Arial, Helvetica, sans-serif">k</text>
-                  </svg>
+                  <img src="/k.png" alt="Kaggle" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'blue',
                 label: 'Kaggle',
@@ -1326,10 +1317,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-                    <rect width="32" height="32" rx="7" fill="#EA4335"/>
-                    <path d="M16 8l8 8-8 8-8-8 8-8z" fill="#fff"/>
-                  </svg>
+                  <img src="/gmail_cg.png" alt="Gmail" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'red',
                 label: 'Gmail',
@@ -1338,10 +1326,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-                    <rect width="32" height="32" rx="7" fill="#FF4B4B"/>
-                    <path d="M8 24l8-16 8 16H8z" fill="#fff"/>
-                  </svg>
+                  <img src="/s.png" alt="Streamlit" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                 ),
                 color: 'red',
                 label: 'Streamlit',
