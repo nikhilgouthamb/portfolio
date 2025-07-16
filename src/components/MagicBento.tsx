@@ -34,6 +34,7 @@ interface ProjectDetails extends BentoCardProps {
   image: string; // background image path
   summary: string; // detailed summary
   repo?: string; // GitHub repo link
+  skills?: string[];
 }
 
 // Replace cardData with project details including images, summaries, and repo links
@@ -45,6 +46,7 @@ const cardData: ProjectDetails[] = [
     image: "/verizon-v.png",
     summary: "Led the development of an advanced fault detection system using XGBoost models. Processed and analyzed large-scale JSON logs for pattern recognition, and created comprehensive Tableau dashboards for real-time operational monitoring. Leveraged NJIT's Wulver High Performance Computing system for efficient processing of 50GB+ dataset, utilizing multiple nodes and GPU acceleration for enhanced computational performance.",
     repo: undefined,
+    skills: ["XGBoost", "Tableau", "ML", "Snowflake", "Python"],
   },
   {
     title: "Kansas City Crime Analysis",
@@ -53,6 +55,7 @@ const cardData: ProjectDetails[] = [
     image: "/kansas-city-crime.jpg",
     summary: "Developed an interactive Tableau dashboard analyzing crime data from 2016-2022. Features include COVID-19 impact analysis, crime hotspot identification, and demographic trend analysis. Created comprehensive visualizations for law enforcement and city planning insights.",
     repo: "https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis",
+    skills: ["Tableau", "Data Analysis", "Visualization", "GIS", "Statistics"],
   },
   {
     title: "Web Scraping with R",
@@ -61,6 +64,7 @@ const cardData: ProjectDetails[] = [
     image: "/r-web-scraping.jpg",
     summary: "Developed an automated web scraping solution using R to extract and analyze articles from Genome Biology. The tool collects comprehensive data including titles, authors, affiliations, publication dates, abstracts, and full text content, enabling efficient scientific literature analysis.",
     repo: "https://github.com/nikhilgouthamb/Web-scraping-using-R",
+    skills: ["R", "Web Scraping", "Data Analysis", "rvest", "dplyr"],
   },
   {
     title: "USA House Price Prediction",
@@ -69,6 +73,7 @@ const cardData: ProjectDetails[] = [
     image: "/house.jpg",
     summary: "Developed a comprehensive machine learning solution using multiple regression models (Random Forest, Gradient Boosting, Ridge CV, ElasticNet CV) to predict U.S. house prices. Analyzed key variables including bedrooms, bathrooms, size, and location to extract patterns for accurate price predictions in real estate applications.",
     repo: "https://github.com/nikhilgouthamb/USA-House-Price-Prediction",
+    skills: ["Random Forest", "Gradient Boosting", "Ridge CV", "ElasticNet CV", "Feature Engineering"],
   },
   {
     title: "Parkinson's Disease Prediction",
@@ -77,6 +82,7 @@ const cardData: ProjectDetails[] = [
     image: "/Parkinsons_disease.jpg",
     summary: "Developed a predictive model for Parkinson's disease progression using time series forecasting with ARIMA models. Analyzed peptide abundance, protein expression, and clinical data to predict UPDRS scores. Implemented comprehensive data preprocessing and feature engineering for enhanced prediction accuracy.",
     repo: "https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction",
+    skills: ["Time Series", "ARIMA", "Healthcare", "Data Preprocessing", "Feature Engineering"],
   },
   {
     title: "Library Management System",
@@ -85,6 +91,7 @@ const cardData: ProjectDetails[] = [
     image: "/library.jpg",
     summary: "Developed a comprehensive library management system with a user-friendly GUI using Python and Tkinter. Features include document checkout/return, fine computation, reader management, and advanced search capabilities. Implemented robust database operations using SQLite for efficient data management and retrieval.",
     repo: "https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation",
+    skills: ["Python", "SQLite", "Tkinter", "GUI Development", "Database Design"],
   },
   {
     title: "Game of Life: Wormhole",
@@ -93,6 +100,7 @@ const cardData: ProjectDetails[] = [
     image: "/gl.png",
     summary: "An advanced simulation of Conway's Game of Life featuring 'wormhole' tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.",
     repo: "https://github.com/nikhilgouthamb/game_of_life_wormhole",
+    skills: ["Python", "Cellular Automata", "Visualization", "Edge Cases"],
   },
   {
     title: "Energy Optimization for Pharma Labs",
@@ -101,6 +109,7 @@ const cardData: ProjectDetails[] = [
     image: "/eo.png",
     summary: "Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements. Increased energy demand forecasting accuracy by testing and deploying ARIMA and ensemble models for predictive analytics. Improved data-driven decision-making by designing interactive Tableau dashboards, allowing executives to monitor key operational trends.",
     repo: undefined,
+    skills: ["ARIMA", "Ensemble Models", "Tableau", "Excel", "Weather Prediction"],
   },
 ];
 
@@ -889,6 +898,36 @@ const MagicBento: React.FC<BentoProps> = ({
               min-height: 180px;
             }
           }
+          .bento-modal-link.metallic {
+            background: linear-gradient(90deg, #bfc1c6 0%, #e5e7eb 50%, #bfc1c6 100%);
+            color: #23272b;
+            border: 1.5px solid #e5e7eb;
+            box-shadow: 0 2px 8px #0002, 0 1px 0 #fff4 inset;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-size: 1rem;
+            border-radius: 999px;
+            padding: 0.5rem 1.5rem;
+            transition: background 0.2s, color 0.2s;
+            text-shadow: 0 1px 0 #fff8;
+          }
+          .bento-modal-link.metallic:hover {
+            background: linear-gradient(90deg, #e5e7eb 0%, #bfc1c6 100%);
+            color: #181a1b;
+          }
+          .bento-skill-pill {
+            display: inline-block;
+            padding: 0.35em 1em;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+            color: #e5e7eb;
+            font-size: 0.95em;
+            font-weight: 500;
+            border: 1px solid #4445;
+            box-shadow: 0 1px 4px #0002;
+            letter-spacing: 0.01em;
+            backdrop-filter: blur(2px);
+            margin-bottom: 0.1em;
+          }
         `}
       </style>
       {enableSpotlight && (
@@ -903,9 +942,7 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef} particleCount={particleCount}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
-              enableBorderGlow ? "card--border-glow" : ""
-            }`;
+            const baseClassName = `card flex flex-col justify-between relative min-h-[180px] h-[180px] w-full max-w-full p-5 rounded-2xl border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? "card--border-glow" : ""}`;
             const cardStyle = {
               backgroundColor: "rgba(24,26,27,0.85)",
               borderColor: "var(--border-color)",
@@ -996,15 +1033,22 @@ const MagicBento: React.FC<BentoProps> = ({
             <div className="bento-modal-content">
               <div className="bento-modal-title">{modalProject.title}</div>
               <div className="bento-modal-summary">{modalProject.summary}</div>
+              {modalProject.skills && (
+                <div className="bento-modal-skills" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                  {modalProject.skills.map(skill => (
+                    <span key={skill} className="bento-skill-pill">{skill}</span>
+                  ))}
+                </div>
+              )}
               {modalProject.repo && (
                 <a
-                  className="bento-modal-link"
+                  className="bento-modal-link metallic"
                   href={modalProject.repo}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={e => e.stopPropagation()}
                 >
-                  View on GitHub
+                  <span style={{ letterSpacing: '0.03em', fontWeight: 600 }}>GitHub</span>
                 </a>
               )}
             </div>
