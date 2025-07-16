@@ -31,40 +31,52 @@ const MOBILE_BREAKPOINT = 768;
 
 const cardData: BentoCardProps[] = [
   {
-    color: "#060010",
-    title: "Analytics",
-    description: "Track user behavior",
-    label: "Insights",
+    color: "#b91c1c", // Verizon red
+    title: "Verizon Capstone Project",
+    description: "Advanced fault detection system using ML. XGBoost, Tableau, ML, Snowflake, Python.",
+    label: "Telecom AI",
   },
   {
-    color: "#060010",
-    title: "Dashboard",
-    description: "Centralized data view",
-    label: "Overview",
+    color: "#2563eb", // Blue for Kansas City Crime
+    title: "Kansas City Crime Analysis",
+    description: "Interactive Tableau dashboard for crime data, COVID-19 impact, hotspots, and trends.",
+    label: "Data Viz",
   },
   {
-    color: "#060010",
-    title: "Collaboration",
-    description: "Work together seamlessly",
-    label: "Teamwork",
+    color: "#7c3aed", // Purple for R Web Scraping
+    title: "Web Scraping with R",
+    description: "Automated extraction and analysis of Genome Biology articles using R.",
+    label: "Bioinformatics",
   },
   {
-    color: "#060010",
-    title: "Automation",
-    description: "Streamline workflows",
-    label: "Efficiency",
+    color: "#059669", // Green for House Price
+    title: "USA House Price Prediction",
+    description: "ML-powered real estate price prediction using regression models and feature engineering.",
+    label: "Regression",
   },
   {
-    color: "#060010",
-    title: "Integration",
-    description: "Connect favorite tools",
-    label: "Connectivity",
+    color: "#a21caf", // Deep purple for Parkinson's
+    title: "Parkinson's Disease Prediction",
+    description: "Time series forecasting for disease progression using ARIMA and clinical data.",
+    label: "Healthcare",
   },
   {
-    color: "#060010",
-    title: "Security",
-    description: "Enterprise-grade protection",
-    label: "Protection",
+    color: "#ea580c", // Orange for Library
+    title: "Library Management System",
+    description: "Full-stack library database system with GUI, Python, SQLite, Tkinter.",
+    label: "Full Stack",
+  },
+  {
+    color: "#334155", // Gray for Game of Life
+    title: "Game of Life: Wormhole",
+    description: "Advanced cellular automata simulation with wormhole tunnels in Python.",
+    label: "Simulation",
+  },
+  {
+    color: "#22d3ee", // Cyan for Energy Optimization
+    title: "Energy Optimization for Pharma Labs",
+    description: "Reduced HVAC energy by 15-23% using ARIMA, ensemble models, Tableau, Excel, weather prediction.",
+    label: "Climate Tech",
   },
 ];
 
