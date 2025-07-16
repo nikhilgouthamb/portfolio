@@ -1076,7 +1076,7 @@ const MagicBento: React.FC<BentoProps> = ({
             <button className="bento-modal-close" onClick={closeModal} title="Close">&times;</button>
             <Image
               src={(modalProject.image || '/placeholder.png') as string}
-              alt={modalProject.title}
+              alt={modalProject.title || 'Project image'}
               className="bento-modal-image"
               style={{ background: '#23272b' }}
               width={420}
