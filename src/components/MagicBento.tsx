@@ -39,7 +39,6 @@ interface ProjectDetails extends BentoCardProps {
 // Replace cardData with project details including images, summaries, and repo links
 const cardData: ProjectDetails[] = [
   {
-    color: "#b91c1c",
     title: "Verizon Capstone Project",
     description: "Advanced fault detection system using ML. XGBoost, Tableau, ML, Snowflake, Python.",
     label: "Telecom AI",
@@ -48,7 +47,6 @@ const cardData: ProjectDetails[] = [
     repo: undefined,
   },
   {
-    color: "#2563eb",
     title: "Kansas City Crime Analysis",
     description: "Interactive Tableau dashboard for crime data, COVID-19 impact, hotspots, and trends.",
     label: "Data Viz",
@@ -57,7 +55,6 @@ const cardData: ProjectDetails[] = [
     repo: "https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis",
   },
   {
-    color: "#7c3aed",
     title: "Web Scraping with R",
     description: "Automated extraction and analysis of Genome Biology articles using R.",
     label: "Bioinformatics",
@@ -66,7 +63,6 @@ const cardData: ProjectDetails[] = [
     repo: "https://github.com/nikhilgouthamb/Web-scraping-using-R",
   },
   {
-    color: "#059669",
     title: "USA House Price Prediction",
     description: "ML-powered real estate price prediction using regression models and feature engineering.",
     label: "Regression",
@@ -75,7 +71,6 @@ const cardData: ProjectDetails[] = [
     repo: "https://github.com/nikhilgouthamb/USA-House-Price-Prediction",
   },
   {
-    color: "#a21caf",
     title: "Parkinson's Disease Prediction",
     description: "Time series forecasting for disease progression using ARIMA and clinical data.",
     label: "Healthcare",
@@ -84,7 +79,6 @@ const cardData: ProjectDetails[] = [
     repo: "https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction",
   },
   {
-    color: "#ea580c",
     title: "Library Management System",
     description: "Full-stack library database system with GUI, Python, SQLite, Tkinter.",
     label: "Full Stack",
@@ -93,7 +87,6 @@ const cardData: ProjectDetails[] = [
     repo: "https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation",
   },
   {
-    color: "#334155",
     title: "Game of Life: Wormhole",
     description: "Advanced cellular automata simulation with wormhole tunnels in Python.",
     label: "Simulation",
@@ -102,7 +95,6 @@ const cardData: ProjectDetails[] = [
     repo: "https://github.com/nikhilgouthamb/game_of_life_wormhole",
   },
   {
-    color: "#22d3ee",
     title: "Energy Optimization for Pharma Labs",
     description: "Reduced HVAC energy by 15-23% using ARIMA, ensemble models, Tableau, Excel, weather prediction.",
     label: "Climate Tech",
@@ -915,7 +907,7 @@ const MagicBento: React.FC<BentoProps> = ({
               enableBorderGlow ? "card--border-glow" : ""
             }`;
             const cardStyle = {
-              backgroundColor: card.color || "var(--background-dark)",
+              backgroundColor: "rgba(24,26,27,0.85)",
               borderColor: "var(--border-color)",
               color: "var(--white)",
               "--glow-x": "50%",
