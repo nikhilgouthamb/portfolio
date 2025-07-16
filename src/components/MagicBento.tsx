@@ -275,11 +275,11 @@ const ParticleCard: React.FC<{
 
       if (enableTilt) {
         gsap.to(element, {
-          rotateX: 5,
-          rotateY: 5,
+          rotateX: 15,
+          rotateY: 15,
           duration: 0.3,
           ease: "power2.out",
-          transformPerspective: 1000,
+          transformPerspective: 1200,
         });
       }
     };
@@ -317,15 +317,15 @@ const ParticleCard: React.FC<{
       const centerY = rect.height / 2;
 
       if (enableTilt) {
-        const rotateX = ((y - centerY) / centerY) * -10;
-        const rotateY = ((x - centerX) / centerX) * 10;
+        const rotateX = ((y - centerY) / centerY) * -15;
+        const rotateY = ((x - centerX) / centerX) * 15;
 
         gsap.to(element, {
           rotateX,
           rotateY,
           duration: 0.1,
           ease: "power2.out",
-          transformPerspective: 1000,
+          transformPerspective: 1200,
         });
       }
 
@@ -573,15 +573,88 @@ const GlobalSpotlight: React.FC<{
   return null;
 };
 
+// StarfieldBackground: persistent animated starfield for the grid
+const StarfieldBackground: React.FC<{ particleCount?: number }> = ({ particleCount = 24 }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationId: number;
+    let width = 0;
+    let height = 0;
+    function setSize() {
+      if (!canvas) return;
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    }
+    setSize();
+    const stars = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: 1 + Math.random() * 1.5,
+      dx: (Math.random() - 0.5) * 0.15,
+      dy: (Math.random() - 0.5) * 0.15,
+      alpha: 0.5 + Math.random() * 0.5,
+    }));
+    function resize() {
+      setSize();
+    }
+    window.addEventListener('resize', resize);
+    function animate() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      for (const s of stars) {
+        ctx.save();
+        ctx.globalAlpha = s.alpha;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+        ctx.fillStyle = 'rgba(132,0,255,0.7)';
+        ctx.shadowColor = '#a78bfa';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.restore();
+        s.x += s.dx;
+        s.y += s.dy;
+        if (s.x < 0 || s.x > width) s.dx *= -1;
+        if (s.y < 0 || s.y > height) s.dy *= -1;
+      }
+      animationId = requestAnimationFrame(animate);
+    }
+    animate();
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationId);
+    };
+  }, [particleCount]);
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+        pointerEvents: 'none',
+        opacity: 0.7,
+      }}
+    />
+  );
+};
+
 const BentoCardGrid: React.FC<{
   children: React.ReactNode;
   gridRef?: React.RefObject<HTMLDivElement | null>;
-}> = ({ children, gridRef }) => (
+  particleCount?: number;
+}> = ({ children, gridRef, particleCount }) => (
   <div
     className="bento-section grid gap-2 p-3 max-w-[54rem] select-none relative"
-    style={{ fontSize: "clamp(1rem, 0.9rem + 0.5vw, 1.5rem)" }}
+    style={{ fontSize: "clamp(1rem, 0.9rem + 0.5vw, 1.5rem)", perspective: 1200 }}
     ref={gridRef}
   >
+    <StarfieldBackground particleCount={particleCount} />
     {children}
   </div>
 );
@@ -835,7 +908,7 @@ const MagicBento: React.FC<BentoProps> = ({
           glowColor={glowColor}
         />
       )}
-      <BentoCardGrid gridRef={gridRef}>
+      <BentoCardGrid gridRef={gridRef} particleCount={particleCount}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
             const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${

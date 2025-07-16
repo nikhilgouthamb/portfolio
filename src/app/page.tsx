@@ -15,7 +15,6 @@ import ClimateCarousel from '@/components/ClimateCarousel';
 import GlassIcons from '@/components/GlassIcons';
 import '@/components/GlassIcons.css';
 import MagicBento from '@/components/MagicBento';
-import StarfieldBackground from '@/components/StarfieldBackground';
 
 const bgImages = ["/a.jpeg", "/b.jpeg", "/c.jpeg"];
 
@@ -573,44 +572,40 @@ const Home: NextPage = () => {
               <p>During my internships, I worked on projects involving smart manufacturing and energy optimization, where I eventually had to use data to improve efficiency. That&apos;s when it clicked, the wonders data could do.</p>
               <p>Like, if a simple regression problem on a freaking Excel sheet could impact the climate by reducing X% of energy consumption, I could only imagine what else I could do if I pursued this data path deeper.</p>
               <p>So I shifted my focus into data and climate tech, which led me to pursue my master&apos;s in data science.</p>
-            </div>
           </div>
+              </div>
           {/* Right: Image */}
           <div className="flex-1 flex justify-center items-center">
-            <Image
+                <Image
               src="/m2d.png"
               alt="Mechanical to Data"
               width={700}
               height={700}
               className="max-w-2xl w-full rounded-2xl shadow-2xl object-contain"
-            />
-          </div>
-        </div>
+                />
+              </div>
+                </div>
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Starfield background */}
-          <StarfieldBackground />
-          <div className="flex flex-col items-center mb-16 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Experience & Projects</h2>
-          </div>
+                </div>
           {/* Magic Bento Grid */}
-          <div className="relative z-10">
-            <MagicBento 
-              textAutoHide={true}
-              enableStars={true}
-              enableSpotlight={true}
-              enableBorderGlow={true}
-              enableTilt={true}
-              enableMagnetism={true}
-              clickEffect={true}
-              spotlightRadius={300}
-              particleCount={12}
-              glowColor="132, 0, 255"
-            />
-          </div>
+          <MagicBento 
+            textAutoHide={true}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={300}
+            particleCount={12}
+            glowColor="132, 0, 255"
+          />
         </div>
       </section>
 
@@ -619,7 +614,7 @@ const Home: NextPage = () => {
         <div className="container mx-auto relative px-6">
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Skills & Technologies</h2>
-          </div>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Machine Learning & AI */}
@@ -910,7 +905,7 @@ const Home: NextPage = () => {
       <section id="social" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Find Me Here</h2>
-        </div>
+            </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <GlassIcons
             items={[
@@ -973,7 +968,7 @@ const Home: NextPage = () => {
               },
             ]}
           />
-        </div>
+              </div>
       </section>
 
       {/* Future Goals & Interests Section */}
@@ -982,7 +977,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">Future Goals & Interests</h2>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-          </div>
+              </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Climate Tech */}
             <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-green-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] hover:-translate-y-2">
@@ -991,7 +986,7 @@ const Home: NextPage = () => {
                   <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                   </svg>
-                </div>
+              </div>
                 <h3 className="text-xl font-bold text-green-400">Climate Tech</h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
@@ -1008,7 +1003,7 @@ const Home: NextPage = () => {
                   <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                </div>
+              </div>
                 <h3 className="text-xl font-bold text-blue-400">AI/ML Advancement</h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
@@ -1025,7 +1020,7 @@ const Home: NextPage = () => {
                   <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z M8 4v4 M16 4v4 M4 11h16" />
                   </svg>
-                </div>
+              </div>
                 <h3 className="text-xl font-bold text-purple-400">Data Engineering</h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
@@ -1042,7 +1037,7 @@ const Home: NextPage = () => {
                   <svg className="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
-                </div>
+              </div>
                 <h3 className="text-xl font-bold text-rose-400">Healthcare Analytics</h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
@@ -1067,7 +1062,7 @@ const Home: NextPage = () => {
                 knowledge sharing, and mentorship. Building tools and libraries 
                 that help others solve complex data challenges.
               </p>
-            </div>
+              </div>
 
             {/* Mentorship */}
             <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:-translate-y-2">
@@ -1076,16 +1071,16 @@ const Home: NextPage = () => {
                   <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                </div>
+            </div>
                 <h3 className="text-xl font-bold text-indigo-400">Mentorship</h3>
-              </div>
+          </div>
               <p className="text-gray-300 leading-relaxed">
                 Passionate about helping others grow in data science and technology. 
                 Offering guidance, sharing knowledge, and supporting the next 
                 generation of data professionals and researchers.
               </p>
-            </div>
           </div>
+        </div>
         </div>
       </section>
         </div>
