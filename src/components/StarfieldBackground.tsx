@@ -11,7 +11,7 @@ function randomBetween(a: number, b: number) {
 
 const StarfieldBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const stars = useRef<{x: number, y: number, z: number}[]>([]);
 
   useEffect(() => {
