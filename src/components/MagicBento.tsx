@@ -886,6 +886,14 @@ const MagicBento: React.FC<BentoProps> = ({
             overflow: hidden;
             text-overflow: ellipsis;
           }
+          .text-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
           @media (max-width: 599px) {
             .card-responsive {
               grid-template-columns: 1fr;
@@ -928,6 +936,41 @@ const MagicBento: React.FC<BentoProps> = ({
             backdrop-filter: blur(2px);
             margin-bottom: 0.1em;
           }
+          .bento-modal-skills-row::-webkit-scrollbar {
+            height: 6px;
+            background: transparent;
+          }
+          .bento-modal-skills-row::-webkit-scrollbar-thumb {
+            background: #4446;
+            border-radius: 4px;
+          }
+          .bento-skill-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35em 1em 0.35em 0.7em;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #bfc1c6 0%, #e5e7eb 100%);
+            color: #23272b;
+            font-size: 0.97em;
+            font-weight: 500;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 4px #0002;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.1em;
+            margin-right: 0.1em;
+            white-space: nowrap;
+            min-width: 0;
+            transition: background 0.2s, color 0.2s;
+          }
+          .bento-skill-dot {
+            display: inline-block;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+            background: #6366f1;
+            margin-right: 0.5em;
+            box-shadow: 0 0 4px #6366f1cc;
+          }
         `}
       </style>
       {enableSpotlight && (
@@ -942,11 +985,15 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef} particleCount={particleCount}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative min-h-[180px] h-[180px] w-full max-w-full p-5 rounded-2xl border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? "card--border-glow" : ""}`;
+            const baseClassName = `card flex flex-col justify-between relative w-[320px] h-[180px] min-h-[180px] max-w-[320px] p-5 rounded-2xl border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? "card--border-glow" : ""}`;
             const cardStyle = {
               backgroundColor: "rgba(24,26,27,0.85)",
               borderColor: "var(--border-color)",
               color: "var(--white)",
+              width: '320px',
+              height: '180px',
+              minHeight: '180px',
+              maxWidth: '320px',
               "--glow-x": "50%",
               "--glow-y": "50%",
               "--glow-intensity": "0",
@@ -972,12 +1019,14 @@ const MagicBento: React.FC<BentoProps> = ({
                   </div>
                   <div className="card__content flex flex-col relative text-white">
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
+                      className={`card__title font-normal text-base m-0 mb-1 text-clamp-2`}
+                      style={{ WebkitLineClamp: 2 }}
                     >
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
+                      className={`card__description text-xs leading-5 opacity-90 text-clamp-3`}
+                      style={{ WebkitLineClamp: 3 }}
                     >
                       {card.description}
                     </p>
@@ -997,12 +1046,14 @@ const MagicBento: React.FC<BentoProps> = ({
                 </div>
                 <div className="card__content flex flex-col relative text-white">
                   <h3
-                    className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
+                    className={`card__title font-normal text-base m-0 mb-1 text-clamp-2`}
+                    style={{ WebkitLineClamp: 2 }}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
+                    className={`card__description text-xs leading-5 opacity-90 text-clamp-3`}
+                    style={{ WebkitLineClamp: 3 }}
                   >
                     {card.description}
                   </p>
@@ -1034,9 +1085,12 @@ const MagicBento: React.FC<BentoProps> = ({
               <div className="bento-modal-title">{modalProject.title}</div>
               <div className="bento-modal-summary">{modalProject.summary}</div>
               {modalProject.skills && (
-                <div className="bento-modal-skills" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                <div className="bento-modal-skills-row" style={{ display: 'flex', flexWrap: 'nowrap', gap: '0.5rem', marginBottom: '1.5rem', overflowX: 'auto', paddingBottom: '0.2rem' }}>
                   {modalProject.skills.map(skill => (
-                    <span key={skill} className="bento-skill-pill">{skill}</span>
+                    <span key={skill} className="bento-skill-chip">
+                      <span className="bento-skill-dot" />
+                      {skill}
+                    </span>
                   ))}
                 </div>
               )}
