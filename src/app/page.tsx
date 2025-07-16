@@ -15,6 +15,7 @@ import ClimateCarousel from '@/components/ClimateCarousel';
 import GlassIcons from '@/components/GlassIcons';
 import '@/components/GlassIcons.css';
 import MagicBento from '@/components/MagicBento';
+import StarfieldBackground from '@/components/StarfieldBackground';
 
 const bgImages = ["/a.jpeg", "/b.jpeg", "/c.jpeg"];
 
@@ -589,23 +590,27 @@ const Home: NextPage = () => {
 
       {/* Projects Section */}
       <section id="projects" className="relative w-full bg-[#0a0a0a] py-20" style={{ scrollMarginTop: '96px' }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center mb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Starfield background */}
+          <StarfieldBackground />
+          <div className="flex flex-col items-center mb-16 relative z-10">
             <h2 className="text-4xl font-bold text-white mb-4">Experience & Projects</h2>
           </div>
           {/* Magic Bento Grid */}
-          <MagicBento 
-            textAutoHide={true}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            spotlightRadius={300}
-            particleCount={12}
-            glowColor="132, 0, 255"
-          />
+          <div className="relative z-10">
+            <MagicBento 
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={true}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              particleCount={12}
+              glowColor="132, 0, 255"
+            />
+          </div>
         </div>
       </section>
 
