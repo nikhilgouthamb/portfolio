@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
+import Image from 'next/image';
 
 export interface BentoCardProps {
   color?: string;
@@ -11,7 +12,6 @@ export interface BentoCardProps {
 }
 
 export interface BentoProps {
-  textAutoHide?: boolean;
   enableStars?: boolean;
   enableSpotlight?: boolean;
   enableBorderGlow?: boolean;
@@ -677,14 +677,13 @@ const useMobileDetection = () => {
 };
 
 const MagicBento: React.FC<BentoProps> = ({
-  textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
   enableBorderGlow = true,
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   particleCount = DEFAULT_PARTICLE_COUNT,
-  enableTilt = true, // always true as requested
+  enableTilt = true,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
   enableMagnetism = true,
@@ -1072,14 +1071,17 @@ const MagicBento: React.FC<BentoProps> = ({
               e.stopPropagation();
               handleModalClick();
             }}
-            style={{ boxShadow: `0 8px 40px 0 ${modalProject.color}55` }}
+            style={{ boxShadow: `0 8px 40px 0 #bfc1c655` }}
           >
             <button className="bento-modal-close" onClick={closeModal} title="Close">&times;</button>
-            <img
-              src={modalProject.image}
+            <Image
+              src={(modalProject.image || '/placeholder.png') as string}
               alt={modalProject.title}
               className="bento-modal-image"
-              style={{ background: modalProject.color }}
+              style={{ background: '#23272b' }}
+              width={420}
+              height={180}
+              unoptimized
             />
             <div className="bento-modal-content">
               <div className="bento-modal-title">{modalProject.title}</div>
