@@ -595,7 +595,6 @@ const Home: NextPage = () => {
                 </div>
           {/* Magic Bento Grid */}
           <MagicBento 
-            textAutoHide={true}
             enableStars={true}
             enableSpotlight={true}
             enableBorderGlow={true}
