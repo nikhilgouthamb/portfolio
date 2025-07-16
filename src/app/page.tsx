@@ -572,19 +572,19 @@ const Home: NextPage = () => {
               <p>During my internships, I worked on projects involving smart manufacturing and energy optimization, where I eventually had to use data to improve efficiency. That&apos;s when it clicked, the wonders data could do.</p>
               <p>Like, if a simple regression problem on a freaking Excel sheet could impact the climate by reducing X% of energy consumption, I could only imagine what else I could do if I pursued this data path deeper.</p>
               <p>So I shifted my focus into data and climate tech, which led me to pursue my master&apos;s in data science.</p>
+            </div>
           </div>
-              </div>
           {/* Right: Image */}
           <div className="flex-1 flex justify-center items-center">
-                <Image
+            <Image
               src="/m2d.png"
               alt="Mechanical to Data"
               width={700}
               height={700}
               className="max-w-2xl w-full rounded-2xl shadow-2xl object-contain"
-                />
-              </div>
-                </div>
+            />
+          </div>
+        </div>
       </section>
 
       {/* Projects Section */}
@@ -592,19 +592,472 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Experience & Projects</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Verizon Project Card */}
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-600/90 to-red-800/90">
+                <Image
+                  src="/verizon-v.png"
+                  alt="Verizon Logo"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Verizon Capstone Project</h3>
+                  <p className="text-gray-200 text-sm">
+                    Advanced fault detection system using ML
+                  </p>
                 </div>
-          {/* Magic Bento Grid */}
-          <MagicBento 
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            spotlightRadius={300}
-            particleCount={12}
-            glowColor="132, 0, 255"
-          />
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">XGBoost</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ML</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Verizon Capstone Project</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Led the development of an advanced fault detection system using XGBoost models. 
+                        Processed and analyzed large-scale JSON logs for pattern recognition, and created 
+                        comprehensive Tableau dashboards for real-time operational monitoring. Leveraged NJIT&apos;s 
+                        Wulver High Performance Computing system for efficient processing of 50GB+ dataset, 
+                        utilizing multiple nodes and GPU acceleration for enhanced computational performance.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">XGBoost</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Snowflake</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ML</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Kansas City Crimes Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90">
+                <Image
+                  src="/kansas-city-crime.jpg"
+                  alt="Kansas City Crime Analysis"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Kansas City Crime Analysis</h3>
+                  <p className="text-gray-200 text-sm">
+                    Interactive crime data visualization and analysis
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Data Analysis</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Visualization</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Kansas City Crime Analysis</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed an interactive Tableau dashboard analyzing crime data from 2016-2022. 
+                        Features include COVID-19 impact analysis, crime hotspot identification, and 
+                        demographic trend analysis. Created comprehensive visualizations for law enforcement 
+                        and city planning insights.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Analysis</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Visualization</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">GIS</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Statistics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* R Web Scraping Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Web-scraping-using-R"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/90 to-purple-600/90">
+                <Image
+                  src="/r-web-scraping.jpg"
+                  alt="R Web Scraping Project"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Web Scraping with R</h3>
+                  <p className="text-gray-200 text-sm">
+                    Automated data extraction from Genome Biology articles
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">R</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Web Scraping</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Data Analysis</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Web Scraping with R</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed an automated web scraping solution using R to extract and analyze articles 
+                        from Genome Biology. The tool collects comprehensive data including titles, authors, 
+                        affiliations, publication dates, abstracts, and full text content, enabling efficient 
+                        scientific literature analysis.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">R Programming</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">rvest</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">dplyr</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Mining</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Web Scraping</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* USA House Price Prediction Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/USA-House-Price-Prediction"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-emerald-800/90">
+                <Image
+                  src="/house.jpg"
+                  alt="USA House Price Prediction"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">USA House Price Prediction</h3>
+                  <p className="text-gray-200 text-sm">
+                    ML-powered real estate price prediction system
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Machine Learning</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Python</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Regression</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">USA House Price Prediction</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a comprehensive machine learning solution using multiple regression models 
+                        (Random Forest, Gradient Boosting, Ridge CV, ElasticNet CV) to predict U.S. house prices. 
+                        Analyzed key variables including bedrooms, bathrooms, size, and location to extract patterns 
+                        for accurate price predictions in real estate applications.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Random Forest</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Gradient Boosting</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Ridge CV</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ElasticNet CV</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Feature Engineering</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Parkinson's Disease Prediction Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction"
+            target="_blank"
+            rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+          >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/90 to-indigo-800/90">
+            <Image
+                  src="/Parkinsons_disease.jpg"
+                  alt="Parkinson's Disease Progression Prediction"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Parkinson&apos;s Disease Prediction</h3>
+                  <p className="text-gray-200 text-sm">
+                    Time series forecasting for disease progression
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Time Series</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ARIMA</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Healthcare</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Parkinson&apos;s Disease Prediction</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a predictive model for Parkinson&apos;s disease progression using time series 
+                        forecasting with ARIMA models. Analyzed peptide abundance, protein expression, and clinical 
+                        data to predict UPDRS scores. Implemented comprehensive data preprocessing and feature 
+                        engineering for enhanced prediction accuracy.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Time Series Analysis</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ARIMA Models</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Data Preprocessing</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Feature Engineering</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Healthcare Analytics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Library Database Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation"
+            target="_blank"
+            rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/90 to-orange-800/90">
+                <Image
+                  src="/library.jpg"
+                  alt="Library Database Management System"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Library Management System</h3>
+                  <p className="text-gray-200 text-sm">
+                    Full-stack library database system with GUI
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Python</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">SQLite</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tkinter</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Library Management System</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Developed a comprehensive library management system with a user-friendly GUI using Python and Tkinter. 
+                        Features include document checkout/return, fine computation, reader management, and advanced search capabilities. 
+                        Implemented robust database operations using SQLite for efficient data management and retrieval.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Python</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">SQLite</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tkinter</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">GUI Development</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Database Design</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Game of Life: Wormhole Project Card */}
+            <Link 
+              href="https://github.com/nikhilgouthamb/game_of_life_wormhole"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-700/90 to-black/90">
+                <Image
+                  src="/gl.png"
+                  alt="Game of Life: Wormhole"
+                  fill
+                  className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              
+              {/* Content Overlay */}
+              <div className="relative h-full p-4 sm:p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-3">Game of Life: Wormhole</h3>
+                  <p className="text-gray-200 text-xs sm:text-sm">
+                    Advanced cellular automata simulation with wormhole tunnels
+                  </p>
+                </div>
+
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-0">
+                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white">Python</span>
+                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white">Simulation</span>
+                  <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white">Game of Life</span>
+                </div>
+
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-3 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-4">Game of Life: Wormhole</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                      An advanced simulation of Conway&apos;s Game of Life featuring &quot;wormhole&quot; tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-0">
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Python</span>
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Cellular Automata</span>
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Visualization</span>
+                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/10 rounded-full text-[10px] sm:text-xs text-white">Edge Cases</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Energy Optimization Project Card */}
+            <div className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-blue-800/90">
+                <Image
+                  src="/eo.png"
+                  alt="Energy Optimization"
+                  fill
+                  className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  quality={100}
+                />
+              </div>
+              {/* Content Overlay */}
+              <div className="relative h-full p-8 flex flex-col justify-between">
+                {/* Top Content */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Energy Optimization for Pharma Labs</h3>
+                  <p className="text-gray-200 text-sm">
+                    Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements.
+                  </p>
+                </div>
+                {/* Bottom Content - Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ARIMA</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Ensemble Models</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Excel</span>
+                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Weather Prediction</span>
+                </div>
+                {/* Hover Description - Hidden by default */}
+                <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">Energy Optimization for Pharma Labs</h3>
+                      <ul className="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-2">
+                        <li>Increased energy demand forecasting accuracy by testing and deploying ARIMA and ensemble models for predictive analytics.</li>
+                        <li>Improved data-driven decision-making by designing interactive Tableau dashboards, allowing executives to monitor key operational trends.</li>
+                        <li>Streamlined financial operations by developing automated Excel tools for billing and client solutions.</li>
+                        <li>Developed weather prediction models using machine learning and time series techniques, enhancing energy forecasting.</li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ARIMA</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Ensemble Models</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Excel</span>
+                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Weather Prediction</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -615,127 +1068,19 @@ const Home: NextPage = () => {
             <h2 className="text-4xl font-bold text-white mb-4">Skills & Technologies</h2>
             </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Machine Learning & AI */}
-            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-blue-400">Machine Learning & AI</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors">TensorFlow</span>
-                <span className="px-3 py-1 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors">PyTorch</span>
-                <span className="px-3 py-1 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors">Scikit-learn</span>
-                <span className="px-3 py-1 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors">NLP</span>
-                <span className="px-3 py-1 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors">Computer Vision</span>
-                <span className="px-3 py-1 bg-blue-500/10 rounded-xl text-blue-400 text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors">MLOps</span>
-              </div>
-            </div>
-
-            {/* Data Engineering */}
-            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z M8 4v4 M16 4v4 M4 11h16" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-purple-400">Data Engineering</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">SQL</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">NoSQL</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Apache Spark</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Hadoop</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Airflow</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">ETL</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Snowflake</span>
-                <span className="px-3 py-1 bg-purple-500/10 rounded-xl text-purple-400 text-sm border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Databricks</span>
-              </div>
-            </div>
-
-            {/* Cloud & DevOps */}
-            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-emerald-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                  </svg>
-            </div>
-                <h3 className="text-xl font-bold text-emerald-400">Cloud & DevOps</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">AWS</span>
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">Docker</span>
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">Kubernetes</span>
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">CI/CD</span>
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">Terraform</span>
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">GCP</span>
-                <span className="px-3 py-1 bg-emerald-500/10 rounded-xl text-emerald-400 text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">Azure</span>
-              </div>
-            </div>
-
-            {/* Programming Languages */}
-            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-rose-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(244,63,94,0.2)] hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-rose-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <svg className="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-rose-400">Programming</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-rose-500/10 rounded-xl text-rose-400 text-sm border border-rose-500/20 hover:bg-rose-500/20 transition-colors">Python</span>
-                <span className="px-3 py-1 bg-rose-500/10 rounded-xl text-rose-400 text-sm border border-rose-500/20 hover:bg-rose-500/20 transition-colors">R</span>
-                <span className="px-3 py-1 bg-rose-500/10 rounded-xl text-rose-400 text-sm border border-rose-500/20 hover:bg-rose-500/20 transition-colors">SQL</span>
-                <span className="px-3 py-1 bg-rose-500/10 rounded-xl text-rose-400 text-sm border border-rose-500/20 hover:bg-rose-500/20 transition-colors">Shell Scripting</span>
-                <span className="px-3 py-1 bg-rose-500/10 rounded-xl text-rose-400 text-sm border border-rose-500/20 hover:bg-rose-500/20 transition-colors">Git</span>
-              </div>
-            </div>
-
-            {/* Data Analysis */}
-            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-amber-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-amber-400">Data Analysis</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-amber-500/10 rounded-xl text-amber-400 text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors">Statistical Analysis</span>
-                <span className="px-3 py-1 bg-amber-500/10 rounded-xl text-amber-400 text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors">Data Visualization</span>
-                <span className="px-3 py-1 bg-amber-500/10 rounded-xl text-amber-400 text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors">Tableau</span>
-                <span className="px-3 py-1 bg-amber-500/10 rounded-xl text-amber-400 text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors">Power BI</span>
-                <span className="px-3 py-1 bg-amber-500/10 rounded-xl text-amber-400 text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors">A/B Testing</span>
-                <span className="px-3 py-1 bg-amber-500/10 rounded-xl text-amber-400 text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors">Time Series</span>
-              </div>
-            </div>
-
-            {/* Soft Skills */}
-            <div className="group bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-indigo-400">Soft Skills</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-indigo-500/10 rounded-xl text-indigo-400 text-sm border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Problem Solving</span>
-                <span className="px-3 py-1 bg-indigo-500/10 rounded-xl text-indigo-400 text-sm border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Communication</span>
-                <span className="px-3 py-1 bg-indigo-500/10 rounded-xl text-indigo-400 text-sm border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Team Leadership</span>
-                <span className="px-3 py-1 bg-indigo-500/10 rounded-xl text-indigo-400 text-sm border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Project Management</span>
-                <span className="px-3 py-1 bg-indigo-500/10 rounded-xl text-indigo-400 text-sm border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Agile</span>
-              </div>
-            </div>
+          <div className="flex justify-center">
+            <MagicBento
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={true}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              particleCount={12}
+              glowColor="132, 0, 255"
+            />
           </div>
         </div>
       </section>

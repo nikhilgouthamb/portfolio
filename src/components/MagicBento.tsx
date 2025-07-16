@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
-import Image from 'next/image';
 
 export interface BentoCardProps {
   color?: string;
@@ -12,6 +11,7 @@ export interface BentoCardProps {
 }
 
 export interface BentoProps {
+  textAutoHide?: boolean;
   enableStars?: boolean;
   enableSpotlight?: boolean;
   enableBorderGlow?: boolean;
@@ -29,87 +29,235 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
 
-// Add a new type for project details
-interface ProjectDetails extends BentoCardProps {
-  image: string; // background image path
-  summary: string; // detailed summary
-  repo?: string; // GitHub repo link
-  skills?: string[];
-}
-
-// Replace cardData with project details including images, summaries, and repo links
-const cardData: ProjectDetails[] = [
+// Custom cardData for Skills & Technologies
+const cardData: BentoCardProps[] = [
+  // Machine Learning & AI
   {
-    title: "Verizon Capstone Project",
-    description: "Advanced fault detection system using ML. XGBoost, Tableau, ML, Snowflake, Python.",
-    label: "Telecom AI",
-    image: "/verizon-v.png",
-    summary: "Led the development of an advanced fault detection system using XGBoost models. Processed and analyzed large-scale JSON logs for pattern recognition, and created comprehensive Tableau dashboards for real-time operational monitoring. Leveraged NJIT's Wulver High Performance Computing system for efficient processing of 50GB+ dataset, utilizing multiple nodes and GPU acceleration for enhanced computational performance.",
-    repo: undefined,
-    skills: ["XGBoost", "Tableau", "ML", "Snowflake", "Python"],
+    color: "#060010",
+    title: "TensorFlow",
+    description: "Deep learning & neural networks",
+    label: "ML/AI",
   },
   {
-    title: "Kansas City Crime Analysis",
-    description: "Interactive Tableau dashboard for crime data, COVID-19 impact, hotspots, and trends.",
-    label: "Data Viz",
-    image: "/kansas-city-crime.jpg",
-    summary: "Developed an interactive Tableau dashboard analyzing crime data from 2016-2022. Features include COVID-19 impact analysis, crime hotspot identification, and demographic trend analysis. Created comprehensive visualizations for law enforcement and city planning insights.",
-    repo: "https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis",
-    skills: ["Tableau", "Data Analysis", "Visualization", "GIS", "Statistics"],
+    color: "#060010",
+    title: "PyTorch",
+    description: "Flexible deep learning framework",
+    label: "ML/AI",
   },
   {
-    title: "Web Scraping with R",
-    description: "Automated extraction and analysis of Genome Biology articles using R.",
-    label: "Bioinformatics",
-    image: "/r-web-scraping.jpg",
-    summary: "Developed an automated web scraping solution using R to extract and analyze articles from Genome Biology. The tool collects comprehensive data including titles, authors, affiliations, publication dates, abstracts, and full text content, enabling efficient scientific literature analysis.",
-    repo: "https://github.com/nikhilgouthamb/Web-scraping-using-R",
-    skills: ["R", "Web Scraping", "Data Analysis", "rvest", "dplyr"],
+    color: "#060010",
+    title: "Scikit-learn",
+    description: "Classical ML algorithms & pipelines",
+    label: "ML/AI",
   },
   {
-    title: "USA House Price Prediction",
-    description: "ML-powered real estate price prediction using regression models and feature engineering.",
-    label: "Regression",
-    image: "/house.jpg",
-    summary: "Developed a comprehensive machine learning solution using multiple regression models (Random Forest, Gradient Boosting, Ridge CV, ElasticNet CV) to predict U.S. house prices. Analyzed key variables including bedrooms, bathrooms, size, and location to extract patterns for accurate price predictions in real estate applications.",
-    repo: "https://github.com/nikhilgouthamb/USA-House-Price-Prediction",
-    skills: ["Random Forest", "Gradient Boosting", "Ridge CV", "ElasticNet CV", "Feature Engineering"],
+    color: "#060010",
+    title: "NLP",
+    description: "Natural Language Processing",
+    label: "ML/AI",
   },
   {
-    title: "Parkinson's Disease Prediction",
-    description: "Time series forecasting for disease progression using ARIMA and clinical data.",
-    label: "Healthcare",
-    image: "/Parkinsons_disease.jpg",
-    summary: "Developed a predictive model for Parkinson's disease progression using time series forecasting with ARIMA models. Analyzed peptide abundance, protein expression, and clinical data to predict UPDRS scores. Implemented comprehensive data preprocessing and feature engineering for enhanced prediction accuracy.",
-    repo: "https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction",
-    skills: ["Time Series", "ARIMA", "Healthcare", "Data Preprocessing", "Feature Engineering"],
+    color: "#060010",
+    title: "Computer Vision",
+    description: "Image & video analysis",
+    label: "ML/AI",
   },
   {
-    title: "Library Management System",
-    description: "Full-stack library database system with GUI, Python, SQLite, Tkinter.",
-    label: "Full Stack",
-    image: "/library.jpg",
-    summary: "Developed a comprehensive library management system with a user-friendly GUI using Python and Tkinter. Features include document checkout/return, fine computation, reader management, and advanced search capabilities. Implemented robust database operations using SQLite for efficient data management and retrieval.",
-    repo: "https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation",
-    skills: ["Python", "SQLite", "Tkinter", "GUI Development", "Database Design"],
+    color: "#060010",
+    title: "MLOps",
+    description: "Model deployment & monitoring",
+    label: "ML/AI",
+  },
+  // Data Engineering
+  {
+    color: "#060010",
+    title: "SQL",
+    description: "Relational databases & queries",
+    label: "Data Engineering",
   },
   {
-    title: "Game of Life: Wormhole",
-    description: "Advanced cellular automata simulation with wormhole tunnels in Python.",
-    label: "Simulation",
-    image: "/gl.png",
-    summary: "An advanced simulation of Conway's Game of Life featuring 'wormhole' tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.",
-    repo: "https://github.com/nikhilgouthamb/game_of_life_wormhole",
-    skills: ["Python", "Cellular Automata", "Visualization", "Edge Cases"],
+    color: "#060010",
+    title: "NoSQL",
+    description: "Non-relational data stores",
+    label: "Data Engineering",
   },
   {
-    title: "Energy Optimization for Pharma Labs",
-    description: "Reduced HVAC energy by 15-23% using ARIMA, ensemble models, Tableau, Excel, weather prediction.",
-    label: "Climate Tech",
-    image: "/eo.png",
-    summary: "Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements. Increased energy demand forecasting accuracy by testing and deploying ARIMA and ensemble models for predictive analytics. Improved data-driven decision-making by designing interactive Tableau dashboards, allowing executives to monitor key operational trends.",
-    repo: undefined,
-    skills: ["ARIMA", "Ensemble Models", "Tableau", "Excel", "Weather Prediction"],
+    color: "#060010",
+    title: "Apache Spark",
+    description: "Big data processing",
+    label: "Data Engineering",
+  },
+  {
+    color: "#060010",
+    title: "Hadoop",
+    description: "Distributed data storage",
+    label: "Data Engineering",
+  },
+  {
+    color: "#060010",
+    title: "Airflow",
+    description: "Workflow orchestration",
+    label: "Data Engineering",
+  },
+  {
+    color: "#060010",
+    title: "ETL",
+    description: "Data pipelines & transformation",
+    label: "Data Engineering",
+  },
+  {
+    color: "#060010",
+    title: "Snowflake",
+    description: "Cloud data warehousing",
+    label: "Data Engineering",
+  },
+  {
+    color: "#060010",
+    title: "Databricks",
+    description: "Unified analytics platform",
+    label: "Data Engineering",
+  },
+  // Cloud & DevOps
+  {
+    color: "#060010",
+    title: "AWS",
+    description: "Cloud infrastructure & services",
+    label: "Cloud/DevOps",
+  },
+  {
+    color: "#060010",
+    title: "Docker",
+    description: "Containerization",
+    label: "Cloud/DevOps",
+  },
+  {
+    color: "#060010",
+    title: "Kubernetes",
+    description: "Container orchestration",
+    label: "Cloud/DevOps",
+  },
+  {
+    color: "#060010",
+    title: "CI/CD",
+    description: "Continuous integration & deployment",
+    label: "Cloud/DevOps",
+  },
+  {
+    color: "#060010",
+    title: "Terraform",
+    description: "Infrastructure as code",
+    label: "Cloud/DevOps",
+  },
+  {
+    color: "#060010",
+    title: "GCP",
+    description: "Google Cloud Platform",
+    label: "Cloud/DevOps",
+  },
+  {
+    color: "#060010",
+    title: "Azure",
+    description: "Microsoft cloud services",
+    label: "Cloud/DevOps",
+  },
+  // Programming
+  {
+    color: "#060010",
+    title: "Python",
+    description: "General purpose & data science",
+    label: "Programming",
+  },
+  {
+    color: "#060010",
+    title: "R",
+    description: "Statistical computing",
+    label: "Programming",
+  },
+  {
+    color: "#060010",
+    title: "SQL",
+    description: "Database querying",
+    label: "Programming",
+  },
+  {
+    color: "#060010",
+    title: "Shell Scripting",
+    description: "Automation & system tasks",
+    label: "Programming",
+  },
+  {
+    color: "#060010",
+    title: "Git",
+    description: "Version control",
+    label: "Programming",
+  },
+  // Data Analysis
+  {
+    color: "#060010",
+    title: "Statistical Analysis",
+    description: "Hypothesis testing & inference",
+    label: "Data Analysis",
+  },
+  {
+    color: "#060010",
+    title: "Data Visualization",
+    description: "Charts, dashboards, storytelling",
+    label: "Data Analysis",
+  },
+  {
+    color: "#060010",
+    title: "Tableau",
+    description: "Interactive dashboards",
+    label: "Data Analysis",
+  },
+  {
+    color: "#060010",
+    title: "Power BI",
+    description: "Business intelligence",
+    label: "Data Analysis",
+  },
+  {
+    color: "#060010",
+    title: "A/B Testing",
+    description: "Experimentation & optimization",
+    label: "Data Analysis",
+  },
+  {
+    color: "#060010",
+    title: "Time Series",
+    description: "Forecasting & temporal analysis",
+    label: "Data Analysis",
+  },
+  // Soft Skills
+  {
+    color: "#060010",
+    title: "Problem Solving",
+    description: "Analytical thinking",
+    label: "Soft Skills",
+  },
+  {
+    color: "#060010",
+    title: "Communication",
+    description: "Clear & effective messaging",
+    label: "Soft Skills",
+  },
+  {
+    color: "#060010",
+    title: "Team Leadership",
+    description: "Guiding teams to success",
+    label: "Soft Skills",
+  },
+  {
+    color: "#060010",
+    title: "Project Management",
+    description: "Coordinating tasks & timelines",
+    label: "Soft Skills",
+  },
+  {
+    color: "#060010",
+    title: "Agile",
+    description: "Iterative development",
+    label: "Soft Skills",
   },
 ];
 
@@ -167,7 +315,6 @@ const ParticleCard: React.FC<{
   enableTilt?: boolean;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
-  onClick?: () => void;
 }> = ({
   children,
   className = "",
@@ -178,7 +325,6 @@ const ParticleCard: React.FC<{
   enableTilt = true,
   clickEffect = false,
   enableMagnetism = false,
-  onClick,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -276,11 +422,11 @@ const ParticleCard: React.FC<{
 
       if (enableTilt) {
         gsap.to(element, {
-          rotateX: 15,
-          rotateY: 15,
+          rotateX: 5,
+          rotateY: 5,
           duration: 0.3,
           ease: "power2.out",
-          transformPerspective: 1200,
+          transformPerspective: 1000,
         });
       }
     };
@@ -318,15 +464,15 @@ const ParticleCard: React.FC<{
       const centerY = rect.height / 2;
 
       if (enableTilt) {
-        const rotateX = ((y - centerY) / centerY) * -15;
-        const rotateY = ((x - centerX) / centerX) * 15;
+        const rotateX = ((y - centerY) / centerY) * -10;
+        const rotateY = ((x - centerX) / centerX) * 10;
 
         gsap.to(element, {
           rotateX,
           rotateY,
           duration: 0.1,
           ease: "power2.out",
-          transformPerspective: 1200,
+          transformPerspective: 1000,
         });
       }
 
@@ -416,7 +562,6 @@ const ParticleCard: React.FC<{
       ref={cardRef}
       className={`${className} relative overflow-hidden`}
       style={{ ...style, position: "relative", overflow: "hidden" }}
-      onClick={onClick}
     >
       {children}
     </div>
@@ -574,88 +719,15 @@ const GlobalSpotlight: React.FC<{
   return null;
 };
 
-// StarfieldBackground: persistent animated starfield for the grid
-const StarfieldBackground: React.FC<{ particleCount?: number }> = ({ particleCount = 24 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationId: number;
-    let width = 0;
-    let height = 0;
-    function setSize() {
-      if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    }
-    setSize();
-    const stars = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: 1 + Math.random() * 1.5,
-      dx: (Math.random() - 0.5) * 0.15,
-      dy: (Math.random() - 0.5) * 0.15,
-      alpha: 0.5 + Math.random() * 0.5,
-    }));
-    function resize() {
-      setSize();
-    }
-    window.addEventListener('resize', resize);
-    function animate() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, width, height);
-      for (const s of stars) {
-        ctx.save();
-        ctx.globalAlpha = s.alpha;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
-        ctx.fillStyle = 'rgba(132,0,255,0.7)';
-        ctx.shadowColor = '#a78bfa';
-        ctx.shadowBlur = 8;
-        ctx.fill();
-        ctx.restore();
-        s.x += s.dx;
-        s.y += s.dy;
-        if (s.x < 0 || s.x > width) s.dx *= -1;
-        if (s.y < 0 || s.y > height) s.dy *= -1;
-      }
-      animationId = requestAnimationFrame(animate);
-    }
-    animate();
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationId);
-    };
-  }, [particleCount]);
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'absolute',
-        inset: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0,
-        pointerEvents: 'none',
-        opacity: 0.7,
-      }}
-    />
-  );
-};
-
 const BentoCardGrid: React.FC<{
   children: React.ReactNode;
   gridRef?: React.RefObject<HTMLDivElement | null>;
-  particleCount?: number;
-}> = ({ children, gridRef, particleCount }) => (
+}> = ({ children, gridRef }) => (
   <div
     className="bento-section grid gap-2 p-3 max-w-[54rem] select-none relative"
-    style={{ fontSize: "clamp(1rem, 0.9rem + 0.5vw, 1.5rem)", perspective: 1200 }}
+    style={{ fontSize: "clamp(1rem, 0.9rem + 0.5vw, 1.5rem)" }}
     ref={gridRef}
   >
-    <StarfieldBackground particleCount={particleCount} />
     {children}
   </div>
 );
@@ -677,13 +749,14 @@ const useMobileDetection = () => {
 };
 
 const MagicBento: React.FC<BentoProps> = ({
+  textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
   enableBorderGlow = true,
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   particleCount = DEFAULT_PARTICLE_COUNT,
-  enableTilt = true,
+  enableTilt = false,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
   enableMagnetism = true,
@@ -691,20 +764,6 @@ const MagicBento: React.FC<BentoProps> = ({
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
-  const [modalProject, setModalProject] = useState<ProjectDetails | null>(null);
-
-  // Modal close handler
-  const closeModal = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setModalProject(null);
-  };
-
-  // Modal click handler (redirect if repo exists)
-  const handleModalClick = () => {
-    if (modalProject?.repo) {
-      window.open(modalProject.repo, '_blank');
-    }
-  };
 
   return (
     <>
@@ -723,114 +782,41 @@ const MagicBento: React.FC<BentoProps> = ({
             --purple-glow: rgba(132, 0, 255, 0.2);
             --purple-border: rgba(132, 0, 255, 0.8);
           }
-          .bento-modal-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: rgba(10,10,10,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.2s;
-          }
-          .bento-modal {
-            position: relative;
-            background: #181a1b;
-            border-radius: 2rem;
-            box-shadow: 0 8px 40px 0 #000a 0.5;
-            max-width: 95vw;
-            width: 420px;
-            padding: 0;
-            overflow: hidden;
-            cursor: pointer;
-            transition: box-shadow 0.2s;
-            border: 2px solid #fff2;
-          }
-          .bento-modal-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: #222;
-            border-top-left-radius: 2rem;
-            border-top-right-radius: 2rem;
-          }
-          .bento-modal-content {
-            padding: 2rem 1.5rem 1.5rem 1.5rem;
-            color: #fff;
-            background: linear-gradient(180deg, #181a1b 80%, #23272b 100%);
-          }
-          .bento-modal-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-          }
-          .bento-modal-summary {
-            font-size: 1rem;
-            color: #e5e7eb;
-            margin-bottom: 1.5rem;
-          }
-          .bento-modal-link {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: linear-gradient(90deg, #6366f1, #a21caf);
-            color: #fff;
-            border-radius: 999px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s;
-            box-shadow: 0 2px 8px #0002;
-          }
-          .bento-modal-link:hover {
-            background: linear-gradient(90deg, #a21caf, #6366f1);
-          }
-          .bento-modal-close {
-            position: absolute;
-            top: 0.7rem;
-            right: 1.2rem;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.7rem;
-            cursor: pointer;
-            z-index: 2;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-          }
-          .bento-modal-close:hover {
-            opacity: 1;
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
+          
           .card-responsive {
             grid-template-columns: 1fr;
             width: 90%;
             margin: 0 auto;
             padding: 0.5rem;
           }
+          
           @media (min-width: 600px) {
             .card-responsive {
               grid-template-columns: repeat(2, 1fr);
             }
           }
+          
           @media (min-width: 1024px) {
             .card-responsive {
               grid-template-columns: repeat(4, 1fr);
             }
+            
             .card-responsive .card:nth-child(3) {
               grid-column: span 2;
               grid-row: span 2;
             }
+            
             .card-responsive .card:nth-child(4) {
               grid-column: 1 / span 2;
               grid-row: 2 / span 2;
             }
+            
             .card-responsive .card:nth-child(6) {
               grid-column: 4;
               grid-row: 3;
             }
           }
+          
           .card--border-glow::after {
             content: '';
             position: absolute;
@@ -849,12 +835,15 @@ const MagicBento: React.FC<BentoProps> = ({
             transition: opacity 0.3s ease;
             z-index: 1;
           }
+          
           .card--border-glow:hover::after {
             opacity: 1;
           }
+          
           .card--border-glow:hover {
             box-shadow: 0 4px 20px rgba(46, 24, 78, 0.4), 0 0 30px rgba(${glowColor}, 0.2);
           }
+          
           .particle::before {
             content: '';
             position: absolute;
@@ -866,9 +855,11 @@ const MagicBento: React.FC<BentoProps> = ({
             border-radius: 50%;
             z-index: -1;
           }
+          
           .particle-container:hover {
             box-shadow: 0 4px 20px rgba(46, 24, 78, 0.2), 0 0 30px rgba(${glowColor}, 0.2);
           }
+          
           .text-clamp-1 {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -877,6 +868,7 @@ const MagicBento: React.FC<BentoProps> = ({
             overflow: hidden;
             text-overflow: ellipsis;
           }
+          
           .text-clamp-2 {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -885,14 +877,7 @@ const MagicBento: React.FC<BentoProps> = ({
             overflow: hidden;
             text-overflow: ellipsis;
           }
-          .text-clamp-3 {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
+          
           @media (max-width: 599px) {
             .card-responsive {
               grid-template-columns: 1fr;
@@ -900,78 +885,15 @@ const MagicBento: React.FC<BentoProps> = ({
               margin: 0 auto;
               padding: 0.5rem;
             }
+            
             .card-responsive .card {
               width: 100%;
               min-height: 180px;
             }
           }
-          .bento-modal-link.metallic {
-            background: linear-gradient(90deg, #bfc1c6 0%, #e5e7eb 50%, #bfc1c6 100%);
-            color: #23272b;
-            border: 1.5px solid #e5e7eb;
-            box-shadow: 0 2px 8px #0002, 0 1px 0 #fff4 inset;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            font-size: 1rem;
-            border-radius: 999px;
-            padding: 0.5rem 1.5rem;
-            transition: background 0.2s, color 0.2s;
-            text-shadow: 0 1px 0 #fff8;
-          }
-          .bento-modal-link.metallic:hover {
-            background: linear-gradient(90deg, #e5e7eb 0%, #bfc1c6 100%);
-            color: #181a1b;
-          }
-          .bento-skill-pill {
-            display: inline-block;
-            padding: 0.35em 1em;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.08);
-            color: #e5e7eb;
-            font-size: 0.95em;
-            font-weight: 500;
-            border: 1px solid #4445;
-            box-shadow: 0 1px 4px #0002;
-            letter-spacing: 0.01em;
-            backdrop-filter: blur(2px);
-            margin-bottom: 0.1em;
-          }
-          .bento-modal-skills-row::-webkit-scrollbar {
-            height: 6px;
-            background: transparent;
-          }
-          .bento-modal-skills-row::-webkit-scrollbar-thumb {
-            background: #4446;
-            border-radius: 4px;
-          }
-          .bento-skill-chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.35em 1em 0.35em 0.7em;
-            border-radius: 999px;
-            background: linear-gradient(90deg, #bfc1c6 0%, #e5e7eb 100%);
-            color: #23272b;
-            font-size: 0.97em;
-            font-weight: 500;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 1px 4px #0002;
-            letter-spacing: 0.01em;
-            margin-bottom: 0.1em;
-            margin-right: 0.1em;
-            white-space: nowrap;
-            min-width: 0;
-            transition: background 0.2s, color 0.2s;
-          }
-          .bento-skill-dot {
-            display: inline-block;
-            width: 0.5em;
-            height: 0.5em;
-            border-radius: 50%;
-            background: #6366f1;
-            margin-right: 0.5em;
-            box-shadow: 0 0 4px #6366f1cc;
-          }
         `}
       </style>
+
       {enableSpotlight && (
         <GlobalSpotlight
           gridRef={gridRef}
@@ -981,23 +903,24 @@ const MagicBento: React.FC<BentoProps> = ({
           glowColor={glowColor}
         />
       )}
-      <BentoCardGrid gridRef={gridRef} particleCount={particleCount}>
+
+      <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative w-[320px] h-[180px] min-h-[180px] max-w-[320px] p-5 rounded-2xl border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? "card--border-glow" : ""}`;
+            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+              enableBorderGlow ? "card--border-glow" : ""
+            }`;
+
             const cardStyle = {
-              backgroundColor: "rgba(24,26,27,0.85)",
+              backgroundColor: card.color || "var(--background-dark)",
               borderColor: "var(--border-color)",
               color: "var(--white)",
-              width: '320px',
-              height: '180px',
-              minHeight: '180px',
-              maxWidth: '320px',
               "--glow-x": "50%",
               "--glow-y": "50%",
               "--glow-intensity": "0",
               "--glow-radius": "200px",
             } as React.CSSProperties;
+
             if (enableStars) {
               return (
                 <ParticleCard
@@ -1010,22 +933,18 @@ const MagicBento: React.FC<BentoProps> = ({
                   enableTilt={enableTilt}
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
-                  // Open modal on click
-                  onClick={() => setModalProject(card)}
                 >
                   <div className="card__header flex justify-between gap-3 relative text-white">
                     <span className="card__label text-base">{card.label}</span>
                   </div>
                   <div className="card__content flex flex-col relative text-white">
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 text-clamp-2`}
-                      style={{ WebkitLineClamp: 2 }}
+                      className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
                     >
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 text-clamp-3`}
-                      style={{ WebkitLineClamp: 3 }}
+                      className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
                     >
                       {card.description}
                     </p>
@@ -1033,26 +952,133 @@ const MagicBento: React.FC<BentoProps> = ({
                 </ParticleCard>
               );
             }
+
             return (
               <div
                 key={index}
                 className={baseClassName}
                 style={cardStyle}
-                onClick={() => setModalProject(card)}
+                ref={(el) => {
+                  if (!el) return;
+
+                  const handleMouseMove = (e: MouseEvent) => {
+                    if (shouldDisableAnimations) return;
+
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    if (enableTilt) {
+                      const rotateX = ((y - centerY) / centerY) * -10;
+                      const rotateY = ((x - centerX) / centerX) * 10;
+
+                      gsap.to(el, {
+                        rotateX,
+                        rotateY,
+                        duration: 0.1,
+                        ease: "power2.out",
+                        transformPerspective: 1000,
+                      });
+                    }
+
+                    if (enableMagnetism) {
+                      const magnetX = (x - centerX) * 0.05;
+                      const magnetY = (y - centerY) * 0.05;
+
+                      gsap.to(el, {
+                        x: magnetX,
+                        y: magnetY,
+                        duration: 0.3,
+                        ease: "power2.out",
+                      });
+                    }
+                  };
+
+                  const handleMouseLeave = () => {
+                    if (shouldDisableAnimations) return;
+
+                    if (enableTilt) {
+                      gsap.to(el, {
+                        rotateX: 0,
+                        rotateY: 0,
+                        duration: 0.3,
+                        ease: "power2.out",
+                      });
+                    }
+
+                    if (enableMagnetism) {
+                      gsap.to(el, {
+                        x: 0,
+                        y: 0,
+                        duration: 0.3,
+                        ease: "power2.out",
+                      });
+                    }
+                  };
+
+                  const handleClick = (e: MouseEvent) => {
+                    if (!clickEffect || shouldDisableAnimations) return;
+
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const maxDistance = Math.max(
+                      Math.hypot(x, y),
+                      Math.hypot(x - rect.width, y),
+                      Math.hypot(x, y - rect.height),
+                      Math.hypot(x - rect.width, y - rect.height)
+                    );
+
+                    const ripple = document.createElement("div");
+                    ripple.style.cssText = `
+                      position: absolute;
+                      width: ${maxDistance * 2}px;
+                      height: ${maxDistance * 2}px;
+                      border-radius: 50%;
+                      background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
+                      left: ${x - maxDistance}px;
+                      top: ${y - maxDistance}px;
+                      pointer-events: none;
+                      z-index: 1000;
+                    `;
+
+                    el.appendChild(ripple);
+
+                    gsap.fromTo(
+                      ripple,
+                      {
+                        scale: 0,
+                        opacity: 1,
+                      },
+                      {
+                        scale: 1,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        onComplete: () => ripple.remove(),
+                      }
+                    );
+                  };
+
+                  el.addEventListener("mousemove", handleMouseMove);
+                  el.addEventListener("mouseleave", handleMouseLeave);
+                  el.addEventListener("click", handleClick);
+                }}
               >
                 <div className="card__header flex justify-between gap-3 relative text-white">
                   <span className="card__label text-base">{card.label}</span>
                 </div>
                 <div className="card__content flex flex-col relative text-white">
                   <h3
-                    className={`card__title font-normal text-base m-0 mb-1 text-clamp-2`}
-                    style={{ WebkitLineClamp: 2 }}
+                    className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className={`card__description text-xs leading-5 opacity-90 text-clamp-3`}
-                    style={{ WebkitLineClamp: 3 }}
+                    className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
                   >
                     {card.description}
                   </p>
@@ -1062,55 +1088,6 @@ const MagicBento: React.FC<BentoProps> = ({
           })}
         </div>
       </BentoCardGrid>
-      {/* Modal for project details */}
-      {modalProject && (
-        <div className="bento-modal-bg" onClick={closeModal}>
-          <div
-            className="bento-modal"
-            onClick={e => {
-              e.stopPropagation();
-              handleModalClick();
-            }}
-            style={{ boxShadow: `0 8px 40px 0 #bfc1c655` }}
-          >
-            <button className="bento-modal-close" onClick={closeModal} title="Close">&times;</button>
-            <Image
-              src={(modalProject.image || '/placeholder.png') as string}
-              alt={modalProject.title || 'Project image'}
-              className="bento-modal-image"
-              style={{ background: '#23272b' }}
-              width={420}
-              height={180}
-              unoptimized
-            />
-            <div className="bento-modal-content">
-              <div className="bento-modal-title">{modalProject.title}</div>
-              <div className="bento-modal-summary">{modalProject.summary}</div>
-              {modalProject.skills && (
-                <div className="bento-modal-skills-row" style={{ display: 'flex', flexWrap: 'nowrap', gap: '0.5rem', marginBottom: '1.5rem', overflowX: 'auto', paddingBottom: '0.2rem' }}>
-                  {modalProject.skills.map(skill => (
-                    <span key={skill} className="bento-skill-chip">
-                      <span className="bento-skill-dot" />
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
-              {modalProject.repo && (
-                <a
-                  className="bento-modal-link metallic"
-                  href={modalProject.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={e => e.stopPropagation()}
-                >
-                  <span style={{ letterSpacing: '0.03em', fontWeight: 600 }}>GitHub</span>
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
