@@ -29,54 +29,86 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
 
-const cardData: BentoCardProps[] = [
+// Add a new type for project details
+interface ProjectDetails extends BentoCardProps {
+  image: string; // background image path
+  summary: string; // detailed summary
+  repo?: string; // GitHub repo link
+}
+
+// Replace cardData with project details including images, summaries, and repo links
+const cardData: ProjectDetails[] = [
   {
-    color: "#b91c1c", // Verizon red
+    color: "#b91c1c",
     title: "Verizon Capstone Project",
     description: "Advanced fault detection system using ML. XGBoost, Tableau, ML, Snowflake, Python.",
     label: "Telecom AI",
+    image: "/verizon-v.png",
+    summary: "Led the development of an advanced fault detection system using XGBoost models. Processed and analyzed large-scale JSON logs for pattern recognition, and created comprehensive Tableau dashboards for real-time operational monitoring. Leveraged NJIT's Wulver High Performance Computing system for efficient processing of 50GB+ dataset, utilizing multiple nodes and GPU acceleration for enhanced computational performance.",
+    repo: undefined,
   },
   {
-    color: "#2563eb", // Blue for Kansas City Crime
+    color: "#2563eb",
     title: "Kansas City Crime Analysis",
     description: "Interactive Tableau dashboard for crime data, COVID-19 impact, hotspots, and trends.",
     label: "Data Viz",
+    image: "/kansas-city-crime.jpg",
+    summary: "Developed an interactive Tableau dashboard analyzing crime data from 2016-2022. Features include COVID-19 impact analysis, crime hotspot identification, and demographic trend analysis. Created comprehensive visualizations for law enforcement and city planning insights.",
+    repo: "https://github.com/nikhilgouthamb/Kansas-City-Crimes-Visualization-and-Analysis",
   },
   {
-    color: "#7c3aed", // Purple for R Web Scraping
+    color: "#7c3aed",
     title: "Web Scraping with R",
     description: "Automated extraction and analysis of Genome Biology articles using R.",
     label: "Bioinformatics",
+    image: "/r-web-scraping.jpg",
+    summary: "Developed an automated web scraping solution using R to extract and analyze articles from Genome Biology. The tool collects comprehensive data including titles, authors, affiliations, publication dates, abstracts, and full text content, enabling efficient scientific literature analysis.",
+    repo: "https://github.com/nikhilgouthamb/Web-scraping-using-R",
   },
   {
-    color: "#059669", // Green for House Price
+    color: "#059669",
     title: "USA House Price Prediction",
     description: "ML-powered real estate price prediction using regression models and feature engineering.",
     label: "Regression",
+    image: "/house.jpg",
+    summary: "Developed a comprehensive machine learning solution using multiple regression models (Random Forest, Gradient Boosting, Ridge CV, ElasticNet CV) to predict U.S. house prices. Analyzed key variables including bedrooms, bathrooms, size, and location to extract patterns for accurate price predictions in real estate applications.",
+    repo: "https://github.com/nikhilgouthamb/USA-House-Price-Prediction",
   },
   {
-    color: "#a21caf", // Deep purple for Parkinson's
+    color: "#a21caf",
     title: "Parkinson's Disease Prediction",
     description: "Time series forecasting for disease progression using ARIMA and clinical data.",
     label: "Healthcare",
+    image: "/Parkinsons_disease.jpg",
+    summary: "Developed a predictive model for Parkinson's disease progression using time series forecasting with ARIMA models. Analyzed peptide abundance, protein expression, and clinical data to predict UPDRS scores. Implemented comprehensive data preprocessing and feature engineering for enhanced prediction accuracy.",
+    repo: "https://github.com/nikhilgouthamb/Parkinson-s-Disease-Progression-Prediction",
   },
   {
-    color: "#ea580c", // Orange for Library
+    color: "#ea580c",
     title: "Library Management System",
     description: "Full-stack library database system with GUI, Python, SQLite, Tkinter.",
     label: "Full Stack",
+    image: "/library.jpg",
+    summary: "Developed a comprehensive library management system with a user-friendly GUI using Python and Tkinter. Features include document checkout/return, fine computation, reader management, and advanced search capabilities. Implemented robust database operations using SQLite for efficient data management and retrieval.",
+    repo: "https://github.com/nikhilgouthamb/Library-Database-and-User-Interface-Implementation",
   },
   {
-    color: "#334155", // Gray for Game of Life
+    color: "#334155",
     title: "Game of Life: Wormhole",
     description: "Advanced cellular automata simulation with wormhole tunnels in Python.",
     label: "Simulation",
+    image: "/gl.png",
+    summary: "An advanced simulation of Conway's Game of Life featuring 'wormhole' tunnels that connect different parts of the grid, enabling unique cellular automata behaviors. Built in Python, with visualizations and edge case explorations.",
+    repo: "https://github.com/nikhilgouthamb/game_of_life_wormhole",
   },
   {
-    color: "#22d3ee", // Cyan for Energy Optimization
+    color: "#22d3ee",
     title: "Energy Optimization for Pharma Labs",
     description: "Reduced HVAC energy by 15-23% using ARIMA, ensemble models, Tableau, Excel, weather prediction.",
     label: "Climate Tech",
+    image: "/eo.png",
+    summary: "Led energy optimization projects for pharmaceutical laboratories, reducing HVAC energy consumption by 15%-23% by analyzing complex datasets, identifying trends, and forecasting energy requirements. Increased energy demand forecasting accuracy by testing and deploying ARIMA and ensemble models for predictive analytics. Improved data-driven decision-making by designing interactive Tableau dashboards, allowing executives to monitor key operational trends.",
+    repo: undefined,
   },
 ];
 
@@ -134,6 +166,7 @@ const ParticleCard: React.FC<{
   enableTilt?: boolean;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  onClick?: () => void;
 }> = ({
   children,
   className = "",
@@ -144,6 +177,7 @@ const ParticleCard: React.FC<{
   enableTilt = true,
   clickEffect = false,
   enableMagnetism = false,
+  onClick,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -381,6 +415,7 @@ const ParticleCard: React.FC<{
       ref={cardRef}
       className={`${className} relative overflow-hidden`}
       style={{ ...style, position: "relative", overflow: "hidden" }}
+      onClick={onClick}
     >
       {children}
     </div>
@@ -575,7 +610,7 @@ const MagicBento: React.FC<BentoProps> = ({
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   particleCount = DEFAULT_PARTICLE_COUNT,
-  enableTilt = false,
+  enableTilt = true, // always true as requested
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
   enableMagnetism = true,
@@ -583,6 +618,20 @@ const MagicBento: React.FC<BentoProps> = ({
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
+  const [modalProject, setModalProject] = useState<ProjectDetails | null>(null);
+
+  // Modal close handler
+  const closeModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setModalProject(null);
+  };
+
+  // Modal click handler (redirect if repo exists)
+  const handleModalClick = () => {
+    if (modalProject?.repo) {
+      window.open(modalProject.repo, '_blank');
+    }
+  };
 
   return (
     <>
@@ -600,6 +649,86 @@ const MagicBento: React.FC<BentoProps> = ({
             --purple-primary: rgba(132, 0, 255, 1);
             --purple-glow: rgba(132, 0, 255, 0.2);
             --purple-border: rgba(132, 0, 255, 0.8);
+          }
+          .bento-modal-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(10,10,10,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s;
+          }
+          .bento-modal {
+            position: relative;
+            background: #181a1b;
+            border-radius: 2rem;
+            box-shadow: 0 8px 40px 0 #000a 0.5;
+            max-width: 95vw;
+            width: 420px;
+            padding: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            border: 2px solid #fff2;
+          }
+          .bento-modal-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #222;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+          }
+          .bento-modal-content {
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            color: #fff;
+            background: linear-gradient(180deg, #181a1b 80%, #23272b 100%);
+          }
+          .bento-modal-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+          }
+          .bento-modal-summary {
+            font-size: 1rem;
+            color: #e5e7eb;
+            margin-bottom: 1.5rem;
+          }
+          .bento-modal-link {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(90deg, #6366f1, #a21caf);
+            color: #fff;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px #0002;
+          }
+          .bento-modal-link:hover {
+            background: linear-gradient(90deg, #a21caf, #6366f1);
+          }
+          .bento-modal-close {
+            position: absolute;
+            top: 0.7rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.7rem;
+            cursor: pointer;
+            z-index: 2;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+          }
+          .bento-modal-close:hover {
+            opacity: 1;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
           }
           .card-responsive {
             grid-template-columns: 1fr;
@@ -733,6 +862,8 @@ const MagicBento: React.FC<BentoProps> = ({
                   enableTilt={enableTilt}
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
+                  // Open modal on click
+                  onClick={() => setModalProject(card)}
                 >
                   <div className="card__header flex justify-between gap-3 relative text-white">
                     <span className="card__label text-base">{card.label}</span>
@@ -757,6 +888,7 @@ const MagicBento: React.FC<BentoProps> = ({
                 key={index}
                 className={baseClassName}
                 style={cardStyle}
+                onClick={() => setModalProject(card)}
               >
                 <div className="card__header flex justify-between gap-3 relative text-white">
                   <span className="card__label text-base">{card.label}</span>
@@ -778,6 +910,42 @@ const MagicBento: React.FC<BentoProps> = ({
           })}
         </div>
       </BentoCardGrid>
+      {/* Modal for project details */}
+      {modalProject && (
+        <div className="bento-modal-bg" onClick={closeModal}>
+          <div
+            className="bento-modal"
+            onClick={e => {
+              e.stopPropagation();
+              handleModalClick();
+            }}
+            style={{ boxShadow: `0 8px 40px 0 ${modalProject.color}55` }}
+          >
+            <button className="bento-modal-close" onClick={closeModal} title="Close">&times;</button>
+            <img
+              src={modalProject.image}
+              alt={modalProject.title}
+              className="bento-modal-image"
+              style={{ background: modalProject.color }}
+            />
+            <div className="bento-modal-content">
+              <div className="bento-modal-title">{modalProject.title}</div>
+              <div className="bento-modal-summary">{modalProject.summary}</div>
+              {modalProject.repo && (
+                <a
+                  className="bento-modal-link"
+                  href={modalProject.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={e => e.stopPropagation()}
+                >
+                  View on GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
