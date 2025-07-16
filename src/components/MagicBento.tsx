@@ -29,245 +29,88 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
 
-// Custom cardData for Skills & Technologies
-const cardData: BentoCardProps[] = [
-  // Machine Learning & AI
+// Define the categories and their skills
+const skillCategories = [
   {
-    color: "#060010",
-    title: "TensorFlow",
-    description: "Deep learning & neural networks",
     label: "ML/AI",
+    color: "#060010",
+    title: "Machine Learning & AI",
+    skills: [
+      "TensorFlow",
+      "PyTorch",
+      "Scikit-learn",
+      "NLP",
+      "Computer Vision",
+      "MLOps",
+    ],
   },
   {
-    color: "#060010",
-    title: "PyTorch",
-    description: "Flexible deep learning framework",
-    label: "ML/AI",
-  },
-  {
-    color: "#060010",
-    title: "Scikit-learn",
-    description: "Classical ML algorithms & pipelines",
-    label: "ML/AI",
-  },
-  {
-    color: "#060010",
-    title: "NLP",
-    description: "Natural Language Processing",
-    label: "ML/AI",
-  },
-  {
-    color: "#060010",
-    title: "Computer Vision",
-    description: "Image & video analysis",
-    label: "ML/AI",
-  },
-  {
-    color: "#060010",
-    title: "MLOps",
-    description: "Model deployment & monitoring",
-    label: "ML/AI",
-  },
-  // Data Engineering
-  {
-    color: "#060010",
-    title: "SQL",
-    description: "Relational databases & queries",
     label: "Data Engineering",
+    color: "#060010",
+    title: "Data Engineering",
+    skills: [
+      "SQL",
+      "NoSQL",
+      "Apache Spark",
+      "Hadoop",
+      "Airflow",
+      "ETL",
+      "Snowflake",
+      "Databricks",
+    ],
   },
   {
-    color: "#060010",
-    title: "NoSQL",
-    description: "Non-relational data stores",
-    label: "Data Engineering",
-  },
-  {
-    color: "#060010",
-    title: "Apache Spark",
-    description: "Big data processing",
-    label: "Data Engineering",
-  },
-  {
-    color: "#060010",
-    title: "Hadoop",
-    description: "Distributed data storage",
-    label: "Data Engineering",
-  },
-  {
-    color: "#060010",
-    title: "Airflow",
-    description: "Workflow orchestration",
-    label: "Data Engineering",
-  },
-  {
-    color: "#060010",
-    title: "ETL",
-    description: "Data pipelines & transformation",
-    label: "Data Engineering",
-  },
-  {
-    color: "#060010",
-    title: "Snowflake",
-    description: "Cloud data warehousing",
-    label: "Data Engineering",
-  },
-  {
-    color: "#060010",
-    title: "Databricks",
-    description: "Unified analytics platform",
-    label: "Data Engineering",
-  },
-  // Cloud & DevOps
-  {
-    color: "#060010",
-    title: "AWS",
-    description: "Cloud infrastructure & services",
     label: "Cloud/DevOps",
+    color: "#060010",
+    title: "Cloud & DevOps",
+    skills: [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "Terraform",
+      "GCP",
+      "Azure",
+    ],
   },
   {
-    color: "#060010",
-    title: "Docker",
-    description: "Containerization",
-    label: "Cloud/DevOps",
-  },
-  {
-    color: "#060010",
-    title: "Kubernetes",
-    description: "Container orchestration",
-    label: "Cloud/DevOps",
-  },
-  {
-    color: "#060010",
-    title: "CI/CD",
-    description: "Continuous integration & deployment",
-    label: "Cloud/DevOps",
-  },
-  {
-    color: "#060010",
-    title: "Terraform",
-    description: "Infrastructure as code",
-    label: "Cloud/DevOps",
-  },
-  {
-    color: "#060010",
-    title: "GCP",
-    description: "Google Cloud Platform",
-    label: "Cloud/DevOps",
-  },
-  {
-    color: "#060010",
-    title: "Azure",
-    description: "Microsoft cloud services",
-    label: "Cloud/DevOps",
-  },
-  // Programming
-  {
-    color: "#060010",
-    title: "Python",
-    description: "General purpose & data science",
     label: "Programming",
+    color: "#060010",
+    title: "Programming",
+    skills: [
+      "Python",
+      "R",
+      "SQL",
+      "Shell Scripting",
+      "Git",
+    ],
   },
   {
-    color: "#060010",
-    title: "R",
-    description: "Statistical computing",
-    label: "Programming",
-  },
-  {
-    color: "#060010",
-    title: "SQL",
-    description: "Database querying",
-    label: "Programming",
-  },
-  {
-    color: "#060010",
-    title: "Shell Scripting",
-    description: "Automation & system tasks",
-    label: "Programming",
-  },
-  {
-    color: "#060010",
-    title: "Git",
-    description: "Version control",
-    label: "Programming",
-  },
-  // Data Analysis
-  {
-    color: "#060010",
-    title: "Statistical Analysis",
-    description: "Hypothesis testing & inference",
     label: "Data Analysis",
+    color: "#060010",
+    title: "Data Analysis",
+    skills: [
+      "Statistical Analysis",
+      "Data Visualization",
+      "Tableau",
+      "Power BI",
+      "A/B Testing",
+      "Time Series",
+    ],
   },
   {
-    color: "#060010",
-    title: "Data Visualization",
-    description: "Charts, dashboards, storytelling",
-    label: "Data Analysis",
-  },
-  {
-    color: "#060010",
-    title: "Tableau",
-    description: "Interactive dashboards",
-    label: "Data Analysis",
-  },
-  {
-    color: "#060010",
-    title: "Power BI",
-    description: "Business intelligence",
-    label: "Data Analysis",
-  },
-  {
-    color: "#060010",
-    title: "A/B Testing",
-    description: "Experimentation & optimization",
-    label: "Data Analysis",
-  },
-  {
-    color: "#060010",
-    title: "Time Series",
-    description: "Forecasting & temporal analysis",
-    label: "Data Analysis",
-  },
-  // Soft Skills
-  {
-    color: "#060010",
-    title: "Problem Solving",
-    description: "Analytical thinking",
     label: "Soft Skills",
-  },
-  {
     color: "#060010",
-    title: "Communication",
-    description: "Clear & effective messaging",
-    label: "Soft Skills",
-  },
-  {
-    color: "#060010",
-    title: "Team Leadership",
-    description: "Guiding teams to success",
-    label: "Soft Skills",
-  },
-  {
-    color: "#060010",
-    title: "Project Management",
-    description: "Coordinating tasks & timelines",
-    label: "Soft Skills",
-  },
-  {
-    color: "#060010",
-    title: "Agile",
-    description: "Iterative development",
-    label: "Soft Skills",
+    title: "Soft Skills",
+    skills: [
+      "Problem Solving",
+      "Communication",
+      "Team Leadership",
+      "Project Management",
+      "Agile",
+    ],
   },
 ];
-
-// Group cardData by label
-const groupedCardData = cardData.reduce((acc, card) => {
-  if (!card.label) return acc;
-  if (!acc[card.label]) acc[card.label] = [];
-  acc[card.label].push(card);
-  return acc;
-}, {} as Record<string, BentoCardProps[]>);
 
 const createParticleElement = (
   x: number,
@@ -764,7 +607,7 @@ const MagicBento: React.FC<BentoProps> = ({
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   particleCount = DEFAULT_PARTICLE_COUNT,
-  enableTilt = true, // ensure tilt is enabled by default
+  enableTilt = true,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
   enableMagnetism = true,
@@ -913,84 +756,44 @@ const MagicBento: React.FC<BentoProps> = ({
       )}
 
       <BentoCardGrid gridRef={gridRef}>
-        <div className="w-full flex flex-col gap-8">
-          {Object.entries(groupedCardData).map(([label, cards]) => (
-            <div key={label} className="w-full">
-              <h3 className="text-lg font-semibold text-white mb-3 pl-2">{label}</h3>
-              <div className="card-responsive grid gap-2">
-                {cards.map((card, index) => {
-                  const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
-                    enableBorderGlow ? "card--border-glow" : ""
-                  }`;
-                  const cardStyle = {
-                    backgroundColor: card.color || "var(--background-dark)",
-                    borderColor: "var(--border-color)",
-                    color: "var(--white)",
-                    "--glow-x": "50%",
-                    "--glow-y": "50%",
-                    "--glow-intensity": "0",
-                    "--glow-radius": "200px",
-                  } as React.CSSProperties;
-                  const cardKey = (card.title || label || 'card') + index;
-                  if (enableStars) {
-                    return (
-                      <ParticleCard
-                        key={cardKey}
-                        className={baseClassName}
-                        style={cardStyle}
-                        disableAnimations={shouldDisableAnimations}
-                        particleCount={particleCount}
-                        glowColor={glowColor}
-                        enableTilt={enableTilt}
-                        clickEffect={clickEffect}
-                        enableMagnetism={enableMagnetism}
-                      >
-                        <div className="card__header flex justify-between gap-3 relative text-white">
-                          <span className="card__label text-base">{card.label}</span>
-                        </div>
-                        <div className="card__content flex flex-col relative text-white">
-                          <h3
-                            className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
-                          >
-                            {card.title}
-                          </h3>
-                          <p
-                            className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
-                          >
-                            {card.description}
-                          </p>
-                        </div>
-                      </ParticleCard>
-                    );
-                  }
-                  // fallback (should not be used)
-                  return (
-                    <div
-                      key={cardKey}
-                      className={baseClassName}
-                      style={cardStyle}
-                    >
-                      <div className="card__header flex justify-between gap-3 relative text-white">
-                        <span className="card__label text-base">{card.label}</span>
-                      </div>
-                      <div className="card__content flex flex-col relative text-white">
-                        <h3
-                          className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
-                        >
-                          {card.title}
-                        </h3>
-                        <p
-                          className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
-                        >
-                          {card.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+        <div className="card-responsive grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))'}}>
+          {skillCategories.map((cat, index) => {
+            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+              enableBorderGlow ? "card--border-glow" : ""
+            }`;
+            const cardStyle = {
+              backgroundColor: cat.color,
+              borderColor: "var(--border-color)",
+              color: "var(--white)",
+              "--glow-x": "50%",
+              "--glow-y": "50%",
+              "--glow-intensity": "0",
+              "--glow-radius": "200px",
+            } as React.CSSProperties;
+            return (
+              <ParticleCard
+                key={cat.label}
+                className={baseClassName}
+                style={cardStyle}
+                disableAnimations={shouldDisableAnimations}
+                particleCount={particleCount}
+                glowColor={glowColor}
+                enableTilt={enableTilt}
+                clickEffect={clickEffect}
+                enableMagnetism={enableMagnetism}
+              >
+                <div className="card__header flex justify-between gap-3 relative text-white">
+                  <span className="card__label text-base">{cat.label}</span>
+                </div>
+                <div className="card__content flex flex-col relative text-white">
+                  <h3 className={`card__title font-normal text-base m-0 mb-1`}>{cat.title}</h3>
+                  <p className={`card__description text-xs leading-5 opacity-90`}>
+                    {cat.skills.join(", ")}
+                  </p>
+                </div>
+              </ParticleCard>
+            );
+          })}
         </div>
       </BentoCardGrid>
     </>
