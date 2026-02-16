@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nikhilgoutham.space/sitemap.xml
+

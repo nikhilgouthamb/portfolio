@@ -9,12 +9,12 @@ import { FormEvent } from 'react';
 import { type NextPage } from 'next';
 import ProfileCard from '@/components/ProfileCard';
 import Threads from '@/components/Threads';
-import Script from 'next/script';
 import LiquidChrome from "@/components/LiquidChrome";
 import ClimateCarousel from '@/components/ClimateCarousel';
 import GlassIcons from '@/components/GlassIcons';
 import '@/components/GlassIcons.css';
 import MagicBento from '@/components/MagicBento';
+import ConstellationAnimation from '@/components/ConstellationAnimation';
 
 const bgImages = ["/a.jpeg", "/b.jpeg", "/c.jpeg"];
 
@@ -261,27 +261,27 @@ const Home: NextPage = () => {
 
         {/* Rest of your content with higher z-index */}
         <div className="relative z-10">
-          {/* Navigation */}
-          <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-end h-20 gap-10">
-                <a href="#about" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/10" role="navigation" aria-label="Main navigation">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-end h-20 gap-10">
+                <a href="#about" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium" aria-label="Navigate to About section">
                 About
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#projects" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                <a href="#projects" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium" aria-label="Navigate to Experience & Projects section">
                   Experience & Projects
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#skills" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                <a href="#skills" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium" aria-label="Navigate to Skills section">
                 Skills
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#social" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                <a href="#social" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium" aria-label="Navigate to Social links section">
                   Social
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#contact" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium">
+                <a href="#contact" className="relative text-gray-300 hover:text-white transition-colors duration-300 group text-sm uppercase tracking-wider font-medium" aria-label="Navigate to Contact section">
                 Contact
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
@@ -290,7 +290,7 @@ const Home: NextPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
+      <section id="main-content" className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
         {/* Content */}
         <div className="container mx-auto relative z-10">
           <div 
@@ -1016,7 +1016,7 @@ const Home: NextPage = () => {
                   priority
                   quality={100}
                 />
-              </div>
+            </div>
               {/* Content Overlay */}
               <div className="relative h-full p-8 flex flex-col justify-between">
                 {/* Top Content */}
@@ -1027,13 +1027,13 @@ const Home: NextPage = () => {
                   </p>
                 </div>
                 {/* Bottom Content - Tags */}
-                <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">ARIMA</span>
                   <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Ensemble Models</span>
                   <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Tableau</span>
                   <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Excel</span>
                   <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white">Weather Prediction</span>
-                </div>
+              </div>
                 {/* Hover Description - Hidden by default */}
                 <div className="absolute inset-0 bg-black/80 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <div className="h-full flex flex-col justify-between">
@@ -1045,20 +1045,20 @@ const Home: NextPage = () => {
                         <li>Streamlined financial operations by developing automated Excel tools for billing and client solutions.</li>
                         <li>Developed weather prediction models using machine learning and time series techniques, enhancing energy forecasting.</li>
                       </ul>
-                    </div>
+            </div>
                     <div className="flex flex-wrap gap-2 mt-4">
                       <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">ARIMA</span>
                       <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Ensemble Models</span>
                       <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Tableau</span>
                       <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Excel</span>
                       <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-white">Weather Prediction</span>
-                    </div>
-                  </div>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
-        </div>
+            </div>
+              </div>
+              </div>
       </section>
 
       {/* Skills Section */}
@@ -1081,8 +1081,8 @@ const Home: NextPage = () => {
               particleCount={12}
               glowColor="132, 0, 255"
             />
-          </div>
-        </div>
+                </div>
+              </div>
       </section>
 
       {/* Data Meets Climate Section */}
@@ -1090,12 +1090,12 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-0 sm:px-0 lg:px-0">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Data Meets Climate</h2>
-          </div>
+                </div>
           <div className="max-w-2xl mx-auto mb-10">
             <p className="text-lg text-gray-300 text-center">
               I&apos;ve been trying to pivot into climate-focused work. I&apos;d love to explore if there might be any data-related roles or upcoming needs, happy to contribute in any capacity. I&apos;m eager to learn and would love to explore new domains
             </p>
-          </div>
+              </div>
           <div className="flex justify-center items-center w-full">
             <ClimateCarousel />
           </div>
@@ -1267,7 +1267,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/github_cg.png" alt="GitHub" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <Image src="/github_cg.png" alt="GitHub" width={36} height={36} style={{ objectFit: 'contain' }} />
                 ),
                 color: 'linear-gradient(hsl(283, 90%, 50%), hsl(268, 90%, 50%))',
                 label: 'GitHub',
@@ -1276,7 +1276,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/m.png" alt="Medium" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <Image src="/m.png" alt="Medium" width={36} height={36} style={{ objectFit: 'contain' }} />
                 ),
                 color: 'linear-gradient(#fff, #b2ffb2)',
                 label: 'Medium',
@@ -1285,7 +1285,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/k.png" alt="Kaggle" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <Image src="/k.png" alt="Kaggle" width={36} height={36} style={{ objectFit: 'contain' }} />
                 ),
                 color: 'blue',
                 label: 'Kaggle',
@@ -1294,7 +1294,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/gmail_cg.png" alt="Gmail" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <Image src="/gmail_cg.png" alt="Gmail" width={36} height={36} style={{ objectFit: 'contain' }} />
                 ),
                 color: 'linear-gradient(#fff, #ffeaea)',
                 label: 'Gmail',
@@ -1303,7 +1303,7 @@ const Home: NextPage = () => {
               },
               {
                 icon: (
-                  <img src="/s.png" alt="Streamlit" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                  <Image src="/s.png" alt="Streamlit" width={36} height={36} style={{ objectFit: 'contain' }} />
                 ),
                 color: 'linear-gradient(#fff, #ffe0e6)',
                 label: 'Streamlit',
@@ -1430,127 +1430,7 @@ const Home: NextPage = () => {
         </div>
     </main>
 
-      <Script id="constellation-animation">{`
-        function initConstellation() {
-          const canvas = document.getElementById('constellation-canvas');
-          const ctx = canvas.getContext('2d');
-          let width = canvas.width = window.innerWidth;
-          let height = canvas.height = window.innerHeight;
-          
-          const particles = [];
-          const properties = {
-            bgColor: 'rgba(10, 10, 10, 1)',
-            particleColor: 'rgba(255, 255, 255, 0.1)',
-            particleRadius: 3,
-            particleCount: 60,
-            particleMaxVelocity: 0.5,
-            lineLength: 150,
-            particleLife: 6
-          };
-
-          window.onresize = function() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-          };
-
-          class Particle {
-            constructor() {
-              this.x = Math.random() * width;
-              this.y = Math.random() * height;
-              this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-              this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-              this.life = Math.random() * properties.particleLife * 60;
-            }
-
-            position() {
-              this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
-              this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
-              this.x += this.velocityX;
-              this.y += this.velocityY;
-            }
-
-            reDraw() {
-              ctx.beginPath();
-              ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
-              ctx.closePath();
-              ctx.fillStyle = properties.particleColor;
-              ctx.fill();
-            }
-
-            reCalculateLife() {
-              if(this.life < 1) {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.velocityX = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-                this.velocityY = Math.random() * (properties.particleMaxVelocity * 2) - properties.particleMaxVelocity;
-                this.life = Math.random() * properties.particleLife * 60;
-              }
-              this.life--;
-            }
-          }
-
-          function reDrawBackground() {
-            ctx.fillStyle = properties.bgColor;
-            ctx.fillRect(0, 0, width, height);
-          }
-
-          function drawLines() {
-            let x1, y1, x2, y2, length, opacity;
-            for(let i in particles) {
-              for(let j in particles) {
-                x1 = particles[i].x;
-                y1 = particles[i].y;
-                x2 = particles[j].x;
-                y2 = particles[j].y;
-                length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                if(length < properties.lineLength) {
-                  opacity = 1 - length / properties.lineLength;
-                  ctx.lineWidth = 0.5;
-                  ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
-                  ctx.beginPath();
-                  ctx.moveTo(x1, y1);
-                  ctx.lineTo(x2, y2);
-                  ctx.closePath();
-                  ctx.stroke();
-                }
-              }
-            }
-          }
-
-          function reDrawParticles() {
-            for(let i in particles) {
-              particles[i].reCalculateLife();
-              particles[i].position();
-              particles[i].reDraw();
-            }
-          }
-
-          function loop() {
-            reDrawBackground();
-            reDrawParticles();
-            drawLines();
-            requestAnimationFrame(loop);
-          }
-
-          function init() {
-            for(let i = 0; i < properties.particleCount; i++) {
-              particles.push(new Particle);
-            }
-            loop();
-          }
-
-          init();
-        }
-
-        // Initialize the animation when the component mounts
-        if (typeof window !== 'undefined') {
-          if (document.readyState === 'complete') {
-            initConstellation();
-          } else {
-            window.addEventListener('load', initConstellation);
-          }
-        }
-      `}</Script>
+      <ConstellationAnimation />
     </>
   );
 }
